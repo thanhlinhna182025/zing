@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Scroll thumb styles */
+  .scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #696981;
+    border-radius: 1rem;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:active {
+    background-color: #131314;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #9b76cd;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Scroll track styles (Background) */
+  .scrollbar::-webkit-scrollbar-track {
+    background: #131314;
+    border-radius: 4px;
+  }
+  .scrollbar::-webkit-scrollbar-track:hover,
+  .scrollbar::-webkit-scrollbar-track:active {
+    background: #131314;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .mySwiper {
+    width: 1008px;
+  }
+  .mySwiper > .swiper-button-next,
+  .swiper-button-prev {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 0 rgb(226 102 102 / 15%);
+    display: none;
+  }
+  .mySwiper > .swiper-button-disabled {
+    display: none;
+  }
+  .mySwiper:hover > .swiper-button-next,
+  .swiper-button-prev {
+    background-color: hsla(0, 0%, 100%, 0.15);
+    display: flex;
+  }
+  .mySwiper:hover > .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 24px;
+    color: #fff;
+  }
+  .mySwiper > .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: hsla(0, 0%, 100%, 0.05);
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

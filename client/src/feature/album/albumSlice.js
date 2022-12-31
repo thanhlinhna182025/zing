@@ -23,10 +23,14 @@ export const getDetailPlaylist = createAsyncThunk(`${context}/getDetailPlaylist`
 const albumSlice = createSlice({
   name: 'album',
   initialState,
-  reducers: {}
+  reducers: {
+    addAlbumId: (state, action) => {
+      state.albumId = action.payload
+    }
+  }
 })
 
-export const {} = albumSlice.actions
+export const { addAlbumId } = albumSlice.actions
 const albumReducer = albumSlice.reducer
 
 export default albumReducer

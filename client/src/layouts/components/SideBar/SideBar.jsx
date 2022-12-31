@@ -85,7 +85,7 @@ const ListBottom = [
 const SideBar = () => {
   const [active, setActive] = useState(2)
   return (
-    <div className=' w-60 bg-main-400 '>
+    <div className='fixed left-0 top-0 w-size-bar-width flex-shrink-0 bg-main-400'>
       <div className='flex h-[70px] w-full  items-center pl-[28px]'>
         <Link to={configs.routes.home}>
           <LogoIcon className='-translate-y-[2px]' />
@@ -100,7 +100,7 @@ const SideBar = () => {
         </ul>
       </nav>
       <div className='m-auto  mt-[15px] h-[1px] w-[190px] bg-main-200'></div>
-      <div className='h-[247px] scrollbar  '>
+      <div className='h-[247px] scrollbar'>
         <nav className='mt-[15px] w-full'>
           <ul className='w-full '>
             {ListBottom.map((item, index) => {

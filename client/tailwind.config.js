@@ -36,7 +36,13 @@ module.exports = {
       },
       colors: {
         gray: '#7B7782',
-        light: '#C3C2C4'
+        light: '#C3C2C4',
+        'main-100': '#DADADA',
+        'main-200': '#3A3344',
+        'main-300': '#2F2739',
+        'main-400': '#231B2E',
+        'main-500': '#170F23',
+        'secondary-100': '#9D4DE0'
       },
       backgroundColor: {
         'main-100': '#DADADA',
@@ -44,8 +50,19 @@ module.exports = {
         'main-300': '#2F2739',
         'main-400': '#231B2E',
         'main-500': '#170F23'
+      },
+      animation: {
+        'spin-slow': 'spin 12s linear infinite'
+      },
+      spacing: {
+        'header-padding': '59px',
+        'header-margin': '70px',
+        'main-margin': '49px'
+      },
+      width: {
+        'size-bar-width': '240px'
       }
     }
   },
-  plugins: [require('tailwind-scrollbar')({ nocompatible: true })]
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true }), require('@tailwindcss/line-clamp')]
 }

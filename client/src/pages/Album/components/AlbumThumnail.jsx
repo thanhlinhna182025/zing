@@ -1,14 +1,36 @@
+import MusicBar from '~/assets/images/Z23N.gif'
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
-
+import { PlayVideoIcon } from '~/components/Icons/Icons'
+import useAudio from '~/hooks/useAudio'
 const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
+  const [playing, toggle] = useAudio('')
   return (
     <div>
-      <div className='mb-3 h-[300px] w-[300px] rounded-lg'>
-        <img src={thumbnailM} className='rounded-lg object-cover' />
-      </div>
+      {playing ? (
+        <div
+          className='relative mb-3 flex h-[300px] w-[300px] cursor-pointer items-center justify-center overflow-hidden '
+          onClick={toggle}
+        >
+          <div className='absolute top-1/2 left-1/2 z-10 translate-x-[-50%] translate-y-[-50%]'>
+            <img className='h-10 w-10 text-white' src={MusicBar} />
+          </div>
+          <img src={thumbnailM} className='animate-spin-slow rounded-full object-cover ' />
+        </div>
+      ) : (
+        <div className='group relative mb-3 h-[300px] w-[300px] overflow-hidden rounded-lg' onClick={toggle}>
+          <div className='absolute top-0 bottom-0 left-0 right-0 z-[-1] flex cursor-pointer items-center justify-center bg-[rgba(0,0,0,0.5)] group-hover:z-10'>
+            <PlayVideoIcon className='text-white' width='44px' height='44px' />
+          </div>
+          <img
+            src={thumbnailM}
+            className='rounded-lg object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
+          />
+        </div>
+      )}
+
       <div className='flex flex-col items-center justify-center'>
-        <h5 className='font-[Inter] text-center text-[20px] font-bold leading-[1.5] text-white'>{title}</h5>
+        <h5 className='text-center font-[Inter] text-[20px] font-bold leading-[1.5] text-white'>{title}</h5>
         <div className='mb-[4px] leading-none'>
           {artists?.map((artist, index) => {
             if (artists.length === 1) {

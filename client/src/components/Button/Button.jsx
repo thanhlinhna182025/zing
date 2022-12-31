@@ -11,30 +11,24 @@ const Button = ({
   hasBorder
 }) => {
   const backgoundColor = {
-    primary: 'bg-tranparent',
-    secondary: 'bg-[#9D4DE0]',
-    outline: 'bg-tranparent',
-    text: 'bg-tranparent'
+    primary: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
+    secondary: 'bg-secondary-100 font-[Inter] hover:opacity-[0.9]',
+    outline: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
+    text: 'bg-tranparent font-[Inter] hover:opacity-[0.9]'
   }
   const color = {
-    primary: 'text-red-900',
+    primary: 'text-white',
     secondary: 'text-white',
     outline: 'text-white',
     text: 'text-white'
   }
-  const radius = {
-    primary: '',
-    secondary: 'rounded-full',
-    outline: '',
-    text: ''
-  }
   const border = {
-    primary: '',
+    primary: 'border-[1px] border-solid border-main-300',
     secondary: '',
     outline: '',
     text: ''
   }
-  let baseClass = [backgoundColor[type], color[type], radius[type], border[type]]
+  let baseClass = [backgoundColor[type], color[type], border[type]]
   if (className) {
     baseClass = [...baseClass, ...className.split(' ')]
   }
@@ -42,7 +36,7 @@ const Button = ({
     baseClass = [...baseClass, 'block w-full']
   }
   if (rounded) {
-    baseClass = [...baseClass, 'rounded-[50%]']
+    baseClass = [...baseClass, 'rounded-full']
   }
   if (hasBorder) {
     baseClass = [...baseClass, 'border-[1px] border-white border-solid']

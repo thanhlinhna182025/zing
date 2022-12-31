@@ -12,19 +12,19 @@ import {
 
 const Header = () => {
   return (
-    <header className='fixed top-0 z-10 flex h-[70px] w-full items-center justify-between'>
+    <header className='fixed top-0 right-[59px] z-10 flex h-[70px] w-[calc(100%-240px-59px-59px)] flex-1 items-center justify-between bg-main-500'>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          <Button className='mr-[26px] ml-[2px] translate-y-[-1px]'>
+          <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px]'>
             <PrevArrowIcon className='  text-light' width='19px' height='19px' />
           </Button>
-          <Button className='translate-y-[-1px]'>
+          <Button type='text' className='translate-y-[-1px]'>
             <NextArrowIcon className='text-light' width='19px' height='19px' />
           </Button>
         </div>
         <form className='ml-[22px] flex max-w-[440px] items-center rounded-full bg-main-300'>
           <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center bg-main-300'>
-            <SearchIcon className='text-ebony170-200 translate-y-[1px] translate-x-[1px]' width='20px' height='20px' />
+            <SearchIcon className='translate-y-[1px] translate-x-[1px] text-gray' width='20px' height='20px' />
           </Button>
           <input
             placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
@@ -32,21 +32,41 @@ const Header = () => {
           />
         </form>
       </div>
-      <div className='flex items-center px-[10px]'>
-        <Button type='text' rounded className=' mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[#2f2739]'>
-          <ClotheIcon className='text-ebony170-200' width='20px' height='20px' />
+      <div className='flex  items-center  px-[10px]'>
+        <Button
+          type='text'
+          to='#'
+          rounded
+          className=' mr-3 flex h-[40px] w-[40px] items-center justify-center bg-main-300'
+        >
+          <ClotheIcon className='text-white' width='20px' height='20px' />
         </Button>
-        <Button type='text' rounded className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[#2f2739]'>
-          <VipIcon className='text-ebony170-200' width='20px' height='20px' />
+        <Button
+          type='text'
+          to='#'
+          rounded
+          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-main-300'
+        >
+          <VipIcon className='text-white' width='18px' height='18px' />
         </Button>
-        <Button type='text' rounded className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[#2f2739]'>
-          <UpLoadIcon className='text-ebony170-200' width='20px' height='20px' />
+        <Button
+          type='text'
+          to='#'
+          rounded
+          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-main-300'
+        >
+          <UpLoadIcon className='text-white' width='18px' height='18px' />
         </Button>
-        <Button type='text' rounded className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[#2f2739]'>
-          <SettingIcon className='text-ebony170-200' width='20px' height='20px' />
+        <Button
+          type='text'
+          to='#'
+          rounded
+          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-main-300'
+        >
+          <SettingIcon className='text-white' width='16px' height='16px' />
         </Button>
-        <Button type='text' rounded className=' flex h-[40px] w-[40px] items-center justify-center bg-[#2f2739]'>
-          <UserIcon className='text-ebony170-200' width='40px' height='40px' />
+        <Button type='text' to='#' rounded className=' flex h-[40px] w-[40px] items-center justify-center bg-main-300'>
+          <UserIcon className='text-white' width='40px' height='40px' />
         </Button>
       </div>
     </header>

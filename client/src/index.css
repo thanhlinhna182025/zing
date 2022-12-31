@@ -87,4 +87,17 @@
     height: 100%;
     object-fit: cover;
   }
+  .liveSwiper {
+    width: 1008px;
+  }
+  .swiper-button-next-unique {
+    background-color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    right: -19px;
+    z-index: 99999999;
+    position: absolute;
+    top: 0;
+  }
 }

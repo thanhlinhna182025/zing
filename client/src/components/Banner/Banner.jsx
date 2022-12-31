@@ -1,28 +1,22 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Autoplay, EffectCoverflow, Navigation } from 'swiper'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { getBanner } from '~/feature/app/appSlice'
-import { addMusicId } from '../../feature/music/musicSlice'
-const Banner = () => {
-  const banner = useSelector((state) => state.app.banner)
+import { addMusicId } from '~/feature/music/musicSlice'
+const Banner = ({ banner }) => {
   const navigate = useNavigate()
-
   const dispath = useDispatch()
-  useEffect(() => {
-    const promise = dispath(getBanner())
-    return () => {
-      promise.abort()
-    }
-  }, [dispath])
   const handleClick = (item) => {
-    if (item?.type === 1) {
+    if (item.type === 1 || item.link.startsWith('/bai-hat')) {
       dispath(addMusicId(item.encodeId))
-    } else if (item?.type === 3 || item?.type === 4) {
+    } else if (item.type === 4 || item.link.startsWith('/album')) {
       const link = item?.link.split('.')[0]
       navigate(link)
+    } else if (item.type === 5) {
+      console.log('Chua su ly')
+    } else {
+      console.log('Khong thuoc truong hop tren')
     }
   }
 
@@ -46,10 +40,8 @@ const Banner = () => {
         disableOnInteraction: false
       }}
       loop={true}
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)}
     >
-      {banner?.map((item) => (
+      {banner?.items?.map((item) => (
         <SwiperSlide key={item.encodeId}>
           <div className='rounded-lg'>
             <img src={item.banner} className='rounded-lg' onClick={() => handleClick(item)} />

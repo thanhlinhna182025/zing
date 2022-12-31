@@ -10,7 +10,8 @@ const routes = {
   typeMusic: '/the_loai',
   top100: '/top100',
   mv: '/mv_moi',
-  album: '/album/:title/:id'
+  album: '/album/:title/:id',
+  playlist: '/playlist/:title/:id'
 }
 
 export default routes

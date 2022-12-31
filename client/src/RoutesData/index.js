@@ -1,5 +1,6 @@
 import configs from '~/configs'
 import MainLayout from '~/layouts/MainLayout'
+import Album from '~/pages/Album'
 import Discovery from '~/pages/Discovery'
 import Follow from '~/pages/Follow'
 import Home from '~/pages/Home'
@@ -10,7 +11,6 @@ import Radio from '~/pages/Radio'
 import Top100 from '~/pages/Top100'
 import TypeMusic from '~/pages/TypeMusic'
 import ZingChart from '~/pages/ZingChart'
-import Album from '~/pages/Album'
 
 const PublicRoutes = [
   {

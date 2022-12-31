@@ -25,7 +25,7 @@ const Banner = ({ banner }) => {
       navigation={true}
       modules={[Navigation, Autoplay, EffectCoverflow]}
       className='mySwiper'
-      spaceBetween={32}
+      spaceBetween={28}
       slidesPerView={3}
       effect={'coverflow'}
       coverflowEffect={{
@@ -40,6 +40,7 @@ const Banner = ({ banner }) => {
         disableOnInteraction: false
       }}
       loop={true}
+      
     >
       {banner?.items?.map((item) => (
         <SwiperSlide key={item.encodeId}>

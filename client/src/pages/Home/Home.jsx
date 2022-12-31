@@ -5,6 +5,7 @@ import Banner from '~/components/Banner'
 import NewRelease from '~/components/NewRelease'
 import PlayList from '~/components/PlayList'
 import { getHome } from '~/feature/app/appSlice'
+import LiveStreamRadio from '../../components/LiveStreamRadio/LiveStreamRadio'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const Home = () => {
   const [recentPlaylist, setRecentPlaylist] = useState({})
   const [newRelease, setNewRelease] = useState({})
   const [autoTheme, setAutoTheme] = useState({})
+  const [liveStream, setLiveStream] = useState({})
 
   useEffect(() => {
     dispatch(getHome())
@@ -26,14 +28,16 @@ const Home = () => {
         )
         setNewRelease(result.items.find((item) => item.sectionType === 'new-release'))
         setAutoTheme(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hAutoTheme1'))
+        setLiveStream(result.items.find((item) => item.sectionType === 'livestream' && item.sectionId === 'hLiveRadio'))
       })
   }, [])
   return (
-    <div className='w-full pt-[32px]'>
+    <div className='mb-[200px] w-full pt-[32px]'>
       <Banner banner={banner} />
       <PlayList playList={playList} recentPlaylist={recentPlaylist} />
       <NewRelease newRelease={newRelease} />
       <AutoThemeOne autoTheme={autoTheme} />
+      <LiveStreamRadio liveStream={liveStream} />
     </div>
   )
 }

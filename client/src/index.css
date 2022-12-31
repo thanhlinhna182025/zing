@@ -89,15 +89,36 @@
   }
   .liveSwiper {
     width: 1008px;
+    padding: 20px 0;
   }
-  .swiper-button-next-unique {
-    background-color: white;
+  .liveSwiper > .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  .swiper-button-next-live,
+  .swiper-button-prev-live {
+    background-color: rgba(255, 255, 255, 0.5);
     width: 38px;
     height: 38px;
     border-radius: 100%;
-    right: -19px;
-    z-index: 99999999;
     position: absolute;
-    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-button-prev-live {
+    top: 38%;
+    left: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .swiper-button-next-live {
+    right: 0;
+    top: 38%;
+    transform: translateX(50%) translateY(-50%);
+  }
+  .swiper-button-prev-live:hover,
+  .swiper-button-next-live:hover {
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }

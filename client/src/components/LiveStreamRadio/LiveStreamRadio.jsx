@@ -4,12 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import LiveStreamItem from '~/components/LiveStreamItem'
 import Title from '~/components/Title'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
+import SeeAllButton from '../SeeAllButton/SeeAllButton'
 const LiveStreamRadio = ({ liveStream }) => {
-  console.log(liveStream)
   const swiperRef = useRef()
   return (
     <div>
-      <Title>{liveStream?.title}</Title>
+      <div className='mb-5 flex items-center justify-between'>
+        <Title>{liveStream?.title}</Title>
+        <SeeAllButton />
+      </div>
       <div className='relative'>
         <Swiper
           className='liveSwiper'
@@ -19,10 +22,10 @@ const LiveStreamRadio = ({ liveStream }) => {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
           }}
-        //   autoplay={{
-        //     delay: 4000,
-        //     disableOnInteraction: false
-        //   }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false
+          }}
           loop={true}
           navigation={true}
         >

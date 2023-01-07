@@ -30,3 +30,7 @@ export function releaseDay(time) {
   day = day === 0 ? 'Hôm nay' : day === 1 ? 'Hôm qua' : day + ' ' + 'ngày trước'
   return day
 }
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}

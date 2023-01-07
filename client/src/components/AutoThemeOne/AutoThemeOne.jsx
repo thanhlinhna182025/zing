@@ -1,13 +1,15 @@
-import MusicCard from '~/components/MusicCard'
+import MusicCardItem from '~/components/MusicCardItem'
 import Title from '~/components/Title'
 
-const AutoThemeOne = ({ autoTheme }) => {
+const AutoThemeOne = ({ autoThemeOne }) => {
   return (
     <div className='my-main-margin '>
-      <Title>{autoTheme.title}</Title>
+      <div className='mb-5'>
+        <Title>{autoThemeOne.title}</Title>
+      </div>
       <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
-        {autoTheme?.items?.slice(0, 5).map((item) => (
-          <MusicCard item={item} key={item.encodeId} large />
+        {autoThemeOne?.items?.slice(0, 5).map((item) => (
+          <MusicCardItem item={item} key={item.encodeId} sortDescription title large/>
         ))}
       </div>
     </div>

@@ -1,12 +1,13 @@
 import { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
+import AlbumSongItem from '~/components/AlbumSongItem'
 import { SortIcon } from '~/components/Icons/Icons'
 import { secondToMinute } from '~/utils/hepper'
-import AlbumSong from './AlbumSong'
 
 const AlbumListSong = ({ song, description }) => {
   const [selectAll, setSelectAll] = useState(true)
   const musicId = useSelector((state) => state.music.musicId)
+
   return (
     <div className=' w-full'>
       <div className='mb-[10px] leading-[21px]'>
@@ -27,7 +28,7 @@ const AlbumListSong = ({ song, description }) => {
       </div>
       <div className='flex max-h-[400px] flex-col scrollbar'>
         {song?.items?.map((item) => (
-          <AlbumSong item={item} key={item.encodeId} selectAll={selectAll} />
+          <AlbumSongItem item={item} key={item.encodeId} selectAll={selectAll} />
         ))}
       </div>
       <div className='py-[6px]'>

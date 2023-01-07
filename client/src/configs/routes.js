@@ -11,7 +11,8 @@ const routes = {
   top100: '/top100',
   mv: '/mv_moi',
   album: '/album/:title/:id',
-  playlist: '/playlist/:title/:id'
+  playlist: '/playlist/:title/:id',
+  singer: '/singer/:name'
 }
 
 export default routes

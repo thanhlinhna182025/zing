@@ -810,3 +810,15 @@ export const LeftArrowIcon = ({ className, width = '20px', height = '20px' }) =>
     </svg>
   )
 }
+export const AddUserIcon = ({ className, width = '20px', height = '20px' }) => {
+  return (
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 16 16'>
+      <path
+        id='Path_179'
+        data-name='Path 179'
+        d='M29.991,8a4,4,0,1,0-4-4A4,4,0,0,0,29.991,8Zm0-7a3,3,0,1,1-3,3A3,3,0,0,1,29.991,1ZM31,15.5a.5.5,0,0,1-.5.5h-7A1.5,1.5,0,0,1,22,14.5,4.505,4.505,0,0,1,26.5,10h4a.5.5,0,0,1,0,1h-4A3.5,3.5,0,0,0,23,14.5a.5.5,0,0,0,.5.5h7A.5.5,0,0,1,31,15.5Zm7-3a.5.5,0,0,1-.5.5H35v2.5a.5.5,0,0,1-1,0V13H31.5a.5.5,0,0,1,0-1H34V9.5a.5.5,0,0,1,1,0V12h2.5A.5.5,0,0,1,38,12.5Z'
+        transform='translate(-22)'
+      />
+    </svg>
+  )
+}

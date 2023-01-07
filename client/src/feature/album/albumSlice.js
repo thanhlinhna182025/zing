@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
-  albumId: null
+  albumId: null,
+  album: []
 }
 const context = 'album'
 export const getDetailPlaylist = createAsyncThunk(`${context}/getDetailPlaylist`, async (id, thunkApi) => {
@@ -26,11 +27,14 @@ const albumSlice = createSlice({
   reducers: {
     addAlbumId: (state, action) => {
       state.albumId = action.payload
+    },
+    addAlbum: (state, action) => {
+      state.album = action.payload
     }
   }
 })
 
-export const { addAlbumId } = albumSlice.actions
+export const { addAlbumId, addAlbum } = albumSlice.actions
 const albumReducer = albumSlice.reducer
 
 export default albumReducer

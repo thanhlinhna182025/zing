@@ -6,6 +6,8 @@ import authReducer from '~/feature/auth/authSlice'
 import musicReducer from '~/feature/music/musicSlice'
 import albumReducer from '../feature/album/albumSlice'
 import appReducer from '../feature/app/appSlice'
+import playlistReducer from '../feature/playlist/playlistSlice'
+import singerReducer from '../feature/singer/singerSlice'
 const persistConfig = {
   storage,
   stateReconciler: autoMergeLevel2
@@ -15,12 +17,24 @@ const musicConfig = {
   key: 'music',
   whitelist: ['musicId']
 }
+const albumConfig = {
+  ...persistConfig,
+  key: 'album',
+  whitelist: ['albumId']
+}
+const playlistConfig = {
+  ...persistConfig,
+  key: 'playlist',
+  whitelist: ['playlistId']
+}
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
     music: persistReducer(musicConfig, musicReducer),
-    album:albumReducer,
+    album: persistReducer(albumConfig, albumReducer),
+    playlist: persistReducer(playlistConfig, playlistReducer),
+    singer: singerReducer,
     auth: authReducer
   },
   middleware: (getDefaultMiddleware) =>

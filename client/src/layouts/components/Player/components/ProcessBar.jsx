@@ -1,28 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
-const ProcessBar = ({ process, duration }) => {
-  const [second, setSecond] = useState(0)
-  const [minute, setMinute] = useState(0)
-  const isPlaying = useSelector((state) => state.music.isPlaying)
-  useEffect(() => {
-    const flag = duration === minute * 60 + second ? true : false
-    let timerId
-    if (!flag && isPlaying) {
-      timerId = setInterval(() => {
-        if (second < 60) {
-          setSecond((pre) => pre + 1)
-        } else if (minute < 60) {
-          setMinute((pre) => pre + 1)
-          setSecond(0)
-        }
-      }, 1000)
-    }
-    return () => {
-      clearInterval(timerId)
-    }
-  }, [second, minute, duration, isPlaying])
+const ProcessBar = ({ process, duration, minute, second }) => {
+
 
   const bar = {
     height: '100%',

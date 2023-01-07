@@ -7,7 +7,9 @@ import Home from '~/pages/Home'
 import Login from '~/pages/Login'
 import MV from '~/pages/MV'
 import NewMusic from '~/pages/NewMusic'
+import PlayList from '~/pages/PlayList'
 import Radio from '~/pages/Radio'
+import Singer from '~/pages/Singer'
 import Top100 from '~/pages/Top100'
 import TypeMusic from '~/pages/TypeMusic'
 import ZingChart from '~/pages/ZingChart'
@@ -66,6 +68,16 @@ const PublicRoutes = [
   {
     path: configs.routes.album,
     element: Album,
+    layout: MainLayout
+  },
+  {
+    path: configs.routes.singer,
+    element: Singer,
+    layout: MainLayout
+  },
+  {
+    path: configs.routes.playlist,
+    element: PlayList,
     layout: MainLayout
   }
 ]

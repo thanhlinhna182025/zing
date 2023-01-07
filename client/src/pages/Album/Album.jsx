@@ -6,30 +6,35 @@ import { AlbumListSong, AlbumThumnail } from './components'
 
 const Album = () => {
   const { id } = useParams()
-  const [albumResource, setAlbumResource] = useState(null)
   const dispath = useDispatch()
+  const [albumResource, setAlbumResource] = useState(null)
   useEffect(() => {
     dispath(getDetailPlaylist(id))
       .unwrap()
-      .then((result) => setAlbumResource(result))
-      .catch((error) => console.log(error))
+      .then((result) => {
+        setAlbumResource(result)
+      })
+      .catch((err) => console.log(err))
   }, [id])
-
   return (
     <div className='flex flex-col pt-10'>
-      <div className='flex gap-x-[30px]'>
-        <AlbumThumnail
-          artists={albumResource?.artists}
-          thumbnailM={albumResource?.thumbnailM}
-          releaseDate={albumResource?.releaseDate}
-          title={albumResource?.title}
-          like={albumResource?.like}
-        />
-        <AlbumListSong song={albumResource?.song} description={albumResource?.description} />
-      </div>
-      <div>Lệ Quyên Xuất Hiện Trong</div>
-      <div>Hoài Sa Xuất Hiện Trong</div>
-      <div>V-Pop</div>
+      {albumResource && (
+        <>
+          <div className='flex gap-x-[30px]'>
+            <AlbumThumnail
+              artists={albumResource?.artists}
+              thumbnailM={albumResource?.thumbnailM}
+              releaseDate={albumResource?.releaseDate}
+              title={albumResource?.title}
+              like={albumResource?.like}
+            />
+            <AlbumListSong song={albumResource?.song} description={albumResource?.description} />
+          </div>
+          <div>Lệ Quyên Xuất Hiện Trong</div>
+          <div>Hoài Sa Xuất Hiện Trong</div>
+          <div>V-Pop</div>
+        </>
+      )}
     </div>
   )
 }

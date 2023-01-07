@@ -25,7 +25,7 @@ const Button = ({
   const border = {
     primary: 'border-[1px] border-solid border-main-300',
     secondary: '',
-    outline: '',
+    outline: 'border-none',
     text: ''
   }
   let baseClass = [backgoundColor[type], color[type], border[type]]

@@ -2,7 +2,7 @@ import { PlayVideoIcon } from '~/components/Icons'
 const LiveStreamItem = ({ item }) => {
   return (
     <div>
-      <div className='relative'>
+      <div className='relative cursor-pointer'>
         <div className='group relative overflow-hidden rounded-full border-[3px] border-solid border-secondary-100'>
           <img
             src={item?.program?.thumbnail}

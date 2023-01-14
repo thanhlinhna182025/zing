@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
-  acb: ''
+  error: null,
+  isPlaying: false,
+  isPlayAll: false,
+  isRepeat: false,
+  isShuffle: false
 }
 const context = 'app'
 
@@ -25,10 +29,55 @@ export const getHome = createAsyncThunk(`${context}/getHome`, async (_, thunkApi
 const appSlice = createSlice({
   name: 'app',
   initialState,
-  reducers: {}
+  reducers: {
+    addError: (state, action) => {
+      state.error = action.payload
+    },
+    isPlayingToggle: (state) => {
+      state.isPlaying = !state.isPlaying
+    },
+    setIsPlaying: (state, action) => {
+      state.isPlaying = action.payload
+    },
+
+    isPlayAllToggle: (state) => {
+      state.isPlayAll = !state.isPlayAll
+    },
+    setIsPlayAll: (state) => {
+      state.isPlayAll = true
+      state.isRepeat = false
+      state.isShuffle = false
+    },
+    isRepeatToggle: (state) => {
+      state.isRepeat = !state.isRepeat
+    },
+    setIsRepeat: (state, action) => {
+      state.isRepeat = true
+      state.isShuffle = false
+      state.isPlayAll = false
+    },
+    isShuffleToggle: (state) => {
+      state.isShuffle = !state.isShuffle
+    },
+    setIsShuffle: (state, action) => {
+      state.isShuffle = true
+      state.isPlayAll = false
+      state.isRepeat = false
+    }
+  }
 })
 
-export const {} = appSlice.actions
+export const {
+  addError,
+  setIsPlaying,
+  isPlayingToggle,
+  setIsPlayAll,
+  isPlayAllToggle,
+  setIsRepeat,
+  isRepeatToggle,
+  setIsShuffle,
+  isShuffleToggle
+} = appSlice.actions
 const appReducer = appSlice.reducer
 
 export default appReducer

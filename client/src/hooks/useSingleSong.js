@@ -1,7 +1,6 @@
-import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const useSingleSong = () => {
-  const { title, id } = useParams()
-  let flag = title || id ? false : true
-  return flag
+  const albumSongs = useSelector((state) => state.album.albumSongs)
+  return albumSongs.length === 0 ? true : false
 }
 export default useSingleSong

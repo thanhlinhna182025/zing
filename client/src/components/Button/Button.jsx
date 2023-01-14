@@ -8,7 +8,8 @@ const Button = ({
   href,
   children,
   className,
-  hasBorder
+  hasBorder,
+  onClick
 }) => {
   const backgoundColor = {
     primary: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
@@ -23,7 +24,7 @@ const Button = ({
     text: 'text-white'
   }
   const border = {
-    primary: 'border-[1px] border-solid border-main-300',
+    primary: 'border-[1px] border-solid border-main-400',
     secondary: '',
     outline: 'border-none',
     text: ''
@@ -59,6 +60,10 @@ const Button = ({
     )
   }
 
-  return <button className={baseClass.join(' ')}>{children}</button>
+  return (
+    <button onClick={onClick} className={baseClass.join(' ')}>
+      {children}
+    </button>
+  )
 }
 export default Button

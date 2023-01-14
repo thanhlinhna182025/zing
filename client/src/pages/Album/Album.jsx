@@ -1,18 +1,35 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getDetailPlaylist } from '../../feature/album/albumSlice'
+import { addAlbumSongs, getDetailPlaylist } from '../../feature/album/albumSlice'
+import { isPlayingToggle, setIsPlayAll, setIsShuffle } from '../../feature/app/appSlice'
 import { AlbumListSong, AlbumThumnail } from './components'
 
 const Album = () => {
-  const { id } = useParams()
-  const dispath = useDispatch()
   const [albumResource, setAlbumResource] = useState(null)
+
+  const isPlaying = useSelector((state) => state.app.isPlaying)
+  const isPlayAll = useSelector((state) => state.app.isPlayAll)
+  const isShuffle = useSelector((state) => state.app.isShuffle)
+
+  const { id } = useParams()
+  const dispatch = useDispatch()
+
+  const handleToggle = () => {
+    dispatch(isPlayingToggle())
+  }
+  const handlePlayAll = () => {
+    dispatch(setIsPlayAll())
+  }
+  const handleShuffle = () => {
+    dispatch(setIsShuffle())
+  }
   useEffect(() => {
-    dispath(getDetailPlaylist(id))
+    dispatch(getDetailPlaylist(id))
       .unwrap()
       .then((result) => {
         setAlbumResource(result)
+        dispatch(addAlbumSongs(result?.song))
       })
       .catch((err) => console.log(err))
   }, [id])
@@ -27,12 +44,15 @@ const Album = () => {
               releaseDate={albumResource?.releaseDate}
               title={albumResource?.title}
               like={albumResource?.like}
+              handleToggle={handleToggle}
+              handlePlayAll={handlePlayAll}
+              handleShuffle={handleShuffle}
+              isPlaying={isPlaying}
+              isPlayAll={isPlayAll}
+              isShuffle={isShuffle}
             />
             <AlbumListSong song={albumResource?.song} description={albumResource?.description} />
           </div>
-          <div>Lệ Quyên Xuất Hiện Trong</div>
-          <div>Hoài Sa Xuất Hiện Trong</div>
-          <div>V-Pop</div>
         </>
       )}
     </div>

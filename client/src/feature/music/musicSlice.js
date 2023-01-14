@@ -30,6 +30,9 @@ export const getLinkMusic = createAsyncThunk(`${context}/getLinkMusic`, async (i
         signal: thunkApi.signal
       }
     )
+    if (response.data.err === -1150) {
+      return { error: true, msg: response.data.msg }
+    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {
@@ -45,15 +48,11 @@ const musicSlice = createSlice({
     addMusicId: (state, action) => {
       state.musicId = action.payload
       state.isPlaying = true
-    },
-
-    playingToggle: (state, action) => {
-      state.isPlaying = action.payload
     }
   }
 })
 
-export const { addMusicId, playingToggle } = musicSlice.actions
+export const { addMusicId } = musicSlice.actions
 const musicReducer = musicSlice.reducer
 
 export default musicReducer

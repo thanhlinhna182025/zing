@@ -4,11 +4,14 @@ import ArtistSpotlight from '~/components/ArtistSpotlight'
 import AutoThemeOne from '~/components/AutoThemeOne'
 import AutoThemeTwo from '~/components/AutoThemeTwo/AutoThemeTwo'
 import Banner from '~/components/Banner'
+import Event from '~/components/Event'
 import LiveStreamRadio from '~/components/LiveStreamRadio/LiveStreamRadio'
 import NewRelease from '~/components/NewRelease'
 import PlayList from '~/components/PlayList'
 import Top100 from '~/components/Top100'
+import WeekChart from '~/components/WeekChart'
 import Xone from '~/components/Xone'
+import ZingChart from '~/components/ZingChart'
 import { artistSpotlightData } from '~/Data'
 import { getHome } from '~/feature/app/appSlice'
 
@@ -24,11 +27,15 @@ const Home = () => {
   const [artists, setArtists] = useState(artistSpotlightData)
   const [top100, setTop100] = useState({})
   const [xone, setXone] = useState({})
+  const [zingChart, setZingChart] = useState({})
+  const [weekChart, setWeekChart] = useState({})
+  const [event, setEvent] = useState({})
 
   useEffect(() => {
     dispatch(getHome())
       .unwrap()
       .then((result) => {
+        console.log(result)
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
         setRecentPlaylist(
@@ -44,6 +51,9 @@ const Home = () => {
         )
         setTop100(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'h100'))
         setXone(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hXone'))
+        setZingChart(result.items.find((item) => item.sectionType === 'RTChart' && item.sectionId === 'hZC'))
+        setWeekChart(result.items.find((item) => item.sectionType === 'weekChart'))
+        setEvent(result.items.find((item) => item.sectionType === 'event' && item.sectionId === 'hSlider'))
       })
   }, [])
   return (
@@ -54,9 +64,12 @@ const Home = () => {
       <PlayList playList={playList} recentPlaylist={recentPlaylist} />
       <LiveStreamRadio liveStream={liveStream} />
       <AutoThemeTwo autoThemeTwo={autoThemeTwo} />
+      <ZingChart zingChart={zingChart} />
+      <WeekChart weekChart={weekChart} />
       <ArtistSpotlight artists={artists} />
       <Top100 top100={top100} />
       <Xone xone={xone} />
+      <Event event={event} />
     </div>
   )
 }

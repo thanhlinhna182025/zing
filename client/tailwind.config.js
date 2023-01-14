@@ -51,6 +51,7 @@ module.exports = {
         'main-400': '#231B2E',
         'main-500': '#170F23'
       },
+
       animation: {
         'spin-slow': 'spin 12s linear infinite'
       },

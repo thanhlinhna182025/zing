@@ -3,12 +3,13 @@ import MusicBar from '~/assets/images/Z23N.gif'
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
-import { playingToggle } from '../../../feature/music/musicSlice'
+import { isPlayingToggle } from '~/feature/app/appSlice'
+
 const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
-  const isPlaying = useSelector((state) => state.music.isPlaying)
+  const isPlaying = useSelector((state) => state.app.isPlaying)
   const dispatch = useDispatch()
   const handleToggle = () => {
-    dispatch(playingToggle(!isPlaying))
+    dispatch(isPlayingToggle())
   }
   return (
     <div>

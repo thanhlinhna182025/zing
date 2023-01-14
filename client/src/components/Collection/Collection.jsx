@@ -1,18 +1,18 @@
 import MusicCardItem from '~/components/MusicCardItem'
 import Title from '~/components/Title'
 
-const AutoThemeTwo = ({ autoThemeTwo }) => {
+const Collection = ({ collection }) => {
   return (
     <div className='my-main-margin '>
       <div className='mb-5'>
-        <Title>{autoThemeTwo.title}</Title>
+        <Title>{collection.title}</Title>
       </div>
       <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
-        {autoThemeTwo?.items?.slice(0, 5).map((item) => (
-          <MusicCardItem item={item} key={item.encodeId} name large />
+        {collection?.items?.slice(0, 5).map((item) => (
+          <MusicCardItem item={item} key={item.encodeId} name large title/>
         ))}
       </div>
     </div>
   )
 }
-export default AutoThemeTwo
+export default Collection

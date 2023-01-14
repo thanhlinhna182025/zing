@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import Appear from '~/components/Appear/Appear'
+import Collection from '~/components/Collection'
 import MusicCardHightlight from '~/components/MusicCardHightlight'
+import MV from '~/components/MV'
 import Poster from '~/components/Poster'
 import SingerListMusic from '~/components/SingerListMusic'
-import { getInfoSinger } from '~/feature/singer/singerSlice'
-import MV from '~/components/MV'
 import SingleSP from '~/components/SingleSP'
+import { getInfoSinger } from '~/feature/singer/singerSlice'
+import AboutSinger from '../../components/AboutSinger/AboutSinger'
+import MayBeYouLike from '../../components/MayBeYouLike/MayBeYouLike'
 
 const Singer = () => {
   const dispatch = useDispatch()
@@ -17,12 +21,15 @@ const Singer = () => {
   const [hightlightSong, setHightlightSong] = useState({})
   const [singleSP, setSingleSP] = useState({})
   const [mv, setMv] = useState({})
+  const [collection, setCollection] = useState({})
+  const [appear, setAppear] = useState({})
+  const [mayBeYouLike, setMayBeYouLike] = useState({})
+  const [aboutSinger, setAboutSinger] = useState({})
 
   useEffect(() => {
     dispatch(getInfoSinger(name))
       .unwrap()
       .then((result) => {
-        console.log(result)
         if (result.cover.includes('default')) {
           setPoster({
             cover: result.cover,
@@ -44,6 +51,10 @@ const Singer = () => {
         setHightlightSong(result?.sections?.find((item) => item.sectionId === 'aSongs').topAlbum)
         setSingleSP(result?.sections?.find((item) => item?.sectionId === 'aSingle'))
         setMv(result?.sections?.find((item) => item?.sectionId === 'aMV'))
+        setCollection(result?.sections?.find((item) => item?.title === 'Tuyển tập'))
+        setAppear(result?.sections?.find((item) => item?.title === 'Xuất hiện trong'))
+        setMayBeYouLike(result?.sections?.find((item) => item?.sectionId === 'aReArtist'))
+        setAboutSinger({ biography: result?.biography, thumbnailM: result?.thumbnailM, follow: result?.follow })
       })
       .catch((err) => console.log(err))
   }, [name])
@@ -55,7 +66,11 @@ const Singer = () => {
         <SingerListMusic listMusic={listMusic} />
       </div>
       <SingleSP singleSP={singleSP} />
-      <MV mv={mv}/>
+      <MV mv={mv} />
+      <Collection collection={collection} />
+      <Appear appear={appear} />
+      <MayBeYouLike mayBeYouLike={mayBeYouLike} />
+      <AboutSinger aboutSinger={aboutSinger} />
     </div>
   )
 }

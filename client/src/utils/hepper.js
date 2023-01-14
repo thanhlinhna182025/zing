@@ -34,3 +34,7 @@ export function releaseDay(time) {
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
+export function numberToStringFollow(number = 1000) {
+  const follow = number.toString().slice(0, number.toString().length - 3) + 'K'
+  return follow
+}

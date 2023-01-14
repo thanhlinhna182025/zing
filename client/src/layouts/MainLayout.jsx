@@ -4,16 +4,26 @@ import { getLinkMusic } from '~/feature/music/musicSlice'
 import Header from '~/layouts/components/Header'
 import Player from '~/layouts/components/Player'
 import SideBar from '~/layouts/components/SideBar'
+import { addError } from '../feature/app/appSlice'
 
 const MainLayout = ({ children }) => {
-  const dispath = useDispatch()
+  const dispatch = useDispatch()
+  const error = useSelector((state) => state.app.error)
   const [url, setUrl] = useState(null)
+  
   const musicId = useSelector((state) => state.music.musicId)
+
+
   useEffect(() => {
-    dispath(getLinkMusic(musicId))
+    dispatch(getLinkMusic(musicId))
       .unwrap()
       .then((result) => {
-        setUrl(result['128'])
+        if (result.error) {
+          dispatch(addError(result.msg))
+        } else {
+          setUrl(result['128'])
+          dispatch(addError(null))
+        }
       })
       .catch((error) => console.log(error))
   }, [musicId])

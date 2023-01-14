@@ -12,7 +12,8 @@ const routes = {
   mv: '/mv_moi',
   album: '/album/:title/:id',
   playlist: '/playlist/:title/:id',
-  singer: '/singer/:name'
+  singer: '/singer/:name',
+  karaoke: '/karaoke'
 }
 
 export default routes

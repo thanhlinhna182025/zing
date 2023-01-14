@@ -41,6 +41,22 @@ export const getLinkMusic = createAsyncThunk(`${context}/getLinkMusic`, async (i
     throw error
   }
 })
+export const getLyricMusic = createAsyncThunk(`${context}/getLyricMusic`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/lyric', method: 'GET', params: { id: id } },
+      {
+        signal: thunkApi.signal
+      }
+    )
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
 const musicSlice = createSlice({
   name: 'music',
   initialState,

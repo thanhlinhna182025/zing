@@ -25,16 +25,7 @@ const PublicRoutes = [
     element: Login,
     layout: MainLayout
   },
-  {
-    path: configs.routes.radio,
-    element: Radio,
-    layout: null
-  },
-  {
-    path: configs.routes.zingchart,
-    element: ZingChart,
-    layout: null
-  },
+
   {
     path: configs.routes.discovery,
     element: Discovery,
@@ -79,6 +70,16 @@ const PublicRoutes = [
     path: configs.routes.playlist,
     element: PlayList,
     layout: MainLayout
+  },
+  {
+    path: configs.routes.radio,
+    element: Radio,
+    layout: null
+  },
+  {
+    path: configs.routes.zingchart,
+    element: ZingChart,
+    layout: null
   }
 ]
 

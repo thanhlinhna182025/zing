@@ -13,7 +13,7 @@ import {
   setIsShuffle
 } from '../../../feature/app/appSlice'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
-const Player = ({ url }) => {
+const Player = ({ url, info, volume }) => {
   //Global state
   const albumSongs = useSelector((state) => state.album.albumSongs)
   const curentIndexSong = useSelector((state) => state.album.curentIndexSong)
@@ -129,7 +129,6 @@ const Player = ({ url }) => {
     }
     return () => clearInterval(timerId)
   }, [url, isPlaying])
-  
 
   useEffect(() => {
     if (isPlaying) {
@@ -193,6 +192,7 @@ const Player = ({ url }) => {
     <div className='border-t-solid fixed bottom-0 z-10 flex h-[90px] w-full items-center justify-between border-t border-t-[#414141] bg-main-500 px-5'>
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />
+
       <PlayerCenter
         musicInfo={musicInfo}
         handleNextSong={handleNextSong}
@@ -213,6 +213,7 @@ const Player = ({ url }) => {
         togleIsShuffle={togleIsShuffle}
         isSingle={isSingle}
       />
+
       <PlayerRight ref={volumeBarRef} handleVolume={handleVolume} currentVolume={currentVolume} />
     </div>
   )

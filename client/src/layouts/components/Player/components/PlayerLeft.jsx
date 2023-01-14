@@ -3,6 +3,7 @@ import { HeartIcon, MoreIcon } from '../../../../components/Icons/Icons'
 
 const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo
+
   return (
     <div className='flex w-[30%] items-center justify-start'>
       <div className='mr-[10px]'>

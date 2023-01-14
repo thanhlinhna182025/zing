@@ -5,7 +5,6 @@ import EventItem from '../EventItem/EventItem'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 
 const Event = ({ event }) => {
-  console.log(event)
   const swiperRef = useRef()
   return (
     <div className='relative'>

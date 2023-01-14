@@ -8,11 +8,9 @@ import { addError } from '../feature/app/appSlice'
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
-  const error = useSelector((state) => state.app.error)
   const [url, setUrl] = useState(null)
-  
-  const musicId = useSelector((state) => state.music.musicId)
 
+  const musicId = useSelector((state) => state.music.musicId)
 
   useEffect(() => {
     dispatch(getLinkMusic(musicId))
@@ -29,7 +27,7 @@ const MainLayout = ({ children }) => {
   }, [musicId])
 
   return (
-    <div className='flex h-[100vh] w-full items-start bg-main-500 scrollbar'>
+    <div className='relative flex h-[100vh] w-full items-start bg-main-500 scrollbar'>
       <SideBar />
       <div className='mb-[90px] w-full flex-col items-start'>
         <Header />

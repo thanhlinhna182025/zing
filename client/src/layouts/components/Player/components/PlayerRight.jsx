@@ -1,6 +1,32 @@
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import configs from '~/configs'
+import { getLyricMusic } from '~/feature/music/musicSlice'
+
+import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
+import { setKaraokMode } from '~/feature/app/appSlice'
 const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
+  const musicId = useSelector((state) => state.music.musicId)
+  const [hasLyric, setHasLyric] = useState(false)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getLyricMusic(musicId))
+      .unwrap()
+      .then((result) => {
+        if (result.sentences) {
+          setHasLyric(true)
+        } else {
+          setHasLyric(false)
+        }
+      })
+      .catch((err) => console.log(err))
+  }, [musicId])
+
+  const handleKaraokMode = () => {
+    dispatch(setKaraokMode(hasLyric))
+  }
+
   const style = {
     backgroundSize: `${currentVolume}% 100%`
   }
@@ -9,9 +35,16 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
       <span className='cursor-pointer'>
         <MVIcon width='20px' height='20px' className=' text-white ' />
       </span>
-      <span className='ml-5 cursor-pointer'>
-        <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
-      </span>
+      {hasLyric ? (
+        <Link to={configs.routes.karaoke} className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
+          <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
+        </Link>
+      ) : (
+        <span className='ml-5 cursor-not-allowed'>
+          <MicroPhoneIcon width='16px' height='16px' className=' text-gray ' />
+        </span>
+      )}
+
       <span className='ml-5 cursor-pointer'>
         <WindownIcon width='16px' height='16px' className=' text-white ' />
       </span>

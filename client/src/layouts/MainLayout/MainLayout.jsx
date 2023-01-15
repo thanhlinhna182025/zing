@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { addError } from '~/feature/app/appSlice'
 import { getLinkMusic } from '~/feature/music/musicSlice'
-import Header from '~/layouts/components/Header'
-import Player from '~/layouts/components/Player'
-import SideBar from '~/layouts/components/SideBar'
-import { addError } from '../feature/app/appSlice'
+import Header from '~/layouts/MainLayout/components/Header'
+import Player from '~/layouts/MainLayout/components/Player'
+import SideBar from '~/layouts/MainLayout/components/SideBar'
+import Karaoke from '~/pages/Karaoke'
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)
 
   const musicId = useSelector((state) => state.music.musicId)
+  const karaokeMode = useSelector((state) => state.app.karaokMode)
 
   useEffect(() => {
     dispatch(getLinkMusic(musicId))
@@ -34,6 +36,7 @@ const MainLayout = ({ children }) => {
         <main className='mt-header-margin ml-[240px] w-[calc(100%-240px)] px-header-padding'>{children}</main>
       </div>
       {url && <Player url={url} />}
+      {karaokeMode && <Karaoke />}
     </div>
   )
 }

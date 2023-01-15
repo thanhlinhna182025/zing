@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
-import useSingleSong from '~/hooks/useSingleSong'
-import { addAlbumSongs, setCurrentIndexSong } from '../../../feature/album/albumSlice'
+import { addAlbumSongs, setCurrentIndexSong } from '~/feature/album/albumSlice'
 import {
   isPlayingToggle,
   isRepeatToggle,
@@ -11,7 +9,9 @@ import {
   setIsPlaying,
   setIsRepeat,
   setIsShuffle
-} from '../../../feature/app/appSlice'
+} from '~/feature/app/appSlice'
+import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
+import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 const Player = ({ url, info, volume }) => {
   //Global state
@@ -182,9 +182,11 @@ const Player = ({ url, info, volume }) => {
         dispatch(setIsPlaying(false))
       }
     }
-    audioRef.current.addEventListener('ended', handleEnded)
+    if (audioRef.current) {
+      audioRef.current.addEventListener('ended', handleEnded)
+    }
     return () => {
-      audioRef.current.removeEventListener('ended', handleEnded)
+      if (audioRef.current) audioRef.current.removeEventListener('ended', handleEnded)
     }
   }, [isRepeat, isPlayAll, isShuffle, curentIndexSong])
 

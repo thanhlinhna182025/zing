@@ -42,7 +42,9 @@ module.exports = {
         'main-300': '#2F2739',
         'main-400': '#231B2E',
         'main-500': '#170F23',
-        'secondary-100': '#9D4DE0'
+        'secondary-100': '#9D4DE0',
+        'secondary-200': '#514169',
+        'secondary-300': '#5B4678'
       },
       backgroundColor: {
         'main-100': '#DADADA',
@@ -51,9 +53,33 @@ module.exports = {
         'main-400': '#231B2E',
         'main-500': '#170F23'
       },
+      keyframes: {
+        'slide-top': {
+          ' 0% ': {
+            '-webkit-transform': 'translateY(100%)',
+            transform: 'translateY(100%)'
+          },
+          '100%': {
+            '-webkit-transform': 'translateY(0)',
+            transform: 'translateY(0)'
+          }
+        },
+        'slide-bottom': {
+          '0% ': {
+            '-webkit-transform': 'translateY(0)',
+            transform: 'translateY(0)'
+          },
+          '100%': {
+            '-webkit-transform': 'translateY(100%)',
+            transform: 'translateY(100%)'
+          }
+        }
+      },
 
       animation: {
-        'spin-slow': 'spin 12s linear infinite'
+        'spin-slow': 'spin 12s linear infinite',
+        'slide-top': 'slide-top 1s linear',
+        'slide-bottom': 'slide-bottom 1s linear'
       },
       spacing: {
         'header-padding': '59px',

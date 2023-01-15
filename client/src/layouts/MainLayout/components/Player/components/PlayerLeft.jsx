@@ -1,5 +1,5 @@
 import Button from '~/components/Button'
-import { HeartIcon, MoreIcon } from '../../../../components/Icons/Icons'
+import { HeartIcon, MoreIcon } from '~/components/Icons/Icons'
 
 const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo

@@ -6,7 +6,8 @@ const initialState = {
   isPlayAll: false,
   isRepeat: false,
   isShuffle: false,
-  karaokMode: false
+  karaokMode: false,
+  karaokeMain: 3
 }
 const context = 'app'
 
@@ -67,6 +68,9 @@ const appSlice = createSlice({
     },
     setKaraokMode: (state, action) => {
       state.karaokMode = action.payload
+    },
+    setKaraokeMain: (state, action) => {
+      state.karaokeMain = action.payload
     }
   }
 })
@@ -81,7 +85,8 @@ export const {
   isRepeatToggle,
   setIsShuffle,
   isShuffleToggle,
-  setKaraokMode
+  setKaraokMode,
+  setKaraokeMain
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

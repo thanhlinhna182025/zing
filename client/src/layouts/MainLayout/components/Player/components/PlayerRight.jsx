@@ -36,9 +36,9 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
         <MVIcon width='20px' height='20px' className=' text-white ' />
       </span>
       {hasLyric ? (
-        <Link to={configs.routes.karaoke} className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
+        <span className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
           <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
-        </Link>
+        </span>
       ) : (
         <span className='ml-5 cursor-not-allowed'>
           <MicroPhoneIcon width='16px' height='16px' className=' text-gray ' />

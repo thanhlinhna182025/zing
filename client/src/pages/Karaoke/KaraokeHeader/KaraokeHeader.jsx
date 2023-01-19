@@ -1,17 +1,11 @@
-import { useDispatch } from 'react-redux'
 import Button from '~/components/Button'
 import { DownArrowIcon, ExpandIcon, MP3ZingLogoIcon, SettingIcon } from '~/components/Icons/Icons'
-import { setKaraokMode } from '~/feature/app/appSlice'
-const SecondHeader = ({ headerData, KaraokeMain, handleKaraokeMain }) => {
-  const dispatch = useDispatch()
-  const handleClose = () => {
-    dispatch(setKaraokMode(false))
-  }
+const KaraokeHeader = ({ headerData, KaraokeMain, handleKaraokeMain, handleCloseKaraoke, karaokeIsPlaying }) => {
   return (
     <div className='flex items-center justify-between p-5'>
       <div className='flex items-center'>
         <div>
-          <MP3ZingLogoIcon />
+          <MP3ZingLogoIcon className="animate-spin-slow"/>
         </div>
         <div>
           <span className='text-xs text-white'>Từ {headerData?.textType}</span>
@@ -51,11 +45,11 @@ const SecondHeader = ({ headerData, KaraokeMain, handleKaraokeMain }) => {
         <Button className='mr-2 bg-secondary-100 p-3' rounded type='outline'>
           <SettingIcon className='text-white' width='20px' height='20px' />
         </Button>
-        <Button className='bg-secondary-100 p-3' rounded type='outline' onClick={handleClose}>
+        <Button className='bg-secondary-100 p-3' rounded type='outline' onClick={handleCloseKaraoke}>
           <DownArrowIcon className='text-white' width='20px' height='20px' />
         </Button>
       </div>
     </div>
   )
 }
-export default SecondHeader
+export default KaraokeHeader

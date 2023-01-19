@@ -7,6 +7,7 @@ import Home from '~/pages/Home'
 import Login from '~/pages/Login'
 import MV from '~/pages/MV'
 import NewMusic from '~/pages/NewMusic'
+import NewReleasePage from '~/pages/NewReleasePage'
 import PlayList from '~/pages/PlayList'
 import Radio from '~/pages/Radio'
 import Singer from '~/pages/Singer'
@@ -80,6 +81,11 @@ const PublicRoutes = [
     path: configs.routes.zingchart,
     element: ZingChart,
     layout: null
+  },
+  {
+    path: configs.routes.newrelease,
+    element: NewReleasePage,
+    layout: MainLayout
   }
 ]
 

@@ -1,10 +1,10 @@
 import Button from '~/components/Button'
 import { RightArrowIcon } from '~/components/Icons'
 
-
-const SeeAllButton = () => {
+const SeeAllButton = ({ to }) => {
   return (
     <Button
+      to={to}
       type='text'
       className='mr-[14px] flex items-center py-[3px] px-6 text-xs font-bold text-gray hover:text-secondary-100'
     >

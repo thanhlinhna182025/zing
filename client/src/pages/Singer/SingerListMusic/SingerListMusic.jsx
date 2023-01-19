@@ -1,6 +1,6 @@
-import SingerSongItem from '~/components/SingerSongItem'
 import Title from '~/components/Title'
 import SeeAllButton from '~/components/SeeAllButton'
+import SingerSongItem from './SingerSongItem/SingerSongItem'
 
 const SingerListMusic = ({ listMusic }) => {
   const { title, items } = listMusic

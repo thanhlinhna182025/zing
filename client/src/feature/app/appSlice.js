@@ -7,7 +7,9 @@ const initialState = {
   isRepeat: false,
   isShuffle: false,
   karaokMode: false,
-  karaokeMain: 3
+  karaokeMain: 3,
+  karaokeIsPlaying: false,
+  typeRelease: 'all'
 }
 const context = 'app'
 
@@ -71,6 +73,15 @@ const appSlice = createSlice({
     },
     setKaraokeMain: (state, action) => {
       state.karaokeMain = action.payload
+    },
+    karaokeIsPlayingToggle: (state) => {
+      state.karaokeIsPlaying = !state.karaokeIsPlaying
+    },
+    setKaraokeIsPlaying: (state, action) => {
+      state.karaokeIsPlaying = action.payload
+    },
+    setTypeRelease: (state, action) => {
+      state.typeRelease = action.payload
     }
   }
 })
@@ -86,7 +97,10 @@ export const {
   setIsShuffle,
   isShuffleToggle,
   setKaraokMode,
-  setKaraokeMain
+  setKaraokeMain,
+  karaokeIsPlayingToggle,
+  setKaraokeIsPlaying,
+  setTypeRelease
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

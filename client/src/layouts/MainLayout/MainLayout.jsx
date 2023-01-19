@@ -36,7 +36,7 @@ const MainLayout = ({ children }) => {
         <main className='mt-header-margin ml-[240px] w-[calc(100%-240px)] px-header-padding'>{children}</main>
       </div>
       {url && <Player url={url} />}
-      {karaokeMode && <Karaoke />}
+      {karaokeMode && <Karaoke url={url}/>}
     </div>
   )
 }

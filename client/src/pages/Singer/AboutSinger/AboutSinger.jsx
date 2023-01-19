@@ -1,5 +1,5 @@
 import Button from '~/components/Button'
-import { numberWithCommas } from '../../utils/hepper'
+import { numberWithCommas } from '../../../utils/hepper'
 
 const AboutSinger = ({ aboutSinger }) => {
   function createMarkup() {

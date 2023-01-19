@@ -11,6 +11,7 @@ export function msToTime(duration) {
   return hours + ':' + minutes + ':' + seconds + '.' + milliseconds
 }
 
+
 export function secondToMinuteAndSecond(duration) {
   let seconds = Math.floor(duration % 60)
   let minutes = Math.floor((duration / 60) % 60)

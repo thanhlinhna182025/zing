@@ -1,11 +1,9 @@
 import { forwardRef, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import configs from '~/configs'
 import { getLyricMusic } from '~/feature/music/musicSlice'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
-import { setKaraokMode } from '~/feature/app/appSlice'
+import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
 const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
   const [hasLyric, setHasLyric] = useState(false)
@@ -25,6 +23,7 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
 
   const handleKaraokMode = () => {
     dispatch(setKaraokMode(hasLyric))
+    dispatch(setIsPlaying(false))
   }
 
   const style = {

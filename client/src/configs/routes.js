@@ -13,7 +13,8 @@ const routes = {
   album: '/album/:title/:id',
   playlist: '/playlist/:title/:id',
   singer: '/singer/:name',
-  karaoke: '/karaoke'
+  karaoke: '/karaoke',
+  newrelease:"/newrelease"
 }
 
 export default routes

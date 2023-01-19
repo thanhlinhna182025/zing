@@ -34,10 +34,10 @@ const ArtistSpotlight = ({ artists }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <button className='swiper-button-prev-live' onClick={() => swiperRef.current?.slidePrev()}>
+        <button className='swiper-button-prev-artist' onClick={() => swiperRef.current?.slidePrev()}>
           <LeftArrowIcon className='text-gray' width='14px' height='14px' />
         </button>
-        <button className='swiper-button-next-live' onClick={() => swiperRef.current?.slideNext()}>
+        <button className='swiper-button-next-artist' onClick={() => swiperRef.current?.slideNext()}>
           <RightArrowIcon className='text-gray' width='14px' height='14px' />
         </button>
       </div>

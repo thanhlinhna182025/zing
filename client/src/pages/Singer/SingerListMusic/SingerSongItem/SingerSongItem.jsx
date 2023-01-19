@@ -10,7 +10,7 @@ const SingerSongItem = ({ item }) => {
     dispath(addMusicId(item.encodeId))
   }
   return (
-    <div className='group flex flex-col' >
+    <div className='group flex flex-col'>
       <div className='flex h-[60px] items-center justify-between rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] hover:bg-main-300'>
         <div className='flex  items-center gap-[10px] '>
           <div className='relative h-10 w-10 cursor-pointer overflow-hidden rounded-[4px]' onClick={handleAddMusicId}>

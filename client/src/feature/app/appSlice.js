@@ -9,7 +9,8 @@ const initialState = {
   karaokMode: false,
   karaokeMain: 3,
   karaokeIsPlaying: false,
-  typeRelease: 'all'
+  typeRelease: 'all',
+  color: 'A'
 }
 const context = 'app'
 
@@ -82,6 +83,9 @@ const appSlice = createSlice({
     },
     setTypeRelease: (state, action) => {
       state.typeRelease = action.payload
+    },
+    setColor: (state, action) => {
+      state.color = action.payload
     }
   }
 })
@@ -100,7 +104,8 @@ export const {
   setKaraokeMain,
   karaokeIsPlayingToggle,
   setKaraokeIsPlaying,
-  setTypeRelease
+  setTypeRelease,
+  setColor
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

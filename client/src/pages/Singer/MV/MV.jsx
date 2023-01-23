@@ -1,7 +1,6 @@
-import MVCardItem from '~/components/MVCardItem'
 import SeeAllButton from '~/components/SeeAllButton'
 import Title from '~/components/Title'
-
+import MVCardItem from './MVCardItem'
 const MV = ({ mv }) => {
   return (
     <div className='flex flex-col'>

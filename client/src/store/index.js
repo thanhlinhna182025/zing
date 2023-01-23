@@ -27,10 +27,15 @@ const playlistConfig = {
   key: 'playlist',
   whitelist: ['playlistId']
 }
+const appConfig = {
+  ...persistConfig,
+  key: 'app',
+  whitelist: ['color']
+}
 
 export const store = configureStore({
   reducer: {
-    app: appReducer,
+    app: persistReducer(appConfig, appReducer),
     music: persistReducer(musicConfig, musicReducer),
     album: persistReducer(albumConfig, albumReducer),
     playlist: persistReducer(playlistConfig, playlistReducer),

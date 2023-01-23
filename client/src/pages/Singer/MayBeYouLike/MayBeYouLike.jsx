@@ -1,5 +1,5 @@
 import Title from '~/components/Title'
-import MayBeYouLikeItem from '../../../components/MayBeYouLikeItem/MayBeYouLikeItem'
+import MayBeYouLikeItem from './MayBeYouLikeItem'
 const MayBeYouLike = ({ mayBeYouLike }) => {
   return (
     <div className='mb-main-margin'>

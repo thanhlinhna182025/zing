@@ -1,16 +1,21 @@
+import { forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 
-const Button = ({
-  type = 'primary' || 'secondary' || 'outline' || 'text',
-  rounded,
-  isBlock,
-  to,
-  href,
-  children,
-  className,
-  hasBorder,
-  onClick
-}) => {
+const Button = (
+  {
+    type = 'primary' || 'secondary' || 'outline' || 'text',
+    rounded,
+    isBlock,
+    to,
+    href,
+    children,
+    className,
+    hasBorder,
+    onClick,
+    disabled
+  },
+  ref
+) => {
   const backgoundColor = {
     primary: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
     secondary: 'bg-secondary-100 font-[Inter] hover:opacity-[0.9]',
@@ -42,28 +47,30 @@ const Button = ({
   if (hasBorder) {
     baseClass = [...baseClass, 'border-[1px] border-white border-solid']
   }
+  if (disabled) {
+    baseClass = [...baseClass, 'cursor-not-allowed opacity-50']
+  }
   if (to) {
     let linkClasses = [...baseClass, 'flex items-center text-[14px] whitespace-nowrap']
     return (
-      <Link to={to} className={linkClasses.join(' ')}>
+      <Link to={to} ref={ref} className={linkClasses.join(' ')}>
         {children}
       </Link>
     )
   }
   if (href) {
     let linkClasses = [...baseClass, 'flex items-center justify-start whitespace-nowrap']
-
     return (
-      <a href={href} className={linkClasses.join(' ')}>
+      <a href={href} ref={ref} className={linkClasses.join(' ')}>
         {children}
       </a>
     )
   }
 
   return (
-    <button onClick={onClick} className={baseClass.join(' ')}>
+    <button onClick={onClick} ref={ref} className={baseClass.join(' ')}>
       {children}
     </button>
   )
 }
-export default Button
+export default forwardRef(Button)

@@ -14,7 +14,8 @@ const routes = {
   playlist: '/playlist/:title/:id',
   singer: '/singer/:name',
   karaoke: '/karaoke',
-  newrelease:"/newrelease"
+  newreleaseSong: '/newrelease/song',
+  newreleaseAlbum: '/newrelease/album'
 }
 
 export default routes

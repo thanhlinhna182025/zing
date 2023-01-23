@@ -1,14 +1,17 @@
+import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
 const SideBarItem = ({ item, icon, setActive, active }) => {
   let Icon = icon
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
   return (
     <li
       key={item.path}
       onClick={() => setActive(item.id)}
       className={`${
         active === item.id
-          ? 'border-l-solid border-l-purpleA84-600 w-full border-l-[3px] bg-main-200 py-2 pl-[25px]'
+          ? `border-l-solid border-l-purpleA84-600 w-full border-l-[3px] ${bgColor} py-2 pl-[25px]`
           : 'w-full py-2 pl-[28px]'
       }`}
     >

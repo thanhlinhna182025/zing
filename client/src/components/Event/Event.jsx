@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import EventItem from '../EventItem/EventItem'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
+import EventItem from './EventItem'
 
 const Event = ({ event }) => {
   const swiperRef = useRef()

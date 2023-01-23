@@ -191,7 +191,7 @@ const Player = ({ url, info, volume }) => {
   }, [isRepeat, isPlayAll, isShuffle, curentIndexSong])
 
   return (
-    <div className='border-t-solid fixed bottom-0 z-10 flex h-[90px] w-full items-center justify-between border-t border-t-[#414141] bg-main-500 px-5'>
+    <div className='border-t-solid fixed bottom-0 z-10 flex h-[90px] w-full items-center justify-between border-t border-t-[#414141]  px-5'>
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />
 

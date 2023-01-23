@@ -44,14 +44,30 @@ module.exports = {
         'main-500': '#170F23',
         'secondary-100': '#9D4DE0',
         'secondary-200': '#514169',
-        'secondary-300': '#5B4678'
+        'secondary-300': '#5B4678',
+        A: '#170F23',
+        AA: '#9D4DE0',
+        B: '#0C1f40',
+        BB: '#1C4A7C',
+        C: '#5B4039',
+        CC: '#E7E3E0',
+        D: '#9A2874',
+        DD: '#F7E3E4'
       },
       backgroundColor: {
         'main-100': '#DADADA',
         'main-200': '#3A3344',
         'main-300': '#2F2739',
         'main-400': '#231B2E',
-        'main-500': '#170F23'
+        'main-500': '#170F23',
+        A: '#170F23',
+        AA: '#9D4DE0',
+        B: '#0C1f40',
+        BB: '#1C4A7C',
+        C: '#5B4039',
+        CC: '#E7E3E0',
+        D: '#9A2874',
+        DD: '#F7E3E4'
       },
       keyframes: {
         'slide-top': {
@@ -64,6 +80,7 @@ module.exports = {
             transform: 'translateY(0)'
           }
         },
+
         'slide-bottom': {
           '0% ': {
             '-webkit-transform': 'translateY(0)',
@@ -73,13 +90,34 @@ module.exports = {
             '-webkit-transform': 'translateY(100%)',
             transform: 'translateY(100%)'
           }
+        },
+        'slide-left': {
+          '0%': {
+            '-webkit-transform': 'translateX(0%)',
+            transform: 'translateX(0%)'
+          },
+          '100%': {
+            '-webkit-transform': 'translateX(-12px)',
+            transform: 'translateX(-12px)'
+          }
+        },
+        'rotate-360': {
+          '0%': {
+            '-webkit-transform': 'rotate(0%)',
+            transform: 'rotate(0%)'
+          },
+          '100%': {
+            '-webkit-transform': 'rotate(360deg)',
+            transform: 'rotate(360deg)'
+          }
         }
       },
-
       animation: {
         'spin-slow': 'spin 12s linear infinite',
         'slide-top': 'slide-top 1s linear',
-        'slide-bottom': 'slide-bottom 1s linear'
+        'slide-bottom': 'slide-bottom 1s linear',
+        'slide-left': 'slide-left 1s ease 0s 1 normal forwards',
+        'rotate-360': 'rotate-360 5s linear 0s 1 normal forwards'
       },
       spacing: {
         'header-padding': '59px',

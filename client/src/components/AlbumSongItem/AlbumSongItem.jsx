@@ -6,9 +6,9 @@ import { MusicNodeIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import { setCurrentIndexSong } from '~/feature/album/albumSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
-import { secondToMinuteAndSecond } from '~/utils/hepper'
+import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
 
-const AlbumSong = ({ item, index }) => {
+const AlbumSongItem = ({ item, index, release }) => {
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
   useEffect(() => {
@@ -37,7 +37,7 @@ const AlbumSong = ({ item, index }) => {
               <img src={MusicBar} className='absolute top-0 left-0 z-10' />
             ) : (
               <PlayFullFillIcon
-                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
+                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%] text-white group-hover:inline-block'
                 width='16px'
                 height='16px'
               />
@@ -58,12 +58,16 @@ const AlbumSong = ({ item, index }) => {
           </div>
         </div>
         <div className='flex w-1/2 justify-between'>
-          <Link
-            to={albumLink}
-            className='ml-[10px] inline-block max-w-[250px] flex-1 truncate text-xs font-semibold capitalize leading-[17px] text-gray hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'
-          >
-            {item.title}
-          </Link>
+          {release ? (
+            <span className='text-sm font-semibold text-gray'>{releaseDay(item.releaseDate)}</span>
+          ) : (
+            <Link
+              to={albumLink}
+              className='ml-[10px] inline-block max-w-[250px] flex-1 truncate text-xs font-semibold capitalize leading-[17px] text-gray hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'
+            >
+              {item.title}
+            </Link>
+          )}
 
           <span className='px-[6px] text-right text-xs font-semibold capitalize text-gray'>
             {secondToMinuteAndSecond(parseInt(item.duration))}
@@ -73,4 +77,4 @@ const AlbumSong = ({ item, index }) => {
     </div>
   )
 }
-export default AlbumSong
+export default AlbumSongItem

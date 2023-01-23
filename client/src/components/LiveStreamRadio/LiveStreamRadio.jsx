@@ -1,10 +1,10 @@
 import { useRef } from 'react'
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import LiveStreamItem from '~/components/LiveStreamItem'
 import Title from '~/components/Title'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 import SeeAllButton from '../SeeAllButton/SeeAllButton'
+import LiveStreamItem from './LiveStreamItem'
 const LiveStreamRadio = ({ liveStream }) => {
   const swiperRef = useRef()
   return (

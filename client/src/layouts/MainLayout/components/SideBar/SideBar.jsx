@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
 import {
@@ -84,8 +85,11 @@ const ListBottom = [
 
 const SideBar = () => {
   const [active, setActive] = useState(2)
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
+
   return (
-    <div className='fixed left-0 top-0 w-size-bar-width flex-shrink-0 bg-main-400'>
+    <div className='fixed left-0 top-0 w-size-bar-width flex-shrink-0 '>
       <div className='flex h-[70px] w-full  items-center pl-[28px]'>
         <Link to={configs.routes.home}>
           <LogoIcon className='-translate-y-[2px]' />
@@ -135,7 +139,7 @@ const SideBar = () => {
       </div>
       <Button
         isBlock
-        className='border-main-200 flex items-center justify-start border-t-[1px] border-solid pt-[14px] pb-[14px]'
+        className='flex items-center justify-start border-t-[1px] border-solid border-main-200 pt-[14px] pb-[14px]'
       >
         <AddIcon className='ml-[24px] mr-[6px] text-white' />
         <span className='font-["Inter"] text-[14px] font-bold leading-5 text-white'>Tạo playlist mới</span>

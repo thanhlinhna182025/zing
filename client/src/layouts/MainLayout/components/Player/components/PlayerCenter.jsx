@@ -1,3 +1,4 @@
+import Tippy from '@tippyjs/react'
 import { forwardRef, useEffect, useState } from 'react'
 import {
   BackMusicIcon,
@@ -51,19 +52,23 @@ const PlayerCenter = (
             <ShuffleIcon className='text-gray' width='24px' height='24px' />
           </span>
         ) : isShuffle ? (
-          <span
-            className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'
-            onClick={togleIsShuffle}
-          >
-            <ShuffleIcon className='text-secondary-100' width='24px' height='24px' />
-          </span>
+          <Tippy content={<span className='text-xs text-white'>Tắt phát ngẫu nhiên</span>}>
+            <span
+              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'
+              onClick={togleIsShuffle}
+            >
+              <ShuffleIcon className='text-secondary-100' width='24px' height='24px' />
+            </span>
+          </Tippy>
         ) : (
-          <span
-            className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'
-            onClick={setShuffle}
-          >
-            <ShuffleIcon className='text-white' width='24px' height='24px' />
-          </span>
+          <Tippy content={<span className='text-xs text-white'>Bật phát ngẫu nhiên</span>}>
+            <span
+              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'
+              onClick={setShuffle}
+            >
+              <ShuffleIcon className='text-white' width='24px' height='24px' />
+            </span>
+          </Tippy>
         )}
         <span
           onClick={handlePrevSong}
@@ -89,19 +94,23 @@ const PlayerCenter = (
           <NextMusicIcon className={`${nextActive ? 'text-white' : 'text-gray'}`} height='14px' />
         </span>
         {isRepeat ? (
-          <span
-            className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200'
-            onClick={toggleIsRepeat}
-          >
-            <RepeatIcon className='text-secondary-100' width='20px' height='20px' />
-          </span>
+          <Tippy content={<span className='text-xs text-white'>Tắt phát lại</span>}>
+            <span
+              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200'
+              onClick={toggleIsRepeat}
+            >
+              <RepeatIcon className='text-secondary-100' width='20px' height='20px' />
+            </span>
+          </Tippy>
         ) : (
-          <span
-            className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200'
-            onClick={setRepeat}
-          >
-            <RepeatIcon className='text-white' width='20px' height='20px' />
-          </span>
+          <Tippy content={<span className='text-xs text-white'>Bật phát lại</span>}>
+            <span
+              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200'
+              onClick={setRepeat}
+            >
+              <RepeatIcon className='text-white' width='20px' height='20px' />
+            </span>
+          </Tippy>
         )}
       </div>
       <div className='mb-[6px] flex h-1 w-full items-center justify-center gap-x-2'>

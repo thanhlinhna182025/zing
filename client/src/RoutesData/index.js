@@ -7,7 +7,8 @@ import Home from '~/pages/Home'
 import Login from '~/pages/Login'
 import MV from '~/pages/MV'
 import NewMusic from '~/pages/NewMusic'
-import NewReleasePage from '~/pages/NewReleasePage'
+import NewReleaseAlbum from '~/pages/NewReleaseAlbum'
+import NewReleaseSong from '~/pages/NewReleaseSong'
 import PlayList from '~/pages/PlayList'
 import Radio from '~/pages/Radio'
 import Singer from '~/pages/Singer'
@@ -83,8 +84,13 @@ const PublicRoutes = [
     layout: null
   },
   {
-    path: configs.routes.newrelease,
-    element: NewReleasePage,
+    path: configs.routes.newreleaseSong,
+    element: NewReleaseSong,
+    layout: MainLayout
+  },
+  {
+    path: configs.routes.newreleaseAlbum,
+    element: NewReleaseAlbum,
     layout: MainLayout
   }
 ]

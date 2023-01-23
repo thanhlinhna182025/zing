@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PlayerKaraoke from '~/components/PlayerKaraoke'
+import PlayerKaraoke from './PlayerKaraoke'
 
 import { getDetailPlaylist } from '~/feature/album/albumSlice'
 import { karaokeIsPlayingToggle, setKaraokeIsPlaying, setKaraokeMain, setKaraokMode } from '~/feature/app/appSlice'

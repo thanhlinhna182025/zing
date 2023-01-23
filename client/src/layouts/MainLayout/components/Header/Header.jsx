@@ -1,3 +1,5 @@
+import TippyHeadless from '@tippyjs/react/headless' // different import path!
+import { forwardRef, useState } from 'react'
 import Button from '~/components/Button/Button'
 import {
   ClotheIcon,
@@ -9,8 +11,17 @@ import {
   UserIcon,
   VipIcon
 } from '~/components/Icons/Icons'
+import TippyString from '~/components/TippyString'
+import DisplayModal from './DisplayModal'
+import SettingModal from './SettingModal'
 
 const Header = () => {
+  const [visibleSetting, setVisibleSetting] = useState(false)
+  const showSetting = () => setVisibleSetting(true)
+  const hideSetting = () => setVisibleSetting(false)
+  const [visibleDisplay, setVisibleDisplay] = useState(false)
+  const showDisplay = () => setVisibleDisplay(true)
+  const hideDisplay = () => setVisibleDisplay(false)
   return (
     <header className='fixed top-0 right-[59px] z-10 flex  h-[70px] w-[calc(100%-240px-59px-59px)] flex-1 items-center justify-between bg-transparent'>
       <div className='flex items-center'>
@@ -33,38 +44,47 @@ const Header = () => {
         </form>
       </div>
       <div className='flex  items-center  px-[10px]'>
-        <Button
-          type='text'
-          to='#'
-          rounded
-          className=' mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[hsla(0,0%,100%,0.2)]'
+        <div>
+          <TippyHeadless
+            visible={visibleDisplay}
+            onClickOutside={hideDisplay}
+            interactive={true}
+            placement='bottom'
+            render={(attrs) => <DisplayModal {...attrs} hideDisplay={hideDisplay} tabIndex='0' />}
+          >
+            <span
+              onClick={visibleDisplay ? hideDisplay : showDisplay}
+              className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] '
+            >
+              <ClotheIcon className='text-white' width='16px' height='16px' />
+            </span>
+          </TippyHeadless>
+        </div>
+        <TippyString content='Nâng cấp VIP'>
+          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] '>
+            <VipIcon className={`text-white`} width='18px' height='18px' />
+          </span>
+        </TippyString>
+        <TippyString content='Upload'>
+          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] '>
+            <UpLoadIcon className='text-white' width='18px' height='18px' />
+          </span>
+        </TippyString>
+        <TippyHeadless
+          visible={visibleSetting}
+          onClickOutside={hideSetting}
+          placement='bottom-end'
+          interactive={true}
+          render={(attrs) => <SettingModal tabIndex='0' {...attrs} />}
         >
-          <ClotheIcon className='text-white' width='20px' height='20px' />
-        </Button>
-        <Button
-          type='text'
-          to='#'
-          rounded
-          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[hsla(0,0%,100%,0.2)] '
-        >
-          <VipIcon className='text-white' width='18px' height='18px' />
-        </Button>
-        <Button
-          type='text'
-          to='#'
-          rounded
-          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[hsla(0,0%,100%,0.2)] '
-        >
-          <UpLoadIcon className='text-white' width='18px' height='18px' />
-        </Button>
-        <Button
-          type='text'
-          to='#'
-          rounded
-          className='mr-3 flex h-[40px] w-[40px] items-center justify-center bg-[hsla(0,0%,100%,0.2)] '
-        >
-          <SettingIcon className='text-white' width='16px' height='16px' />
-        </Button>
+          <span
+            onClick={visibleSetting ? hideSetting : showSetting}
+            className='mr-3 flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] '
+          >
+            <SettingIcon className='text-white' width='16px' height='16px' />
+          </span>
+        </TippyHeadless>
+
         <Button type='text' to='#' rounded className=' flex h-[40px] w-[40px] items-center justify-center '>
           <UserIcon className='text-white' width='40px' height='40px' />
         </Button>
@@ -72,4 +92,4 @@ const Header = () => {
     </header>
   )
 }
-export default Header
+export default forwardRef(Header)

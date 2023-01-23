@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import ArtistSpotlight from '~/components/ArtistSpotlight'
 import AutoThemeOne from '~/components/AutoThemeOne'
 import AutoThemeTwo from '~/components/AutoThemeTwo/AutoThemeTwo'
@@ -17,7 +17,6 @@ import { getHome } from '~/feature/app/appSlice'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const typeRelease = useSelector((state) => state.app.typeRelease)
   const [banner, setBanner] = useState([])
   const [playList, setPlayList] = useState({})
   const [recentPlaylist, setRecentPlaylist] = useState({})
@@ -36,6 +35,7 @@ const Home = () => {
     dispatch(getHome())
       .unwrap()
       .then((result) => {
+        console.log(result)
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
         setRecentPlaylist(

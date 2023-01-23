@@ -4,6 +4,7 @@ import { getLyricMusic } from '~/feature/music/musicSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
 import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
+import TippyString from '../../../../../components/TippyString'
 const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
   const [hasLyric, setHasLyric] = useState(false)
@@ -35,18 +36,21 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
         <MVIcon width='20px' height='20px' className=' text-white ' />
       </span>
       {hasLyric ? (
-        <span className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
-          <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
-        </span>
+        <TippyString content='Xem lời bài hát'>
+          <span className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
+            <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
+          </span>
+        </TippyString>
       ) : (
         <span className='ml-5 cursor-not-allowed'>
           <MicroPhoneIcon width='16px' height='16px' className=' text-gray ' />
         </span>
       )}
-
-      <span className='ml-5 cursor-pointer'>
-        <WindownIcon width='16px' height='16px' className=' text-white ' />
-      </span>
+      <TippyString content='Chế độ cửa sổ'>
+        <span className='ml-5 cursor-pointer'>
+          <WindownIcon width='16px' height='16px' className=' text-white ' />
+        </span>
+      </TippyString>
       <span className='ml-5 flex cursor-pointer items-center'>
         <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-white' />
         <div className='relative flex items-center'>
@@ -65,9 +69,11 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
         </div>
       </span>
       <div className='ml-5 h-8 w-[1px] bg-main-200'></div>
-      <span className='ml-5 cursor-pointer rounded-[4px] bg-main-200 py-2 px-[6px]'>
-        <PlayListIcon width='16px' height='16px' className=' text-white ' />
-      </span>
+      <TippyString content='Danh sách phát'>
+        <span className='ml-5 cursor-pointer rounded-[4px] bg-main-200 py-2 px-[6px]'>
+          <PlayListIcon width='16px' height='16px' className=' text-white ' />
+        </span>
+      </TippyString>
     </div>
   )
 }

@@ -2,9 +2,8 @@ import { useRef } from 'react'
 import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-
-import BannerItem from '../BannerItem/BannerItem'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
+import BannerItem from './BannerItem'
 const Banner = ({ banner }) => {
   const swiperRef = useRef()
 

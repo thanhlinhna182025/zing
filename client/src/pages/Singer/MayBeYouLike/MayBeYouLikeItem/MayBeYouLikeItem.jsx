@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
+import { AddUserIcon } from '~/components/Icons'
 import { numberToStringFollow } from '~/utils/hepper'
-import { AddUserIcon } from '../Icons/Icons'
 const MayBeYouLikeItem = ({ item }) => {
   return (
     <div className='flex-col px-[14px]'>

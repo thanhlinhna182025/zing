@@ -27,7 +27,7 @@ const EventItem = ({ item }) => {
                 </div>
               ))}
             </div>
-            <span className='text-sm font-bold text-gray'>+{item.totalFollow}</span>
+            <span className='text-sm font-bold text-white'>+{item.totalFollow}</span>
           </div>
         </div>
         <div>

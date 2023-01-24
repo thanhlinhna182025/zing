@@ -35,7 +35,7 @@ const Header = () => {
         </div>
         <form className='ml-[22px] flex max-w-[440px] items-center rounded-full bg-[hsla(0,0%,100%,0.2)]'>
           <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
-            <SearchIcon className='translate-y-[1px] translate-x-[1px] text-gray' width='20px' height='20px' />
+            <SearchIcon className='translate-y-[1px] translate-x-[1px] text-white' width='20px' height='20px' />
           </Button>
           <input
             placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'

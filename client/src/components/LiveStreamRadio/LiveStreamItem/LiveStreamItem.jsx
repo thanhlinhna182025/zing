@@ -24,7 +24,7 @@ const LiveStreamItem = ({ item }) => {
         </span>
       </div>
       <h3 className='mt-4 text-center text-[16px] font-semibold text-white'>{item?.host?.name}</h3>
-      <p className='text-xs font-bold text-center text-gray'>{item?.activeUsers} đang nghe</p>
+      <p className='text-center text-xs font-bold text-white'>{item?.activeUsers} đang nghe</p>
     </div>
   )
 }

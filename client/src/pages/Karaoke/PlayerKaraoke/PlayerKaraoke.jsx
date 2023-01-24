@@ -12,7 +12,7 @@ const PlayerKaraoke = (
       <div className='  flex flex-1 flex-col items-center justify-center gap-y-4'>
         <div className='mb-[6px] flex h-1 w-full items-center justify-center gap-x-2'>
           <div className='mr-3 flex w-6 items-center'>
-            <span className='text-xs font-bold text-gray'>{secondToMinuteAndSecond(audioTime)}</span>
+            <span className='text-xs font-bold text-white'>{secondToMinuteAndSecond(audioTime)}</span>
           </div>
           <input
             type='range'
@@ -24,7 +24,7 @@ const PlayerKaraoke = (
             style={style}
             onChange={(e) => handleAudioTime(e.target.value)}
           />
-          <span className='text-xs font-bold text-gray'>
+          <span className='text-xs font-bold text-white'>
             {audioDuration ? secondToMinuteAndSecond(audioDuration) : '00:00'}
           </span>
         </div>

@@ -44,10 +44,10 @@ const AlbumSong = ({ item, selectAll }) => {
             </div>
           </div>
         </div>
-        <a className='ml-[10px] flex-1 text-xs font-semibold capitalize leading-[17px] text-gray hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'>
+        <a className='ml-[10px] flex-1 text-xs font-semibold capitalize leading-[17px] text-white hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'>
           {item.title}
         </a>
-        <span className='px-[6px] text-right text-xs font-semibold capitalize text-gray'>
+        <span className='px-[6px] text-right text-xs font-semibold capitalize text-white'>
           {secondToMinuteAndSecond(parseInt(item.duration))}
         </span>
       </div>

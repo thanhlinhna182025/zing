@@ -59,17 +59,17 @@ const AlbumSongItem = ({ item, index, release }) => {
         </div>
         <div className='flex w-1/2 justify-between'>
           {release ? (
-            <span className='text-sm font-semibold text-gray'>{releaseDay(item.releaseDate)}</span>
+            <span className='text-sm font-semibold text-white'>{releaseDay(item.releaseDate)}</span>
           ) : (
             <Link
               to={albumLink}
-              className='ml-[10px] inline-block max-w-[250px] flex-1 truncate text-xs font-semibold capitalize leading-[17px] text-gray hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'
+              className='ml-[10px] inline-block max-w-[250px] flex-1 truncate text-xs font-semibold capitalize leading-[17px] text-white hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'
             >
               {item.title}
             </Link>
           )}
 
-          <span className='px-[6px] text-right text-xs font-semibold capitalize text-gray'>
+          <span className='px-[6px] text-right text-xs font-semibold capitalize text-white'>
             {secondToMinuteAndSecond(parseInt(item.duration))}
           </span>
         </div>

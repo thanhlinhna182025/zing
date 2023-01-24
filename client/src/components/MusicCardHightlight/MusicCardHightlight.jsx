@@ -52,10 +52,10 @@ const MusicCardHightlight = ({ item }) => {
               </div>
             </div>
             <div className='my-[6px] ml-4 flex flex-col'>
-              <span className='mb-[14px] text-xs font-bold text-gray'>{item?.textType}</span>
+              <span className='mb-[14px] text-xs font-bold text-white'>{item?.textType}</span>
               <h5 className='mb-[1px] text-sm font-bold text-white'>{item?.title}</h5>
-              <h4 className='mb-[14px] text-xs font-bold text-gray'>{item?.artistsNames}</h4>
-              <span className='text-xs font-bold text-gray '>{item?.releaseDate}</span>
+              <h4 className='mb-[14px] text-xs font-bold text-white'>{item?.artistsNames}</h4>
+              <span className='text-xs font-bold text-white '>{item?.releaseDate}</span>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ const PlayerCenter = (
       <div className=' flex items-center justify-center gap-[17px]'>
         {isSingle ? (
           <span className='flex h-[32px] w-[32px] cursor-not-allowed items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'>
-            <ShuffleIcon className='text-gray' width='24px' height='24px' />
+            <ShuffleIcon className='text-white' width='24px' height='24px' />
           </span>
         ) : isShuffle ? (
           <Tippy content={<span className='text-xs text-white'>Tắt phát ngẫu nhiên</span>}>
@@ -76,7 +76,7 @@ const PlayerCenter = (
             prevActive ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
           }`}
         >
-          <BackMusicIcon className={`${prevActive ? 'text-white' : ' text-gray'}`} width='14px' height='14px' />
+          <BackMusicIcon className={`${prevActive ? 'text-white' : ' text-white'}`} width='14px' height='14px' />
         </span>
         <span className='cursor-pointer ' onClick={togglePlaying}>
           {isPlaying ? (
@@ -91,7 +91,7 @@ const PlayerCenter = (
             nextActive ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
           }`}
         >
-          <NextMusicIcon className={`${nextActive ? 'text-white' : 'text-gray'}`} height='14px' />
+          <NextMusicIcon className={`${nextActive ? 'text-white' : 'text-white'}`} height='14px' />
         </span>
         {isRepeat ? (
           <Tippy content={<span className='text-xs text-white'>Tắt phát lại</span>}>
@@ -115,8 +115,8 @@ const PlayerCenter = (
       </div>
       <div className='mb-[6px] flex h-1 w-full items-center justify-center gap-x-2'>
         <div className='mr-3 flex w-6 items-center'>
-          <span className='text-xs font-bold text-gray'>{minute < 10 ? '0' + minute : minute}</span>:
-          <span className='text-xs font-bold text-gray'>{second < 10 ? '0' + second : second}</span>
+          <span className='text-xs font-bold text-white'>{minute < 10 ? '0' + minute : minute}</span>:
+          <span className='text-xs font-bold text-white'>{second < 10 ? '0' + second : second}</span>
         </div>
         <input
           type='range'
@@ -129,7 +129,7 @@ const PlayerCenter = (
           style={{ backgroundSize: `${percent}% 100%` }}
           onChange={handleCurrentTime}
         />
-        <span className='text-xs font-bold text-gray'>{secondToMinuteAndSecond(parseInt(duration))}</span>
+        <span className='text-xs font-bold text-white'>{secondToMinuteAndSecond(parseInt(duration))}</span>
       </div>
     </div>
   )

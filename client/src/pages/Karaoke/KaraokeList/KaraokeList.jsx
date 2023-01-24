@@ -80,16 +80,16 @@ const KaraokeList = ({ playlists }) => {
               </h5>
               <NameArtist artists={item.artists} large />
               <SortDescription>{item.sortDescription}</SortDescription>
-              <span className='text-xs font-bold text-gray'>{item.releaseDateText}</span>
+              <span className='text-xs font-bold text-white'>{item.releaseDateText}</span>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
       <button className='swiper-button-prev-karaoke' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className='text-gray' width='14px' height='14px' />
+        <LeftArrowIcon className='text-white' width='14px' height='14px' />
       </button>
       <button className='swiper-button-next-karaoke' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className='text-gray' width='14px' height='14px' />
+        <RightArrowIcon className='text-white' width='14px' height='14px' />
       </button>
     </div>
   )

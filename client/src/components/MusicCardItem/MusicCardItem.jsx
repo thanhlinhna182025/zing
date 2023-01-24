@@ -54,7 +54,7 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
       {name && <NameArtist artists={item.artists} large />}
       {sortDescription && <SortDescription>{item.sortDescription}</SortDescription>}
       {releaseDate && <ReleaseDate>{item.releaseDate}</ReleaseDate>}
-      {releaseDateText && <span className='text-gray text-xs font-bold'>{item.releaseDateText}</span>}
+      {releaseDateText && <span className='text-xs font-bold text-white'>{item.releaseDateText}</span>}
     </div>
   )
 }

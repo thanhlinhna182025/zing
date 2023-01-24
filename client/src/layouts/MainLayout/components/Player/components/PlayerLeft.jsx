@@ -11,7 +11,7 @@ const PlayerLeft = ({ musicInfo }) => {
       </div>
       <div className='mr-[30px]'>
         <h5 className='font-[Inter] text-sm font-semibold text-white'>{title}</h5>
-        <Button type='text' to='#' className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-gray'>
+        <Button type='text' to='#' className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>
           {artistsNames}
         </Button>
       </div>

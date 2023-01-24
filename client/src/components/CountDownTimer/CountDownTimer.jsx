@@ -5,8 +5,8 @@ const CountDownTimer = ({ duration }) => {
 
   return (
     <div>
-      <span className='text-xs font-bold text-gray'>05:</span>
-      <span className='text-xs font-bold text-gray'>02</span>
+      <span className='text-xs font-bold text-white'>05:</span>
+      <span className='text-xs font-bold text-white'>02</span>
     </div>
   )
 }

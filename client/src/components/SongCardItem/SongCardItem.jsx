@@ -34,7 +34,7 @@ const SongCardItem = ({ item }) => {
       <div className=' flex-1'>
         <h5 className='w-[80%] truncate text-xs font-bold capitalize text-white'>{item.title}</h5>
         <NameArtist artists={item.artists} />
-        <span className='text-sm font-semibold text-gray'>{releaseDay(item.releaseDate)}</span>
+        <span className='text-sm font-semibold text-white'>{releaseDay(item.releaseDate)}</span>
       </div>
       <div className='absolute top-1/2 right-0 hidden translate-x-[-50%] translate-y-[-50%] rounded-full p-2 group-hover:inline-block hover:bg-main-200'>
         <MoreIcon className='cursor-pointer  text-white ' width='16px' height='16px' />

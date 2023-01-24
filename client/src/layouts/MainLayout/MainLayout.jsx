@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import bgOne from '~/assets/images/bg_1.jpg'
+import bgTwo from '~/assets/images/bg_2.jpg'
+import bgThree from '~/assets/images/bg_3.jpg'
 import { addError } from '~/feature/app/appSlice'
 import { getLinkMusic } from '~/feature/music/musicSlice'
 import Header from '~/layouts/MainLayout/components/Header'
@@ -13,6 +16,8 @@ const MainLayout = ({ children }) => {
   const musicId = useSelector((state) => state.music.musicId)
   const karaokeMode = useSelector((state) => state.app.karaokMode)
   const color = useSelector((state) => state.app.color)
+
+  const [urlImg, setUrlImg] = useState()
 
   useEffect(() => {
     dispatch(getLinkMusic(musicId))
@@ -28,9 +33,35 @@ const MainLayout = ({ children }) => {
       .catch((error) => console.log(error))
   }, [musicId])
   const bgColor = `${color === 'B' ? `bg-B` : color === 'C' ? 'bg-C' : color === 'D' ? 'bg-D' : 'bg-A'}`
+  useEffect(() => {
+    if (color === '1') {
+      setUrlImg({
+        backgroundImage: `url(${bgOne})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      })
+    } else if (color === '2') {
+      setUrlImg({
+        backgroundImage: `url(${bgTwo})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      })
+    } else if (color === '3') {
+      setUrlImg({
+        backgroundImage: `url(${bgThree})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      })
+    } else {
+      setUrlImg({})
+    }
+  }, [color])
 
   return (
-    <div className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
+    <div style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
       <div className='mb-[90px] w-full flex-col items-start'>
         <Header />

@@ -30,7 +30,7 @@ const SingerSongItem = ({ item }) => {
             </div>
           </div>
         </div>
-        <span className='px-[6px] text-right text-xs font-semibold capitalize text-gray'>
+        <span className='px-[6px] text-right text-xs font-semibold capitalize text-white'>
           {secondToMinuteAndSecond(parseInt(item.duration))}
         </span>
       </div>

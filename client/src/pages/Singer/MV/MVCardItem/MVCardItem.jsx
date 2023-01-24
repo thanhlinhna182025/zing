@@ -40,7 +40,7 @@ const MVCardItem = ({ item }) => {
         </div>
         <div>
           <h5 className='mb-[1px] text-sm font-bold text-white'>{item.title}</h5>
-          <h4 className='text-xs font-bold text-gray'>{item.artistsNames}</h4>
+          <h4 className='text-xs font-bold text-white'>{item.artistsNames}</h4>
         </div>
       </div>
     </div>

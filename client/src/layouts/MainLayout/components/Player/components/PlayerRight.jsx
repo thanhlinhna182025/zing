@@ -43,7 +43,7 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
         </TippyString>
       ) : (
         <span className='ml-5 cursor-not-allowed'>
-          <MicroPhoneIcon width='16px' height='16px' className=' text-gray ' />
+          <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
         </span>
       )}
       <TippyString content='Chế độ cửa sổ'>

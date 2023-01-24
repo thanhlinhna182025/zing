@@ -3,12 +3,12 @@ import { StarIcon } from '~/components/Icons'
 
 const NameArtist = ({ artists, large }) => {
   const baseClass = large
-    ? 'mr-[2px]  text-sm text-left font-semibold text-gray hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer'
-    : 'mr-[2px]  text-xs text-left font-[600] text-gray hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer'
+    ? 'mr-[2px]  text-sm text-left font-semibold text-white hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer'
+    : 'mr-[2px]  text-xs text-left font-[600] text-white hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer'
   return (
     <div>
       {artists && (
-        <h3 className=' overflow-hidden text-ellipsis text-gray line-clamp-2'>
+        <h3 className=' overflow-hidden text-ellipsis text-white line-clamp-2'>
           {artists?.map((art, index) => {
             if (artists.length === 1) {
               return (
@@ -35,7 +35,6 @@ const NameArtist = ({ artists, large }) => {
           })}
         </h3>
       )}
-      
     </div>
   )
 }

@@ -41,7 +41,7 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
           {artists?.map((artist, index) => {
             if (artists.length === 1) {
               return (
-                <a key={artist.id} className=' font-[Inter] text-xs font-semibold tracking-[-0.1px] text-gray'>
+                <a key={artist.id} className=' font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>
                   {artist.name}
                 </a>
               )
@@ -50,7 +50,7 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
                 return (
                   <a
                     key={artist.id}
-                    className='mr-[2px]  cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-gray hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
+                    className='mr-[2px]  cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-white hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
                   >
                     {artist.name},
                   </a>
@@ -59,7 +59,7 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
                 return (
                   <a
                     key={artist.id}
-                    className='cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-gray hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
+                    className='cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-white hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
                   >
                     {artist.name}
                   </a>
@@ -69,12 +69,12 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
           })}
           {releaseDate && (
             <>
-              <b className='px-[4px] align-top text-[20px] font-black leading-3 text-gray'>.</b>
-              <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-gray'>{releaseDate}</span>
+              <b className='px-[4px] align-top text-[20px] font-black leading-3 text-white'>.</b>
+              <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>{releaseDate}</span>
             </>
           )}
         </div>
-        <p className='mb-[20px] font-[Inter] text-xs font-semibold text-gray'>{like} người yêu thích</p>
+        <p className='mb-[20px] font-[Inter] text-xs font-semibold text-white'>{like} người yêu thích</p>
         <Button type='secondary' className='mb-4 mr-[10px] flex items-center py-2 px-[25px]'>
           <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
           <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>

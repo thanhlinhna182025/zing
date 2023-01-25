@@ -17,6 +17,10 @@ const AlbumSongItem = ({ item, index, release }) => {
 
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const musicId = useSelector((state) => state.music.musicId)
+  const color = useSelector((state) => state.app.color)
+  const bgHoverColor = `${
+    color === 'B' ? `hover:bg-BB` : color === 'C' ? 'hover:bg-CC' : color === 'D' ? 'hover:bg-DD' : 'hover:bg-AA'
+  }`
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
@@ -25,7 +29,9 @@ const AlbumSongItem = ({ item, index, release }) => {
 
   return (
     <div className='group flex flex-col'>
-      <div className='flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] hover:bg-main-300'>
+      <div
+        className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] ${bgHoverColor}`}
+      >
         <div className='flex w-1/2 items-center gap-[10px] gap-x-2 overflow-hidden'>
           <MusicNodeIcon className=' text-white ' width='16px' height='16px' />
           <div

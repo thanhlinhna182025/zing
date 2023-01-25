@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux'
 import MusicBar from '~/assets/images/Z23N.gif'
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
+
 const AlbumThumnail = ({
   thumbnailM,
   artists,
@@ -12,9 +14,11 @@ const AlbumThumnail = ({
   handlePlayAll,
   handleShuffle,
   isPlaying,
-  isShuffle,
   isPlayAll
 }) => {
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
+
   return (
     <div>
       {isPlaying ? (
@@ -80,12 +84,22 @@ const AlbumThumnail = ({
         </div>
         <p className='mb-[20px] font-[Inter] text-xs font-semibold text-white'>{like} người yêu thích</p>
         {isPlayAll ? (
-          <Button type='secondary' className='mb-4 mr-[10px] flex items-center py-2 px-[25px]' onClick={handleShuffle}>
-            <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
+          <Button
+            rounded
+            type='secondary'
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            onClick={handleShuffle}
+          >
+            <PlayFillIcon className={`text-white' width='16px' height='16px mr-[5px] `} />
             <span className='text-sm font-normal leading-normal'> PHÁT NGẪU NHIÊN </span>
           </Button>
         ) : (
-          <Button type='secondary' className='mb-4 mr-[10px] flex items-center py-2 px-[25px]' onClick={handlePlayAll}>
+          <Button
+            rounded
+            type='secondary'
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            onClick={handlePlayAll}
+          >
             <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
             <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
           </Button>

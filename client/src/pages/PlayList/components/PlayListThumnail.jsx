@@ -1,16 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import MusicBar from '~/assets/images/Z23N.gif'
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
-import { isPlayingToggle } from '~/feature/app/appSlice'
 
-const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
-  const isPlaying = useSelector((state) => state.app.isPlaying)
-  const dispatch = useDispatch()
-  const handleToggle = () => {
-    dispatch(isPlayingToggle())
-  }
+const PlayListThumnail = ({
+  thumbnailM,
+  artists,
+  releaseDate,
+  title,
+  like,
+  handleToggle,
+  handlePlayAll,
+  handleShuffle,
+  isPlaying,
+  isPlayAll
+}) => {
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
+
   return (
     <div>
       {isPlaying ? (
@@ -75,10 +83,28 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
           )}
         </div>
         <p className='mb-[20px] font-[Inter] text-xs font-semibold text-white'>{like} người yêu thích</p>
-        <Button type='secondary' className='mb-4 mr-[10px] flex items-center py-2 px-[25px]'>
-          <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
-          <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
-        </Button>
+        {isPlayAll ? (
+          <Button
+            rounded
+            type='secondary'
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            onClick={handleShuffle}
+          >
+            <PlayFillIcon className={`text-white' width='16px' height='16px mr-[5px] `} />
+            <span className='text-sm font-normal leading-normal'> PHÁT NGẪU NHIÊN </span>
+          </Button>
+        ) : (
+          <Button
+            rounded
+            type='secondary'
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            onClick={handlePlayAll}
+          >
+            <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
+            <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
+          </Button>
+        )}
+
         <div className='mr-2 flex items-center'>
           <Button type='text' rounded className=' mr-5 flex h-[35px] w-[35px] items-center justify-center bg-[#2f2739]'>
             <HeartIcon className='text-ebony170-200' width='16px' height='16px' />
@@ -91,4 +117,4 @@ const AlbumThumnail = ({ thumbnailM, artists, releaseDate, title, like }) => {
     </div>
   )
 }
-export default AlbumThumnail
+export default PlayListThumnail

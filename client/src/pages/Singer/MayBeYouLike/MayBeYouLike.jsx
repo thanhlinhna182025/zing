@@ -1,5 +1,5 @@
+import SingleSingerItem from '~/components/SingleSingerItem'
 import Title from '~/components/Title'
-import MayBeYouLikeItem from './MayBeYouLikeItem'
 const MayBeYouLike = ({ mayBeYouLike }) => {
   return (
     <div className='mb-main-margin'>
@@ -8,7 +8,7 @@ const MayBeYouLike = ({ mayBeYouLike }) => {
       </div>
       <div className='grid  grid-cols-5'>
         {mayBeYouLike?.items?.slice(0, 5).map((item) => (
-          <MayBeYouLikeItem item={item} key={item.id} />
+          <SingleSingerItem item={item} key={item.id} />
         ))}
       </div>
     </div>

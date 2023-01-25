@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
@@ -24,9 +24,11 @@ const SongCardItem = ({ item }) => {
       console.log('Khong thuoc truong hop tren')
     }
   }
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-main-200'}`
 
   return (
-    <div className='group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 hover:bg-main-400'>
+    <div className={`group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 hover:${bgColor}`}>
       <div className=' relative w-[60px]' onClick={() => handleRedirect(item)}>
         <img className='block w-full object-cover' src={item.thumbnail} />
         <PlayFullFillIcon className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] cursor-pointer text-white group-hover:inline-block hover:opacity-90 ' />

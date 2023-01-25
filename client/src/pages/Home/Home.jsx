@@ -57,7 +57,7 @@ const Home = () => {
       })
   }, [])
   return (
-    <div className='mb-[200px] w-full pt-[32px]'>
+    <div className=' w-full pt-[32px]'>
       <Banner banner={banner} />
       <NewRelease newRelease={newRelease} />
       <AutoThemeOne autoThemeOne={autoThemeOne} />

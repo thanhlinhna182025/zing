@@ -8,10 +8,18 @@ import dynamicPink from '~/assets/images/dynamic-pink.jpg'
 import Button from '~/components/Button'
 import { CloseCirleIcon } from '~/components/Icons'
 import { setColor } from '~/feature/app/appSlice'
+import { setDarkMode } from '../../../../../feature/app/appSlice'
 const DisplayModal = ({ hideDisplay }) => {
   const dispatch = useDispatch()
   const handleBackgroundValue = (e) => {
     dispatch(setColor(e.target.value))
+    if (e.target.value === 'B' || e.target.value === 'C') {
+      dispatch(setDarkMode(true))
+    } else if (e.target.value === 'D') {
+      dispatch(setDarkMode(false))
+    } else {
+      dispatch(setDarkMode(false))
+    }
   }
 
   return (

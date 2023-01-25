@@ -17,10 +17,10 @@ const Button = (
   ref
 ) => {
   const backgoundColor = {
-    primary: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
-    secondary: 'bg-secondary-100 font-[Inter] hover:opacity-[0.9]',
-    outline: 'bg-tranparent font-[Inter] hover:opacity-[0.9]',
-    text: 'bg-tranparent font-[Inter] hover:opacity-[0.9]'
+    primary: 'font-[Inter] hover:opacity-[0.9]',
+    secondary: 'font-[Inter] hover:opacity-[0.9]',
+    outline: 'font-[Inter] hover:opacity-[0.9]',
+    text: 'font-[Inter] hover:opacity-[0.9]'
   }
   const color = {
     primary: 'text-white',

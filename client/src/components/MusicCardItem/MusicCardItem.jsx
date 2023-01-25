@@ -33,7 +33,7 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
       <div className='group relative mb-3 box-border overflow-hidden rounded-md' key={item.encodeId}>
         <img
           src={item.thumbnail}
-          className=' rounded-md object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
+          className=' w-full rounded-md object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
         />
         <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
           <div className={baseClass}>

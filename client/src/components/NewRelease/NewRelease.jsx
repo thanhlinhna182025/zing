@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import SeeAllButton from '~/components/SeeAllButton'
 import SongCardItem from '~/components/SongCardItem'
 import Title from '~/components/Title'
 import configs from '~/configs'
+
 const NewRelease = ({ newRelease }) => {
   const [data, setData] = useState(newRelease?.items?.all?.slice(0, 12))
   const [typeData, setTypeData] = useState('all')
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
+
   useEffect(() => {
     if (typeData === 'vPop') {
       setData(newRelease?.items?.vPop?.slice(0, 12))
@@ -31,9 +36,7 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('all')}
             rounded
-            className={`mr-[14px] ${
-              typeData === 'all' && 'bg-secondary-100'
-            } py-1 px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${typeData === 'all' && bgColor} py-1 px-6 text-xs font-normal leading-[1.42]`}
           >
             TẤT CẢ
           </Button>
@@ -41,9 +44,7 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('vPop')}
             rounded
-            className={`mr-[14px] ${
-              typeData === 'vPop' && 'bg-secondary-100'
-            }  py-[3px] px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${typeData === 'vPop' && bgColor}  py-[3px] px-6 text-xs font-normal leading-[1.42]`}
           >
             VIỆT NAM
           </Button>
@@ -51,9 +52,7 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('others')}
             rounded
-            className={`mr-[14px] ${
-              typeData === 'others' && 'bg-secondary-100'
-            } py-[3px] px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${typeData === 'others' && bgColor} py-[3px] px-6 text-xs font-normal leading-[1.42]`}
           >
             QUÔC TẾ
           </Button>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { addAlbumSongs, getDetailPlaylist } from '../../feature/album/albumSlice'
 import { isPlayingToggle, setIsPlayAll, setIsShuffle } from '../../feature/app/appSlice'
-import { AlbumListSong, AlbumThumnail } from './components'
+import { AlbumListSong, AlbumThumnail, Artists } from './components'
 
 const Album = () => {
   const [albumResource, setAlbumResource] = useState(null)
@@ -28,15 +28,16 @@ const Album = () => {
     dispatch(getDetailPlaylist(id))
       .unwrap()
       .then((result) => {
+        console.log(result)
         setAlbumResource(result)
         dispatch(addAlbumSongs(result?.song))
       })
       .catch((err) => console.log(err))
   }, [id])
   return (
-    <div className='flex flex-col pt-10'>
+    <div className='mb-player-height'>
       {albumResource && (
-        <>
+        <div className='flex flex-col pt-10'>
           <div className='flex gap-x-[30px]'>
             <AlbumThumnail
               artists={albumResource?.artists}
@@ -53,7 +54,8 @@ const Album = () => {
             />
             <AlbumListSong song={albumResource?.song} description={albumResource?.description} />
           </div>
-        </>
+          <Artists artists={albumResource?.artists} />
+        </div>
       )}
     </div>
   )

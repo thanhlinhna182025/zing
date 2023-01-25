@@ -86,10 +86,10 @@ const ListBottom = [
 const SideBar = () => {
   const [active, setActive] = useState(2)
   const color = useSelector((state) => state.app.color)
-  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
+  const bgColor = `${color === 'B' ? `bg-B-100` : color === 'C' ? 'bg-C-100' : color === 'D' ? 'bg-D-100' : 'bg-A-100'}`
 
   return (
-    <div className='fixed left-0 top-0 w-size-bar-width flex-shrink-0 '>
+    <div className={`fixed left-0 top-0 w-size-bar-width flex-shrink-0 ${bgColor}`}>
       <div className='flex h-[70px] w-full  items-center pl-[28px]'>
         <Link to={configs.routes.home}>
           <LogoIcon className='-translate-y-[2px]' />
@@ -97,13 +97,13 @@ const SideBar = () => {
       </div>
       <nav className='w-full'>
         <ul className='w-full '>
-          {ListTop.map((item, index) => {
+          {ListTop.map((item) => {
             let Icon = item.icon
             return <SideBarItem key={item.path} icon={Icon} item={item} setActive={setActive} active={active} />
           })}
         </ul>
       </nav>
-      <div className='m-auto  mt-[15px] h-[1px] w-[190px] bg-main-200'></div>
+      <div className='bg-main-200  m-auto mt-[15px] h-[1px] w-[190px]'></div>
       <div className='h-[247px] scrollbar'>
         <nav className='mt-[15px] w-full'>
           <ul className='w-full '>
@@ -139,7 +139,7 @@ const SideBar = () => {
       </div>
       <Button
         isBlock
-        className='flex items-center justify-start border-t-[1px] border-solid border-main-200 pt-[14px] pb-[14px]'
+        className='border-main-200 flex items-center justify-start border-t-[1px] border-solid pt-[14px] pb-[14px]'
       >
         <AddIcon className='ml-[24px] mr-[6px] text-white' />
         <span className='font-["Inter"] text-[14px] font-bold leading-5 text-white'>Tạo playlist mới</span>

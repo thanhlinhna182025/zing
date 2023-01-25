@@ -30,7 +30,7 @@ const playlistConfig = {
 const appConfig = {
   ...persistConfig,
   key: 'app',
-  whitelist: ['color']
+  whitelist: ['color', 'darkMode']
 }
 
 export const store = configureStore({

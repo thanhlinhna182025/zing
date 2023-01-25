@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
 import { AddUserIcon } from '~/components/Icons'
 import { numberToStringFollow } from '~/utils/hepper'
-const MayBeYouLikeItem = ({ item }) => {
+const SingleSingerItem = ({ item }) => {
   return (
     <div className='flex-col px-[14px]'>
       <div className='mb-4'>
@@ -19,4 +19,4 @@ const MayBeYouLikeItem = ({ item }) => {
     </div>
   )
 }
-export default MayBeYouLikeItem
+export default SingleSingerItem

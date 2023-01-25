@@ -154,6 +154,10 @@ const Player = ({ url, info, volume }) => {
       setNextActive(false)
     }
   }, [nextActive, prevActive, curentIndexSong, isSingle, musicId])
+  const color = useSelector((state) => state.app.color)
+  const bgColor = `${
+    color === 'B' ? `bg-B-100` : color === 'C' ? 'bg-C-100' : color === 'D' ? 'bg-D-100' : ' bg-A-100'
+  }`
 
   useEffect(() => {
     const handleEnded = () => {
@@ -191,7 +195,9 @@ const Player = ({ url, info, volume }) => {
   }, [isRepeat, isPlayAll, isShuffle, curentIndexSong])
 
   return (
-    <div className='border-t-solid fixed bottom-0 z-10 flex h-[90px] w-full items-center justify-between border-t border-t-[#414141]  px-5'>
+    <div
+      className={`border-t-solid fixed bottom-0 z-10 flex h-player-height w-full items-center justify-between border-t border-t-[#414141] px-5 ${bgColor}`}
+    >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />
 
@@ -215,7 +221,6 @@ const Player = ({ url, info, volume }) => {
         togleIsShuffle={togleIsShuffle}
         isSingle={isSingle}
       />
-
       <PlayerRight ref={volumeBarRef} handleVolume={handleVolume} currentVolume={currentVolume} />
     </div>
   )

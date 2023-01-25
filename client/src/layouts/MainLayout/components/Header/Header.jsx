@@ -1,5 +1,6 @@
-import TippyHeadless from '@tippyjs/react/headless' // different import path!
+import TippyHeadless from '@tippyjs/react/headless'; // different import path!
 import { forwardRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Button from '~/components/Button/Button'
 import {
   ClotheIcon,
@@ -13,17 +14,33 @@ import {
 } from '~/components/Icons/Icons'
 import TippyString from '~/components/TippyString'
 import DisplayModal from './DisplayModal'
+import SearchModal from './SearchModal'
 import SettingModal from './SettingModal'
 
-const Header = () => {
+const Header = ({ isTransparent }) => {
+  const color = useSelector((state) => state.app.color)
+  const bg200Color = `${
+    color === 'B' ? `bg-B-200` : color === 'C' ? 'bg-C-200' : color === 'D' ? 'bg-D-200' : ' bg-A-200'
+  }`
+  const bgColor = `${
+    color === 'B' ? `bg-B` : color === 'C' ? 'bg-C' : color === 'D' ? 'bg-D' : ' bg-A'
+  }`
   const [visibleSetting, setVisibleSetting] = useState(false)
+  const [visibleDisplay, setVisibleDisplay] = useState(false)
+  const [visibleSearch, setVisibleSearch] = useState(false)
   const showSetting = () => setVisibleSetting(true)
   const hideSetting = () => setVisibleSetting(false)
-  const [visibleDisplay, setVisibleDisplay] = useState(false)
   const showDisplay = () => setVisibleDisplay(true)
   const hideDisplay = () => setVisibleDisplay(false)
+  const showSearch = () => setVisibleSearch(true)
+  const hideSearch = () => setVisibleSearch(false)
+
   return (
-    <header className='fixed top-0 right-[59px] z-10 flex  h-[70px] w-[calc(100%-240px-59px-59px)] flex-1 items-center justify-between bg-transparent'>
+    <header
+      className={`fixed ${
+        isTransparent ? 'bg-transparent' : bg200Color
+      } top-0 right-0 z-10 flex h-[70px] w-[calc(100%-240px)]  flex-1 items-center justify-between px-main-margin `}
+    >
       <div className='flex items-center'>
         <div className='flex items-center'>
           <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px]'>
@@ -33,15 +50,24 @@ const Header = () => {
             <NextArrowIcon className='text-white' width='19px' height='19px' />
           </Button>
         </div>
-        <form className='ml-[22px] flex max-w-[440px] items-center rounded-full bg-[hsla(0,0%,100%,0.2)]'>
-          <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
-            <SearchIcon className='translate-y-[1px] translate-x-[1px] text-white' width='20px' height='20px' />
-          </Button>
-          <input
-            placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
-            className='w-[400px] rounded-full  border-none bg-transparent py-[8px] pl-[1px] pr-2 text-white outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600]'
-          />
-        </form>
+        <TippyHeadless
+          visible={visibleSearch}
+          onClickOutside={hideSearch}
+          interactive={true}
+          placement='bottom'
+          render={(attrs) => <SearchModal {...attrs} tabIndex='0' />}
+        >
+          <form className={`ml-[22px] flex w-search-input-width items-center rounded-full ${bgColor}`}>
+            <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
+              <SearchIcon className='translate-y-[1px] translate-x-[1px] text-white' width='20px' height='20px' />
+            </Button>
+            <input
+              onClick={visibleSearch ? hideSearch : showSearch}
+              placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
+              className='w-[400px] rounded-full  border-none bg-transparent py-[8px] pl-[1px] pr-2 text-white outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600]'
+            />
+          </form>
+        </TippyHeadless>
       </div>
       <div className='flex  items-center  px-[10px]'>
         <div>

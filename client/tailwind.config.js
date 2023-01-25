@@ -1,30 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 
 const colorPalete = {
-  purpleA84: {
-    50: '#fbf6fe',
-    100: '#f5eafd',
-    200: '#edd8fc',
-    300: '#e0b9f9',
-    400: '#cd8cf4',
-    500: '#b960ec',
-    600: '#a845de',
-    700: '#8f2ec2',
-    800: '#782b9e',
-    900: '#62247f'
-  },
-  ebony170: {
-    50: '#f0effe',
-    100: '#e6e2fd',
-    200: '#d2cbfa',
-    300: '#bbacf5',
-    400: '#a58aef',
-    500: '#976ee6',
-    600: '#8b52d9',
-    700: '#7a43bf',
-    800: '#62399a',
-    900: '#170f23'
-  }
+  'dark-mode': '#ffffff',
+  'light-mode': '#00000',
+  gray: '#444444',
+  'A-0': '#9D4DE0',
+  'A-100': '#2F2739',
+  'A-200': '#231B2E',
+  'A-300': '#170F23',
+  'B-0': '#1C4A7C',
+  'B-100': '#22354E',
+  'B-200': '#172F4F',
+  'B-300': '#0C1f40',
+  'C-0': '#E7E3E0',
+  'C-100': '#95726A',
+  'C-200': '#775850',
+  'C-300': '#5B4039',
+  'D-0': '#F7E3E4',
+  'D-100': '#fbe6e6',
+  'D-200': '#f9c6c5',
+  'D-300': '#9A2874'
 }
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
@@ -34,41 +29,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'Roboto']
       },
-      colors: {
-        gray: '#7B7782',
-        light: '#C3C2C4',
-        'main-100': '#DADADA',
-        'main-200': '#3A3344',
-        'main-300': '#2F2739',
-        'main-400': '#231B2E',
-        'main-500': '#170F23',
-        'secondary-100': '#9D4DE0',
-        'secondary-200': '#514169',
-        'secondary-300': '#5B4678',
-        A: '#170F23',
-        AA: '#9D4DE0',
-        B: '#0C1f40',
-        BB: '#1C4A7C',
-        C: '#5B4039',
-        CC: '#E7E3E0',
-        D: '#9A2874',
-        DD: '#F7E3E4'
-      },
-      backgroundColor: {
-        'main-100': '#DADADA',
-        'main-200': '#3A3344',
-        'main-300': '#2F2739',
-        'main-400': '#231B2E',
-        'main-500': '#170F23',
-        A: '#170F23',
-        AA: '#9D4DE0',
-        B: '#0C1f40',
-        BB: '#1C4A7C',
-        C: '#5B4039',
-        CC: '#E7E3E0',
-        D: '#9A2874',
-        DD: '#F7E3E4'
-      },
+      colors: colorPalete,
+      backgroundColor: colorPalete,
+      borderColor: colorPalete,
       keyframes: {
         'slide-top': {
           ' 0% ': {
@@ -122,7 +85,9 @@ module.exports = {
       spacing: {
         'header-padding': '59px',
         'header-margin': '70px',
-        'main-margin': '49px'
+        'main-margin': '49px',
+        'player-height': '90px',
+        'search-input-width': '440px'
       },
       width: {
         'size-bar-width': '240px'

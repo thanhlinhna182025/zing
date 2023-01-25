@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import bgOne from '~/assets/images/bg_1.jpg'
 import bgTwo from '~/assets/images/bg_2.jpg'
@@ -16,8 +16,10 @@ const MainLayout = ({ children }) => {
   const musicId = useSelector((state) => state.music.musicId)
   const karaokeMode = useSelector((state) => state.app.karaokMode)
   const color = useSelector((state) => state.app.color)
+  const ref = useRef()
 
   const [urlImg, setUrlImg] = useState()
+  const [isTransparent, setIsTransparent] = useState(false)
 
   useEffect(() => {
     dispatch(getLinkMusic(musicId))
@@ -32,7 +34,7 @@ const MainLayout = ({ children }) => {
       })
       .catch((error) => console.log(error))
   }, [musicId])
-  const bgColor = `${color === 'B' ? `bg-B` : color === 'C' ? 'bg-C' : color === 'D' ? 'bg-D' : 'bg-A'}`
+  const bgColor = `${color === 'B' ? `bg-B-200` : color === 'C' ? 'bg-C-200' : color === 'D' ? 'bg-D-200' : 'bg-A-200'}`
   useEffect(() => {
     if (color === '1') {
       setUrlImg({
@@ -59,13 +61,28 @@ const MainLayout = ({ children }) => {
       setUrlImg({})
     }
   }, [color])
+  useEffect(() => {
+    ref.current.addEventListener('scroll', handleHeaderColor)
+    return () => {
+      ref.current.removeEventListener('scroll', handleHeaderColor)
+    }
+  }, [])
+  const handleHeaderColor = () => {
+    if (ref.current.scrollTop >= 32) {
+      setIsTransparent(false)
+    } else {
+      setIsTransparent(true)
+    }
+  }
 
   return (
-    <div style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
+    <div ref={ref} style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
-      <div className='mb-[90px] w-full flex-col items-start'>
-        <Header />
-        <main className='mt-header-margin ml-[240px] w-[calc(100%-240px)] px-header-padding'>{children}</main>
+      <div className=' w-full flex-col items-start '>
+        <Header isTransparent={isTransparent} />
+        <main className='mt-header-margin ml-[240px] mb-player-height w-[calc(100%-240px)] px-header-padding'>
+          {children}
+        </main>
       </div>
       {url && <Player url={url} />}
       {karaokeMode && <Karaoke url={url} />}

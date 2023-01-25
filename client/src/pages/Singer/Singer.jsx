@@ -59,7 +59,7 @@ const Singer = () => {
       .catch((err) => console.log(err))
   }, [name])
   return (
-    <div className='mb-[200px] w-full'>
+    <div className='mb-player-height w-full'>
       <Poster poster={poster} isPoster={isPoster} />
       <div className='mb-main-margin flex items-start '>
         <MusicCardHightlight item={hightlightSong} large />

@@ -11,6 +11,7 @@ import {
   setIsShuffle
 } from '~/feature/app/appSlice'
 import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
+import useColor from '~/hooks/useColor'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 const Player = ({ url, info, volume }) => {
@@ -31,6 +32,8 @@ const Player = ({ url, info, volume }) => {
   const [currentVolume, setCurrentVolume] = useState(50)
   const [currentTime, setCurrentTime] = useState(0)
   const [songsLength, setSongsLength] = useState(0)
+
+  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
 
   const params = useParams()
   const audioRef = useRef()
@@ -154,10 +157,8 @@ const Player = ({ url, info, volume }) => {
       setNextActive(false)
     }
   }, [nextActive, prevActive, curentIndexSong, isSingle, musicId])
-  const color = useSelector((state) => state.app.color)
-  const bgColor = `${
-    color === 'B' ? `bg-B-100` : color === 'C' ? 'bg-C-100' : color === 'D' ? 'bg-D-100' : ' bg-A-100'
-  }`
+
+  
 
   useEffect(() => {
     const handleEnded = () => {
@@ -196,7 +197,7 @@ const Player = ({ url, info, volume }) => {
 
   return (
     <div
-      className={`border-t-solid fixed bottom-0 z-10 flex h-player-height w-full items-center justify-between border-t border-t-[#414141] px-5 ${bgColor}`}
+      className={`border-t-solid fixed bottom-0 z-10 flex h-player-height w-full items-center justify-between border-t border-t-[#414141] px-5 ${bg200Color}`}
     >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />

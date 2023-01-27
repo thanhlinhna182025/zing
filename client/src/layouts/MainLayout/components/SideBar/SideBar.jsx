@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
 import {
@@ -16,6 +15,7 @@ import {
   ZingChatIcon
 } from '~/components/Icons/Icons'
 import configs from '~/configs'
+import useColor from '../../../../hooks/useColor'
 import SideBarItem from './SideBarItem'
 
 const ListTop = [
@@ -85,11 +85,10 @@ const ListBottom = [
 
 const SideBar = () => {
   const [active, setActive] = useState(2)
-  const color = useSelector((state) => state.app.color)
-  const bgColor = `${color === 'B' ? `bg-B-100` : color === 'C' ? 'bg-C-100' : color === 'D' ? 'bg-D-100' : 'bg-A-100'}`
+  const [bg0, bg100Color, bg200Color, bg300Color] = useColor()
 
   return (
-    <div className={`fixed left-0 top-0 w-size-bar-width flex-shrink-0 ${bgColor}`}>
+    <div className={`fixed left-0 top-0 w-size-bar-width flex-shrink-0 ${bg100Color}`}>
       <div className='flex h-[70px] w-full  items-center pl-[28px]'>
         <Link to={configs.routes.home}>
           <LogoIcon className='-translate-y-[2px]' />
@@ -114,19 +113,19 @@ const SideBar = () => {
           </ul>
         </nav>
         <div className='bg-purpleA84-700 mx-5 mt-[15px] flex flex-col items-center rounded-lg px-2 py-[15px]'>
-          <p className='mb-[10px] text-center font-[Inter] text-[12px] font-semibold text-white'>
+          <p className='mb-[10px] ml-[10px] text-center font-[Inter] font-[Inter] text-[12px] text-[13px] font-semibold font-bold leading-4 text-light-mode dark:text-dark-mode'>
             Đăng nhập để khám phá playlist dành riêng cho bạn
           </p>
           <Button
             type='outline'
             hasBorder
-            className='w-[144px] rounded-full px-[15px] py-[6px] text-[13px] font-semibold hover:opacity-90'
+            className={`w-[144px] rounded-full px-[15px] py-[6px] text-[13px] font-semibold text-light-mode hover:opacity-90 dark:text-dark-mode ${bg300Color}`}
           >
             ĐĂNG NHẬP
           </Button>
         </div>
         <div className='mx-5 mt-[15px] flex flex-col items-center rounded-lg  bg-gradient-to-br from-[#5F4DE6] to-[#C26BD7] px-2 py-[15px]'>
-          <p className='mb-[10px] text-center font-[Inter] text-[12px] font-semibold text-white'>
+          <p className='mb-[10px] text-center font-[Inter] text-[12px] font-semibold text-light-mode dark:text-dark-mode'>
             Nghe nhạc không quản cáo cùng kho nhạc VIP
           </p>
           <Button
@@ -139,10 +138,12 @@ const SideBar = () => {
       </div>
       <Button
         isBlock
-        className='border-main-200 flex items-center justify-start border-t-[1px] border-solid pt-[14px] pb-[14px]'
+        className={`${bg300Color} flex items-center justify-start border-t-[1px] border-solid border-gray pt-[14px] pb-[14px]`}
       >
-        <AddIcon className='ml-[24px] mr-[6px] text-white' />
-        <span className='font-["Inter"] text-[14px] font-bold leading-5 text-white'>Tạo playlist mới</span>
+        <AddIcon className='ml-[24px] mr-[6px] text-light-mode dark:text-dark-mode' />
+        <span className='font-[Inter] text-[14px] font-bold leading-5 text-light-mode dark:text-dark-mode'>
+          Tạo playlist mới
+        </span>
       </Button>
     </div>
   )

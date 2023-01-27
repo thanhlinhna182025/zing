@@ -44,7 +44,7 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('vPop')}
             rounded
-            className={`mr-[14px] ${typeData === 'vPop' && bgColor}  py-[3px] px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${typeData === 'vPop' && bgColor} py-[3px] px-6  text-xs font-normal leading-[1.42]`}
           >
             VIỆT NAM
           </Button>

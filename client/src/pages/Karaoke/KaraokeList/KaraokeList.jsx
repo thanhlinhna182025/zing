@@ -12,20 +12,16 @@ import { addMusicId } from '~/feature/music/musicSlice'
 import { addPlaylistId } from '~/feature/playlist/playlistSlice'
 import { LeftArrowIcon, RightArrowIcon } from '../../../components/Icons/Icons'
 const KaraokeList = ({ playlists }) => {
-  console.log(playlists)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleRedirect = (item) => {
     if (item.type === 1 || item.link.startsWith('/bai-hat')) {
-      console.log("item.type === 1 || item.link.startsWith('/bai-hat')")
       dispatch(addMusicId(item.encodeId))
     } else if (item.type === 4 || item.link.startsWith('/album')) {
-      console.log("item.type === 4 || item.link.startsWith('/album')")
       const link = item?.link.split('.')[0]
       dispatch(addAlbumId(link.split('/')[3]))
       navigate(link)
     } else if (item.type === 5 || item.link.startsWith('/playlist')) {
-      console.log("item.type === 5 || item.link.startsWith('/playlist')")
       const link = item?.link.split('.')[0]
       dispatch(addPlaylistId(link.split('/')[3]))
       navigate(link)
@@ -65,31 +61,39 @@ const KaraokeList = ({ playlists }) => {
                 />
                 <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
                   <div className='flex items-center gap-x-5'>
-                    <div className='cursor-pointer rounded-full p-[5px] hover:bg-main-200'>
-                      <HeartIcon width='20px' height='20px' className='text-white' />
+                    <div className='hover:bg-main-200 cursor-pointer rounded-full p-[5px]'>
+                      <HeartIcon width='20px' height='20px' className='text-light-mode dark:text-dark-mode' />
                     </div>
-                    <PlayVideoIcon width='45px' height='45px' className='cursor-pointer text-white' />
-                    <div className='rounded-full p-[5px] hover:bg-main-200'>
-                      <MoreIcon width='16px' height='16px' className='cursor-pointer text-white' />
+                    <PlayVideoIcon
+                      width='45px'
+                      height='45px'
+                      className='cursor-pointer text-light-mode dark:text-dark-mode'
+                    />
+                    <div className='hover:bg-main-200 rounded-full p-[5px]'>
+                      <MoreIcon
+                        width='16px'
+                        height='16px'
+                        className='cursor-pointer text-light-mode dark:text-dark-mode'
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-              <h5 className='cursor-pointer truncate text-sm font-bold text-white hover:text-secondary-100'>
+              <h5 className='hover:text-secondary-100 cursor-pointer truncate text-sm font-bold text-light-mode dark:text-dark-mode'>
                 {item.title}
               </h5>
               <NameArtist artists={item.artists} large />
               <SortDescription>{item.sortDescription}</SortDescription>
-              <span className='text-xs font-bold text-white'>{item.releaseDateText}</span>
+              <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>{item.releaseDateText}</span>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
       <button className='swiper-button-prev-karaoke' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className='text-white' width='14px' height='14px' />
+        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
       </button>
       <button className='swiper-button-next-karaoke' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className='text-white' width='14px' height='14px' />
+        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
       </button>
     </div>
   )

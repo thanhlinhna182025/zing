@@ -498,7 +498,7 @@ export const HeartIcon = ({ className, width = '20px', height = '20px' }) => {
 }
 export const MoreIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
-    <svg fill='#fff' className={className} width={width} height={height} viewBox='0 0 472.576 472.576'>
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 472.576 472.576'>
       <g>
         <g>
           <circle cx='65.142' cy='236.288' r='65.142' />
@@ -1083,7 +1083,7 @@ export const TrendUpIcon = ({ className, width = '20px', height = '20px' }) => {
     <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
       <path
         d='M3 17L9 11L13 15L21 7M21 7V12M21 7H16'
-        stroke='#ffffff'
+        stroke='#currentColor'
         strokeWidth='2'
         strokeLinecap='round'
         strokeLinejoin='round'

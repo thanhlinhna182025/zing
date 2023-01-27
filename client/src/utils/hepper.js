@@ -11,7 +11,6 @@ export function msToTime(duration) {
   return hours + ':' + minutes + ':' + seconds + '.' + milliseconds
 }
 
-
 export function secondToMinuteAndSecond(duration) {
   let seconds = Math.floor(duration % 60)
   let minutes = Math.floor((duration / 60) % 60)
@@ -20,9 +19,26 @@ export function secondToMinuteAndSecond(duration) {
 
   return minutes + ':' + seconds
 }
+export function secondToHourMinuteSecond(duration) {
+  let seconds = Math.floor(duration % 60)
+  let minutes = Math.floor((duration / 60) % 60)
+  let hour = Math.floor((duration / (60 * 60)) % 60)
+  hour = hour < 10 ? '0' + hour : hour
+  minutes = minutes < 10 ? '0' + minutes : minutes
+  seconds = seconds < 10 ? '0' + seconds : seconds
+
+  return hour + ':' + minutes + ':' + seconds
+}
 export function secondToMinute(duration) {
   let minutes = Math.floor((duration / 60) % 60)
   return minutes
+}
+export function secondToHourMinute(duration) {
+  let hour = Math.floor((duration / (60 * 60)) % 60)
+  let minutes = Math.floor((duration / 60) % 60)
+  hour = hour < 10 ? '0' + hour : hour
+  minutes = minutes < 10 ? '0' + minutes : minutes
+  return hour + ' ' + 'giờ' + ' ' + minutes + ' ' + 'phút'
 }
 export function releaseDay(time) {
   const date = new Date().getTime()

@@ -17,10 +17,6 @@ const AlbumSongItem = ({ item, index, release }) => {
 
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const musicId = useSelector((state) => state.music.musicId)
-  const color = useSelector((state) => state.app.color)
-  const bgHoverColor = `${
-    color === 'B' ? `hover:bg-BB` : color === 'C' ? 'hover:bg-CC' : color === 'D' ? 'hover:bg-DD' : 'hover:bg-AA'
-  }`
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
@@ -28,12 +24,12 @@ const AlbumSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className='group flex flex-col'>
+    <div className={`group flex flex-col hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode `}>
       <div
-        className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] ${bgHoverColor}`}
+        className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >
         <div className='flex w-1/2 items-center gap-[10px] gap-x-2 overflow-hidden'>
-          <MusicNodeIcon className=' text-white ' width='16px' height='16px' />
+          <MusicNodeIcon className=' text-light-mode dark:text-dark-mode ' width='16px' height='16px' />
           <div
             className='relative h-[40px] w-[40px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
             onClick={handleSong}
@@ -43,39 +39,43 @@ const AlbumSongItem = ({ item, index, release }) => {
               <img src={MusicBar} className='absolute top-0 left-0 z-10' />
             ) : (
               <PlayFullFillIcon
-                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%] text-white group-hover:inline-block'
+                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%]  group-hover:inline-block text-white'
                 width='16px'
                 height='16px'
               />
             )}
             <PlayFullFillIcon
-              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
+              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  group-hover:inline-block text-white'
               width='16px'
               height='16px'
             />
           </div>
-          <div className='flex flex-col justify-start'>
-            <h5 className='mb-[2px] max-w-[250px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-white'>
+          <div className='flex flex-grow flex-col justify-start '>
+            <h5
+              className={`mb-[2px] max-w-[250px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-light-mode dark:text-dark-mode `}
+            >
               {item?.title}
             </h5>
-            <div className='flex items-center'>
+            <div className='flex flex-grow items-center'>
               <NameArtist artists={item.artists} />
             </div>
           </div>
         </div>
         <div className='flex w-1/2 justify-between'>
           {release ? (
-            <span className='text-sm font-semibold text-white'>{releaseDay(item.releaseDate)}</span>
+            <span className='text-sm font-semibold text-light-mode dark:text-dark-mode'>
+              {releaseDay(item.releaseDate)}
+            </span>
           ) : (
             <Link
               to={albumLink}
-              className='ml-[10px] inline-block max-w-[250px] flex-1 truncate text-xs font-semibold capitalize leading-[17px] text-white hover:text-[#9D4BE0] hover:underline hover:decoration-[#9D4BE0] hover:decoration-solid'
+              className={` ml-[10px] inline-block max-w-[250px] flex-1 truncate text-[12px] font-semibold capitalize leading-[17px] text-light-mode text-light-mode hover:text-[#9D4BE0] hover:underline  hover:decoration-[#9D4BE0] hover:decoration-solid dark:text-dark-mode dark:text-dark-mode`}
             >
               {item.title}
             </Link>
           )}
 
-          <span className='px-[6px] text-right text-xs font-semibold capitalize text-white'>
+          <span className='px-[6px] text-right text-xs font-semibold capitalize text-light-mode dark:text-dark-mode'>
             {secondToMinuteAndSecond(parseInt(item.duration))}
           </span>
         </div>

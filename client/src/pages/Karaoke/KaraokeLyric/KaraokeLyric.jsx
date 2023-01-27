@@ -10,7 +10,7 @@ const KaraokeLyric = ({ songData, audioTime }) => {
                 data={audioTime * 1000}
                 starttime={w.startTime}
                 endtime={w.endTime}
-                className={`mr-3 text-[20px] font-bold  text-white`}
+                className={`mr-3 text-[20px] font-bold  text-light-mode dark:text-dark-mode`}
               >
                 {w.data}
               </span>

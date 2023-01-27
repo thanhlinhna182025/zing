@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const ArtistItem = ({ item }) => {
   return (
     <div>
-      <div className="rounded-full overflow-hidden">
+      <div className='overflow-hidden rounded-full'>
         <img src={item.thumbnail} />
       </div>
       <div>
-        <Link className="text-white hover:text-secondary-100">{item.name}</Link>
+        <Link className='hover:text-secondary-100 text-light-mode dark:text-dark-mode'>{item.name}</Link>
       </div>
     </div>
   )

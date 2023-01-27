@@ -5,14 +5,14 @@ const KaraokeHeader = ({ headerData, KaraokeMain, handleKaraokeMain, handleClose
     <div className='flex items-center justify-between p-5'>
       <div className='flex items-center'>
         <div>
-          <MP3ZingLogoIcon className="animate-spin-slow"/>
+          <MP3ZingLogoIcon className='animate-spin-slow' />
         </div>
         <div>
-          <span className='text-xs text-white'>Từ {headerData?.textType}</span>
-          <h5 className='text-xs font-bold text-white'>{headerData?.title}</h5>
+          <span className='text-xs text-light-mode dark:text-dark-mode'>Từ {headerData?.textType}</span>
+          <h5 className='text-xs font-bold text-light-mode dark:text-dark-mode'>{headerData?.title}</h5>
         </div>
       </div>
-      <div className='flex items-center rounded-full bg-secondary-300 p-1'>
+      <div className='bg-secondary-300 flex items-center rounded-full p-1'>
         <Button
           type='outline'
           onClick={() => handleKaraokeMain(1)}
@@ -39,14 +39,14 @@ const KaraokeHeader = ({ headerData, KaraokeMain, handleKaraokeMain, handleClose
         </Button>
       </div>
       <div className='flex items-center'>
-        <Button className='mr-2 bg-secondary-100 p-3' rounded type='outline'>
-          <ExpandIcon className='text-white' width='20px' height='20px' />
+        <Button className='bg-secondary-100 mr-2 p-3' rounded type='outline'>
+          <ExpandIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </Button>
-        <Button className='mr-2 bg-secondary-100 p-3' rounded type='outline'>
-          <SettingIcon className='text-white' width='20px' height='20px' />
+        <Button className='bg-secondary-100 mr-2 p-3' rounded type='outline'>
+          <SettingIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </Button>
         <Button className='bg-secondary-100 p-3' rounded type='outline' onClick={handleCloseKaraoke}>
-          <DownArrowIcon className='text-white' width='20px' height='20px' />
+          <DownArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </Button>
       </div>
     </div>

@@ -2,7 +2,11 @@
 
 const colorPalete = {
   'dark-mode': '#ffffff',
-  'light-mode': '#00000',
+  'light-mode': '#000000',
+  'active-dark-mode': '#00FBff',
+  'active-light-mode': '#ff7300',
+  'hover-dark-mode': '#93B3B4',
+  'hover-light-mode': '#FDCB5D',
   gray: '#444444',
   'A-0': '#9D4DE0',
   'A-100': '#2F2739',
@@ -23,7 +27,7 @@ const colorPalete = {
 }
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
-  darkMode: false,
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -86,7 +90,8 @@ module.exports = {
         'header-padding': '59px',
         'header-margin': '70px',
         'main-margin': '49px',
-        'player-height': '90px',
+        'player-height': 'var(--player-height)',
+        'header-height': 'var(--header-height)',
         'search-input-width': '440px'
       },
       width: {

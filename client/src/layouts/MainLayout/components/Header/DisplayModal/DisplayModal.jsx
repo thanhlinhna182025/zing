@@ -1,4 +1,5 @@
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import bgOne from '~/assets/images/bg_1.jpg'
 import bgTwo from '~/assets/images/bg_2.jpg'
 import bgThree from '~/assets/images/bg_3.jpg'
@@ -7,10 +8,28 @@ import dynamicBrown from '~/assets/images/dynamic-brown.jpg'
 import dynamicPink from '~/assets/images/dynamic-pink.jpg'
 import Button from '~/components/Button'
 import { CloseCirleIcon } from '~/components/Icons'
-import { setColor } from '~/feature/app/appSlice'
-import { setDarkMode } from '../../../../../feature/app/appSlice'
+import { setColor, setDarkMode } from '~/feature/app/appSlice'
+import { setColorTheme } from '~/feature/colorTheme/colorThemeSlice'
 const DisplayModal = ({ hideDisplay }) => {
   const dispatch = useDispatch()
+  const darkMode = useSelector((state) => state.app.darkMode)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      dispatch(setColorTheme(true))
+    } else {
+      dispatch(setColorTheme(false))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [darkMode])
+
   const handleBackgroundValue = (e) => {
     dispatch(setColor(e.target.value))
     if (e.target.value === 'B' || e.target.value === 'C') {
@@ -45,7 +64,7 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={dynamicBlue} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>Blue</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>Blue</label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -60,7 +79,9 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={dynamicBrown} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>Brown</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
+                Brown
+              </label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -75,7 +96,7 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={dynamicPink} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>Pink</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>Pink</label>
             </div>
           </div>
         </div>
@@ -95,7 +116,7 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={bgOne} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>XONE</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>XONE</label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -110,7 +131,9 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={bgTwo} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>Zing Music Award</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
+                Zing Music Award
+              </label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -125,7 +148,9 @@ const DisplayModal = ({ hideDisplay }) => {
                   <img src={bgThree} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-white'>Eiffel</label>
+              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
+                Eiffel
+              </label>
             </div>
           </div>
         </div>

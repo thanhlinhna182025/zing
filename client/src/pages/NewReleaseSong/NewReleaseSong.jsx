@@ -44,15 +44,17 @@ const NewReleaseSong = () => {
         <div className='absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[rgba(23,15,36,0.95)] via-[rgba(202,201,203,0.3)] to-[rgba(23,15,36,0.5)] '></div>
         <div className=' relative  px-[10px] pt-[115px]'>
           <div className='mb-[45px] flex items-center'>
-            <h3 className=' mr-[5px] font-[Inter] text-[40px] font-bold capitalize text-white'>Mới Phát Hành</h3>
+            <h3 className=' mr-[5px] font-[Inter] text-[40px] font-bold capitalize text-light-mode dark:text-dark-mode'>
+              Mới Phát Hành
+            </h3>
             <Button type='secondary' rounded className='px-3 py-3'>
-              <PlayFillIcon className='text-white' width='16px' height='16px' />
+              <PlayFillIcon className='text-light-mode dark:text-dark-mode' width='16px' height='16px' />
             </Button>
           </div>
-          <div className='relative mb-10 before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%] before:bg-main-200'>
+          <div className='before:bg-main-200 relative mb-10 before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%]'>
             <NavLink
               style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #a845de' : 'none' })}
-              className={` mr-[50px] pb-[15px]  text-sm font-[500] text-white`}
+              className={` mr-[50px] pb-[15px]  text-sm font-[500] text-light-mode dark:text-dark-mode`}
               to={configs.routes.newreleaseSong}
               end
             >
@@ -60,7 +62,7 @@ const NewReleaseSong = () => {
             </NavLink>
             <NavLink
               style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #a845de' : 'none' })}
-              className={` py-[15px] text-sm font-[500] text-white`}
+              className={` py-[15px] text-sm font-[500] text-light-mode dark:text-dark-mode`}
               to={configs.routes.newreleaseAlbum}
               end
             >
@@ -108,9 +110,9 @@ const NewReleaseSong = () => {
         </div>
       </div>
       <div className='relative  mt-[-120px] flex h-[46px] w-full  items-center border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
-        <span className='w-1/2 text-xs  font-semibold text-white'>BÀI HÁT</span>
-        <span className='ml-[10px] flex-1 text-xs font-semibold text-white'>PHÁT HÀNH</span>
-        <span className='text-xs font-semibold text-white'>THỜI GIAN</span>
+        <span className='w-1/2 text-xs  font-semibold text-light-mode dark:text-dark-mode'>BÀI HÁT</span>
+        <span className='ml-[10px] flex-1 text-xs font-semibold text-light-mode dark:text-dark-mode'>PHÁT HÀNH</span>
+        <span className='text-xs font-semibold text-light-mode dark:text-dark-mode'>THỜI GIAN</span>
       </div>
       <div className=' relative flex max-h-[400px] flex-col scrollbar'>
         {data?.map((item, index) => (

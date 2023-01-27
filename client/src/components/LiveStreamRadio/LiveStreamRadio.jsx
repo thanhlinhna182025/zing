@@ -36,10 +36,10 @@ const LiveStreamRadio = ({ liveStream }) => {
           ))}
         </Swiper>
         <button className='swiper-button-prev-live' onClick={() => swiperRef.current?.slidePrev()}>
-          <LeftArrowIcon className='text-white' width='14px' height='14px' />
+          <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </button>
         <button className='swiper-button-next-live' onClick={() => swiperRef.current?.slideNext()}>
-          <RightArrowIcon className='text-white' width='14px' height='14px' />
+          <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </button>
       </div>
     </div>

@@ -10,14 +10,26 @@ const PlayerLeft = ({ musicInfo }) => {
         <img src={thumbnail} className='block h-16 w-16 rounded-md object-cover' />
       </div>
       <div className='mr-[30px]'>
-        <h5 className='font-[Inter] text-sm font-semibold text-white'>{title}</h5>
-        <Button type='text' to='#' className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>
+        <h5 className='font-[Inter] text-sm font-semibold text-light-mode dark:text-dark-mode'>{title}</h5>
+        <Button
+          type='text'
+          to='#'
+          className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'
+        >
           {artistsNames}
         </Button>
       </div>
       <div className='flex items-center'>
-        <HeartIcon className='mr-[22px] text-white' width='14px' height='14px' />
-        <MoreIcon className='text-white' width='14px' height='14px' />
+        <HeartIcon
+          className='mr-[22px] cursor-pointer text-light-mode dark:text-dark-mode'
+          width='14px'
+          height='14px'
+        />
+        <MoreIcon
+          className='mr-[22px] cursor-pointer cursor-pointer text-light-mode dark:text-dark-mode'
+          width='14px'
+          height='14px'
+        />
       </div>
     </div>
   )

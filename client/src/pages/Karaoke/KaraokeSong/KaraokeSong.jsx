@@ -20,7 +20,7 @@ const KaraokeSong = ({ songData, thumbnailM, audioTime, karaokeIsPlaying }) => {
                   starttime={w.startTime}
                   endtime={w.endTime}
                   className={`mr-3 text-[40px] font-bold  ${
-                    w.startTime < audioTime * 1000 ? 'text-orange-600' : 'text-white'
+                    w.startTime < audioTime * 1000 ? 'text-orange-600' : 'text-light-mode dark:text-dark-mode'
                   }`}
                 >
                   {w.data}

@@ -30,10 +30,10 @@ const Event = ({ event }) => {
         ))}
       </Swiper>
       <button className='swiper-button-prev-event' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className='text-white' width='14px' height='14px' />
+        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
       </button>
       <button className='swiper-button-next-event' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className='text-white' width='14px' height='14px' />
+        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
       </button>
     </div>
   )

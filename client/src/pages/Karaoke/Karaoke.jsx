@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import useColor from '~/hooks/useColor'
 import PlayerKaraoke from './PlayerKaraoke'
 
 import { getDetailPlaylist } from '~/feature/album/albumSlice'
@@ -10,6 +11,7 @@ import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
 import KaraokeSong from '~/pages/Karaoke/KaraokeSong'
 import KaraokeHeader from './KaraokeHeader'
 const Karaoke = ({ url }) => {
+  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   //global State
   const KaraokeMain = useSelector((state) => state.app.karaokeMain)
   const karaokMode = useSelector((state) => state.app.karaokMode)
@@ -43,7 +45,6 @@ const Karaoke = ({ url }) => {
     dispatch(getInfoMusic(musicId))
       .unwrap()
       .then((result) => {
-        console.log(result)
         setThumbnailM(result.thumbnailM)
       })
       .catch((err) => console.log(err))
@@ -114,7 +115,7 @@ const Karaoke = ({ url }) => {
 
   return (
     <div
-      className={`'animate-slide-top' fixed top-0 left-0 right-0 bottom-0 z-[999999] animate-slide-top bg-secondary-200  transition-all`}
+      className={`'animate-slide-top' ${bg200Color} fixed top-0 left-0 right-0 bottom-0 z-[999999] animate-slide-top  transition-all`}
     >
       <KaraokeHeader
         headerData={headerData}

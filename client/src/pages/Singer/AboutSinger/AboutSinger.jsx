@@ -14,7 +14,7 @@ const AboutSinger = ({ aboutSinger }) => {
       <div className='flex flex-col'>
         <div className='relative h-[150px]'>
           <p
-            className=' block h-[120px] w-[400px] text-sm  font-bold text-white line-clamp-6 '
+            className=' block h-[120px] w-[400px] text-sm  font-bold text-light-mode line-clamp-6 dark:text-dark-mode '
             dangerouslySetInnerHTML={createMarkup()}
           ></p>
           <Button type='text' className='absolute bottom-0 right-0'>
@@ -22,8 +22,10 @@ const AboutSinger = ({ aboutSinger }) => {
           </Button>
         </div>
         <div>
-          <span className='mr-1 text-xl font-bold text-white'>{numberWithCommas(aboutSinger?.follow || 1000)}</span>
-          <span className='text-[13px] font-bold text-white'>Người quan tâm</span>
+          <span className='mr-1 text-xl font-bold text-light-mode dark:text-dark-mode'>
+            {numberWithCommas(aboutSinger?.follow || 1000)}
+          </span>
+          <span className='text-[13px] font-bold text-light-mode dark:text-dark-mode'>Người quan tâm</span>
         </div>
       </div>
     </div>

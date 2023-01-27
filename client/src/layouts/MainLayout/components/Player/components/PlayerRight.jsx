@@ -3,8 +3,8 @@ import { getLyricMusic } from '~/feature/music/musicSlice'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
+import TippyString from '~/components/TippyString'
 import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
-import TippyString from '../../../../../components/TippyString'
 const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
   const [hasLyric, setHasLyric] = useState(false)
@@ -33,26 +33,26 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
   return (
     <div className='flex w-[30%] items-center justify-end'>
       <span className='cursor-pointer'>
-        <MVIcon width='20px' height='20px' className=' text-white ' />
+        <MVIcon width='20px' height='20px' className=' text-light-mode dark:text-dark-mode ' />
       </span>
       {hasLyric ? (
         <TippyString content='Xem lời bài hát'>
           <span className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
-            <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
+            <MicroPhoneIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
           </span>
         </TippyString>
       ) : (
         <span className='ml-5 cursor-not-allowed'>
-          <MicroPhoneIcon width='16px' height='16px' className=' text-white ' />
+          <MicroPhoneIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       )}
       <TippyString content='Chế độ cửa sổ'>
         <span className='ml-5 cursor-pointer'>
-          <WindownIcon width='16px' height='16px' className=' text-white ' />
+          <WindownIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       </TippyString>
       <span className='ml-5 flex cursor-pointer items-center'>
-        <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-white' />
+        <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
         <div className='relative flex items-center'>
           <input
             ref={ref}
@@ -68,10 +68,10 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
           />
         </div>
       </span>
-      <div className='ml-5 h-8 w-[1px] bg-main-200'></div>
+      <div className='bg-main-200 ml-5 h-8 w-[1px]'></div>
       <TippyString content='Danh sách phát'>
-        <span className='ml-5 cursor-pointer rounded-[4px] bg-main-200 py-2 px-[6px]'>
-          <PlayListIcon width='16px' height='16px' className=' text-white ' />
+        <span className='bg-main-200 ml-5 cursor-pointer rounded-[4px] py-2 px-[6px]'>
+          <PlayListIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       </TippyString>
     </div>

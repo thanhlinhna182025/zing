@@ -6,6 +6,7 @@ import authReducer from '~/feature/auth/authSlice'
 import musicReducer from '~/feature/music/musicSlice'
 import albumReducer from '../feature/album/albumSlice'
 import appReducer from '../feature/app/appSlice'
+import colorThemeReducer from '../feature/colorTheme/colorThemeSlice'
 import playlistReducer from '../feature/playlist/playlistSlice'
 import singerReducer from '../feature/singer/singerSlice'
 const persistConfig = {
@@ -32,6 +33,11 @@ const appConfig = {
   key: 'app',
   whitelist: ['color', 'darkMode']
 }
+const colorThemeConfig = {
+  ...persistConfig,
+  key: 'colorTheme',
+  whitelist: ['colorTheme']
+}
 
 export const store = configureStore({
   reducer: {
@@ -39,6 +45,7 @@ export const store = configureStore({
     music: persistReducer(musicConfig, musicReducer),
     album: persistReducer(albumConfig, albumReducer),
     playlist: persistReducer(playlistConfig, playlistReducer),
+    colorTheme: persistReducer(colorThemeConfig, colorThemeReducer),
     singer: singerReducer,
     auth: authReducer
   },

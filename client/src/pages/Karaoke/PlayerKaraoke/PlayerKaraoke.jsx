@@ -12,7 +12,9 @@ const PlayerKaraoke = (
       <div className='  flex flex-1 flex-col items-center justify-center gap-y-4'>
         <div className='mb-[6px] flex h-1 w-full items-center justify-center gap-x-2'>
           <div className='mr-3 flex w-6 items-center'>
-            <span className='text-xs font-bold text-white'>{secondToMinuteAndSecond(audioTime)}</span>
+            <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>
+              {secondToMinuteAndSecond(audioTime)}
+            </span>
           </div>
           <input
             type='range'
@@ -24,33 +26,33 @@ const PlayerKaraoke = (
             style={style}
             onChange={(e) => handleAudioTime(e.target.value)}
           />
-          <span className='text-xs font-bold text-white'>
+          <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>
             {audioDuration ? secondToMinuteAndSecond(audioDuration) : '00:00'}
           </span>
         </div>
         <div className=' flex items-center justify-center gap-[17px]'>
-          <span className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-main-200'>
-            <ShuffleIcon className='text-white' width='24px' height='24px' />
+          <span className='hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center  rounded-full px-[3px]  py-[3px]'>
+            <ShuffleIcon className='text-light-mode dark:text-dark-mode' width='24px' height='24px' />
           </span>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200 `}
+            className={`hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] `}
           >
-            <BackMusicIcon className={`text-white`} width='14px' height='14px' />
+            <BackMusicIcon className={`text-light-mode dark:text-dark-mode`} width='14px' height='14px' />
           </span>
           <span className='cursor-pointer ' onClick={handleKaraokeIsPlaying}>
             {karaokeIsPlaying ? (
-              <PauseIcon className='text-white' width='38px' height='38px' />
+              <PauseIcon className='text-light-mode dark:text-dark-mode' width='38px' height='38px' />
             ) : (
-              <PlayVideoIcon className='text-white' width='38px' height='38px' />
+              <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='38px' height='38px' />
             )}
           </span>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200 `}
+            className={`hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] `}
           >
-            <NextMusicIcon className={`text-white`} height='14px' />
+            <NextMusicIcon className={`text-light-mode dark:text-dark-mode`} height='14px' />
           </span>
-          <span className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-main-200'>
-            <RepeatIcon className='text-white' width='20px' height='20px' />
+          <span className='hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px]'>
+            <RepeatIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
           </span>
         </div>
       </div>

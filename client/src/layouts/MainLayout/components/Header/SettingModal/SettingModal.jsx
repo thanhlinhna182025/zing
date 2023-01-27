@@ -8,55 +8,57 @@ import {
   QualityIcon,
   RightArrowIcon
 } from '~/components/Icons'
+import useColor from '../../../../../hooks/useColor'
 
 const SettingModal = () => {
+  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   return (
-    <div className=' w-[240px] overflow-hidden rounded-md bg-main-500 '>
-      <ul className='border-b-[1px] border-solid border-main-400 py-2'>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+    <div className={`${bg100Color} w-[240px] overflow-hidden rounded-md`}>
+      <ul className={`border-${bg300Color} border-b-[1px] border-solid py-2`}>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <BlockedIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Danh sách chặn</span>
+            <BlockedIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Danh sách chặn</span>
           </div>
         </li>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <QualityIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Chất lượng nhạc</span>
+            <QualityIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Chất lượng nhạc</span>
           </div>
-          <RightArrowIcon className='text-white' width='14px' height='14px' />
+          <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </li>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <PlayVideoIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Giao diện</span>
+            <PlayVideoIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Giao diện</span>
           </div>
-          <RightArrowIcon className='text-white' width='14px' height='14px' />
+          <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </li>
       </ul>
       <ul className='py-2'>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <InfomationIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Giới thiệu</span>
+            <InfomationIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Giới thiệu</span>
           </div>
         </li>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <PhoneCallIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Liên hệ</span>
+            <PhoneCallIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Liên hệ</span>
           </div>
         </li>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <AdvertisementIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Quảng cáo</span>
+            <AdvertisementIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Quảng cáo</span>
           </div>
         </li>
-        <li className='flex cursor-pointer items-center justify-between p-3 hover:bg-main-200'>
+        <li className='hover:bg-main-200 flex cursor-pointer items-center justify-between p-3'>
           <div className='flex'>
-            <AgreementIcon className='text-white' />
-            <span className='ml-2 text-sm font-semibold text-white'>Thỏa thuận sử dụng</span>
+            <AgreementIcon className='text-light-mode dark:text-dark-mode' />
+            <span className='ml-2 text-sm font-semibold text-light-mode dark:text-dark-mode'>Thỏa thuận sử dụng</span>
           </div>
         </li>
       </ul>

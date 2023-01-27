@@ -23,10 +23,10 @@ const Button = (
     text: 'font-[Inter] hover:opacity-[0.9]'
   }
   const color = {
-    primary: 'text-white',
-    secondary: 'text-white',
-    outline: 'text-white',
-    text: 'text-white'
+    primary: 'text-light-mode dark:text-dark-mode',
+    secondary: 'text-light-mode dark:text-dark-mode',
+    outline: 'text-light-mode dark:text-dark-mode',
+    text: 'text-light-mode dark:text-dark-mode'
   }
   const border = {
     primary: 'border-[1px] border-solid border-main-400',

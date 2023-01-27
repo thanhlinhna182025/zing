@@ -9,9 +9,11 @@ const SingleSingerItem = ({ item }) => {
         <img src={item?.thumbnail} className='rounded-full' />
       </div>
       <div className='flex flex-col items-center'>
-        <Link className='mb-[2px] text-sm text-white'>{item?.name}</Link>
-        <span className='mb-4 text-xs font-bold text-white'>{numberToStringFollow(item?.totalFollow)} quan tâm</span>
-        <Button type='primary' rounded className='flex items-center bg-main-200 py-[6px] px-[19px]'>
+        <Link className='mb-[2px] text-sm text-light-mode dark:text-dark-mode'>{item?.name}</Link>
+        <span className='mb-4 text-xs font-bold text-light-mode dark:text-dark-mode'>
+          {numberToStringFollow(item?.totalFollow)} quan tâm
+        </span>
+        <Button type='primary' rounded className='bg-main-200 flex items-center py-[6px] px-[19px]'>
           <AddUserIcon width='14px' height='14px' />
           <span className='ml-1 text-xs font-semibold'>QUAN TÂM</span>
         </Button>

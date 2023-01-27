@@ -28,7 +28,6 @@ const Album = () => {
     dispatch(getDetailPlaylist(id))
       .unwrap()
       .then((result) => {
-        console.log(result)
         setAlbumResource(result)
         dispatch(addAlbumSongs(result?.song))
       })

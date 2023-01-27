@@ -17,22 +17,24 @@ const Poster = ({ poster, isPoster }) => {
         >
           <div className='absolute left-[59px] bottom-6 flex flex-col '>
             <div className='mb-[8px] flex items-center'>
-              <h3 className='mr-5 text-[60px] font-bold text-white xl:text-shadow-lg'>{poster?.name}</h3>
-              <Button rounded type='outline' className=' flex h-[52px] w-[52px] items-center justify-center bg-white'>
-                <PlayFullFillIcon className='text-secondary-100' width='24px' height='25px' />
+              <h3 className='mr-5 text-[60px] font-bold text-light-mode dark:text-dark-mode xl:text-shadow-lg'>
+                {poster?.name}
+              </h3>
+              <Button rounded type='outline' className=' flex h-[52px] w-[52px] items-center justify-center bg-white '>
+                <PlayFullFillIcon className='text-A-0' width='24px' height='25px' />
               </Button>
             </div>
             <div className='flex items-center'>
-              <span className='mr-6 text-sm font-[500] text-white'>
+              <span className='mr-6 text-sm font-[500] text-light-mode dark:text-dark-mode'>
                 {poster?.follow && numberWithCommas(poster?.follow)} người quan tâm
               </span>
               <Button
                 type='primary'
                 rounded
-                className='flex items-center border-secondary-100 py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80'
+                className='border-secondary-100 flex items-center py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80'
               >
-                <AddUserIcon width='16px' height='16px' className='mr-1 text-white' />
-                <span className='text-xs font-semibold  text-white'>QUAN TÂM</span>
+                <AddUserIcon width='16px' height='16px' className='mr-1 text-light-mode dark:text-dark-mode' />
+                <span className='text-xs font-semibold  text-light-mode dark:text-dark-mode'>QUAN TÂM</span>
               </Button>
             </div>
           </div>
@@ -45,24 +47,24 @@ const Poster = ({ poster, isPoster }) => {
             </div>
             <div className='flex flex-col'>
               <div className='mb-[14px] flex items-center'>
-                <h3 className='mr-5 text-[60px] font-bold leading-tight text-white xl:text-shadow-lg'>
+                <h3 className='mr-5 text-[60px] font-bold leading-tight text-light-mode dark:text-dark-mode xl:text-shadow-lg'>
                   {poster?.name}
                 </h3>
                 <Button rounded type='outline' className=' flex h-[52px] w-[52px] items-center justify-center bg-white'>
-                  <PlayFullFillIcon className='text-secondary-100' width='24px' height='25px' />
+                  <PlayFullFillIcon className='text-A-0' width='24px' height='25px' />
                 </Button>
               </div>
               <div className=' flex items-center justify-start'>
-                <span className='mr-6 text-sm font-[500] text-white'>
+                <span className='mr-6 text-sm font-[500] text-light-mode dark:text-dark-mode'>
                   {poster?.follow && numberWithCommas(poster?.follow)} người quan tâm
                 </span>
                 <Button
                   type='primary'
                   rounded
-                  className='flex items-center border-secondary-100 py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80'
+                  className='border-A-0 flex items-center py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80'
                 >
-                  <AddUserIcon width='16px' height='16px' className='mr-1 text-white' />
-                  <span className='text-xs font-semibold  text-white'>QUAN TÂM</span>
+                  <AddUserIcon width='16px' height='16px' className='mr-1 text-light-mode dark:text-dark-mode' />
+                  <span className='text-xs font-semibold  text-light-mode dark:text-dark-mode'>QUAN TÂM</span>
                 </Button>
               </div>
             </div>

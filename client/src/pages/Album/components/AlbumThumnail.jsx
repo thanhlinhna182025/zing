@@ -27,14 +27,14 @@ const AlbumThumnail = ({
           onClick={handleToggle}
         >
           <div className='absolute top-1/2 left-1/2 z-10 translate-x-[-50%] translate-y-[-50%]'>
-            <img className='h-10 w-10 text-white' src={MusicBar} />
+            <img className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
           </div>
           <img src={thumbnailM} className='animate-spin-slow rounded-full object-cover ' />
         </div>
       ) : (
         <div className='group relative mb-3 h-[300px] w-[300px] overflow-hidden rounded-lg' onClick={handleToggle}>
           <div className='absolute top-0 bottom-0 left-0 right-0 z-[-1] flex cursor-pointer items-center justify-center bg-[rgba(0,0,0,0.5)] group-hover:z-10'>
-            <PlayVideoIcon className='text-white' width='44px' height='44px' />
+            <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='44px' height='44px' />
           </div>
           <img
             src={thumbnailM}
@@ -44,12 +44,17 @@ const AlbumThumnail = ({
       )}
 
       <div className='flex flex-col items-center justify-center'>
-        <h5 className='text-center font-[Inter] text-[20px] font-bold leading-[1.5] text-white'>{title}</h5>
+        <h5 className='text-center font-[Inter] text-[20px] font-bold leading-[1.5] text-light-mode dark:text-dark-mode'>
+          {title}
+        </h5>
         <div className='mb-[4px] leading-none'>
           {artists?.map((artist, index) => {
             if (artists.length === 1) {
               return (
-                <a key={artist.id} className=' font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>
+                <a
+                  key={artist.id}
+                  className=' font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'
+                >
                   {artist.name}
                 </a>
               )
@@ -58,7 +63,7 @@ const AlbumThumnail = ({
                 return (
                   <a
                     key={artist.id}
-                    className='mr-[2px]  cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-white hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
+                    className='mr-[2px]  cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-light-mode hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid dark:text-dark-mode'
                   >
                     {artist.name},
                   </a>
@@ -67,7 +72,7 @@ const AlbumThumnail = ({
                 return (
                   <a
                     key={artist.id}
-                    className='cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-white hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid'
+                    className='cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-light-mode hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid dark:text-dark-mode'
                   >
                     {artist.name}
                   </a>
@@ -77,12 +82,18 @@ const AlbumThumnail = ({
           })}
           {releaseDate && (
             <>
-              <b className='px-[4px] align-top text-[20px] font-black leading-3 text-white'>.</b>
-              <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-white'>{releaseDate}</span>
+              <b className='px-[4px] align-top text-[20px] font-black leading-3 text-light-mode dark:text-dark-mode'>
+                .
+              </b>
+              <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'>
+                {releaseDate}
+              </span>
             </>
           )}
         </div>
-        <p className='mb-[20px] font-[Inter] text-xs font-semibold text-white'>{like} người yêu thích</p>
+        <p className='mb-[20px] font-[Inter] text-xs font-semibold text-light-mode dark:text-dark-mode'>
+          {like} người yêu thích
+        </p>
         {isPlayAll ? (
           <Button
             rounded
@@ -90,7 +101,7 @@ const AlbumThumnail = ({
             className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
             onClick={handleShuffle}
           >
-            <PlayFillIcon className={`text-white' width='16px' height='16px mr-[5px] `} />
+            <PlayFillIcon className={`dark:text-dark-mode' width='16px' height='16px mr-[5px] text-light-mode `} />
             <span className='text-sm font-normal leading-normal'> PHÁT NGẪU NHIÊN </span>
           </Button>
         ) : (
@@ -100,7 +111,7 @@ const AlbumThumnail = ({
             className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
             onClick={handlePlayAll}
           >
-            <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
+            <PlayFillIcon className='mr-[5px] text-light-mode dark:text-dark-mode' width='16px' height='16px' />
             <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
           </Button>
         )}

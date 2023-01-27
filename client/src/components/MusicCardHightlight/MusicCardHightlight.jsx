@@ -42,20 +42,24 @@ const MusicCardHightlight = ({ item }) => {
                 className='w-full object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1]'
               />
               <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center gap-x-3 hover:bg-[rgba(0,0,0,0.2)]'>
-                <div className='cursor-pointer rounded-full p-[5px] group-hover:bg-main-200'>
-                  <HeartIcon width='20px' height='20px' className='text-white' />
+                <div className='group-hover:bg-main-200 cursor-pointer rounded-full p-[5px]'>
+                  <HeartIcon width='20px' height='20px' className='text-light-mode dark:text-dark-mode' />
                 </div>
-                <PlayVideoIcon width='45px' height='45px' className='cursor-pointer text-white' />
-                <div className='rounded-full p-[5px] hover:bg-main-200'>
-                  <MoreIcon width='16px' height='16px' className='cursor-pointer text-white' />
+                <PlayVideoIcon
+                  width='45px'
+                  height='45px'
+                  className='cursor-pointer text-light-mode dark:text-dark-mode'
+                />
+                <div className='hover:bg-main-200 rounded-full p-[5px]'>
+                  <MoreIcon width='16px' height='16px' className='cursor-pointer text-light-mode dark:text-dark-mode' />
                 </div>
               </div>
             </div>
             <div className='my-[6px] ml-4 flex flex-col'>
-              <span className='mb-[14px] text-xs font-bold text-white'>{item?.textType}</span>
-              <h5 className='mb-[1px] text-sm font-bold text-white'>{item?.title}</h5>
-              <h4 className='mb-[14px] text-xs font-bold text-white'>{item?.artistsNames}</h4>
-              <span className='text-xs font-bold text-white '>{item?.releaseDate}</span>
+              <span className='mb-[14px] text-xs font-bold text-light-mode dark:text-dark-mode'>{item?.textType}</span>
+              <h5 className='mb-[1px] text-sm font-bold text-light-mode dark:text-dark-mode'>{item?.title}</h5>
+              <h4 className='mb-[14px] text-xs font-bold text-light-mode dark:text-dark-mode'>{item?.artistsNames}</h4>
+              <span className='text-xs font-bold text-light-mode dark:text-dark-mode '>{item?.releaseDate}</span>
             </div>
           </div>
         </div>

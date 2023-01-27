@@ -31,10 +31,10 @@ const Banner = ({ banner }) => {
         ))}
       </Swiper>
       <button className='swiper-button-prev-banner' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className='text-white' width='25px' height='25px' />
+        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
       </button>
       <button className='swiper-button-next-banner' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className='text-white' width='25px' height='25px' />
+        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
       </button>
     </div>
   )

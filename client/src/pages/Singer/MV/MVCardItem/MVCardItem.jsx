@@ -1,27 +1,7 @@
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { PlayVideoIcon } from '~/components/Icons'
-import { addAlbumId } from '~/feature/album/albumSlice'
-import { addMusicId } from '~/feature/music/musicSlice'
-import { addPlaylistId } from '~/feature/playlist/playlistSlice'
+import useRedirect from '~/hooks/useRedirect'
 const MVCardItem = ({ item }) => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const handleRedirect = (item) => {
-    if (item.type === 1 || item.link.startsWith('/bai-hat')) {
-      dispatch(addMusicId(item.encodeId))
-    } else if (item.type === 4 || item.link.startsWith('/album')) {
-      const link = item?.link.split('.')[0]
-      dispatch(addAlbumId(link.split('/')[3]))
-      navigate(link)
-    } else if (item.type === 5 || item.link.startsWith('/playlist')) {
-      const link = item?.link.split('.')[0]
-      dispatch(addPlaylistId(link.split('/')[3]))
-      navigate(link)
-    } else {
-      console.log('Khong thuoc truong hop tren')
-    }
-  }
+  const handleRedirect = useRedirect()
 
   return (
     <div className='flex flex-col overflow-hidden rounded-md bg-gradient-to-r from-[#574643] to-[#312939]'>

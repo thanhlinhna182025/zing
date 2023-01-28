@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
 import TippyString from '~/components/TippyString'
 import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
-const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
+import { VolumeMutedIcon } from '../../../../../components/Icons/Icons'
+const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
   const [hasLyric, setHasLyric] = useState(false)
   const dispatch = useDispatch()
@@ -28,7 +29,7 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
   }
 
   const style = {
-    backgroundSize: `${currentVolume}% 100%`
+    backgroundSize: `${volume}% 100%`
   }
   return (
     <div className='flex w-[30%] items-center justify-end'>
@@ -52,7 +53,15 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
         </span>
       </TippyString>
       <span className='ml-5 flex cursor-pointer items-center'>
-        <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+        {volume === 0 ? (
+          <span onClick={handleActiveVolume}>
+            <VolumeMutedIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+          </span>
+        ) : (
+          <span onClick={handleMuteVolume}>
+            <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+          </span>
+        )}
         <div className='relative flex items-center'>
           <input
             ref={ref}
@@ -60,8 +69,8 @@ const PlayerRight = ({ handleVolume, currentVolume }, ref) => {
             type='range'
             min='0'
             max='100'
-            step='10'
-            defaultValue='50'
+            step='1'
+            value={volume}
             className='h-[3px] w-[100px] bg-white'
             onChange={handleVolume}
             style={style}

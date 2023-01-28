@@ -13,57 +13,57 @@ import trinhThanhBinh from '~/assets/images/trinh-thanh-binh.png'
 export const artistSpotlightData = [
   {
     id: 1,
-    path: '/JustaTee',
+    path: '/singer/JustaTee',
     avata: justatee
   },
   {
     id: 2,
-    path: '/Chi-Dan',
+    path: '/singer/Chi-Dan',
     avata: chidan
   },
   {
     id: 3,
-    path: '/Duc-Phuc',
+    path: '/singer/Duc-Phuc',
     avata: ducphuc
   },
   {
     id: 4,
-    path: '/erik',
+    path: '/singer/erik',
     avata: erik
   },
   {
     id: 5,
-    path: '/hoa-minzy',
+    path: '/singer/hoa-minzy',
     avata: hoaMinZy
   },
   {
     id: 6,
-    path: '/huong-ly',
+    path: '/singer/huong-ly',
     avata: huongly
   },
   {
     id: 7,
-    path: '/jack',
+    path: '/singer/jack',
     avata: jack
   },
   {
     id: 8,
-    path: '/karik',
+    path: '/singer/karik',
     avata: karik
   },
   {
     id: 9,
-    path: '/mr-siro',
+    path: '/singer/mr-siro',
     avata: mrSiro
   },
   {
     id: 10,
-    path: '/onlyc',
+    path: '/singer/onlyc',
     avata: onlyC
   },
   {
     id: 11,
-    path: '/trinh-thanh-binh',
+    path: '/singer/trinh-thanh-binh',
     avata: trinhThanhBinh
   }
 ]

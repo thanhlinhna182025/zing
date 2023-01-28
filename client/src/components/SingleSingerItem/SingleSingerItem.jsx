@@ -6,10 +6,14 @@ const SingleSingerItem = ({ item }) => {
   return (
     <div className='flex-col px-[14px]'>
       <div className='mb-4'>
-        <img src={item?.thumbnail} className='rounded-full' />
+        <Link to={`/singer/${item.alias}`}>
+          <img src={item?.thumbnail} className='rounded-full' />
+        </Link>
       </div>
       <div className='flex flex-col items-center'>
-        <Link className='mb-[2px] text-sm text-light-mode dark:text-dark-mode'>{item?.name}</Link>
+        <Link to={`/singer/${item.alias}`} className='mb-[2px] text-sm text-light-mode dark:text-dark-mode'>
+          {item?.name}
+        </Link>
         <span className='mb-4 text-xs font-bold text-light-mode dark:text-dark-mode'>
           {numberToStringFollow(item?.totalFollow)} quan tâm
         </span>

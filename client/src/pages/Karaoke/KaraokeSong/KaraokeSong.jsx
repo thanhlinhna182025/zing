@@ -9,7 +9,7 @@ const KaraokeSong = ({ songData, thumbnailM, audioTime, karaokeIsPlaying }) => {
           <img src={MusicBar} className='absolute  top-[50%] left-[50%] z-10 translate-y-[-50%] translate-x-[-50%]' />
         )}
       </div>
-      <div>
+      <div className='flex-grow '>
         <ul className='max-h-[450px] overflow-y-auto scroll-auto scrollbar overflow-x-hidden'>
           {songData?.sentences?.flatMap((item, index) => (
             <li key={index}>

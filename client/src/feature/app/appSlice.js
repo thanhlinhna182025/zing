@@ -11,7 +11,8 @@ const initialState = {
   karaokeIsPlaying: false,
   typeRelease: 'all',
   color: 'A',
-  darkMode: false
+  darkMode: false,
+  volume:50
 }
 const context = 'app'
 
@@ -107,7 +108,10 @@ const appSlice = createSlice({
     },
     setDarkMode: (state, action) => {
       state.darkMode = action.payload
-    }
+    },
+    setVolume:((state,action)=>{
+      state.volume = action.payload
+    })
   }
 })
 
@@ -127,7 +131,8 @@ export const {
   setKaraokeIsPlaying,
   setTypeRelease,
   setColor,
-  setDarkMode
+  setDarkMode,
+  setVolume
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

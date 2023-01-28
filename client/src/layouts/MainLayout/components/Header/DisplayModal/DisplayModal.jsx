@@ -37,7 +37,7 @@ const DisplayModal = ({ hideDisplay }) => {
     } else if (e.target.value === 'D') {
       dispatch(setDarkMode(false))
     } else {
-      dispatch(setDarkMode(false))
+      dispatch(setDarkMode(true))
     }
   }
 

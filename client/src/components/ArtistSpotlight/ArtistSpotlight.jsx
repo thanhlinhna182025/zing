@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 const ArtistSpotlight = ({ artists }) => {
+  console.log(artists)
   const swiperRef = useRef()
   return (
     <div>

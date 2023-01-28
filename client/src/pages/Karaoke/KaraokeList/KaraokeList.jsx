@@ -1,34 +1,15 @@
 import { useRef } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
+import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import SortDescription from '~/components/SortDescription'
-import { addAlbumId } from '~/feature/album/albumSlice'
-import { addMusicId } from '~/feature/music/musicSlice'
-import { addPlaylistId } from '~/feature/playlist/playlistSlice'
-import { LeftArrowIcon, RightArrowIcon } from '../../../components/Icons/Icons'
+import useRedirect from '~/hooks/useRedirect'
+
 const KaraokeList = ({ playlists }) => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const handleRedirect = (item) => {
-    if (item.type === 1 || item.link.startsWith('/bai-hat')) {
-      dispatch(addMusicId(item.encodeId))
-    } else if (item.type === 4 || item.link.startsWith('/album')) {
-      const link = item?.link.split('.')[0]
-      dispatch(addAlbumId(link.split('/')[3]))
-      navigate(link)
-    } else if (item.type === 5 || item.link.startsWith('/playlist')) {
-      const link = item?.link.split('.')[0]
-      dispatch(addPlaylistId(link.split('/')[3]))
-      navigate(link)
-    } else {
-      console.log('Khong thuoc truong hop tren')
-    }
-  }
+  const handleRedirect = useRedirect()
 
   const swiperRef = useRef()
 

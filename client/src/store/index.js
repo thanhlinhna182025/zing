@@ -31,7 +31,7 @@ const playlistConfig = {
 const appConfig = {
   ...persistConfig,
   key: 'app',
-  whitelist: ['color', 'darkMode']
+  whitelist: ['color', 'darkMode', 'volume']
 }
 const colorThemeConfig = {
   ...persistConfig,

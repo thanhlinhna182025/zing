@@ -1,3 +1,3 @@
-import SingleSingerItem from './SingleSinger'
+import SingleSingerItem from './SingleSingerItem'
 
 export default SingleSingerItem

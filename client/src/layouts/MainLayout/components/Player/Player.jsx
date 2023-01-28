@@ -8,13 +8,14 @@ import {
   isShuffleToggle,
   setIsPlaying,
   setIsRepeat,
-  setIsShuffle
+  setIsShuffle,
+  setVolume
 } from '~/feature/app/appSlice'
 import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
 import useColor from '~/hooks/useColor'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
-const Player = ({ url, info, volume }) => {
+const Player = ({ url }) => {
   //Global state
   const albumSongs = useSelector((state) => state.album.albumSongs)
   const curentIndexSong = useSelector((state) => state.album.curentIndexSong)
@@ -23,13 +24,13 @@ const Player = ({ url, info, volume }) => {
   const isPlayAll = useSelector((state) => state.app.isPlayAll)
   const isShuffle = useSelector((state) => state.app.isShuffle)
   const isRepeat = useSelector((state) => state.app.isRepeat)
+  const volume = useSelector((state) => state.app.volume)
 
   //Local state
   const [musicInfo, setMusicInfo] = useState({})
   const [duration, setDuration] = useState(0)
   const [nextActive, setNextActive] = useState(false)
   const [prevActive, setPrevActive] = useState(false)
-  const [currentVolume, setCurrentVolume] = useState(50)
   const [currentTime, setCurrentTime] = useState(0)
   const [songsLength, setSongsLength] = useState(0)
 
@@ -96,8 +97,16 @@ const Player = ({ url, info, volume }) => {
   }
 
   const handleVolume = (e) => {
+    dispatch(setVolume(e.target.value))
     audioRef.current.volume = Number(e.target.value) / 100
-    setCurrentVolume(e.target.value)
+  }
+  const handleMuteVolume = () => {
+    audioRef.current.volume = 0
+    dispatch(setVolume(0))
+  }
+  const handleActiveVolume = () => {
+    audioRef.current.volume = 0.5
+    dispatch(setVolume(50))
   }
   const handleCurrentTime = (e) => {
     audioRef.current.currentTime = Number(e.target.value)
@@ -157,8 +166,6 @@ const Player = ({ url, info, volume }) => {
       setNextActive(false)
     }
   }, [nextActive, prevActive, curentIndexSong, isSingle, musicId])
-
-  
 
   useEffect(() => {
     const handleEnded = () => {
@@ -222,7 +229,13 @@ const Player = ({ url, info, volume }) => {
         togleIsShuffle={togleIsShuffle}
         isSingle={isSingle}
       />
-      <PlayerRight ref={volumeBarRef} handleVolume={handleVolume} currentVolume={currentVolume} />
+      <PlayerRight
+        ref={volumeBarRef}
+        volume={volume}
+        handleActiveVolume={handleActiveVolume}
+        handleMuteVolume={handleMuteVolume}
+        handleVolume={handleVolume}
+      />
     </div>
   )
 }

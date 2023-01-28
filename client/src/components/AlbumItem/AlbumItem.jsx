@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import disk from '~/assets/images/disk.png'
 import { HeartIcon, MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import useColor from '~/hooks/useColor'

@@ -62,9 +62,11 @@ const MainLayout = ({ children }) => {
     }
   }, [color])
   useEffect(() => {
-    ref.current.addEventListener('scroll', handleHeaderColor)
+    if (ref.current) {
+      ref.current.addEventListener('scroll', handleHeaderColor)
+    }
     return () => {
-      ref.current.removeEventListener('scroll', handleHeaderColor)
+      if (ref.current) ref.current.removeEventListener('scroll', handleHeaderColor)
     }
   }, [])
   const handleHeaderColor = () => {

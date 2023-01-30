@@ -29,7 +29,7 @@ const Button = (
     text: 'text-light-mode dark:text-dark-mode'
   }
   const border = {
-    primary: 'border-[1px] border-solid border-main-400',
+    primary: 'border-[1px] border-solid border-[#ccc]',
     secondary: '',
     outline: 'border-none',
     text: ''

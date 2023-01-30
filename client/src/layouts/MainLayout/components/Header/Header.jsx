@@ -67,6 +67,9 @@ const Header = ({ isTransparent }) => {
     setKeyword('')
     hideSearch()
   }
+  const handleSuggestKeyword = (keyword) => {
+    setKeyword(keyword)
+  }
 
   return (
     <header
@@ -93,6 +96,7 @@ const Header = ({ isTransparent }) => {
               {...attrs}
               relatedKeywords={relatedKeywords}
               handleClearKeyword={handleClearKeyword}
+              handleSuggestKeyword={handleSuggestKeyword}
               tabIndex='0'
             />
           )}

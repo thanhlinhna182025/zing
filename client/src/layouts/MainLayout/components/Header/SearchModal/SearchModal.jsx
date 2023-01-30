@@ -17,7 +17,7 @@ const suggests = [
   }
 ]
 
-const SearchModal = ({ relatedKeywords, handleClearKeyword }) => {
+const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword }) => {
   const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   return (
     <div className={`w-search-input-width  ${bgColor} rounded-md px-2 py-4`}>
@@ -25,14 +25,14 @@ const SearchModal = ({ relatedKeywords, handleClearKeyword }) => {
       <div className='max-h-[calc(100vh-var(--header-height)-var(--player-height)-70px)] scrollbar'>
         <ul className='mt-3 border-b-[1px] border-solid border-white py-1'>
           {suggests.map((item) => (
-            <SuggestItem item={item} key={item.id} />
+            <SuggestItem item={item} key={item.id} handleSuggestKeyword={handleSuggestKeyword} />
           ))}
         </ul>
         <p className='mt-3 text-sm font-bold text-light-mode dark:text-dark-mode'>Gợi ý kết quả</p>
         <ul className='mt-3 py-1'>
           {relatedKeywords &&
             relatedKeywords.map((item) => (
-              <ResultItem key={item.id || item.encodeId} handleClearKeyword={handleClearKeyword} item={item} />
+              <ResultItem key={item.encodeId} handleClearKeyword={handleClearKeyword} item={item} />
             ))}
         </ul>
       </div>

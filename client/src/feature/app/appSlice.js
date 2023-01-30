@@ -50,6 +50,23 @@ export const getSearch = createAsyncThunk(`${context}/getSearch`, async (keyword
   }
 })
 
+export const getChartHome = createAsyncThunk(`${context}/getChartHome`, async (_, thunkApi) => {
+  try {
+    const response = await http.get('/charthome', {
+      signal: thunkApi.signal
+    })
+    if (response.statusText !== 'OK') {
+      throw new Error(response.data.message)
+    }
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
+
 const appSlice = createSlice({
   name: 'app',
   initialState,

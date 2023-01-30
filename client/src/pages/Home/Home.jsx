@@ -35,6 +35,7 @@ const Home = () => {
     dispatch(getHome())
       .unwrap()
       .then((result) => {
+        console.log(result)
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
         setRecentPlaylist(
@@ -55,6 +56,7 @@ const Home = () => {
         setEvent(result.items.find((item) => item.sectionType === 'event' && item.sectionId === 'hSlider'))
       })
   }, [])
+
   return (
     <div className=' w-full pt-[32px]'>
       <Banner banner={banner} />

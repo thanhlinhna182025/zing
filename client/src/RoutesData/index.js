@@ -81,7 +81,7 @@ const PublicRoutes = [
   {
     path: configs.routes.zingchart,
     element: ZingChart,
-    layout: null
+    layout: MainLayout
   },
   {
     path: configs.routes.newreleaseSong,

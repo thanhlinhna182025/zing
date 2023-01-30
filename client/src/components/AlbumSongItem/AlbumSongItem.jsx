@@ -39,13 +39,13 @@ const AlbumSongItem = ({ item, index, release }) => {
               <img src={MusicBar} className='absolute top-0 left-0 z-10' />
             ) : (
               <PlayFullFillIcon
-                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%]  group-hover:inline-block text-white'
+                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%]  text-white group-hover:inline-block'
                 width='16px'
                 height='16px'
               />
             )}
             <PlayFullFillIcon
-              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  group-hover:inline-block text-white'
+              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  text-white group-hover:inline-block'
               width='16px'
               height='16px'
             />

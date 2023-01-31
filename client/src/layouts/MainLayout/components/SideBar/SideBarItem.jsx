@@ -1,12 +1,9 @@
 import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
-import useColor from '../../../../hooks/useColor'
 const SideBarItem = ({ item, icon, setActive, active }) => {
   let Icon = icon
   const color = useSelector((state) => state.app.color)
-  const darkMode = useSelector((state) => state.app.darkMode)
-  const [bg0, bg100Color, bg200Color, bg300Color] = useColor()
 
   return (
     <li

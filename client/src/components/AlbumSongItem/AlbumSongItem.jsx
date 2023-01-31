@@ -34,9 +34,9 @@ const AlbumSongItem = ({ item, index, release }) => {
             className='relative h-[40px] w-[40px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
             onClick={handleSong}
           >
-            <img src={item.thumbnailM} className='block w-full object-cover' />
+            <img alt={item.title} src={item.thumbnailM} className='block w-full object-cover' />
             {musicId === item.encodeId && isPlaying ? (
-              <img src={MusicBar} className='absolute top-0 left-0 z-10' />
+              <img src={MusicBar} alt='musicBar' className='absolute top-0 left-0 z-10' />
             ) : (
               <PlayFullFillIcon
                 className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%]  text-white group-hover:inline-block'

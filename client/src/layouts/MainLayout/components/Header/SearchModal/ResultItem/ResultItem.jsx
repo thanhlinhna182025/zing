@@ -2,11 +2,8 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
-import useColor from '~/hooks/useColor'
 
 const ResultItem = ({ item, handleClearKeyword }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
-
   const dispatch = useDispatch()
   const handleKaraokMode = () => {
     dispatch(addMusicId(item.encodeId))

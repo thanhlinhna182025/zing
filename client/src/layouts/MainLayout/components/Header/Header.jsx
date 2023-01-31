@@ -21,7 +21,7 @@ import SearchModal from './SearchModal'
 import SettingModal from './SettingModal'
 
 const Header = ({ isTransparent }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bgColor, bg200Color } = useColor()
   const [visibleSetting, setVisibleSetting] = useState(false)
   const [visibleDisplay, setVisibleDisplay] = useState(false)
   const [visibleSearch, setVisibleSearch] = useState(false)

@@ -28,7 +28,7 @@ const ArtistSpotlight = ({ artists }) => {
             <SwiperSlide key={item.id}>
               <Link to={item.path}>
                 <div className='hover:opacity-80'>
-                  <img src={item.avata} />
+                  <img alt='singer_avata' src={item.avata} />
                 </div>
               </Link>
             </SwiperSlide>

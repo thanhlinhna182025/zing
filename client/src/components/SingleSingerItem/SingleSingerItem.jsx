@@ -7,7 +7,7 @@ const SingleSingerItem = ({ item }) => {
     <div className='flex-col px-[14px]'>
       <div className='mb-4'>
         <Link to={`/singer/${item.alias}`}>
-          <img src={item?.thumbnail} className='rounded-full' />
+          <img alt={item.title} src={item?.thumbnail} className='rounded-full' />
         </Link>
       </div>
       <div className='flex flex-col items-center'>

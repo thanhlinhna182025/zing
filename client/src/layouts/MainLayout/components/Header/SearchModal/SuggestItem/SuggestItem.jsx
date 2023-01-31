@@ -1,8 +1,6 @@
 import { TrendUpIcon } from '~/components/Icons'
-import useColor from '~/hooks/useColor'
 
 const SuggestItem = ({ item, handleSuggestKeyword }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   return (
     <li
       onClick={() => handleSuggestKeyword(item.title)}

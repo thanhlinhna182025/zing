@@ -1,13 +1,16 @@
 import { forwardRef, useEffect, useState } from 'react'
-import { getLyricMusic } from '~/feature/music/musicSlice'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { MicroPhoneIcon, MVIcon, PlayListIcon, VolumeIcon, WindownIcon } from '~/components/Icons'
+import { VolumeMutedIcon } from '~/components/Icons/Icons'
 import TippyString from '~/components/TippyString'
-import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
-import { VolumeMutedIcon } from '../../../../../components/Icons/Icons'
+import { setIsPlaying, setKaraokMode, toggleRightMode } from '~/feature/app/appSlice'
+import { getLyricMusic } from '~/feature/music/musicSlice'
+import useColor from '~/hooks/useColor'
 const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
+  const rightMode = useSelector((state) => state.app.rightMode)
+  const { bg100Color, bg300Color } = useColor()
+
   const [hasLyric, setHasLyric] = useState(false)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -26,6 +29,9 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
   const handleKaraokMode = () => {
     dispatch(setKaraokMode(hasLyric))
     dispatch(setIsPlaying(false))
+  }
+  const handleRightMode = () => {
+    dispatch(toggleRightMode())
   }
 
   const style = {
@@ -79,7 +85,10 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
       </span>
       <div className='bg-main-200 ml-5 h-8 w-[1px]'></div>
       <TippyString content='Danh sách phát'>
-        <span className='bg-main-200 ml-5 cursor-pointer rounded-[4px] py-2 px-[6px]'>
+        <span
+          className={`${rightMode ? bg300Color : bg100Color} ml-5 cursor-pointer rounded-[4px] py-2 px-[6px]`}
+          onClick={handleRightMode}
+        >
           <PlayListIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       </TippyString>

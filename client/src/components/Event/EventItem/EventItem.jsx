@@ -5,7 +5,7 @@ const EventItem = ({ item }) => {
     <div>
       <div className='relative  mb-3'>
         <div className='overflow-hidden rounded-md'>
-          <img src={item.coverHM} className='block w-full object-cover' />
+          <img alt={item.title} src={item.coverHM} className='block w-full object-cover' />
         </div>
         <div className='absolute left-0 bottom-0 p-[10px]'>
           <span className='rounded-sm bg-white py-[2px] px-1 text-[9px] uppercase text-red-600'>{item.label}</span>
@@ -23,7 +23,7 @@ const EventItem = ({ item }) => {
                   className='border-secondary-100 w-5 rounded-full border-[1px]  border-solid first:ml-0 odd:ml-[-4px] even:ml-[-4px] '
                   key={follow.id}
                 >
-                  <img src={follow.avatar} className='block w-full rounded-full object-cover ' />
+                  <img alt='user_avata' src={follow.avatar} className='block w-full rounded-full object-cover ' />
                 </div>
               ))}
             </div>

@@ -12,7 +12,8 @@ const initialState = {
   typeRelease: 'all',
   color: 'A',
   darkMode: false,
-  volume:50
+  volume: 50,
+  rightMode: false
 }
 const context = 'app'
 
@@ -126,9 +127,12 @@ const appSlice = createSlice({
     setDarkMode: (state, action) => {
       state.darkMode = action.payload
     },
-    setVolume:((state,action)=>{
+    setVolume: (state, action) => {
       state.volume = action.payload
-    })
+    },
+    toggleRightMode: (state) => {
+      state.rightMode = !state.rightMode
+    }
   }
 })
 
@@ -149,7 +153,8 @@ export const {
   setTypeRelease,
   setColor,
   setDarkMode,
-  setVolume
+  setVolume,
+  toggleRightMode
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

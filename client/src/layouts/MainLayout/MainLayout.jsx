@@ -9,12 +9,12 @@ import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
+import RightPlayList from './components/RightPlayList'
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)
   const musicId = useSelector((state) => state.music.musicId)
-  const karaokeMode = useSelector((state) => state.app.karaokMode)
   const color = useSelector((state) => state.app.color)
   const ref = useRef()
 
@@ -80,6 +80,7 @@ const MainLayout = ({ children }) => {
   return (
     <div ref={ref} style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
+      <RightPlayList />
       <div className=' w-full flex-col items-start '>
         <Header isTransparent={isTransparent} />
         <main className='mt-header-margin ml-[240px] mb-player-height w-[calc(100%-240px)] px-header-padding'>
@@ -87,7 +88,7 @@ const MainLayout = ({ children }) => {
         </main>
       </div>
       {url && <Player url={url} />}
-      {karaokeMode && <Karaoke url={url} />}
+      <Karaoke url={url} />
     </div>
   )
 }

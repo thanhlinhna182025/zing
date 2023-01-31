@@ -18,6 +18,7 @@ const MusicCardHightlight = ({ item }) => {
           >
             <div className=' group relative w-[151px] flex-shrink-0 overflow-hidden rounded-md'>
               <img
+                alt={item.title}
                 src={item?.thumbnail || item?.thumnailM}
                 className='w-full object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1]'
               />

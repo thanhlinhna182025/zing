@@ -1,13 +1,8 @@
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import { addAlbumId } from '~/feature/album/albumSlice'
-import { addMusicId } from '~/feature/music/musicSlice'
-import { addPlaylistId } from '~/feature/playlist/playlistSlice'
+import useRedirect from '~/hooks/useRedirect'
 import ReleaseDate from '../ReleaseDate/ReleaseDate'
 import SortDescription from '../SortDescription/SortDescription'
-import useRedirect from '~/hooks/useRedirect'
 
 const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releaseDateText, large }) => {
   const baseClass = large ? 'flex items-center gap-x-5' : 'flex items-center gap-x-1'
@@ -17,6 +12,7 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
     <div className='px-[14px]' onClick={() => handleRedirect(item)}>
       <div className='group relative mb-3 box-border overflow-hidden rounded-md' key={item.encodeId}>
         <img
+          alt={item.title}
           src={item.thumbnail}
           className=' w-full rounded-md object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
         />

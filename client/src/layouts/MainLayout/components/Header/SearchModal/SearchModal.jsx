@@ -18,7 +18,7 @@ const suggests = [
 ]
 
 const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bgColor } = useColor()
   return (
     <div className={`w-search-input-width  ${bgColor} rounded-md px-2 py-4`}>
       <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Đề xuất cho bạn</p>

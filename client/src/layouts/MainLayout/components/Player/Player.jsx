@@ -34,7 +34,7 @@ const Player = ({ url }) => {
   const [currentTime, setCurrentTime] = useState(0)
   const [songsLength, setSongsLength] = useState(0)
 
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bg200Color } = useColor()
 
   const params = useParams()
   const audioRef = useRef()
@@ -123,6 +123,7 @@ const Player = ({ url }) => {
   }, [params])
 
   useEffect(() => {
+    console.log(curentIndexSong)
     dispatch(getInfoMusic(musicId))
       .unwrap()
       .then((result) => {

@@ -4,18 +4,18 @@ import { PlayFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
-import { secondToMinuteAndSecond } from '../../../utils/hepper'
-
+import { secondToMinuteAndSecond } from '~/utils/hepper'
 const ZingMusicItem = ({ item, number }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   const [link, setLink] = useState(null)
   useEffect(() => {
     setLink(item?.album?.link.split('.')[0])
   }, [])
   const handleRedirect = useRedirect()
-
+  const { bg100Color } = useColor()
   return (
-    <div className='${bg100Color} group flex items-center justify-between rounded-md py-3 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode'>
+    <div
+      className={`${bg100Color} group flex items-center justify-between rounded-md py-3 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
+    >
       <span
         style={{
           paintOrder: 'stroke fill',
@@ -33,7 +33,7 @@ const ZingMusicItem = ({ item, number }) => {
           className='relative mr-5 h-[60px]   w-[60px] cursor-pointer overflow-hidden rounded-md'
           onClick={() => handleRedirect(item)}
         >
-          <img src={item?.thumbnail} />
+          <img src={item?.thumbnail} alt={item.title} />
           <PlayFillIcon
             className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
             width='16px'

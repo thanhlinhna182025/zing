@@ -5,6 +5,7 @@
 :root {
   --player-height: 90px;
   --header-height: 70px;
+  --playlist-right-width: 330px;
 }
 
 @layer base {

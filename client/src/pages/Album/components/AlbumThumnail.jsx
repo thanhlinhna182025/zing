@@ -18,7 +18,7 @@ const AlbumThumnail = ({
   isPlaying,
   isPlayAll
 }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bgColor } = useColor()
   return (
     <div>
       {isPlaying ? (

@@ -11,7 +11,7 @@ import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
 import KaraokeSong from '~/pages/Karaoke/KaraokeSong'
 import KaraokeHeader from './KaraokeHeader'
 const Karaoke = ({ url }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bg200Color } = useColor()
   //global State
   const KaraokeMain = useSelector((state) => state.app.karaokeMain)
   const karaokMode = useSelector((state) => state.app.karaokMode)
@@ -114,9 +114,7 @@ const Karaoke = ({ url }) => {
   }
 
   return (
-    <div
-      className={`'animate-slide-top' ${bg200Color} fixed top-0 left-0 right-0 bottom-0 z-[999999] animate-slide-top  transition-all`}
-    >
+    <div className={`${karaokMode?'animate-slide-top':'animate-slide-bottom'} ${bg200Color} fixed right-0 left-0 bottom-0 top-0 z-[999999] translate-y-[100%] `}>
       <KaraokeHeader
         headerData={headerData}
         KaraokeMain={KaraokeMain}

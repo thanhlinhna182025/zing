@@ -14,15 +14,15 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
 import { PlayFillIcon } from '~/components/Icons'
-import ZingChartItem from './ZingChartItem'
 import configs from '~/configs'
 import { getChartHome } from '~/feature/app/appSlice'
 import useColor from '~/hooks/useColor'
+import ZingChartItem from './ZingChartItem'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip)
 
 const ZingChart = ({ zingChart }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bgColor, bg200Color, bg300Color } = useColor()
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
   const [labelNames, setLabelNames] = useState([])

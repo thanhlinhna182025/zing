@@ -2,16 +2,14 @@ import { MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import useRedirect from '~/hooks/useRedirect'
 import { releaseDay } from '~/utils/hepper'
-import useColor from '~/hooks/useColor'
 const SongCardItem = ({ item }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
   const handleRedirect = useRedirect()
   return (
     <div
       className={`group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
     >
       <div className=' relative w-[60px]' onClick={() => handleRedirect(item)}>
-        <img className='block w-full object-cover' src={item.thumbnail} />
+        <img className='block w-full object-cover' src={item.thumbnail} alt={item.title} />
         <PlayFullFillIcon className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] cursor-pointer  text-white group-hover:inline-block hover:opacity-90 ' />
       </div>
       <div className=' flex-1'>

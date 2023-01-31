@@ -12,6 +12,6 @@ const useColor = () => {
   const bg300Color = `${
     color === 'B' ? `bg-B-300` : color === 'C' ? 'bg-C-300' : color === 'D' ? 'bg-D-300' : 'bg-A-300'
   }`
-  return [bgColor, bg100Color, bg200Color, bg300Color]
+  return { bgColor, bg100Color, bg200Color, bg300Color }
 }
 export default useColor

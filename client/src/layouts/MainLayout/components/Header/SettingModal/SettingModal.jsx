@@ -8,10 +8,10 @@ import {
   QualityIcon,
   RightArrowIcon
 } from '~/components/Icons'
-import useColor from '../../../../../hooks/useColor'
+import useColor from '~/hooks/useColor'
 
 const SettingModal = () => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bg100Color, bg300Color } = useColor()
   return (
     <div className={`${bg100Color} w-[240px] overflow-hidden rounded-md`}>
       <ul className={`border-${bg300Color} border-b-[1px] border-solid py-2`}>

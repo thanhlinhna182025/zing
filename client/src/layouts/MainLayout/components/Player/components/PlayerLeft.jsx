@@ -6,11 +6,11 @@ const PlayerLeft = ({ musicInfo }) => {
 
   return (
     <div className='flex w-[30%] items-center justify-start'>
-      <div className='mr-[10px]'>
+      <div className='mr-[10px] flex-shrink-0'>
         <img src={thumbnail} className='block h-16 w-16 rounded-md object-cover' />
       </div>
       <div className='mr-[30px]'>
-        <h5 className='font-[Inter] text-sm font-semibold text-light-mode dark:text-dark-mode'>{title}</h5>
+        <h5 className='truncate font-[Inter] text-sm font-semibold text-light-mode dark:text-dark-mode'>{title}</h5>
         <Button
           type='text'
           to='#'
@@ -25,11 +25,7 @@ const PlayerLeft = ({ musicInfo }) => {
           width='14px'
           height='14px'
         />
-        <MoreIcon
-          className='mr-[22px] cursor-pointer cursor-pointer text-light-mode dark:text-dark-mode'
-          width='14px'
-          height='14px'
-        />
+        <MoreIcon className='mr-[22px] cursor-pointer text-light-mode dark:text-dark-mode' width='14px' height='14px' />
       </div>
     </div>
   )

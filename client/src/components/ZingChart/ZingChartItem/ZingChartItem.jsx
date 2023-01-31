@@ -4,7 +4,7 @@ import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
 
 const ZingChartItem = ({ item, number, totalScore }) => {
-  const [bgColor, bg100Color, bg200Color, bg300Color] = useColor()
+  const { bg100Color } = useColor()
   const handleRedirect = useRedirect()
   return (
     <div className={`mr-5  w-[415px] `}>

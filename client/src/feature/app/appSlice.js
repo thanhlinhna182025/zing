@@ -69,6 +69,22 @@ export const getChartHome = createAsyncThunk(`${context}/getChartHome`, async (_
     throw error
   }
 })
+export const getTop100 = createAsyncThunk(`${context}/getTop100`, async (_, thunkApi) => {
+  try {
+    const response = await http.get('/top100', {
+      signal: thunkApi.signal
+    })
+    if (response.statusText !== 'OK') {
+      throw new Error(response.data.message)
+    }
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
 
 const appSlice = createSlice({
   name: 'app',

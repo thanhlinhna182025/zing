@@ -23,7 +23,8 @@ const ListTop = [
     id: 1,
     path: configs.routes.login,
     icon: MusicBageIcon,
-    title: 'Cá Nhân'
+    title: 'Cá Nhân',
+    disabled: true
   },
   {
     id: 2,
@@ -44,13 +45,15 @@ const ListTop = [
     icon: RadioIcon,
     title: 'Radio',
     playVideoIcon: true,
-    liveIcon: true
+    liveIcon: true,
+    disabled: true
   },
   {
     id: 5,
     path: configs.routes.follow,
     icon: FollowIcon,
-    title: 'Theo Dõi'
+    title: 'Theo Dõi',
+    disabled: true
   }
 ]
 
@@ -79,7 +82,8 @@ const ListBottom = [
     id: 9,
     path: configs.routes.mv,
     icon: MVIcon,
-    title: 'MV'
+    title: 'MV',
+    disabled: true
   }
 ]
 
@@ -98,7 +102,17 @@ const SideBar = () => {
         <ul className='w-full '>
           {ListTop.map((item) => {
             let Icon = item.icon
-            return <SideBarItem key={item.path} icon={Icon} item={item} setActive={setActive} active={active} />
+            let disabled = item.disabled === true ? true : false
+            return (
+              <SideBarItem
+                disabled={disabled}
+                key={item.path}
+                icon={Icon}
+                item={item}
+                setActive={setActive}
+                active={active}
+              />
+            )
           })}
         </ul>
       </nav>

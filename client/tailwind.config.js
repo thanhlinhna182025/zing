@@ -21,9 +21,9 @@ const colorPalete = {
   'C-200': '#775850',
   'C-300': '#5B4039',
   'D-0': '#F7E3E4',
-  'D-100': '#fbe6e6',
+  'D-100': '#ffd1d1',
   'D-200': '#f9c6c5',
-  'D-300': '#9A2874'
+  'D-300': '#fea9f7'
 }
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],

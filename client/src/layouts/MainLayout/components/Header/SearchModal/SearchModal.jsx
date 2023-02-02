@@ -32,7 +32,7 @@ const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword
         <ul className='mt-3 py-1'>
           {relatedKeywords &&
             relatedKeywords.map((item) => (
-              <ResultItem key={item.encodeId} handleClearKeyword={handleClearKeyword} item={item} />
+              <ResultItem key={item?.encodeId} handleClearKeyword={handleClearKeyword} item={item} />
             ))}
         </ul>
       </div>

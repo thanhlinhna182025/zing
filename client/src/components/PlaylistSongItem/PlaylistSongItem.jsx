@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import MusicBar from '~/assets/images/Z23N.gif'
 import { MusicNodeIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import { setCurrentIndexAlbumSong } from '~/feature/album/albumSlice'
-import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
+import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
+import { setOmitPage } from '../../feature/app/appSlice'
 
-const AlbumSongItem = ({ item, index, release }) => {
+const PlaylistSongItem = ({ item, index, release }) => {
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
   useEffect(() => {
@@ -21,8 +21,8 @@ const AlbumSongItem = ({ item, index, release }) => {
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
-    dispatch(setCurrentIndexAlbumSong(index))
-    dispatch(setOmitPage('album'))
+    dispatch(setCurrentIndexPlaylistSong(index))
+    dispatch(setOmitPage('playlist'))
   }
 
   return (
@@ -85,4 +85,4 @@ const AlbumSongItem = ({ item, index, release }) => {
     </div>
   )
 }
-export default AlbumSongItem
+export default PlaylistSongItem

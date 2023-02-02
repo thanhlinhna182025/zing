@@ -1,9 +1,9 @@
 import { memo } from 'react'
-import AlbumSongItem from '~/components/AlbumSongItem'
 import { SortIcon } from '~/components/Icons/Icons'
-import { secondToMinute } from '~/utils/hepper'
+import PlaylistSongItem from '~/components/PlaylistSongItem'
+import { secondToHourMinute } from '~/utils/hepper'
 
-const PlayListSongs = ({ song, description }) => {
+const PlayListSong = ({ song, description }) => {
   return (
     <div className=' w-full'>
       <div className='mb-[10px] leading-[21px]'>
@@ -24,7 +24,7 @@ const PlayListSongs = ({ song, description }) => {
       </div>
       <div className='flex max-h-[400px] flex-col scrollbar'>
         {song?.items?.map((item, index) => (
-          <AlbumSongItem item={item} key={item.encodeId} index={index} />
+          <PlaylistSongItem item={item} key={item.encodeId} index={index} />
         ))}
       </div>
       <div className='py-[6px]'>
@@ -33,10 +33,10 @@ const PlayListSongs = ({ song, description }) => {
         </span>
         <b className='px-2 align-top text-[20px] font-black leading-3 text-light-mode dark:text-dark-mode'>.</b>
         <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'>
-          {secondToMinute(parseInt(song?.totalDuration))} phút
+          {secondToHourMinute(parseInt(song?.totalDuration))}
         </span>
       </div>
     </div>
   )
 }
-export default memo(PlayListSongs)
+export default memo(PlayListSong)

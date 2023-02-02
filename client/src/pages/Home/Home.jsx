@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ArtistSpotlight from '~/components/ArtistSpotlight'
 import AutoThemeOne from '~/components/AutoThemeOne'
 import AutoThemeTwo from '~/components/AutoThemeTwo/AutoThemeTwo'
@@ -30,13 +30,15 @@ const Home = () => {
   const [zingChart, setZingChart] = useState({})
   const [weekChart, setWeekChart] = useState({})
   const [event, setEvent] = useState({})
+  
 
   useEffect(() => {
     dispatch(getHome())
       .unwrap()
       .then((result) => {
-        console.log(result)
+        
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
+
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
         setRecentPlaylist(
           result.items.find((item) => item.sectionType === 'recentPlaylist' && item.sectionId === 'hRecent')
@@ -54,12 +56,13 @@ const Home = () => {
         setZingChart(result.items.find((item) => item.sectionType === 'RTChart' && item.sectionId === 'hZC'))
         setWeekChart(result.items.find((item) => item.sectionType === 'weekChart'))
         setEvent(result.items.find((item) => item.sectionType === 'event' && item.sectionId === 'hSlider'))
+        
       })
   }, [])
-
+  
   return (
     <div className=' w-full pt-[32px]'>
-      <Banner banner={banner} />
+      <Banner banner={banner}  />
       <NewRelease newRelease={newRelease} />
       <AutoThemeOne autoThemeOne={autoThemeOne} />
       <PlayList playList={playList} recentPlaylist={recentPlaylist} />

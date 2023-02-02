@@ -1,8 +1,10 @@
-import { useSelector } from 'react-redux'
 import MusicBar from '~/assets/images/Z23N.gif'
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
-import { PlayVideoIcon } from '~/components/Icons/Icons'
+import { PlayVideoIcon, ShuffleIcon } from '~/components/Icons/Icons'
+import NameArtist from '~/components/NameArtist'
+import useColor from '~/hooks/useColor'
+import { numberWithCommas } from '../../../utils/hepper'
 
 const PlayListThumnail = ({
   thumbnailM,
@@ -16,9 +18,7 @@ const PlayListThumnail = ({
   isPlaying,
   isPlayAll
 }) => {
-  const color = useSelector((state) => state.app.color)
-  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
-
+  const { bgColor } = useColor()
   return (
     <div>
       {isPlaying ? (
@@ -27,9 +27,9 @@ const PlayListThumnail = ({
           onClick={handleToggle}
         >
           <div className='absolute top-1/2 left-1/2 z-10 translate-x-[-50%] translate-y-[-50%]'>
-            <img className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
+            <img alt='musicbar' className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
           </div>
-          <img src={thumbnailM} className='animate-spin-slow rounded-full object-cover ' />
+          <img alt='thumbnail' src={thumbnailM} className='animate-spin-slow rounded-full object-cover ' />
         </div>
       ) : (
         <div className='group relative mb-3 h-[300px] w-[300px] overflow-hidden rounded-lg' onClick={handleToggle}>
@@ -37,6 +37,7 @@ const PlayListThumnail = ({
             <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='44px' height='44px' />
           </div>
           <img
+            alt='thumbnail'
             src={thumbnailM}
             className='rounded-lg object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
           />
@@ -48,38 +49,7 @@ const PlayListThumnail = ({
           {title}
         </h5>
         <div className='mb-[4px] leading-none'>
-          {artists?.map((artist, index) => {
-            if (artists.length === 1) {
-              return (
-                <a
-                  key={artist.id}
-                  className=' font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'
-                >
-                  {artist.name}
-                </a>
-              )
-            } else {
-              if (index < artists.length - 1) {
-                return (
-                  <a
-                    key={artist.id}
-                    className='mr-[2px]  cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-light-mode hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid dark:text-dark-mode'
-                  >
-                    {artist.name},
-                  </a>
-                )
-              } else {
-                return (
-                  <a
-                    key={artist.id}
-                    className='cursor-pointer font-[Inter] text-[12px] font-bold tracking-[-0.1px] text-light-mode hover:text-[#9D4be0] hover:underline hover:decoration-[#9D4be0] hover:decoration-solid dark:text-dark-mode'
-                  >
-                    {artist.name}
-                  </a>
-                )
-              }
-            }
-          })}
+          <NameArtist artists={artists} />
           {releaseDate && (
             <>
               <b className='px-[4px] align-top text-[20px] font-black leading-3 text-light-mode dark:text-dark-mode'>
@@ -92,7 +62,7 @@ const PlayListThumnail = ({
           )}
         </div>
         <p className='mb-[20px] font-[Inter] text-xs font-semibold text-light-mode dark:text-dark-mode'>
-          {like} người yêu thích
+          {numberWithCommas(like)} người yêu thích
         </p>
         {isPlayAll ? (
           <Button
@@ -101,7 +71,7 @@ const PlayListThumnail = ({
             className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
             onClick={handleShuffle}
           >
-            <PlayFillIcon className={`dark:text-dark-mode' width='16px' height='16px mr-[5px] text-light-mode `} />
+            <ShuffleIcon className='mr-[5px] text-white' width='20px' height='20px' />
             <span className='text-sm font-normal leading-normal'> PHÁT NGẪU NHIÊN </span>
           </Button>
         ) : (
@@ -111,17 +81,17 @@ const PlayListThumnail = ({
             className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
             onClick={handlePlayAll}
           >
-            <PlayFillIcon className='mr-[5px] text-light-mode dark:text-dark-mode' width='16px' height='16px' />
+            <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
             <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
           </Button>
         )}
 
         <div className='mr-2 flex items-center'>
-          <Button type='text' rounded className=' mr-5 flex h-[35px] w-[35px] items-center justify-center bg-[#2f2739]'>
-            <HeartIcon className='text-ebony170-200' width='16px' height='16px' />
+          <Button type='text' rounded className={`mr-5 flex h-[35px] w-[35px] items-center justify-center ${bgColor}`}>
+            <HeartIcon className='text-white' width='16px' height='16px' />
           </Button>
-          <Button type='text' rounded className=' flex h-[35px] w-[35px] items-center justify-center bg-[#2f2739]'>
-            <MoreIcon className='text-ebony170-200' width='16px' height='16px' />
+          <Button type='text' rounded className={`flex h-[35px] w-[35px] items-center justify-center ${bgColor}`}>
+            <MoreIcon className='text-white' width='16px' height='16px' />
           </Button>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
+import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
+import BannerSkeleton from '../Skeleton/BannerSkeleton/BannerSkeleton'
 import BannerItem from './BannerItem'
 const Banner = ({ banner }) => {
   const swiperRef = useRef()
+  const loading = useSelector((state) => state.app.loading)
 
   return (
     <div className='relative'>
@@ -24,11 +27,15 @@ const Banner = ({ banner }) => {
         loop={true}
         navigation={true}
       >
-        {banner?.items?.map((item) => (
-          <SwiperSlide key={item.encodeId}>
-            <BannerItem item={item} />
-          </SwiperSlide>
-        ))}
+        <div className='grid grid-cols-3 gap-x-5'>
+          {loading
+            ? [1, 2, 3].map((item) => <BannerSkeleton key={item} />)
+            : banner?.items?.map((item) => (
+                <SwiperSlide key={item.encodeId}>
+                  <BannerItem item={item} />
+                </SwiperSlide>
+              ))}
+        </div>
       </Swiper>
       <button className='swiper-button-prev-banner' onClick={() => swiperRef.current?.slidePrev()}>
         <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />

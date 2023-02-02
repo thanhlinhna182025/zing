@@ -3,10 +3,10 @@ import http from '~/utils/http'
 const initialState = {
   albumId: null,
   albumSongs: [],
-  curentIndexSong: null
+  curentIndexAlBumSong: 0
 }
 const context = 'album'
-export const getDetailPlaylist = createAsyncThunk(`${context}/getDetailPlaylist`, async (id, thunkApi) => {
+export const getAlbumPlaylist = createAsyncThunk(`${context}/getAlbumPlaylist`, async (id, thunkApi) => {
   try {
     const response = await http(
       { url: '/detailplaylist', method: 'GET', params: { id: id } },
@@ -32,13 +32,13 @@ const albumSlice = createSlice({
     addAlbumSongs: (state, action) => {
       state.albumSongs = action.payload
     },
-    setCurrentIndexSong: (state, action) => {
-      state.curentIndexSong = action.payload
+    setCurrentIndexAlbumSong: (state, action) => {
+      state.curentIndexAlBumSong = action.payload
     }
   }
 })
 
-export const { addAlbumId, addAlbumSongs, setCurrentIndexSong } = albumSlice.actions
+export const { addAlbumId, addAlbumSongs, setCurrentIndexAlbumSong } = albumSlice.actions
 const albumReducer = albumSlice.reducer
 
 export default albumReducer

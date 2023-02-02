@@ -2,18 +2,21 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import { ClockIcon, MoreIcon } from '~/components/Icons'
-import { getChartHome } from '~/feature/app/appSlice'
 import { getInfoMusic } from '~/feature/music/musicSlice'
+import { getPlaylist } from '~/feature/playlist/playlistSlice'
 import useColor from '~/hooks/useColor'
+import { addPlaylistSongs } from '../../../../feature/playlist/playlistSlice'
 import PlayCurrentItem from './PlayCurrentItem'
 import PlayItem from './PlayItem'
 
 const RightPlayList = () => {
   const rightMode = useSelector((state) => state.app.rightMode)
   const musicId = useSelector((state) => state.music.musicId)
+  const playlistId = useSelector((state) => state.playlist.playlistId)
   const { bgColor, bg100Color, bg300Color } = useColor()
   const [currentMusic, setCurrentMusic] = useState()
   const [musicData, setMusicData] = useState([])
+  const [title, setTitle] = useState('')
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -22,13 +25,16 @@ const RightPlayList = () => {
       .then((res) => setCurrentMusic(res))
       .catch((err) => console.log(err))
   }, [musicId])
-
   useEffect(() => {
-    dispatch(getChartHome())
+    dispatch(getPlaylist(playlistId))
       .unwrap()
-      .then((res) => setMusicData(res.RTChart.items))
+      .then((res) => {
+        setTitle(res.title)
+        setMusicData(res.song.items)
+        dispatch(addPlaylistSongs(res.song.items))
+      })
       .catch((err) => console.log(err))
-  }, [])
+  }, [playlistId])
 
   return (
     <div
@@ -60,7 +66,7 @@ const RightPlayList = () => {
           <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Tiếp theo</p>
           <div>
             <span className='mr-1 text-sm font-bold text-gray '>Từ playlist</span>
-            <span className='cursor-pointer text-sm text-light-mode dark:text-dark-mode'>#zingchart</span>
+            <span className='cursor-pointer text-sm text-light-mode dark:text-dark-mode'>{title}</span>
           </div>
         </div>
         <div className='flex flex-col gap-y-2'>

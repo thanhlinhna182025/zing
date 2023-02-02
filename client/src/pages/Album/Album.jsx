@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addAlbumSongs, getDetailPlaylist } from '../../feature/album/albumSlice'
-import { isPlayingToggle, setIsPlayAll, setIsShuffle } from '../../feature/app/appSlice'
+import { addAlbumSongs, getAlbumPlaylist } from '~/feature/album/albumSlice'
+import { isPlayingToggle, setIsPlayAll, setIsShuffle } from '~/feature/app/appSlice'
 import { AlbumListSong, AlbumThumnail, Artists } from './components'
 
 const Album = () => {
@@ -25,11 +25,11 @@ const Album = () => {
     dispatch(setIsShuffle())
   }
   useEffect(() => {
-    dispatch(getDetailPlaylist(id))
+    dispatch(getAlbumPlaylist(id))
       .unwrap()
       .then((result) => {
         setAlbumResource(result)
-        dispatch(addAlbumSongs(result?.song))
+        dispatch(addAlbumSongs(result?.song?.items))
       })
       .catch((err) => console.log(err))
   }, [id])

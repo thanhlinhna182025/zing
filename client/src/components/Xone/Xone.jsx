@@ -5,7 +5,7 @@ const Xone = ({ xone }) => {
   return (
     <div className='my-main-margin'>
       <div className='mb-5'>
-        <Title>{xone.title}</Title>
+        <Title>{xone?.title}</Title>
       </div>
       <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
         {xone?.items?.slice(0, 5).map((item) => (

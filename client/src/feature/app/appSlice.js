@@ -13,7 +13,9 @@ const initialState = {
   color: 'A',
   darkMode: false,
   volume: 50,
-  rightMode: false
+  rightMode: false,
+  omitPage: '',
+  loading: false
 }
 const context = 'app'
 
@@ -132,7 +134,25 @@ const appSlice = createSlice({
     },
     toggleRightMode: (state) => {
       state.rightMode = !state.rightMode
+    },
+    setOmitPage: (state, action) => {
+      state.omitPage = action.payload
     }
+  },
+  extraReducers(builder) {
+    builder
+      .addMatcher(
+        (action) => action.type.endsWith('/pending'),
+        (state) => {
+          state.loading = true
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('/fulfilled'),
+        (state) => {
+          state.loading = false
+        }
+      )
   }
 })
 
@@ -154,7 +174,8 @@ export const {
   setColor,
   setDarkMode,
   setVolume,
-  toggleRightMode
+  toggleRightMode,
+  setOmitPage
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

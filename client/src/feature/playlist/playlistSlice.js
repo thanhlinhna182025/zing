@@ -2,10 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
   playlistId: null,
-  playlist: []
+  playlistSongs: [],
+  curentIndexPlaylistSong: 0
 }
 const context = 'playlist'
-export const getDetailPlaylist = createAsyncThunk(`${context}/getDetailPlaylist`, async (id, thunkApi) => {
+export const getPlaylist = createAsyncThunk(`${context}/getPlaylist`, async (id, thunkApi) => {
   try {
     const response = await http(
       { url: '/detailplaylist', method: 'GET', params: { id: id } },
@@ -21,6 +22,7 @@ export const getDetailPlaylist = createAsyncThunk(`${context}/getDetailPlaylist`
     throw error
   }
 })
+
 const playlistSlice = createSlice({
   name: 'playlist',
   initialState,
@@ -28,13 +30,16 @@ const playlistSlice = createSlice({
     addPlaylistId: (state, action) => {
       state.playlistId = action.payload
     },
-    addPlaylist: (state, action) => {
-      state.playlist = action.payload
+    addPlaylistSongs: (state, action) => {
+      state.playlistSongs = action.payload
+    },
+    setCurrentIndexPlaylistSong: (state, action) => {
+      state.curentIndexPlaylistSong = action.payload
     }
   }
 })
 
-export const { addPlaylistId, addPlaylist } = playlistSlice.actions
+export const { addPlaylistId, addPlaylistSongs, setCurrentIndexPlaylistSong } = playlistSlice.actions
 const playlistReducer = playlistSlice.reducer
 
 export default playlistReducer

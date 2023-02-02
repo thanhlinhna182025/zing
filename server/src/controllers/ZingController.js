@@ -1,7 +1,6 @@
-const { ZingMp3 } = require("zingmp3-api-full")
+const { ZingMp3 } = require('zingmp3-api-full')
 
 class ZingController {
-
     getSong(req, res) {
         ZingMp3.getSong(req.query.id).then((data) => {
             res.json(data)
@@ -22,13 +21,13 @@ class ZingController {
 
     getTop100(req, res) {
         ZingMp3.getTop100().then((data) => {
-            res.json(data);
+            res.json(data)
         })
     }
 
     getChartHome(req, res) {
         ZingMp3.getChartHome().then((data) => {
-            res.json(data);
+            res.json(data)
         })
     }
 
@@ -40,7 +39,7 @@ class ZingController {
 
     getInfo(req, res) {
         ZingMp3.getInfoSong(req.query.id).then((data) => {
-            res.json(data);
+            res.json(data)
         })
     }
 
@@ -51,7 +50,11 @@ class ZingController {
     }
 
     getArtistSong(req, res) {
-        ZingMp3.getListArtistSong(req.query.id, req.query.page, req.query.count).then((data) => {
+        ZingMp3.getListArtistSong(
+            req.query.id,
+            req.query.page,
+            req.query.count
+        ).then((data) => {
             res.json(data)
         })
     }
@@ -69,9 +72,11 @@ class ZingController {
     }
 
     getListMV(req, res) {
-        ZingMp3.getListMV(req.query.id, req.query.page, req.query.count).then((data) => {
-            res.json(data)
-        })
+        ZingMp3.getListMV(req.query.id, req.query.page, req.query.count).then(
+            (data) => {
+                res.json(data)
+            }
+        )
     }
 
     getCategoryMV(req, res) {
@@ -85,7 +90,6 @@ class ZingController {
             res.json(data)
         })
     }
-
 }
 
-module.exports = new ZingController
+module.exports = new ZingController()

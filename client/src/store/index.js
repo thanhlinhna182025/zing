@@ -2,13 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 import storage from 'redux-persist/lib/storage'
+import albumReducer from '~/feature/album/albumSlice'
+import appReducer from '~/feature/app/appSlice'
 import authReducer from '~/feature/auth/authSlice'
+import colorThemeReducer from '~/feature/colorTheme/colorThemeSlice'
 import musicReducer from '~/feature/music/musicSlice'
-import albumReducer from '../feature/album/albumSlice'
-import appReducer from '../feature/app/appSlice'
-import colorThemeReducer from '../feature/colorTheme/colorThemeSlice'
-import playlistReducer from '../feature/playlist/playlistSlice'
-import singerReducer from '../feature/singer/singerSlice'
+import playlistReducer from '~/feature/playlist/playlistSlice'
+import singerReducer from '~/feature/singer/singerSlice'
 const persistConfig = {
   storage,
   stateReconciler: autoMergeLevel2

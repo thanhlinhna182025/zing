@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import useColor from '~/hooks/useColor'
 import PlayerKaraoke from './PlayerKaraoke'
 
-import { getDetailPlaylist } from '~/feature/album/albumSlice'
+import { getAlbumPlaylist } from '~/feature/album/albumSlice'
 import { karaokeIsPlayingToggle, setKaraokeIsPlaying, setKaraokeMain, setKaraokMode } from '~/feature/app/appSlice'
 import { getInfoMusic, getLyricMusic } from '~/feature/music/musicSlice'
 import KaraokeList from '~/pages/Karaoke/KaraokeList'
@@ -33,7 +33,7 @@ const Karaoke = ({ url }) => {
     dispatch(setKaraokeMain(mode))
   }
   useEffect(() => {
-    dispatch(getDetailPlaylist(albumId))
+    dispatch(getAlbumPlaylist(albumId))
       .unwrap()
       .then((result) => {
         setPlaylists(result?.song?.items)
@@ -114,7 +114,11 @@ const Karaoke = ({ url }) => {
   }
 
   return (
-    <div className={`${karaokMode?'animate-slide-top':'animate-slide-bottom'} ${bg200Color} fixed right-0 left-0 bottom-0 top-0 z-[999999] translate-y-[100%] `}>
+    <div
+      className={`${
+        karaokMode ? 'animate-slide-top' : 'animate-slide-bottom'
+      } ${bg200Color} fixed right-0 left-0 bottom-0 top-0 z-[999999] translate-y-[100%] `}
+    >
       <KaraokeHeader
         headerData={headerData}
         KaraokeMain={KaraokeMain}

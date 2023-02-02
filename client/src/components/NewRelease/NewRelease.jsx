@@ -5,7 +5,7 @@ import SeeAllButton from '~/components/SeeAllButton'
 import SongCardItem from '~/components/SongCardItem'
 import Title from '~/components/Title'
 import configs from '~/configs'
-
+import SongCartItemSkeleton from '../Skeleton/SongCartItemSkeleton/SongCartItemSkeleton'
 const NewRelease = ({ newRelease }) => {
   const [data, setData] = useState(newRelease?.items?.all?.slice(0, 12))
   const [typeData, setTypeData] = useState('all')
@@ -24,6 +24,7 @@ const NewRelease = ({ newRelease }) => {
   const handleTypeData = (type) => {
     setTypeData(type)
   }
+  const loading = useSelector((state) => state.app.loading)
 
   return (
     <div className='my-main-margin'>
@@ -61,10 +62,10 @@ const NewRelease = ({ newRelease }) => {
           <SeeAllButton to={configs.routes.newreleaseSong} />
         </div>
       </div>
-      <div className='grid grid-cols-3 grid-rows-4 gap-x-5'>
-        {data?.map((item) => (
-          <SongCardItem key={item.encodeId} item={item} />
-        ))}
+      <div className='grid grid-cols-3 grid-rows-4 gap-x-5 gap-y-1'>
+        {loading
+          ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <SongCartItemSkeleton key={item} />)
+          : data?.map((item) => <SongCardItem key={item.encodeId} item={item} />)}
       </div>
     </div>
   )

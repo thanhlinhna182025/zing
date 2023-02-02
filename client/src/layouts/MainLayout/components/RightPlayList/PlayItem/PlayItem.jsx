@@ -1,14 +1,22 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import MusicBar from '~/assets/images/Z23N.gif'
 import { HeartIcon, PlayFillIcon } from '~/components/Icons'
 import { MoreIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
-import { setCurrentIndexSong } from '~/feature/album/albumSlice'
+import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
+import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
 const PlayItem = ({ item, index }) => {
   const dispatch = useDispatch()
+  const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
+  const musicId = useSelector((state) => state.music.musicId)
+
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
-    dispatch(setCurrentIndexSong(index))
+    if (playlistSongs.length > 0) {
+      dispatch(setCurrentIndexPlaylistSong(index))
+      dispatch(setOmitPage('playlist'))
+    }
   }
   return (
     <div
@@ -23,6 +31,9 @@ const PlayItem = ({ item, index }) => {
             width='16px'
             height='16px'
           />
+          {item.encodeId === musicId && (
+            <img src={MusicBar} alt='music_bar' className='absolute top-1 left-1 right-1 bottom-1' />
+          )}
         </div>
         <div className='flex w-[200px] flex-col justify-center'>
           <h5 className='mb-1 truncate text-xs font-bold text-light-mode dark:text-dark-mode'>{item?.title}</h5>

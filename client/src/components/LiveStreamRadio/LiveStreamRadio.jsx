@@ -1,12 +1,16 @@
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import MusicCardItemSkeleton from '~/components/Skeleton/MusicCardItemSkeleton'
 import Title from '~/components/Title'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 import SeeAllButton from '../SeeAllButton/SeeAllButton'
 import LiveStreamItem from './LiveStreamItem'
 const LiveStreamRadio = ({ liveStream }) => {
   const swiperRef = useRef()
+  const loading = useSelector((state) => state.app.loading)
+
   return (
     <div>
       <div className='mb-5 flex items-center justify-between'>
@@ -29,11 +33,13 @@ const LiveStreamRadio = ({ liveStream }) => {
           loop={true}
           navigation={true}
         >
-          {liveStream?.items?.map((item) => (
-            <SwiperSlide key={item.encodeId}>
-              <LiveStreamItem item={item} />
-            </SwiperSlide>
-          ))}
+          {loading
+            ? [0, 1, 2, 3, 4, 5, 6].map((item) => <MusicCardItemSkeleton key={item} />)
+            : liveStream?.items?.map((item) => (
+                <SwiperSlide key={item.encodeId}>
+                  <LiveStreamItem item={item} />
+                </SwiperSlide>
+              ))}
         </Swiper>
         <button className='swiper-button-prev-live' onClick={() => swiperRef.current?.slidePrev()}>
           <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />

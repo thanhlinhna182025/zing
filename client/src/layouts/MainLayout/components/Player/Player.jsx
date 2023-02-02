@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addAlbumSongs, setCurrentIndexSong } from '~/feature/album/albumSlice'
+import { addAlbumSongs } from '~/feature/album/albumSlice'
 import {
   isPlayingToggle,
   isRepeatToggle,
@@ -14,17 +14,21 @@ import {
 import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
 import useColor from '~/hooks/useColor'
 import useSingleSong from '~/hooks/useSingleSong'
+import { setIsPlayAll } from '../../../../feature/app/appSlice'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 const Player = ({ url }) => {
   //Global state
   const albumSongs = useSelector((state) => state.album.albumSongs)
-  const curentIndexSong = useSelector((state) => state.album.curentIndexSong)
+  const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
+  const curentIndexAlBumSong = useSelector((state) => state.album.curentIndexAlBumSong)
+  const curentIndexPlaylistSong = useSelector((state) => state.playlist.curentIndexPlaylistSong)
   const musicId = useSelector((state) => state.music.musicId)
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const isPlayAll = useSelector((state) => state.app.isPlayAll)
   const isShuffle = useSelector((state) => state.app.isShuffle)
   const isRepeat = useSelector((state) => state.app.isRepeat)
   const volume = useSelector((state) => state.app.volume)
+  const omitPage = useSelector((state) => state.app.omitPage)
 
   //Local state
   const [musicInfo, setMusicInfo] = useState({})
@@ -32,6 +36,8 @@ const Player = ({ url }) => {
   const [nextActive, setNextActive] = useState(false)
   const [prevActive, setPrevActive] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
+  const [dataSongs, setDataSongs] = useState([])
+  const [indexSongs, setIndexSongs] = useState([])
   const [songsLength, setSongsLength] = useState(0)
 
   const { bg200Color } = useColor()
@@ -80,18 +86,19 @@ const Player = ({ url }) => {
   /** Check music is single or album. if false => play next song */
   const handleNextSong = () => {
     if (!isSingle) {
-      if (curentIndexSong < songsLength - 1) {
-        dispatch(addMusicId(albumSongs?.items[curentIndexSong + 1].encodeId))
-        dispatch(setCurrentIndexSong(curentIndexSong + 1))
+      if (indexSongs < songsLength - 1) {
+        dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
+        setIndexSongs(indexSongs + 1)
       }
     }
   }
+
   /** Check music is single or album. if false => play prev song */
   const handlePrevSong = () => {
     if (!isSingle) {
-      if (curentIndexSong > 0) {
-        dispatch(addMusicId(albumSongs?.items[curentIndexSong - 1].encodeId))
-        dispatch(setCurrentIndexSong(curentIndexSong - 1))
+      if (indexSongs > 0) {
+        dispatch(addMusicId(dataSongs[indexSongs - 1].encodeId))
+        setIndexSongs(indexSongs - 1)
       }
     }
   }
@@ -112,10 +119,25 @@ const Player = ({ url }) => {
     audioRef.current.currentTime = Number(e.target.value)
     setCurrentTime(e.target.value)
   }
-
   useEffect(() => {
-    setSongsLength(albumSongs?.items?.length)
-  }, [albumSongs, musicId])
+    if (omitPage === 'album') {
+      setDataSongs(albumSongs)
+      setSongsLength(albumSongs?.length)
+      dispatch(setIsPlayAll())
+    } else if (omitPage === 'playlist') {
+      setDataSongs(playlistSongs)
+      setSongsLength(playlistSongs?.length)
+      dispatch(setIsPlayAll())
+    }
+  }, [omitPage])
+  useEffect(() => {
+    if (omitPage === 'album') {
+      setIndexSongs(curentIndexAlBumSong)
+    } else if (omitPage === 'playlist') {
+      setIndexSongs(curentIndexPlaylistSong)
+    }
+  }, [curentIndexAlBumSong, curentIndexPlaylistSong])
+
   useEffect(() => {
     if (!params.id || !params.title) {
       dispatch(addAlbumSongs([]))
@@ -123,12 +145,11 @@ const Player = ({ url }) => {
   }, [params])
 
   useEffect(() => {
-    console.log(curentIndexSong)
     dispatch(getInfoMusic(musicId))
       .unwrap()
       .then((result) => {
         setMusicInfo(result)
-        setDuration(result.duration)
+        setDuration(result?.duration)
       })
       .catch((error) => console.log(error))
   }, [musicId])
@@ -152,13 +173,15 @@ const Player = ({ url }) => {
   }, [url, isPlaying])
   useEffect(() => {
     if (!isSingle) {
-      if (curentIndexSong === 0) {
+      setPrevActive(true)
+      setNextActive(true)
+      if (indexSongs === 0) {
         setPrevActive(false)
         setNextActive(true)
-      } else if (curentIndexSong === songsLength - 1) {
+      } else if (indexSongs === songsLength - 1) {
         setPrevActive(true)
         setNextActive(false)
-      } else if (curentIndexSong > 0 && curentIndexSong < songsLength - 1) {
+      } else {
         setPrevActive(true)
         setNextActive(true)
       }
@@ -166,21 +189,21 @@ const Player = ({ url }) => {
       setPrevActive(false)
       setNextActive(false)
     }
-  }, [nextActive, prevActive, curentIndexSong, isSingle, musicId])
+  }, [indexSongs, isSingle, musicId])
 
   useEffect(() => {
     const handleEnded = () => {
       const hadleIsPlayAll = () => {
         if (!isSingle) {
-          if (curentIndexSong < songsLength - 1) {
-            dispatch(addMusicId(albumSongs?.items[curentIndexSong + 1].encodeId))
-            dispatch(setCurrentIndexSong(curentIndexSong + 1))
+          if (indexSongs < songsLength - 1) {
+            dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
+            setIndexSongs(indexSongs + 1)
           }
         }
       }
       const handleIsShuffle = () => {
         let randomIndex = Math.round(Math.random() * songsLength - 1)
-        dispatch(addMusicId(albumSongs?.items[randomIndex]?.encodeId))
+        dispatch(addMusicId(dataSongs[randomIndex]?.encodeId))
       }
       const handleIsRepeat = () => {
         audioPlay()
@@ -201,7 +224,7 @@ const Player = ({ url }) => {
     return () => {
       if (audioRef.current) audioRef.current.removeEventListener('ended', handleEnded)
     }
-  }, [isRepeat, isPlayAll, isShuffle, curentIndexSong])
+  }, [isRepeat, isPlayAll, isShuffle, indexSongs])
 
   return (
     <div
@@ -209,7 +232,6 @@ const Player = ({ url }) => {
     >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />
-
       <PlayerCenter
         musicInfo={musicInfo}
         handleNextSong={handleNextSong}

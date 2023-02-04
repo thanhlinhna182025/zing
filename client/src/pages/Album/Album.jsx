@@ -37,7 +37,7 @@ const Album = () => {
     <div className='mb-player-height'>
       {albumResource && (
         <div className='flex flex-col pt-10'>
-          <div className='flex gap-x-[30px]'>
+          <div className='flex flex-col gap-x-[30px] lg:flex-row'>
             <AlbumThumnail
               artists={albumResource?.artists}
               thumbnailM={albumResource?.thumbnailM}

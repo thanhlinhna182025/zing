@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { addAlbumSongs, getAlbumPlaylist } from '~/feature/album/albumSlice'
 import { isPlayingToggle, setIsPlayAll, setIsShuffle } from '~/feature/app/appSlice'
-import { addPlaylistSongs, getPlaylist } from '~/feature/playlist/playlistSlice'
 import { Artists, PlayListSong, PlayListThumnail } from './components'
 
-const PlayList = () => {
-  const [playlistResource, setPlaylistResource] = useState(null)
+const Album = () => {
+  const [albumResource, setAlbumResource] = useState(null)
 
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const isPlayAll = useSelector((state) => state.app.isPlayAll)
@@ -25,25 +25,25 @@ const PlayList = () => {
     dispatch(setIsShuffle())
   }
   useEffect(() => {
-    dispatch(getPlaylist(id))
+    dispatch(getAlbumPlaylist(id))
       .unwrap()
       .then((result) => {
-        setPlaylistResource(result)
-        dispatch(addPlaylistSongs(result?.song?.items))
+        setAlbumResource(result)
+        dispatch(addAlbumSongs(result?.song?.items))
       })
       .catch((err) => console.log(err))
   }, [id])
   return (
     <div className='mb-player-height'>
-      {playlistResource && (
+      {albumResource && (
         <div className='flex flex-col pt-10'>
-          <div className='flex gap-x-[30px]'>
+          <div className='flex flex-col gap-x-[30px] lg:flex-row'>
             <PlayListThumnail
-              artists={playlistResource?.artists}
-              thumbnailM={playlistResource?.thumbnailM}
-              releaseDate={playlistResource?.releaseDate}
-              title={playlistResource?.title}
-              like={playlistResource?.like}
+              artists={albumResource?.artists}
+              thumbnailM={albumResource?.thumbnailM}
+              releaseDate={albumResource?.releaseDate}
+              title={albumResource?.title}
+              like={albumResource?.like}
               handleToggle={handleToggle}
               handlePlayAll={handlePlayAll}
               handleShuffle={handleShuffle}
@@ -51,12 +51,12 @@ const PlayList = () => {
               isPlayAll={isPlayAll}
               isShuffle={isShuffle}
             />
-            <PlayListSong song={playlistResource?.song} description={playlistResource?.description} />
+            <PlayListSong song={albumResource?.song} description={albumResource?.description} />
           </div>
-          <Artists artists={playlistResource?.artists} />
+          <Artists artists={albumResource?.artists} />
         </div>
       )}
     </div>
   )
 }
-export default PlayList
+export default Album

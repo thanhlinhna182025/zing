@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { Autoplay, Navigation } from 'swiper'
+import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import MusicCardItemSkeleton from '~/components/Skeleton/MusicCardItemSkeleton'
 import Title from '~/components/Title'
@@ -20,11 +20,22 @@ const LiveStreamRadio = ({ liveStream }) => {
       <div className='relative'>
         <Swiper
           className='liveSwiper'
-          modules={[Navigation, Autoplay]}
-          slidesPerView={7}
-          spaceBetween={28}
+          modules={[Navigation, Autoplay, Pagination]}
+          slidesPerView={3}
+          spaceBetween={10}
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper
+          }}
+          centeredSlides={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            }
           }}
           autoplay={{
             delay: 4000,
@@ -41,10 +52,10 @@ const LiveStreamRadio = ({ liveStream }) => {
                 </SwiperSlide>
               ))}
         </Swiper>
-        <button className='swiper-button-prev-live' onClick={() => swiperRef.current?.slidePrev()}>
+        <button className='swiper-button-next-live' onClick={() => swiperRef.current?.slidePrev()}>
           <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </button>
-        <button className='swiper-button-next-live' onClick={() => swiperRef.current?.slideNext()}>
+        <button className='swiper-button-prev-live' onClick={() => swiperRef.current?.slideNext()}>
           <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </button>
       </div>

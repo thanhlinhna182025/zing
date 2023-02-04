@@ -2,6 +2,7 @@ import { MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import useRedirect from '~/hooks/useRedirect'
 import { releaseDay } from '~/utils/hepper'
+
 const SongCardItem = ({ item }) => {
   const handleRedirect = useRedirect()
   return (
@@ -21,7 +22,7 @@ const SongCardItem = ({ item }) => {
           {releaseDay(item.releaseDate)}
         </span>
       </div>
-      <div className='hover:bg-main-200 absolute top-1/2 right-0 hidden translate-x-[-50%] translate-y-[-50%] rounded-full p-2 group-hover:inline-block'>
+      <div className='absolute top-1/2 right-0 hidden translate-x-[-50%] translate-y-[-50%] rounded-full p-2 group-hover:inline-block hover:bg-hover-light-mode dark:bg-hover-dark-mode'>
         <MoreIcon className='cursor-pointer  text-light-mode dark:text-dark-mode ' width='16px' height='16px' />
       </div>
     </div>

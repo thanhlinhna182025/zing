@@ -81,9 +81,9 @@ const MainLayout = ({ children }) => {
     <div ref={ref} style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
       <RightPlayList />
-      <div className=' w-full flex-col items-start '>
+      <div className=' w-full flex-col items-start px-2 '>
         <Header isTransparent={isTransparent} />
-        <main className='mt-header-margin ml-[240px] mb-player-height w-[calc(100%-240px)] px-header-padding'>
+        <main className='mt-header-margin ml-[70px] mb-player-height md:ml-[240px] md:w-[calc(100%-240px)] lg:px-5 xl:px-header-padding'>
           {children}
         </main>
       </div>

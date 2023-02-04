@@ -253,8 +253,8 @@ const ZingChart = ({ zingChart }) => {
           <PlayFillIcon className='text-white' width='14px' height='14px' />
         </Button>
       </div>
-      <div className='flex w-full'>
-        <div className='flex flex-col gap-y-3'>
+      <div className='flex w-full flex-col-reverse lg:flex-row gap-x-5'>
+        <div className='flex w-full flex-col gap-y-3 lg:w-1/2'>
           {top123?.map((item, index) => (
             <ZingChartItem number={index + 1} item={item} key={item.encodeId} totalScore={totalScore} />
           ))}
@@ -266,7 +266,7 @@ const ZingChart = ({ zingChart }) => {
           </Link>
         </div>
         <div
-          className='h-[300px] w-[540px] flex-grow'
+          className='w-full flex-grow lg:w-1/2 mb-5'
           style={{
             background:
               'url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.26/static/media/bg-chart.fd766403.jpg) top/cover no-repeat'

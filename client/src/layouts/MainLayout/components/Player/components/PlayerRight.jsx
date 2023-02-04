@@ -38,7 +38,7 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
     backgroundSize: `${volume}% 100%`
   }
   return (
-    <div className='flex w-[30%] items-center justify-end'>
+    <div className='hidden w-[30%] items-center  justify-end md:flex'>
       <span className='cursor-pointer'>
         <MVIcon width='20px' height='20px' className=' text-light-mode dark:text-dark-mode ' />
       </span>
@@ -83,7 +83,7 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
           />
         </div>
       </span>
-      <div className='bg-main-200 ml-5 h-8 w-[1px]'></div>
+      <div className='ml-5 h-8 w-[1px] bg-[#ccc]'></div>
       <TippyString content='Danh sách phát'>
         <span
           className={`${rightMode ? bg300Color : bg100Color} ml-5 cursor-pointer rounded-[4px] py-2 px-[6px]`}

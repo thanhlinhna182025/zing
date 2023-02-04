@@ -45,7 +45,7 @@ const PlayerCenter = (
   }, [currentTime])
 
   return (
-    <div className='  flex flex-1 flex-col items-center justify-center gap-y-4'>
+    <div className='  flex flex-col items-center justify-center gap-y-2 lg:gap-y-4 lg:flex-grow'>
       <div className=' flex items-center justify-center gap-[17px]'>
         {isSingle ? (
           <span
@@ -82,9 +82,9 @@ const PlayerCenter = (
         </span>
         <span className='cursor-pointer ' onClick={togglePlaying}>
           {isPlaying ? (
-            <PauseIcon className='text-light-mode dark:text-dark-mode' width='38px' height='38px' />
+            <PauseIcon className='h-[30px] w-[30px] text-light-mode dark:text-dark-mode lg:h-[38px] lg:w-[38px]' />
           ) : (
-            <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='38px' height='38px' />
+            <PlayVideoIcon className='h-[30px] w-[30px] text-light-mode dark:text-dark-mode lg:h-[38px] lg:w-[38px]' />
           )}
         </span>
         <span
@@ -131,7 +131,7 @@ const PlayerCenter = (
           value={currentTime}
           max={duration}
           step='0.01'
-          className='h-1 w-[400px]'
+          className='h-1 w-[300px] lg:w-[400px]'
           ref={ref}
           style={{ backgroundSize: `${percent}% 100%` }}
           onChange={handleCurrentTime}

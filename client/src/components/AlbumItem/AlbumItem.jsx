@@ -1,11 +1,8 @@
 import disk from '~/assets/images/disk.png'
 import { HeartIcon, MoreIcon, PlayFullFillIcon } from '~/components/Icons'
-import useColor from '~/hooks/useColor'
 const AlbumItem = ({ item }) => {
-  const { bg200Color } = useColor()
-
   return (
-    <div className={`group flex items-center rounded-md p-[10px] hover:${bg200Color}`}>
+    <div className={`group flex items-center rounded-md bg-hover-dark-mode p-[10px] hover:bg-hover-light-mode`}>
       <div className='w-[50%] pl-3'>
         <div className='flex'>
           <div className='relative z-10 w-fit group-hover:animate-slide-left'>

@@ -9,7 +9,7 @@ const AutoThemeOne = ({ autoThemeOne }) => {
       <div className='mb-5'>
         <Title>{autoThemeOne.title}</Title>
       </div>
-      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
+      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'>
         {loading
           ? [0, 1, 2, 3, 4].map((item) => <MusicCardItemSkeleton key={item} />)
           : autoThemeOne?.items

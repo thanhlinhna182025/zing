@@ -8,7 +8,7 @@ const MV = ({ mv }) => {
         <Title>{mv?.title}</Title>
         <SeeAllButton />
       </div>
-      <div className='grid grid-cols-3 gap-x-8'>
+      <div className='grid grid-cols-1 gap-x-8 lg:grid-cols-2 xl:grid-cols-3'>
         {mv?.items?.slice(0, 3).map((item) => (
           <MVCardItem item={item} key={item?.encodeId} />
         ))}

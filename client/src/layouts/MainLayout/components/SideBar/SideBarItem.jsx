@@ -25,16 +25,20 @@ const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
     >
       <Button to={`${disabled ? '#' : item.path}`} disabled={disabled} type='text' className='group relative'>
         <Icon className='text-light-mode dark:text-dark-mode' />
-        <span className='ml-[10px] font-[Inter] text-[13px] font-bold leading-4 text-light-mode dark:text-dark-mode'>
+        <span className='ml-[10px] hidden font-[Inter] text-[13px] font-bold leading-4 text-light-mode dark:text-dark-mode md:block'>
           {item.title}
         </span>
         {item?.liveIcon && (
-          <div className='ml-2 rounded-[4px] bg-[#ff0a0a] px-[7px] py-[2px] font-[Inter] text-[8px] font-bold tracking-[0.58px]'>
+          <div className='ml-2 hidden rounded-[4px] bg-[#ff0a0a] px-[7px] py-[2px] font-[Inter] text-[8px] font-bold tracking-[0.58px] md:block'>
             LIVE
           </div>
         )}
         {item?.playVideoIcon && (
-          <PlayVideoIcon className='absolute right-[20px] hidden group-hover:inline-block' width='19px' height='19px' />
+          <PlayVideoIcon
+            className='absolute right-[20px] hidden lg:group-hover:inline-block'
+            width='19px'
+            height='19px'
+          />
         )}
       </Button>
     </li>

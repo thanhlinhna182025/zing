@@ -42,7 +42,7 @@ const KaraokeList = ({ playlists }) => {
                 />
                 <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
                   <div className='flex items-center gap-x-5'>
-                    <div className='hover:bg-main-200 cursor-pointer rounded-full p-[5px]'>
+                    <div className='cursor-pointer rounded-full p-[5px] hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode'>
                       <HeartIcon width='20px' height='20px' className='text-light-mode dark:text-dark-mode' />
                     </div>
                     <PlayVideoIcon
@@ -50,7 +50,7 @@ const KaraokeList = ({ playlists }) => {
                       height='45px'
                       className='cursor-pointer text-light-mode dark:text-dark-mode'
                     />
-                    <div className='hover:bg-main-200 rounded-full p-[5px]'>
+                    <div className='rounded-full p-[5px] hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode'>
                       <MoreIcon
                         width='16px'
                         height='16px'

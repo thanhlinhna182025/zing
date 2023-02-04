@@ -42,7 +42,7 @@ const NewReleaseAlbum = () => {
               Mới Phát Hành
             </h3>
           </div>
-          <div className='before:bg-main-200 relative mb-10 before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%]'>
+          <div className='relative mb-10 before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%] before:bg-hover-light-mode dark:bg-hover-dark-mode'>
             <NavLink
               style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #a845de' : 'none' })}
               className={` mr-[50px] pb-[15px]  text-sm font-[500] text-light-mode dark:text-dark-mode`}

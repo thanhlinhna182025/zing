@@ -1,9 +1,9 @@
 import { memo } from 'react'
+import AlbumSongItem from '~/components/AlbumSongItem'
 import { SortIcon } from '~/components/Icons/Icons'
-import PlaylistSongItem from '~/components/PlaylistSongItem'
 import { secondToHourMinute } from '~/utils/hepper'
 
-const PlayListSong = ({ song, description }) => {
+const AlbumListSong = ({ song, description }) => {
   return (
     <div className=' w-full'>
       <div className='mb-[10px] leading-[21px]'>
@@ -24,7 +24,7 @@ const PlayListSong = ({ song, description }) => {
       </div>
       <div className='flex max-h-[400px] flex-col scrollbar'>
         {song?.items?.map((item, index) => (
-          <PlaylistSongItem item={item} key={item.encodeId} index={index} />
+          <AlbumSongItem item={item} key={item.encodeId} index={index} />
         ))}
       </div>
       <div className='py-[6px]'>
@@ -39,4 +39,4 @@ const PlayListSong = ({ song, description }) => {
     </div>
   )
 }
-export default memo(PlayListSong)
+export default memo(AlbumListSong)

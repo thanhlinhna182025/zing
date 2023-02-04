@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { Autoplay, Navigation } from 'swiper'
-import 'swiper/css/navigation'
+import { Autoplay, Navigation, Pagination } from 'swiper'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
 import BannerSkeleton from '../Skeleton/BannerSkeleton/BannerSkeleton'
@@ -14,11 +14,25 @@ const Banner = ({ banner }) => {
     <div className='relative'>
       <Swiper
         className='bannerSwiper'
-        modules={[Navigation, Autoplay]}
-        slidesPerView={3}
-        spaceBetween={28}
+        modules={[Navigation, Autoplay, Pagination]}
+        slidesPerView={1}
+        spaceBetween={20}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
         }}
         autoplay={{
           delay: 4000,

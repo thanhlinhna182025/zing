@@ -75,11 +75,11 @@ const Header = ({ isTransparent }) => {
     <header
       className={`fixed ${
         isTransparent ? 'bg-transparent' : bg200Color
-      } top-0 right-0 z-10 flex h-[70px] w-[calc(100%-240px)]  flex-1 items-center justify-between px-main-margin `}
+      } top-0 z-10 ml-[70px] flex h-[70px] w-[calc(100%-70px)] flex-1 items-center justify-center px-5 md:right-0  md:ml-0 md:w-[calc(100%-240px)] md:justify-between md:px-main-margin `}
     >
-      <div className='flex items-center'>
-        <div className='flex items-center'>
-          <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px]'>
+      <div className='flex w-full items-center'>
+        <div className='hidden items-center lg:flex'>
+          <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px] '>
             <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='19px' height='19px' />
           </Button>
           <Button type='text' className='translate-y-[-1px]'>
@@ -101,7 +101,7 @@ const Header = ({ isTransparent }) => {
             />
           )}
         >
-          <form className={`ml-[22px] flex w-search-input-width items-center rounded-full ${bgColor}`}>
+          <form className={`flex w-full items-center  rounded-full md:ml-[22px] md:w-search-input-width ${bgColor}`}>
             <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
               <SearchIcon
                 className='translate-y-[1px] translate-x-[1px] text-light-mode dark:text-dark-mode'
@@ -114,12 +114,12 @@ const Header = ({ isTransparent }) => {
               onChange={handleChange}
               onClick={visibleSearch ? hideSearch : showSearch}
               placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
-              className='w-[400px] rounded-full  border-none bg-transparent py-[8px] pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode'
+              className='w-full rounded-full border-none  bg-transparent py-[8px] pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode md:w-[400px]'
             />
           </form>
         </TippyHeadless>
       </div>
-      <div className='flex  items-center  px-[10px]'>
+      <div className='hidden  items-center px-[10px] lg:flex'>
         <div>
           <TippyHeadless
             visible={visibleDisplay}

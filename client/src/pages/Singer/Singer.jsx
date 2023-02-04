@@ -61,7 +61,7 @@ const Singer = () => {
   return (
     <div className='mb-player-height w-full'>
       <Poster poster={poster} isPoster={isPoster} />
-      <div className='mb-main-margin flex items-start '>
+      <div className='mb-main-margin flex w-full flex-col items-start lg:flex-row'>
         <MusicCardHightlight item={hightlightSong} large />
         <SingerListMusic listMusic={listMusic} />
       </div>

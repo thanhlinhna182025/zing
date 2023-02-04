@@ -33,7 +33,7 @@ const NewReleaseSong = () => {
   return (
     <div>
       <div
-        className='relative ml-[-59px] mt-[-70px] mr-[-59px] mb-[30px] min-h-[410px] px-main-margin'
+        className='relative mt-[-70px] mr-[-59px] mb-[30px] px-main-margin xl:ml-[-59px] xl:min-h-[410px]'
         style={{
           backgroundImage: `url(${newrelease})`,
           backgroundRepeat: 'no-repeat',
@@ -42,8 +42,8 @@ const NewReleaseSong = () => {
         }}
       >
         <div className='absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[rgba(23,15,36,0.95)] via-[rgba(202,201,203,0.3)] to-[rgba(23,15,36,0.5)] '></div>
-        <div className=' relative  px-[10px] pt-[115px]'>
-          <div className='mb-[45px] flex items-center'>
+        <div className=' relative  px-[10px] pt-[70px] lg:pt-[115px]'>
+          <div className='mb-[25px] flex items-center lg:mb-[45px]'>
             <h3 className=' mr-[5px] font-[Inter] text-[40px] font-bold capitalize text-light-mode dark:text-dark-mode'>
               Mới Phát Hành
             </h3>
@@ -51,7 +51,7 @@ const NewReleaseSong = () => {
               <PlayFillIcon className='text-light-mode dark:text-dark-mode' width='16px' height='16px' />
             </Button>
           </div>
-          <div className='before:bg-main-200 relative mb-10 before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%]'>
+          <div className='before:bg-main-200 relative mb-[30px] before:absolute before:bottom-[-14px] before:z-[-1] before:h-[1px] before:w-full before:translate-y-[-50%] xl:mb-[45px]'>
             <NavLink
               style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #a845de' : 'none' })}
               className={` mr-[50px] pb-[15px]  text-sm font-[500] text-light-mode dark:text-dark-mode`}
@@ -69,7 +69,7 @@ const NewReleaseSong = () => {
               ALBUM
             </NavLink>
           </div>
-          <div>
+          <div className='flex'>
             <Button
               onClick={() => {
                 handleTypeData('all')
@@ -109,12 +109,16 @@ const NewReleaseSong = () => {
           </div>
         </div>
       </div>
-      <div className='relative  mt-[-120px] flex h-[46px] w-full  items-center border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
-        <span className='w-1/2 text-xs  font-semibold text-light-mode dark:text-dark-mode'>BÀI HÁT</span>
-        <span className='ml-[10px] flex-1 text-xs font-semibold text-light-mode dark:text-dark-mode'>PHÁT HÀNH</span>
-        <span className='text-xs font-semibold text-light-mode dark:text-dark-mode'>THỜI GIAN</span>
-      </div>
-      <div className=' relative flex max-h-[400px] flex-col scrollbar'>
+      <div className='lg:mt[-127px] mt-0 flex max-h-[400px] flex-col scrollbar'>
+        <div className=' flex h-[46px] w-full  items-center border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
+          <span className='flex-grow text-xs font-semibold text-light-mode  dark:text-dark-mode lg:w-1/2 lg:flex-grow-0'>
+            BÀI HÁT
+          </span>
+          <span className='hidden flex-1 text-xs font-semibold text-light-mode dark:text-dark-mode lg:inline-block'>
+            PHÁT HÀNH
+          </span>
+          <span className='text-xs font-semibold text-light-mode dark:text-dark-mode'>THỜI GIAN</span>
+        </div>
         {data?.map((item, index) => (
           <AlbumSongItem item={item} key={item.encodeId} index={index} release />
         ))}

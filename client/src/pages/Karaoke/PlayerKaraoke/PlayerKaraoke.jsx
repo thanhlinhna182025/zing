@@ -31,11 +31,11 @@ const PlayerKaraoke = (
           </span>
         </div>
         <div className=' flex items-center justify-center gap-[17px]'>
-          <span className='hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center  rounded-full px-[3px]  py-[3px]'>
+          <span className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] hover:bg-hover-light-mode  dark:bg-hover-dark-mode'>
             <ShuffleIcon className='text-light-mode dark:text-dark-mode' width='24px' height='24px' />
           </span>
           <span
-            className={`hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] `}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] hover:bg-hover-light-mode  dark:bg-hover-dark-mode `}
           >
             <BackMusicIcon className={`text-light-mode dark:text-dark-mode`} width='14px' height='14px' />
           </span>
@@ -47,11 +47,11 @@ const PlayerKaraoke = (
             )}
           </span>
           <span
-            className={`hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] `}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] hover:bg-hover-light-mode  dark:bg-hover-dark-mode `}
           >
             <NextMusicIcon className={`text-light-mode dark:text-dark-mode`} height='14px' />
           </span>
-          <span className='hover:bg-main-200 flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px]'>
+          <span className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] hover:bg-hover-light-mode  dark:bg-hover-dark-mode'>
             <RepeatIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
           </span>
         </div>

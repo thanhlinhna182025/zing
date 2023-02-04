@@ -30,8 +30,12 @@ const AlbumSongItem = ({ item, index, release }) => {
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >
-        <div className='flex w-1/2 items-center gap-[10px] gap-x-2 overflow-hidden'>
-          <MusicNodeIcon className=' text-light-mode dark:text-dark-mode ' width='16px' height='16px' />
+        <div className='flex flex-grow items-center gap-[10px] gap-x-2 overflow-hidden lg:w-1/2'>
+          <MusicNodeIcon
+            className=' hidden text-light-mode dark:text-dark-mode lg:inline-block '
+            width='16px'
+            height='16px'
+          />
           <div
             className='relative h-[40px] w-[40px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
             onClick={handleSong}
@@ -63,9 +67,9 @@ const AlbumSongItem = ({ item, index, release }) => {
             </div>
           </div>
         </div>
-        <div className='flex w-1/2 justify-between'>
+        <div className='flex justify-between lg:w-1/2'>
           {release ? (
-            <span className='text-sm font-semibold text-light-mode dark:text-dark-mode'>
+            <span className='hidden text-sm font-semibold text-light-mode dark:text-dark-mode lg:inline-block'>
               {releaseDay(item.releaseDate)}
             </span>
           ) : (
@@ -77,7 +81,7 @@ const AlbumSongItem = ({ item, index, release }) => {
             </Link>
           )}
 
-          <span className='px-[6px] text-right text-xs font-semibold capitalize text-light-mode dark:text-dark-mode'>
+          <span className=' px-[6px] text-right text-xs font-semibold capitalize text-light-mode dark:text-dark-mode'>
             {secondToMinuteAndSecond(parseInt(item.duration))}
           </span>
         </div>

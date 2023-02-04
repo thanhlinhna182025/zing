@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Button from '~/components/Button'
 import {
@@ -6,18 +7,21 @@ import {
   DiscoveryIcon,
   FollowIcon,
   LogoIcon,
+  MP3ZingLogoIcon,
   MusicBageIcon,
   MVIcon,
   NewMusicIcon,
+  NextArrowIcon,
+  PrevArrowIcon,
   RadioIcon,
   Top100Icon,
   TypeMusicIcon,
   ZingChatIcon
 } from '~/components/Icons/Icons'
 import configs from '~/configs'
-import useColor from '../../../../hooks/useColor'
+import { toggleSideBarMode } from '~/feature/app/appSlice'
+import useColor from '~/hooks/useColor'
 import SideBarItem from './SideBarItem'
-
 const ListTop = [
   {
     id: 1,
@@ -90,12 +94,23 @@ const ListBottom = [
 const SideBar = () => {
   const [active, setActive] = useState(2)
   const { bg100Color, bg300Color } = useColor()
+  const sidebarMode = useSelector((state) => state.app.sidebarMode)
+  const dispatch = useDispatch()
+
+  const handleTogleSideBarMode = () => {
+    dispatch(toggleSideBarMode())
+  }
 
   return (
-    <div className={`fixed left-0 top-0 w-size-bar-width flex-shrink-0 ${bg100Color}`}>
-      <div className='flex h-[70px] w-full  items-center pl-[28px]'>
+    <div
+      className={`${
+        sidebarMode ? 'w-size-bar-width' : 'w-sidebar-width-sm'
+      }  fixed left-0 top-0 z-[9999999] h-[calc(100vh-var(--player-height-sm))] flex-shrink-0 transition-all  duration-500   ease-linear md:w-size-bar-width lg:h-[calc(100vh-var(--player-height))] ${bg100Color}`}
+    >
+      <div className='flex h-[70px] w-full items-center justify-center md:pl-[28px]'>
         <Link to={configs.routes.home}>
-          <LogoIcon className='-translate-y-[2px]' />
+          <MP3ZingLogoIcon className='inline-block md:hidden' />
+          <LogoIcon className='hidden -translate-y-[2px] md:inline-block' />
         </Link>
       </div>
       <nav className='w-full'>
@@ -116,7 +131,7 @@ const SideBar = () => {
           })}
         </ul>
       </nav>
-      <div className='bg-main-200  m-auto mt-[15px] h-[1px] w-[190px]'></div>
+      <div className='m-auto  mt-[15px] h-[1px] w-[190px] bg-gray'></div>
       <div className='h-[247px] scrollbar'>
         <nav className='mt-[15px] w-full'>
           <ul className='w-full '>
@@ -126,7 +141,7 @@ const SideBar = () => {
             })}
           </ul>
         </nav>
-        <div className='bg-purpleA84-700 mx-5 mt-[15px] flex flex-col items-center rounded-lg px-2 py-[15px]'>
+        <div className='bg-purpleA84-700 mx-5 mt-[15px] hidden flex-col  items-center rounded-lg px-2 py-[15px] md:flex'>
           <p className='mb-[10px] ml-[10px] text-center font-[Inter] text-[12px]  font-bold leading-4 text-light-mode dark:text-dark-mode'>
             Đăng nhập để khám phá playlist dành riêng cho bạn
           </p>
@@ -138,7 +153,7 @@ const SideBar = () => {
             ĐĂNG NHẬP
           </Button>
         </div>
-        <div className='mx-5 mt-[15px] flex flex-col items-center rounded-lg  bg-gradient-to-br from-[#5F4DE6] to-[#C26BD7] px-2 py-[15px]'>
+        <div className='mx-5 mt-[15px] hidden flex-col  items-center rounded-lg bg-gradient-to-br  from-[#5F4DE6] to-[#C26BD7] px-2 py-[15px] md:flex'>
           <p className='mb-[10px] text-center font-[Inter] text-[12px] font-semibold text-light-mode dark:text-dark-mode'>
             Nghe nhạc không quản cáo cùng kho nhạc VIP
           </p>
@@ -152,13 +167,28 @@ const SideBar = () => {
       </div>
       <Button
         isBlock
-        className={`${bg300Color} flex items-center justify-start border-t-[1px] border-solid border-gray pt-[14px] pb-[14px]`}
+        className={`${bg300Color} hidden items-center  justify-start border-t-[1px] border-solid border-gray pt-[14px] pb-[14px] md:flex`}
       >
         <AddIcon className='ml-[24px] mr-[6px] text-light-mode dark:text-dark-mode' />
-        <span className='font-[Inter] text-[14px] font-bold leading-5 text-light-mode dark:text-dark-mode'>
+        <span className=' font-[Inter] text-[14px] font-bold leading-5 text-light-mode dark:text-dark-mode '>
           Tạo playlist mới
         </span>
       </Button>
+      {sidebarMode ? (
+        <button
+          onClick={handleTogleSideBarMode}
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid  border-[#ccc] p-2'
+        >
+          <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
+        </button>
+      ) : (
+        <button
+          onClick={handleTogleSideBarMode}
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid  border-[#ccc] p-2'
+        >
+          <NextArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
+        </button>
+      )}
     </div>
   )
 }

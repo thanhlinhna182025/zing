@@ -259,7 +259,7 @@ const ZingChart = () => {
       {musicsData.map((item, index) => (
         <ZingMusicItem number={index + 1} item={item} key={item.encodeId} />
       ))}
-      <Button type='primary' rounded className='py-1 px-5' onClick={handleNumberSlice}>
+      <Button type='primary' rounded className='py-1 px-5 ' onClick={handleNumberSlice}>
         Xem top 100
       </Button>
     </div>

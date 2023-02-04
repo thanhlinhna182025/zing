@@ -14,7 +14,7 @@ const ZingMusicItem = ({ item, number }) => {
   const { bg100Color } = useColor()
   return (
     <div
-      className={`${bg100Color} group flex items-center justify-between rounded-md py-3 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
+      className={`${bg100Color} mb-5 group flex items-center justify-between rounded-md py-3 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
     >
       <span
         style={{
@@ -24,7 +24,7 @@ const ZingMusicItem = ({ item, number }) => {
             number === 1 ? '#498BD9' : number === 2 ? '#4BD2B9' : number === 3 ? '#CB5056' : '#000000'
           }`
         }}
-        className='mr-3 inline-block w-[60px] text-center text-[36px] font-extrabold'
+        className='mr-2 inline-block min-w-[50px] text-center text-[36px] font-extrabold lg:mr-3 lg:w-[60px]'
       >
         {number}
       </span>
@@ -45,10 +45,13 @@ const ZingMusicItem = ({ item, number }) => {
           <NameArtist artists={item.artists} />
         </div>
       </div>
-      <Link to={link} className='text-xs font-semibold text-light-mode hover:underline dark:text-dark-mode'>
+      <Link
+        to={link}
+        className='hidden text-xs font-semibold text-light-mode hover:underline dark:text-dark-mode lg:inline-block'
+      >
         {item?.album?.title}
       </Link>
-      <span className='ml-20 inline-block min-w-[50px] text-xs font-semibold text-light-mode dark:text-dark-mode'>
+      <span className='ml-1 inline-block min-w-[50px] text-xs font-semibold text-light-mode dark:text-dark-mode lg:ml-5'>
         {secondToMinuteAndSecond(item?.duration)}
       </span>
     </div>

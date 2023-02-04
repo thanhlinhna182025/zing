@@ -37,7 +37,9 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('all')}
             rounded
-            className={`mr-[14px] ${typeData === 'all' && bgColor} py-1 px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${
+              typeData === 'all' && bgColor
+            } py-1 px-3 text-xs font-normal leading-[1.42] sm:px-6`}
           >
             TẤT CẢ
           </Button>
@@ -45,7 +47,9 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('vPop')}
             rounded
-            className={`mr-[14px] ${typeData === 'vPop' && bgColor} py-[3px] px-6  text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${
+              typeData === 'vPop' && bgColor
+            } py-1 px-3 text-xs  font-normal leading-[1.42] sm:px-6`}
           >
             VIỆT NAM
           </Button>
@@ -53,7 +57,9 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('others')}
             rounded
-            className={`mr-[14px] ${typeData === 'others' && bgColor} py-[3px] px-6 text-xs font-normal leading-[1.42]`}
+            className={`mr-[14px] ${
+              typeData === 'others' && bgColor
+            } py-1 px-3 text-xs font-normal leading-[1.42] sm:px-6`}
           >
             QUÔC TẾ
           </Button>
@@ -62,7 +68,7 @@ const NewRelease = ({ newRelease }) => {
           <SeeAllButton to={configs.routes.newreleaseSong} />
         </div>
       </div>
-      <div className='grid grid-cols-3 grid-rows-4 gap-x-5 gap-y-1'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-1'>
         {loading
           ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <SongCartItemSkeleton key={item} />)
           : data?.map((item) => <SongCardItem key={item.encodeId} item={item} />)}

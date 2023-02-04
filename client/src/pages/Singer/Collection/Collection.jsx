@@ -7,7 +7,7 @@ const Collection = ({ collection }) => {
       <div className='mb-5'>
         <Title>{collection?.title}</Title>
       </div>
-      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
+      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
         {collection?.items?.slice(0, 5).map((item) => (
           <MusicCardItem item={item} key={item.encodeId} name large title />
         ))}

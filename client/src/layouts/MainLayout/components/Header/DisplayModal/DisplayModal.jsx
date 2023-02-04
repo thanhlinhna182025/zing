@@ -45,7 +45,7 @@ const DisplayModal = ({ hideDisplay }) => {
     <div className='flex w-[100vw] items-center justify-center bg-[rgba(0,0,0,0.5)]'>
       <div className={` relative  max-h-[50vh] min-h-[500px] rounded-lg bg-white p-[30px]`}>
         <Button type='text' className='absolute top-3 right-3 cursor-pointer' onClick={hideDisplay}>
-          <CloseCirleIcon className='text-main-500' width='30px' height='30px' />
+          <CloseCirleIcon className='text-gray' width='30px' height='30px' />
         </Button>
         <h5 className='mb-4 text-xl font-bold'>GIAO DIỆN</h5>
         <div className='mb-10'>

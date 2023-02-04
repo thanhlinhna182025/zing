@@ -7,7 +7,7 @@ const ZingChartItem = ({ item, number, totalScore }) => {
   const { bg100Color } = useColor()
   const handleRedirect = useRedirect()
   return (
-    <div className={`mr-5  w-[415px] `}>
+    <div className={`mr-5 w-full `}>
       <div
         className={`flex items-center p-3 ${bg100Color} group rounded-md hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
       >

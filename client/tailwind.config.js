@@ -113,9 +113,11 @@ module.exports = {
         'header-margin': '70px',
         'main-margin': '49px',
         'player-height': 'var(--player-height)',
+        'player-height-sm': 'var(--player-height-sm)',
         'header-height': 'var(--header-height)',
         'search-input-width': '440px',
-        'playlist-right-width': 'var(--playlist-right-width)'
+        'playlist-right-width': 'var(--playlist-right-width)',
+        'sidebar-width-sm': 'var(--sidebar-width-sm)',
       },
       width: {
         'size-bar-width': '240px'

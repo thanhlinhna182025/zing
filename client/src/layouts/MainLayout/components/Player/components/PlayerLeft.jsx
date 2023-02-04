@@ -5,7 +5,7 @@ const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo
 
   return (
-    <div className='flex w-[30%] items-center justify-start'>
+    <div className=' hidden w-[30%] items-center justify-start lg:flex'>
       <div className='mr-[10px] flex-shrink-0'>
         <img src={thumbnail} className='block h-16 w-16 rounded-md object-cover' />
       </div>

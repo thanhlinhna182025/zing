@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import ArtistSpotlight from '~/components/ArtistSpotlight'
 import AutoThemeOne from '~/components/AutoThemeOne'
 import AutoThemeTwo from '~/components/AutoThemeTwo/AutoThemeTwo'
 import Banner from '~/components/Banner'
-import Event from '~/components/Event'
-import LiveStreamRadio from '~/components/LiveStreamRadio/LiveStreamRadio'
+import Event from '~/components/Event/Event'
 import NewRelease from '~/components/NewRelease'
 import PlayList from '~/components/PlayList'
 import Top100 from '~/components/Top100'
@@ -30,13 +29,11 @@ const Home = () => {
   const [zingChart, setZingChart] = useState({})
   const [weekChart, setWeekChart] = useState({})
   const [event, setEvent] = useState({})
-  
 
   useEffect(() => {
     dispatch(getHome())
       .unwrap()
       .then((result) => {
-        
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
 
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
@@ -56,17 +53,15 @@ const Home = () => {
         setZingChart(result.items.find((item) => item.sectionType === 'RTChart' && item.sectionId === 'hZC'))
         setWeekChart(result.items.find((item) => item.sectionType === 'weekChart'))
         setEvent(result.items.find((item) => item.sectionType === 'event' && item.sectionId === 'hSlider'))
-        
       })
   }, [])
-  
+
   return (
     <div className=' w-full pt-[32px]'>
-      <Banner banner={banner}  />
+      <Banner banner={banner} />
       <NewRelease newRelease={newRelease} />
       <AutoThemeOne autoThemeOne={autoThemeOne} />
       <PlayList playList={playList} recentPlaylist={recentPlaylist} />
-      <LiveStreamRadio liveStream={liveStream} />
       <AutoThemeTwo autoThemeTwo={autoThemeTwo} />
       <ZingChart zingChart={zingChart} />
       <WeekChart weekChart={weekChart} />

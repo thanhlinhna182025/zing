@@ -38,27 +38,27 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
     backgroundSize: `${volume}% 100%`
   }
   return (
-    <div className='hidden w-[30%] items-center  justify-end md:flex'>
+    <div className='flex items-center justify-end ml-4 md:ml-0 lg:w-[30%] '>
       <span className='cursor-pointer'>
         <MVIcon width='20px' height='20px' className=' text-light-mode dark:text-dark-mode ' />
       </span>
       {hasLyric ? (
         <TippyString content='Xem lời bài hát'>
-          <span className='ml-5 cursor-pointer' onClick={handleKaraokMode}>
+          <span className='ml-2 cursor-pointer md:ml-3 lg:ml-5' onClick={handleKaraokMode}>
             <MicroPhoneIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
           </span>
         </TippyString>
       ) : (
-        <span className='ml-5 cursor-not-allowed'>
+        <span className='ml-2 cursor-not-allowed md:ml-3 lg:ml-5'>
           <MicroPhoneIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       )}
       <TippyString content='Chế độ cửa sổ'>
-        <span className='ml-5 cursor-pointer'>
+        <span className='ml-2 cursor-pointer md:ml-3 lg:ml-5'>
           <WindownIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />
         </span>
       </TippyString>
-      <span className='ml-5 flex cursor-pointer items-center'>
+      <span className='ml-2 flex cursor-pointer items-center md:ml-3 lg:ml-5'>
         {volume === 0 ? (
           <span onClick={handleActiveVolume}>
             <VolumeMutedIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
@@ -77,16 +77,18 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
             max='100'
             step='1'
             value={volume}
-            className='h-[3px] w-[100px] bg-white'
+            className='h-[3px] w-[50px] bg-white md:w-[70px] lg:w-[100px]'
             onChange={handleVolume}
             style={style}
           />
         </div>
       </span>
-      <div className='ml-5 h-8 w-[1px] bg-[#ccc]'></div>
+      <div className='ml-5 hidden h-8 w-[1px] bg-[#ccc] md:block'></div>
       <TippyString content='Danh sách phát'>
         <span
-          className={`${rightMode ? bg300Color : bg100Color} ml-5 cursor-pointer rounded-[4px] py-2 px-[6px]`}
+          className={`${
+            rightMode ? bg300Color : bg100Color
+          } ml-5 hidden cursor-pointer rounded-[4px] py-2 px-[6px] md:inline-block`}
           onClick={handleRightMode}
         >
           <PlayListIcon width='16px' height='16px' className=' text-light-mode dark:text-dark-mode ' />

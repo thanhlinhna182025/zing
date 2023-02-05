@@ -3,8 +3,8 @@ import { StarIcon } from '~/components/Icons'
 
 const NameArtist = ({ artists, large }) => {
   let baseClass = large
-    ? `text-light-mode dark:text-dark-mode mr-[2px] inline text-sm text-left font-semibold hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer`
-    : `inline mr-[2px] text-xs text-left font-[600] text-light-mode dark:text-dark-mode hover:text-secondary-100 hover:underline hover:decoration-secondary-100 hover:decoration-solid cursor-pointer`
+    ? `text-light-mode dark:text-dark-mode underline-offset-2 mr-[2px] inline text-sm text-left font-semibold cursor-pointer`
+    : `inline mr-[2px] text-xs text-left font-[600] underline-offset-8 text-light-mode dark:text-dark-mode cursor-pointer`
 
   return (
     <div className='flex flex-grow leading-none'>

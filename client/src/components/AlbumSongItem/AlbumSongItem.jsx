@@ -32,7 +32,7 @@ const AlbumSongItem = ({ item, index, release }) => {
       >
         <div className='flex flex-grow items-center gap-[10px] gap-x-2 overflow-hidden lg:w-1/2'>
           <MusicNodeIcon
-            className=' hidden text-light-mode dark:text-dark-mode lg:inline-block '
+            className=' hidden text-light-mode dark:text-dark-mode lg:inline-block flex-shrink-0 '
             width='16px'
             height='16px'
           />
@@ -75,7 +75,7 @@ const AlbumSongItem = ({ item, index, release }) => {
           ) : (
             <Link
               to={albumLink}
-              className={` ml-[10px] inline-block max-w-[250px] flex-1 truncate text-[12px] font-semibold capitalize leading-[17px]  text-light-mode hover:text-[#9D4BE0] hover:underline  hover:decoration-[#9D4BE0] hover:decoration-solid dark:text-dark-mode`}
+              className={` ml-[10px] inline-block max-w-[250px] flex-1 truncate text-[12px] font-semibold capitalize leading-[17px] text-light-mode underline-offset-2 hover:text-link-color hover:underline  hover:decoration-link-color hover:decoration-solid dark:text-dark-mode`}
             >
               {item.title}
             </Link>

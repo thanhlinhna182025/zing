@@ -78,7 +78,7 @@ const Header = ({ isTransparent }) => {
       } top-0 z-10 ml-[70px] flex h-[70px] w-[calc(100%-70px)] flex-1 items-center justify-center px-5 md:right-0  md:ml-0 md:w-[calc(100%-240px)] md:justify-between md:px-main-margin `}
     >
       <div className='flex w-full items-center'>
-        <div className='hidden items-center lg:flex'>
+        <div className='ml-[10px] hidden items-center lg:flex'>
           <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px] '>
             <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='19px' height='19px' />
           </Button>

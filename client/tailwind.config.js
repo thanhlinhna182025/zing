@@ -6,7 +6,8 @@ const colorPalete = {
   'active-dark-mode': '#00FBff',
   'active-light-mode': '#ff7300',
   'hover-dark-mode': '#93B3B4',
-  'hover-light-mode': '#FDCB5D',
+  'hover-light-mode': '#69A6E8',
+  'link-color': '#9D4BE0',
   gray: '#444444',
   'A-0': '#ea9daa',
   'A-100': '#d75c77',
@@ -117,7 +118,7 @@ module.exports = {
         'header-height': 'var(--header-height)',
         'search-input-width': '440px',
         'playlist-right-width': 'var(--playlist-right-width)',
-        'sidebar-width-sm': 'var(--sidebar-width-sm)',
+        'sidebar-width-sm': 'var(--sidebar-width-sm)'
       },
       width: {
         'size-bar-width': '240px'

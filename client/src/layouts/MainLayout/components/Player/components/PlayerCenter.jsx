@@ -45,7 +45,7 @@ const PlayerCenter = (
   }, [currentTime])
 
   return (
-    <div className='  flex flex-col items-center justify-center gap-y-2 lg:gap-y-4 lg:flex-grow'>
+    <div className='  flex flex-col items-center justify-center gap-y-2 lg:flex-grow lg:gap-y-4'>
       <div className=' flex items-center justify-center gap-[17px]'>
         {isSingle ? (
           <span
@@ -131,7 +131,7 @@ const PlayerCenter = (
           value={currentTime}
           max={duration}
           step='0.01'
-          className='h-1 w-[300px] lg:w-[400px]'
+          className='h-1 w-[200px] md:w-[300px] lg:w-[400px]'
           ref={ref}
           style={{ backgroundSize: `${percent}% 100%` }}
           onChange={handleCurrentTime}

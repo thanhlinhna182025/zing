@@ -36,39 +36,39 @@ const Top100 = () => {
       <div className='pt-3'>
         <div className='mb-5'>
           <Title>{top100Data[0]?.title}</Title>
-          <div className='mt-5 grid grid-cols-5'>
+          <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
             {top100Data[0]?.items?.slice(0, 5).map((item) => (
               <MusicCardItem item={item} name title key={item.encodeId} />
             ))}
           </div>
         </div>
-        <div className='mb-5'>
+        <div className='mb-5 '>
           <Title>{top100Data[1]?.title}</Title>
-          <div className='mt-5 grid grid-cols-5'>
+          <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
             {top100Data[1]?.items?.map((item) => (
               <MusicCardItem item={item} name title key={item.encodeId} />
             ))}
           </div>
         </div>
-        <div className='mb-5'>
+        <div className='mb-5 '>
           <Title>{top100Data[2]?.title}</Title>
-          <div className='mt-5 grid grid-cols-5'>
+          <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
             {top100Data[2]?.items?.map((item) => (
               <MusicCardItem item={item} name title key={item.encodeId} />
             ))}
           </div>
         </div>
-        <div className='mb-5'>
+        <div className='mb-5 '>
           <Title>{top100Data[3]?.title}</Title>
-          <div className='mt-5 grid grid-cols-5'>
+          <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
             {top100Data[3]?.items?.map((item) => (
               <MusicCardItem item={item} name title key={item.encodeId} />
             ))}
           </div>
         </div>
-        <div className='mb-5'>
+        <div className='mb-5 '>
           <Title>{top100Data[4]?.title}</Title>
-          <div className='mt-5 grid grid-cols-5'>
+          <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
             {top100Data[4]?.items?.map((item) => (
               <MusicCardItem item={item} name title key={item.encodeId} />
             ))}

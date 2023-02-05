@@ -4,10 +4,10 @@ import { PlayVideoIcon } from '~/components/Icons/Icons'
 const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
   let Icon = icon
   const color = useSelector((state) => state.app.color)
-
+  const sidebarMode = useSelector((state) => state.app.sidebarMode)
   return (
     <li
-      key={item.path}
+      key={item?.path}
       onClick={() => setActive(item.id)}
       className={`${
         active === item.id
@@ -25,17 +25,27 @@ const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
     >
       <Button to={`${disabled ? '#' : item.path}`} disabled={disabled} type='text' className='group relative'>
         <Icon className='text-light-mode dark:text-dark-mode' />
-        <span className='ml-[10px] hidden font-[Inter] text-[13px] font-bold leading-4 text-light-mode dark:text-dark-mode md:block'>
+        <span
+          className={`${
+            sidebarMode ? '' : 'hidden'
+          } ml-[10px]  font-[Inter] text-[13px] font-bold leading-4 text-light-mode dark:text-dark-mode md:inline-block`}
+        >
           {item.title}
         </span>
         {item?.liveIcon && (
-          <div className='ml-2 hidden rounded-[4px] bg-[#ff0a0a] px-[7px] py-[2px] font-[Inter] text-[8px] font-bold tracking-[0.58px] md:block'>
+          <div
+            className={`${
+              sidebarMode ? '' : 'hidden'
+            } ml-2 rounded-[4px] bg-[#ff0a0a] px-[7px] py-[2px] font-[Inter] text-[8px] font-bold tracking-[0.58px] md:block`}
+          >
             LIVE
           </div>
         )}
         {item?.playVideoIcon && (
           <PlayVideoIcon
-            className='absolute right-[20px] hidden lg:group-hover:inline-block'
+            className={`absolute right-[20px] hidden ${
+              sidebarMode ? 'group-hover:inline-block' : 'hidden'
+            } lg:group-hover:inline-block`}
             width='19px'
             height='19px'
           />

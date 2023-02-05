@@ -12,6 +12,7 @@ import {
   MVIcon,
   NewMusicIcon,
   NextArrowIcon,
+  PlayListIcon,
   PrevArrowIcon,
   RadioIcon,
   Top100Icon,
@@ -19,7 +20,7 @@ import {
   ZingChatIcon
 } from '~/components/Icons/Icons'
 import configs from '~/configs'
-import { toggleSideBarMode } from '~/feature/app/appSlice'
+import { toggleRightMode, toggleSideBarMode } from '~/feature/app/appSlice'
 import useColor from '~/hooks/useColor'
 import SideBarItem from './SideBarItem'
 const ListTop = [
@@ -81,7 +82,6 @@ const ListBottom = [
     icon: Top100Icon,
     title: 'Top 100'
   },
-
   {
     id: 9,
     path: configs.routes.mv,
@@ -95,25 +95,29 @@ const SideBar = () => {
   const [active, setActive] = useState(2)
   const { bg100Color, bg300Color } = useColor()
   const sidebarMode = useSelector((state) => state.app.sidebarMode)
+  const rightMode = useSelector((state) => state.app.rightMode)
   const dispatch = useDispatch()
 
   const handleTogleSideBarMode = () => {
     dispatch(toggleSideBarMode())
+  }
+  const handleRightMode = () => {
+    dispatch(toggleRightMode())
   }
 
   return (
     <div
       className={`${
         sidebarMode ? 'w-size-bar-width' : 'w-sidebar-width-sm'
-      }  fixed left-0 top-0 z-[9999999] h-[calc(100vh-var(--player-height-sm))] flex-shrink-0 transition-all  duration-500   ease-linear md:w-size-bar-width lg:h-[calc(100vh-var(--player-height))] ${bg100Color}`}
+      }  fixed left-0 top-0 z-20 h-[calc(100vh-var(--player-height-sm))] flex-shrink-0 transition-all  duration-500   ease-linear md:w-size-bar-width lg:h-[calc(100vh-var(--player-height))] ${bg100Color}`}
     >
-      <div className='flex h-[70px] w-full items-center justify-center md:pl-[28px]'>
+      <div className={`flex h-[70px] w-full items-center justify-center`}>
         <Link to={configs.routes.home}>
-          <MP3ZingLogoIcon className='inline-block md:hidden' />
-          <LogoIcon className='hidden -translate-y-[2px] md:inline-block' />
+          <MP3ZingLogoIcon className={`${sidebarMode ? 'fixed top-[12px] left-[12px]' : 'inline-block'}  md:hidden`} />
+          <LogoIcon className='ml-[-64px] hidden -translate-y-[2px] md:inline-block' />
         </Link>
       </div>
-      <nav className='w-full'>
+      <nav className='relative w-full pb-5 before:absolute before:bottom-0 before:right-6 before:left-6  before:h-[1px] before:bg-zinc-50 before:content-[""]'>
         <ul className='w-full '>
           {ListTop.map((item) => {
             let Icon = item.icon
@@ -131,7 +135,7 @@ const SideBar = () => {
           })}
         </ul>
       </nav>
-      <div className='m-auto  mt-[15px] h-[1px] w-[190px] bg-gray'></div>
+
       <div className='h-[247px] scrollbar'>
         <nav className='mt-[15px] w-full'>
           <ul className='w-full '>
@@ -141,6 +145,13 @@ const SideBar = () => {
             })}
           </ul>
         </nav>
+        <button
+          type='text'
+          className={`${rightMode ? bg300Color : ''} ml-6 rounded-sm p-1 md:hidden`}
+          onClick={handleRightMode}
+        >
+          <PlayListIcon className='text-light-mode dark:text-dark-mode' />
+        </button>
         <div className='bg-purpleA84-700 mx-5 mt-[15px] hidden flex-col  items-center rounded-lg px-2 py-[15px] md:flex'>
           <p className='mb-[10px] ml-[10px] text-center font-[Inter] text-[12px]  font-bold leading-4 text-light-mode dark:text-dark-mode'>
             Đăng nhập để khám phá playlist dành riêng cho bạn
@@ -174,17 +185,18 @@ const SideBar = () => {
           Tạo playlist mới
         </span>
       </Button>
+
       {sidebarMode ? (
         <button
           onClick={handleTogleSideBarMode}
-          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid  border-[#ccc] p-2'
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc]  p-2 md:hidden'
         >
           <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </button>
       ) : (
         <button
           onClick={handleTogleSideBarMode}
-          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid  border-[#ccc] p-2'
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc]  p-2 md:hidden'
         >
           <NextArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </button>

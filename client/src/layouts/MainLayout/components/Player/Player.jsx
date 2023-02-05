@@ -193,7 +193,9 @@ const Player = ({ url }) => {
 
   useEffect(() => {
     const handleEnded = () => {
+      console.log('handleEnded')
       const hadleIsPlayAll = () => {
+        console.log('hadleIsPlayAll')
         if (!isSingle) {
           if (indexSongs < songsLength - 1) {
             dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
@@ -202,10 +204,13 @@ const Player = ({ url }) => {
         }
       }
       const handleIsShuffle = () => {
+        console.log('handleIsShuffle')
+
         let randomIndex = Math.round(Math.random() * songsLength - 1)
         dispatch(addMusicId(dataSongs[randomIndex]?.encodeId))
       }
       const handleIsRepeat = () => {
+        console.log('handleIsRepeat')
         audioPlay()
       }
       if (isPlayAll) {
@@ -228,7 +233,7 @@ const Player = ({ url }) => {
 
   return (
     <div
-      className={`border-t-solid fixed h-player-height-sm  bottom-0 md:justify-between   right-[4px] left-0 z-10 flex md:h-player-height w-full items-center justify-center border-t border-t-[#414141] bg-red-500 px-5 md:bg-amber-500 lg:justify-between lg:bg-red-900 ${bg200Color}`}
+      className={`border-t-solid fixed bottom-0 right-[4px] left-0   z-30 flex h-player-height-sm w-full items-center justify-center border-t border-t-[#414141]  px-5 sm:justify-between md:h-player-height   ${bg200Color}`}
     >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />

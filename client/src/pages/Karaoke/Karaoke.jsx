@@ -33,32 +33,38 @@ const Karaoke = ({ url }) => {
     dispatch(setKaraokeMain(mode))
   }
   useEffect(() => {
-    dispatch(getAlbumPlaylist(albumId))
-      .unwrap()
-      .then((result) => {
-        setPlaylists(result?.song?.items)
-        setHeaderData({ title: result?.title, textType: result?.textType })
-      })
-      .catch((err) => console.log(err))
+    if (albumId) {
+      dispatch(getAlbumPlaylist(albumId))
+        .unwrap()
+        .then((result) => {
+          setPlaylists(result?.song?.items)
+          setHeaderData({ title: result?.title, textType: result?.textType })
+        })
+        .catch((err) => console.log(err))
+    }
   }, [albumId])
   useEffect(() => {
-    dispatch(getInfoMusic(musicId))
-      .unwrap()
-      .then((result) => {
-        setThumbnailM(result.thumbnailM)
-      })
-      .catch((err) => console.log(err))
+    if (musicId) {
+      dispatch(getInfoMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          setThumbnailM(result?.thumbnailM)
+        })
+        .catch((err) => console.log(err))
+    }
   }, [musicId, karaokeIsPlaying])
   useEffect(() => {
     setAudioDuration(karaokeAudioRef?.current.duration)
   }, [karaokMode, karaokeIsPlaying])
   useEffect(() => {
-    dispatch(getLyricMusic(musicId))
-      .unwrap()
-      .then((result) => {
-        setSongData(result)
-      })
-      .catch((err) => console.log(err))
+    if (musicId) {
+      dispatch(getLyricMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          setSongData(result)
+        })
+        .catch((err) => console.log(err))
+    }
   }, [musicId])
 
   useEffect(() => {

@@ -10,7 +10,6 @@ import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
 import RightPlayList from './components/RightPlayList'
-
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)
@@ -22,17 +21,19 @@ const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
 
   useEffect(() => {
-    dispatch(getLinkMusic(musicId))
-      .unwrap()
-      .then((result) => {
-        if (result.error) {
-          dispatch(addError(result.msg))
-        } else {
-          setUrl(result['128'])
-          dispatch(addError(null))
-        }
-      })
-      .catch((error) => console.log(error))
+    if (musicId) {
+      dispatch(getLinkMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          if (result.error) {
+            dispatch(addError(result.msg))
+          } else {
+            setUrl(result['128'])
+            dispatch(addError(null))
+          }
+        })
+        .catch((error) => console.log(error))
+    }
   }, [musicId])
   const bgColor = `${color === 'B' ? `bg-B-200` : color === 'C' ? 'bg-C-200' : color === 'D' ? 'bg-D-200' : 'bg-A-200'}`
   useEffect(() => {

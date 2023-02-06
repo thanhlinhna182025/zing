@@ -20,20 +20,24 @@ const RightPlayList = () => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getInfoMusic(musicId))
-      .unwrap()
-      .then((res) => setCurrentMusic(res))
-      .catch((err) => console.log(err))
+    if (musicId) {
+      dispatch(getInfoMusic(musicId))
+        .unwrap()
+        .then((res) => setCurrentMusic(res))
+        .catch((err) => console.log(err))
+    }
   }, [musicId])
   useEffect(() => {
-    dispatch(getPlaylist(playlistId))
-      .unwrap()
-      .then((res) => {
-        setTitle(res.title)
-        setMusicData(res.song.items)
-        dispatch(addPlaylistSongs(res.song.items))
-      })
-      .catch((err) => console.log(err))
+    if (playlistId) {
+      dispatch(getPlaylist(playlistId))
+        .unwrap()
+        .then((res) => {
+          setTitle(res?.title)
+          setMusicData(res?.song?.items)
+          dispatch(addPlaylistSongs(res?.song?.items))
+        })
+        .catch((err) => console.log(err))
+    }
   }, [playlistId])
 
   return (
@@ -70,9 +74,7 @@ const RightPlayList = () => {
           </div>
         </div>
         <div className='flex flex-col gap-y-2'>
-          {musicData.map((item, index) => (
-            <PlayItem item={item} index={index} key={item.encodeId} />
-          ))}
+          {musicData && musicData.map((item, index) => <PlayItem item={item} index={index} key={item.encodeId} />)}
         </div>
       </div>
     </div>

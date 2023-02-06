@@ -22,7 +22,7 @@ import ZingChartItem from './ZingChartItem'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip)
 
-const ZingChart = ({ zingChart }) => {
+const Chart = () => {
   const { bgColor, bg200Color, bg300Color } = useColor()
   const { hoverColor300 } = useColorHover()
 
@@ -281,4 +281,4 @@ const ZingChart = ({ zingChart }) => {
     </div>
   )
 }
-export default ZingChart
+export default Chart

@@ -13,7 +13,6 @@ const Top100 = () => {
       .unwrap()
       .then((res) => {
         setTop100Data(res)
-        console.log(res)
       })
       .catch((err) => console.log(err))
   }, [])

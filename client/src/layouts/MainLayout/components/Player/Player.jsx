@@ -193,9 +193,7 @@ const Player = ({ url }) => {
 
   useEffect(() => {
     const handleEnded = () => {
-      console.log('handleEnded')
       const hadleIsPlayAll = () => {
-        console.log('hadleIsPlayAll')
         if (!isSingle) {
           if (indexSongs < songsLength - 1) {
             dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
@@ -204,13 +202,10 @@ const Player = ({ url }) => {
         }
       }
       const handleIsShuffle = () => {
-        console.log('handleIsShuffle')
-
         let randomIndex = Math.round(Math.random() * songsLength - 1)
         dispatch(addMusicId(dataSongs[randomIndex]?.encodeId))
       }
       const handleIsRepeat = () => {
-        console.log('handleIsRepeat')
         audioPlay()
       }
       if (isPlayAll) {

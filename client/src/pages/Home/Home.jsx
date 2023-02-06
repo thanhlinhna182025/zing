@@ -61,7 +61,7 @@ const Home = () => {
       <AutoThemeOne autoThemeOne={autoThemeOne} />
       <PlayList playList={playList} recentPlaylist={recentPlaylist} />
       <AutoThemeTwo autoThemeTwo={autoThemeTwo} />
-      {/* <Chart /> */}
+      <Chart />
       <WeekChart weekChart={weekChart} />
       <ArtistSpotlight artists={artists} />
       <Top100 top100={top100} />

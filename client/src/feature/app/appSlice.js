@@ -25,9 +25,6 @@ export const getHome = createAsyncThunk(`${context}/getHome`, async (_, thunkApi
     const response = await http.get('/home', {
       signal: thunkApi.signal
     })
-    if (response.statusText !== 'OK') {
-      throw new Error(response.data.message)
-    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {
@@ -59,9 +56,6 @@ export const getChartHome = createAsyncThunk(`${context}/getChartHome`, async (_
     const response = await http.get('/charthome', {
       signal: thunkApi.signal
     })
-    if (response.statusText !== 'OK') {
-      throw new Error(response.data.message)
-    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {
@@ -75,9 +69,6 @@ export const getTop100 = createAsyncThunk(`${context}/getTop100`, async (_, thun
     const response = await http.get('/top100', {
       signal: thunkApi.signal
     })
-    if (response.statusText !== 'OK') {
-      throw new Error(response.data.message)
-    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {

@@ -6,10 +6,13 @@ import NameArtist from '~/components/NameArtist'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
+import useColorHover from '~/hooks/useColorHover'
+
 const PlayItem = ({ item, index }) => {
   const dispatch = useDispatch()
   const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
   const musicId = useSelector((state) => state.music.musicId)
+  const { hoverColor300 } = useColorHover()
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
@@ -19,10 +22,7 @@ const PlayItem = ({ item, index }) => {
     }
   }
   return (
-    <div
-      onClick={handleSong}
-      className={`group flex items-center rounded-md p-[6px] hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
-    >
+    <div onClick={handleSong} className={`group flex items-center rounded-md p-[6px] ${hoverColor300}`}>
       <div className='mr-2 flex flex-grow items-center'>
         <div className='relative mr-2 h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-md'>
           <img src={item?.thumbnail} />

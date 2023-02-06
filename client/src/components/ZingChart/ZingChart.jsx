@@ -17,12 +17,15 @@ import { PlayFillIcon } from '~/components/Icons'
 import configs from '~/configs'
 import { getChartHome } from '~/feature/app/appSlice'
 import useColor from '~/hooks/useColor'
+import useColorHover from '~/hooks/useColorHover'
 import ZingChartItem from './ZingChartItem'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip)
 
 const ZingChart = ({ zingChart }) => {
   const { bgColor, bg200Color, bg300Color } = useColor()
+  const { hoverColor300 } = useColorHover()
+
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
   const [labelNames, setLabelNames] = useState([])
@@ -253,20 +256,20 @@ const ZingChart = ({ zingChart }) => {
           <PlayFillIcon className='text-white' width='14px' height='14px' />
         </Button>
       </div>
-      <div className='flex w-full flex-col-reverse lg:flex-row gap-x-5'>
+      <div className='flex w-full flex-col-reverse gap-x-5 lg:flex-row'>
         <div className='flex w-full flex-col gap-y-3 lg:w-1/2'>
           {top123?.map((item, index) => (
             <ZingChartItem number={index + 1} item={item} key={item.encodeId} totalScore={totalScore} />
           ))}
           <Link
             to={configs.routes.zingchart}
-            className={`${bg300Color} inline-block w-32 rounded-full py-1 text-center text-light-mode hover:bg-hover-light-mode dark:bg-hover-dark-mode dark:text-dark-mode`}
+            className={`${bg300Color} inline-block w-32 rounded-full py-1 text-center text-light-mode ${hoverColor300} dark:text-dark-mode`}
           >
             Xem Thêm
           </Link>
         </div>
         <div
-          className='w-full flex-grow lg:w-1/2 mb-5'
+          className='mb-5 w-full flex-grow lg:w-1/2'
           style={{
             background:
               'url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.26/static/media/bg-chart.fd766403.jpg) top/cover no-repeat'

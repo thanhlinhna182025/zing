@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import useColor from '~/hooks/useColor'
+import useColorHover from '~/hooks/useColorHover'
 
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
 const ArtistSpotlight = ({ artists }) => {
   const { bg300Color } = useColor()
+  const { hoverColor300 } = useColorHover()
+
   const swiperRef = useRef()
   return (
     <div className='relative w-full '>
@@ -50,13 +53,13 @@ const ArtistSpotlight = ({ artists }) => {
         ))}
       </Swiper>
       <div
-        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} dark-hover:bg-hover-dark-mode hover:bg-hover-light-mode`}
+        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
         onClick={() => swiperRef.current?.slidePrev()}
       >
         <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
       </div>
       <div
-        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} dark-hover:bg-hover-dark-mode hover:bg-hover-light-mode`}
+        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
         onClick={() => swiperRef.current?.slideNext()}
       >
         <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />

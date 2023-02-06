@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import { PlayFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
+import useColorHover from '~/hooks/useColorHover'
 import useRedirect from '~/hooks/useRedirect'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
+
 const ZingMusicItem = ({ item, number }) => {
   const [link, setLink] = useState(null)
   useEffect(() => {
@@ -12,10 +14,10 @@ const ZingMusicItem = ({ item, number }) => {
   }, [])
   const handleRedirect = useRedirect()
   const { bg100Color } = useColor()
+  const { hoverColor300 } = useColorHover()
+
   return (
-    <div
-      className={`${bg100Color} group flex items-center rounded-md py-3 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
-    >
+    <div className={`${bg100Color} ${hoverColor300} group flex items-center rounded-md py-3`}>
       <div className='flex flex-grow'>
         <div className='flex flex-grow'>
           <span

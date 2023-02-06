@@ -2,15 +2,16 @@ import { PlayFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
+import useColorHover from '~/hooks/useColorHover'
 
 const ZingChartItem = ({ item, number, totalScore }) => {
   const { bg100Color } = useColor()
+  const { hoverColor300 } = useColorHover()
+
   const handleRedirect = useRedirect()
   return (
     <div className={`mr-5 w-full `}>
-      <div
-        className={`flex items-center p-3 ${bg100Color} group rounded-md hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
-      >
+      <div className={`flex items-center p-3 ${bg100Color} group rounded-md ${hoverColor300}`}>
         <span
           style={{
             paintOrder: 'stroke fill',

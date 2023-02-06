@@ -2,8 +2,11 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setIsPlaying, setKaraokMode } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
+import useColorHover from '~/hooks/useColorHover'
 
 const ResultItem = ({ item, handleClearKeyword }) => {
+  const { hoverColor300 } = useColorHover()
+
   const dispatch = useDispatch()
   const handleKaraokMode = () => {
     dispatch(addMusicId(item.encodeId))
@@ -13,9 +16,7 @@ const ResultItem = ({ item, handleClearKeyword }) => {
   }
 
   return (
-    <li
-      className={`w-full cursor-pointer rounded-[4px] px-[10px] py-2 hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
-    >
+    <li className={`w-full cursor-pointer rounded-[4px] px-[10px] py-2 ${hoverColor300}`}>
       {item.objectType === 'artist' ? (
         <Link onClick={handleClearKeyword} to={`/singer/${item.alias}`} className='flex w-full items-center '>
           <div className={`mr-3 h-[52px] w-[52px] overflow-hidden rounded-full `}>

@@ -7,11 +7,14 @@ import NameArtist from '~/components/NameArtist'
 import { setCurrentIndexAlbumSong } from '~/feature/album/albumSlice'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
+import useColorHover from '~/hooks/useColorHover'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
 
 const AlbumSongItem = ({ item, index, release }) => {
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
+  const { hoverColor300 } = useColorHover()
+
   useEffect(() => {
     setAlbumLink(item?.album?.link.split('.')[0])
   }, [])
@@ -26,13 +29,13 @@ const AlbumSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex flex-col hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode `}>
+    <div className={`group flex flex-col ${hoverColor300} `}>
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >
         <div className='flex flex-grow items-center gap-[10px] gap-x-2 overflow-hidden lg:w-1/2'>
           <MusicNodeIcon
-            className=' hidden text-light-mode dark:text-dark-mode lg:inline-block flex-shrink-0 '
+            className=' hidden flex-shrink-0 text-light-mode dark:text-dark-mode lg:inline-block '
             width='16px'
             height='16px'
           />

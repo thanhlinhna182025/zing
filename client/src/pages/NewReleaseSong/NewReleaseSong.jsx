@@ -7,6 +7,7 @@ import Button from '~/components/Button'
 import { PlayFillIcon } from '~/components/Icons'
 import configs from '~/configs'
 import { getHome } from '~/feature/app/appSlice'
+import useColor from '~/hooks/useColor'
 const NewReleaseSong = () => {
   const [data, setData] = useState([])
   const [typeData, setTypeData] = useState('all')
@@ -14,6 +15,7 @@ const NewReleaseSong = () => {
     setTypeData(type)
   }
   const dispatch = useDispatch()
+  const { bgColor, bg300Color, Color200 } = useColor()
 
   useEffect(() => {
     dispatch(getHome())
@@ -31,9 +33,9 @@ const NewReleaseSong = () => {
   }, [typeData])
 
   return (
-    <div>
+    <div className='mt-[100px]'>
       <div
-        className='relative mt-[-70px] mr-[-59px] mb-[30px] px-main-margin xl:ml-[-59px] xl:min-h-[410px]'
+        className='relative mt-[-100px] mr-[-59px] mb-[20px] px-main-margin xl:ml-[-59px] xl:min-h-[410px]'
         style={{
           backgroundImage: `url(${newrelease})`,
           backgroundRepeat: 'no-repeat',
@@ -41,13 +43,14 @@ const NewReleaseSong = () => {
           backgroundPosition: 'center'
         }}
       >
-        <div className='absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-[rgba(23,15,36,0.95)] via-[rgba(202,201,203,0.3)] to-[rgba(23,15,36,0.5)] '></div>
+        <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t ${Color200} `}></div>
+        <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b ${Color200} `}></div>
         <div className=' relative  px-[10px] pt-[70px] lg:pt-[115px]'>
           <div className='mb-[25px] flex items-center lg:mb-[45px]'>
             <h3 className=' mr-[5px] font-[Inter] text-[40px] font-bold capitalize text-light-mode dark:text-dark-mode'>
               Mới Phát Hành
             </h3>
-            <Button type='secondary' rounded className='px-3 py-3'>
+            <Button type='secondary' rounded className={`px-3 py-3 ${bgColor}`}>
               <PlayFillIcon className='text-light-mode dark:text-dark-mode' width='16px' height='16px' />
             </Button>
           </div>
@@ -77,7 +80,7 @@ const NewReleaseSong = () => {
               type='primary'
               rounded
               className={`mr-[14px] ${
-                typeData === 'all' && 'bg-secondary-100'
+                typeData === 'all' && bg300Color
               } py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
             >
               TẤT CẢ
@@ -89,7 +92,7 @@ const NewReleaseSong = () => {
               type='primary'
               rounded
               className={`mr-[14px] ${
-                typeData === 'vPop' && 'bg-secondary-100'
+                typeData === 'vPop' && bg300Color
               }  py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
             >
               VIỆT NAM
@@ -101,7 +104,7 @@ const NewReleaseSong = () => {
               type='primary'
               rounded
               className={`mr-[14px] ${
-                typeData === 'others' && 'bg-secondary-100'
+                typeData === 'others' && bg300Color
               }  py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
             >
               QUỐC TẾ
@@ -109,8 +112,8 @@ const NewReleaseSong = () => {
           </div>
         </div>
       </div>
-      <div className='lg:mt[-127px] mt-0 flex max-h-[400px] flex-col scrollbar'>
-        <div className=' flex h-[46px] w-full  items-center border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
+      <div className='relative z-10 mt-[10px] flex max-h-[400px] flex-col lg:scrollbar xl:mt-[-100px]'>
+        <div className=' flex h-[46px] w-full items-center border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
           <span className='flex-grow text-xs font-semibold text-light-mode  dark:text-dark-mode lg:w-1/2 lg:flex-grow-0'>
             BÀI HÁT
           </span>

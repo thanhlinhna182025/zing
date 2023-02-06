@@ -4,10 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import useColor from '~/hooks/useColor'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 import EventItem from './EventItem'
+import useColorHover from '~/hooks/useColorHover'
 
 const Event = ({ event }) => {
   const swiperRef = useRef()
   const { bg300Color } = useColor()
+  const { hoverColor300 } = useColorHover()
 
   return (
     <div className='relative'>
@@ -47,13 +49,13 @@ const Event = ({ event }) => {
         ))}
       </Swiper>
       <button
-        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} dark-hover:bg-hover-dark-mode hover:bg-hover-light-mode`}
+        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
         onClick={() => swiperRef.current?.slidePrev()}
       >
         <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
       </button>
       <button
-        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} dark-hover:bg-hover-dark-mode hover:bg-hover-light-mode`}
+        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
         onClick={() => swiperRef.current?.slideNext()}
       >
         <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />

@@ -7,9 +7,12 @@ import NameArtist from '~/components/NameArtist'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
-import { setOmitPage } from '../../feature/app/appSlice'
+import { setOmitPage } from '~/feature/app/appSlice'
+import useColorHover from '~/hooks/useColorHover'
 
 const PlaylistSongItem = ({ item, index, release }) => {
+  const { hoverColor300 } = useColorHover()
+
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
   useEffect(() => {
@@ -26,7 +29,7 @@ const PlaylistSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex flex-col hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode `}>
+    <div className={`group flex flex-col ${hoverColor300}`}>
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >

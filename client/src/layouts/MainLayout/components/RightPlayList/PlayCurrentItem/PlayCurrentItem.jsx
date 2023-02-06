@@ -3,14 +3,15 @@ import { MoreIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
+import useColorHover from '~/hooks/useColorHover'
 
 const PlayCurrentItem = ({ item }) => {
   const { bg100Color } = useColor()
+  const { hoverColor300 } = useColorHover()
+
   const handleRedirect = useRedirect()
   return (
-    <div
-      className={`flex items-center p-[6px] ${bg100Color} group rounded-md hover:bg-hover-light-mode dark:hover:bg-hover-dark-mode`}
-    >
+    <div className={`flex items-center p-[6px] ${bg100Color} group rounded-md ${hoverColor300}`}>
       <div className='mr-2 flex flex-grow items-center'>
         <div
           className='relative mr-2 h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-md'

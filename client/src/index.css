@@ -8,6 +8,11 @@
   --header-height: 70px;
   --playlist-right-width: 330px;
   --sidebar-width-sm: 70px;
+  --search-input-width: 400px;
+  --margin-main: 49px;
+  --margin-main-sm: 29px;
+  --main-padding: 59px;
+  --header-margin: 70px;
 }
 
 @layer base {

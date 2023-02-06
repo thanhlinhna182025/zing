@@ -110,13 +110,14 @@ module.exports = {
         'rotate-360': 'rotate-360 5s linear 0s 1 normal forwards'
       },
       spacing: {
-        'header-padding': '59px',
-        'header-margin': '70px',
-        'main-margin': '49px',
+        'main-padding': 'var(--main-padding)',
+        'header-margin': 'var(--header-margin)',
+        'main-margin': 'var(--margin-main)',
+        'margin-main-sm': 'var(--margin-main-sm)',
         'player-height': 'var(--player-height)',
         'player-height-sm': 'var(--player-height-sm)',
         'header-height': 'var(--header-height)',
-        'search-input-width': '440px',
+        'search-input-width': 'var(--search-input-width)',
         'playlist-right-width': 'var(--playlist-right-width)',
         'sidebar-width-sm': 'var(--sidebar-width-sm)'
       },

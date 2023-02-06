@@ -249,7 +249,7 @@ const Chart = () => {
   }
 
   return (
-    <div className={`mb-main-margin w-full gap-x-5 ${bgColor} rounded-lg px-4 py-2`}>
+    <div className={`lg:mb-main-margin mb-margin-main-sm w-full gap-x-5 ${bgColor} rounded-lg px-4 py-2`}>
       <div className='mb-2 flex items-center'>
         <h5 className='mr-2 text-[28px] font-bold text-light-mode dark:text-dark-mode'>#ZingChart</h5>
         <Button text='text' rounded className={`flex h-[32px] w-[32px] items-center justify-center ${bg200Color}`}>

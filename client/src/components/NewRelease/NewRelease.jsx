@@ -27,7 +27,7 @@ const NewRelease = ({ newRelease }) => {
   const loading = useSelector((state) => state.app.loading)
 
   return (
-    <div className='my-main-margin'>
+    <div className='my-margin-main-sm lg:my-main-margin'>
       <div className='mb-5'>
         <Title>{newRelease.title}</Title>
       </div>
@@ -68,7 +68,7 @@ const NewRelease = ({ newRelease }) => {
           <SeeAllButton to={configs.routes.newreleaseSong} />
         </div>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-1'>
+      <div className='grid grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2 lg:grid-cols-3'>
         {loading
           ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <SongCartItemSkeleton key={item} />)
           : data?.map((item) => <SongCardItem key={item.encodeId} item={item} />)}

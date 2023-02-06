@@ -75,7 +75,7 @@ const Header = ({ isTransparent }) => {
     <header
       className={`fixed ${
         isTransparent ? 'bg-transparent' : bg200Color
-      } top-0 z-10 ml-[70px] flex h-[70px] w-[calc(100%-70px)] flex-1 items-center justify-center px-5 md:right-0  md:ml-0 md:w-[calc(100%-240px)] md:justify-between md:px-main-margin `}
+      } top-0 z-10 ml-[62px] flex h-[70px] w-[calc(100%-70px)] flex-1 items-center justify-center px-5 md:right-0  md:ml-0 md:w-[calc(100%-240px)] md:justify-between md:px-main-margin `}
     >
       <div className='flex w-full items-center'>
         <div className='ml-[10px] hidden items-center lg:flex'>
@@ -114,7 +114,7 @@ const Header = ({ isTransparent }) => {
               onChange={handleChange}
               onClick={visibleSearch ? hideSearch : showSearch}
               placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
-              className='w-full rounded-full border-none  bg-transparent py-[8px] pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode md:w-[400px]'
+              className='w-search-input-width rounded-full  border-none bg-transparent py-[8px] pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode'
             />
           </form>
         </TippyHeadless>

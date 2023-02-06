@@ -2,7 +2,7 @@ import WeekChartItem from './WeekChartItem'
 
 const WeekChart = ({ weekChart }) => {
   return (
-    <div className='mb-main-margin grid grid-cols-1 gap-y-2 sm:grid-cols-3 gap-x-3'>
+    <div className='lg:mb-main-margin mb-margin-main-sm grid grid-cols-1 gap-y-2 sm:grid-cols-3 gap-x-3'>
       {weekChart?.items?.map((item) => (
         <WeekChartItem item={item} key={item.country} />
       ))}

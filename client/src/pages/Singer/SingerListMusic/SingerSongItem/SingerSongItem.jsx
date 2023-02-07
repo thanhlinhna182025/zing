@@ -2,12 +2,12 @@ import { useDispatch } from 'react-redux'
 import { PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import { addMusicId } from '~/feature/music/musicSlice'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const SingerSongItem = ({ item }) => {
   const dispath = useDispatch()
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   const handleAddMusicId = () => {
     dispath(addMusicId(item.encodeId))

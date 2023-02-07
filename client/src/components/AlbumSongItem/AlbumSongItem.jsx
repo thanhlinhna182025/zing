@@ -7,13 +7,13 @@ import NameArtist from '~/components/NameArtist'
 import { setCurrentIndexAlbumSong } from '~/feature/album/albumSlice'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
 
 const AlbumSongItem = ({ item, index, release }) => {
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   useEffect(() => {
     setAlbumLink(item?.album?.link.split('.')[0])

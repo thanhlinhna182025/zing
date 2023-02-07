@@ -3,11 +3,9 @@ import { MoreIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
-import useColorHover from '~/hooks/useColorHover'
 
 const PlayCurrentItem = ({ item }) => {
-  const { bg100Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { bg100Color, hoverColor300 } = useColor()
 
   const handleRedirect = useRedirect()
   return (

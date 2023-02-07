@@ -1,9 +1,9 @@
 import disk from '~/assets/images/disk.png'
 import { HeartIcon, MoreIcon, PlayFullFillIcon } from '~/components/Icons'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 
 const AlbumItem = ({ item }) => {
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   return (
     <div className={`group flex items-center rounded-md  p-[10px] ${hoverColor300}`}>

@@ -1,8 +1,8 @@
 import { TrendUpIcon } from '~/components/Icons'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 
 const SuggestItem = ({ item, handleSuggestKeyword }) => {
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
   return (
     <li
       onClick={() => handleSuggestKeyword(item.title)}

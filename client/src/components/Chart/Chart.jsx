@@ -17,14 +17,12 @@ import { PlayFillIcon } from '~/components/Icons'
 import configs from '~/configs'
 import { getChartHome } from '~/feature/app/appSlice'
 import useColor from '~/hooks/useColor'
-import useColorHover from '~/hooks/useColorHover'
 import ZingChartItem from './ZingChartItem'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip)
 
 const Chart = () => {
-  const { bgColor, bg200Color, bg300Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { bgColor, bg200Color, bg300Color, hoverColor300 } = useColor()
 
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
@@ -249,7 +247,7 @@ const Chart = () => {
   }
 
   return (
-    <div className={`lg:mb-main-margin mb-margin-main-sm w-full gap-x-5 ${bgColor} rounded-lg px-4 py-2`}>
+    <div className={`mb-margin-main-sm w-full gap-x-5 lg:mb-main-margin ${bgColor} rounded-lg px-4 py-2`}>
       <div className='mb-2 flex items-center'>
         <h5 className='mr-2 text-[28px] font-bold text-light-mode dark:text-dark-mode'>#ZingChart</h5>
         <Button text='text' rounded className={`flex h-[32px] w-[32px] items-center justify-center ${bg200Color}`}>

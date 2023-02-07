@@ -16,7 +16,8 @@ const initialState = {
   rightMode: false,
   omitPage: '',
   loading: false,
-  sidebarMode: false
+  sidebarMode: false,
+  displayMode: false
 }
 const context = 'app'
 
@@ -148,6 +149,9 @@ const appSlice = createSlice({
     },
     toggleSideBarMode: (state, action) => {
       state.sidebarMode = !state.sidebarMode
+    },
+    setDisplayMode: (state, action) => {
+      state.displayMode = action.payload
     }
   },
   extraReducers(builder) {
@@ -187,7 +191,8 @@ export const {
   setVolume,
   toggleRightMode,
   setOmitPage,
-  toggleSideBarMode
+  toggleSideBarMode,
+  setDisplayMode
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

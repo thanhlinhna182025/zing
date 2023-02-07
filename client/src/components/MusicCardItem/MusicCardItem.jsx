@@ -1,13 +1,13 @@
 import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
+import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
 import ReleaseDate from '../ReleaseDate/ReleaseDate'
 import SortDescription from '../SortDescription/SortDescription'
-import useColorHover from "~/hooks/useColorHover"
 
 const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releaseDateText, large }) => {
   const baseClass = large ? 'flex items-center gap-x-5' : 'flex items-center gap-x-1'
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   const handleRedirect = useRedirect()
 

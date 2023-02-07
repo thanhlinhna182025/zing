@@ -2,13 +2,10 @@ import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import Title from '~/components/Title'
 import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
-import useColorHover from '~/hooks/useColorHover'
-
 
 const MusicCardHightlight = ({ item }) => {
   const handleRedirect = useRedirect()
-  const { bg100Color, bg200Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   return (
     <div className='w-full lg:w-fit'>

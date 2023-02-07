@@ -6,13 +6,13 @@ import NameArtist from '~/components/NameArtist'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 
 const PlayItem = ({ item, index }) => {
   const dispatch = useDispatch()
   const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
   const musicId = useSelector((state) => state.music.musicId)
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))

@@ -9,12 +9,14 @@ import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
+import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)
   const musicId = useSelector((state) => state.music.musicId)
   const color = useSelector((state) => state.app.color)
+  const displayMode = useSelector((state) => state.app.displayMode)
   const ref = useRef()
 
   const [urlImg, setUrlImg] = useState()
@@ -90,6 +92,7 @@ const MainLayout = ({ children }) => {
       </div>
       {url && <Player url={url} />}
       <Karaoke url={url} />
+      {displayMode && <DisplayModal />}
     </div>
   )
 }

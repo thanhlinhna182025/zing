@@ -5,7 +5,7 @@ import { ClockIcon, MoreIcon } from '~/components/Icons'
 import { getInfoMusic } from '~/feature/music/musicSlice'
 import { getPlaylist } from '~/feature/playlist/playlistSlice'
 import useColor from '~/hooks/useColor'
-import { addPlaylistSongs } from '../../../../feature/playlist/playlistSlice'
+import { addPlaylistSongs } from '~/feature/playlist/playlistSlice'
 import PlayCurrentItem from './PlayCurrentItem'
 import PlayItem from './PlayItem'
 

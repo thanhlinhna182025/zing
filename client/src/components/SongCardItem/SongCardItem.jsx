@@ -1,12 +1,12 @@
 import { MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
 import { releaseDay } from '~/utils/hepper'
 
 const SongCardItem = ({ item }) => {
   const handleRedirect = useRedirect()
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   return (
     <div className={`group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 ${hoverColor300}`}>

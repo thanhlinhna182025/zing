@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import useColor from '~/hooks/useColor'
-import useColorHover from '~/hooks/useColorHover'
 
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
 const ArtistSpotlight = ({ artists }) => {
-  const { bg300Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { bg300Color, hoverColor300 } = useColor()
 
   const swiperRef = useRef()
   return (

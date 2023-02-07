@@ -6,12 +6,12 @@ import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import SortDescription from '~/components/SortDescription'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 import useRedirect from '~/hooks/useRedirect'
 
 const KaraokeList = ({ playlists }) => {
   const handleRedirect = useRedirect()
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   const swiperRef = useRef()
 

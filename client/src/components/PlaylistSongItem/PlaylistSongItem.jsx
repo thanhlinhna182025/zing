@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 import MusicBar from '~/assets/images/Z23N.gif'
 import { MusicNodeIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
+import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
+import useColor from '~/hooks/useColor'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
-import { setOmitPage } from '~/feature/app/appSlice'
-import useColorHover from '~/hooks/useColorHover'
 
 const PlaylistSongItem = ({ item, index, release }) => {
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)

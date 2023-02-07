@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { BackMusicIcon, NextMusicIcon, PauseIcon, PlayVideoIcon, RepeatIcon, ShuffleIcon } from '~/components/Icons'
-import useColorHover from '~/hooks/useColorHover'
+import useColor from '~/hooks/useColor'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const PlayerKaraoke = (
@@ -8,7 +8,7 @@ const PlayerKaraoke = (
   ref
 ) => {
   const style = { backgroundSize: `${(audioTime * 100) / audioDuration}% 100%` }
-  const { hoverColor300 } = useColorHover()
+  const { hoverColor300 } = useColor()
 
   return (
     <div className='fixed left-0 bottom-0 right-0 h-[70px] '>

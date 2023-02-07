@@ -8,11 +8,14 @@ import dynamicBrown from '~/assets/images/dynamic-brown.jpg'
 import dynamicPink from '~/assets/images/dynamic-pink.jpg'
 import Button from '~/components/Button'
 import { CloseCirleIcon } from '~/components/Icons'
-import { setColor, setDarkMode } from '~/feature/app/appSlice'
+import { setColor, setDarkMode, setDisplayMode } from '~/feature/app/appSlice'
 import { setColorTheme } from '~/feature/colorTheme/colorThemeSlice'
-const DisplayModal = ({ hideDisplay }) => {
+import useColor from '~/hooks/useColor'
+const DisplayModal = () => {
   const dispatch = useDispatch()
   const darkMode = useSelector((state) => state.app.darkMode)
+  const { bg300Color50, bg100Color } = useColor()
+  const hideDisplay = () => dispatch(setDisplayMode(false))
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -42,8 +45,10 @@ const DisplayModal = ({ hideDisplay }) => {
   }
 
   return (
-    <div className='flex w-[100vw] items-center justify-center bg-[rgba(0,0,0,0.5)]'>
-      <div className={` relative  max-h-[50vh] min-h-[500px] rounded-lg bg-white p-[30px]`}>
+    <div
+      className={`fixed top-0 left-0 right-0 bottom-0 z-[999] flex h-[100vh] w-[100vw] items-center justify-center ${bg300Color50}`}
+    >
+      <div className={`${bg100Color} relative  max-h-[50vh] min-h-[500px] rounded-lg  p-[30px]`}>
         <Button type='text' className='absolute top-3 right-3 cursor-pointer' onClick={hideDisplay}>
           <CloseCirleIcon className='text-gray' width='30px' height='30px' />
         </Button>

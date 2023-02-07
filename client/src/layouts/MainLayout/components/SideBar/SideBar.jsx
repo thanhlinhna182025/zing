@@ -23,6 +23,7 @@ import configs from '~/configs'
 import { toggleRightMode, toggleSideBarMode } from '~/feature/app/appSlice'
 import useColor from '~/hooks/useColor'
 import SideBarItem from './SideBarItem'
+
 const ListTop = [
   {
     id: 1,
@@ -96,6 +97,9 @@ const SideBar = () => {
   const { bg100Color, bg300Color } = useColor()
   const sidebarMode = useSelector((state) => state.app.sidebarMode)
   const rightMode = useSelector((state) => state.app.rightMode)
+  const musicId = useSelector((state) => state.music.musicId)
+  console.log(musicId)
+
   const dispatch = useDispatch()
 
   const handleTogleSideBarMode = () => {
@@ -107,9 +111,9 @@ const SideBar = () => {
 
   return (
     <div
-      className={`${
-        sidebarMode ? 'w-size-bar-width' : 'w-sidebar-width-sm'
-      }  fixed left-0 top-0 z-20 h-[calc(100vh-var(--player-height-sm))] flex-shrink-0 transition-all  duration-500   ease-linear md:w-size-bar-width lg:h-[calc(100vh-var(--player-height))] ${bg100Color}`}
+      className={`${sidebarMode ? 'w-size-bar-width' : 'w-sidebar-width-sm'}  fixed left-0 top-0 z-20 ${
+        musicId ? 'h-[calc(100vh-var(--player-height-sm))] lg:h-[calc(100vh-var(--player-height))]' : 'h-[100vh]'
+      }  flex-shrink-0 transition-all  duration-500   ease-linear md:w-size-bar-width ${bg100Color}`}
     >
       <div className={`flex h-[70px] w-full items-center justify-center`}>
         <Link to={configs.routes.home}>
@@ -135,8 +139,7 @@ const SideBar = () => {
           })}
         </ul>
       </nav>
-
-      <div className='h-[247px] scrollbar'>
+      <div className={`${musicId ? 'h-[247px] scrollbar' : 'flex-shrink-1'}  `}>
         <nav className='mt-[15px] w-full'>
           <ul className='w-full '>
             {ListBottom.map((item, index) => {
@@ -152,6 +155,7 @@ const SideBar = () => {
         >
           <PlayListIcon className='text-light-mode dark:text-dark-mode' />
         </button>
+
         <div className='bg-purpleA84-700 mx-5 mt-[15px] hidden flex-col  items-center rounded-lg px-2 py-[15px] md:flex'>
           <p className='mb-[10px] ml-[10px] text-center font-[Inter] text-[12px]  font-bold leading-4 text-light-mode dark:text-dark-mode'>
             Đăng nhập để khám phá playlist dành riêng cho bạn
@@ -189,14 +193,14 @@ const SideBar = () => {
       {sidebarMode ? (
         <button
           onClick={handleTogleSideBarMode}
-          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc]  p-2 md:hidden'
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc] p-1 md:hidden'
         >
           <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </button>
       ) : (
         <button
           onClick={handleTogleSideBarMode}
-          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc]  p-2 md:hidden'
+          className='fixed bottom-[90px] left-[20px] rounded-full border-[1px] border-solid border-[#ccc] p-1 md:hidden'
         >
           <NextArrowIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
         </button>

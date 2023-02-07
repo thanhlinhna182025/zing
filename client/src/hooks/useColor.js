@@ -22,6 +22,53 @@ const useColor = () => {
   const bg300Color = `${
     color === 'B' ? `bg-B-300` : color === 'C' ? 'bg-C-300' : color === 'D' ? 'bg-D-300' : 'bg-A-300'
   }`
-  return { bgColor, bg100Color, bg200Color, bg300Color, Color0, Color100, Color200, Color300 }
+  const bg300Color50 = `${
+    color === 'B' ? `bg-B-300-50` : color === 'C' ? 'bg-C-300-50' : color === 'D' ? 'bg-D-300-50' : 'bg-A-300-50'
+  }`
+  const hoverColor = `${
+    color === 'B' ? `hover:bg-B-0` : color === 'C' ? 'hover:bg-C-0' : color === 'D' ? 'hover:bg-D-0' : 'hover:bg-A-0'
+  }`
+  const hoverColor100 = `${
+    color === 'B'
+      ? `hover:bg-B-100`
+      : color === 'C'
+      ? 'hover:bg-C-100'
+      : color === 'D'
+      ? 'hover:bg-D-100'
+      : 'hover:bg-A-100'
+  }`
+  const hoverColor200 = `${
+    color === 'B'
+      ? `hover:bg-B-200`
+      : color === 'C'
+      ? 'hover:bg-C-200'
+      : color === 'D'
+      ? 'hover:bg-D-200'
+      : 'hover:bg-A-200'
+  }`
+  const hoverColor300 = `${
+    color === 'B'
+      ? `hover:bg-B-300`
+      : color === 'C'
+      ? 'hover:bg-C-300'
+      : color === 'D'
+      ? 'hover:bg-D-300'
+      : 'hover:bg-A-300'
+  }`
+  return {
+    bgColor,
+    bg100Color,
+    bg200Color,
+    bg300Color,
+    Color0,
+    Color100,
+    Color200,
+    Color300,
+    hoverColor,
+    hoverColor100,
+    hoverColor200,
+    hoverColor300,
+    bg300Color50
+  }
 }
 export default useColor

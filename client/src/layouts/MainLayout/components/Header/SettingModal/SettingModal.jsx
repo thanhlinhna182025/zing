@@ -9,11 +9,9 @@ import {
   RightArrowIcon
 } from '~/components/Icons'
 import useColor from '~/hooks/useColor'
-import useColorHover from '~/hooks/useColorHover'
 
 const SettingModal = () => {
-  const { bg100Color, bg300Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { bg100Color, bg300Color, hoverColor300 } = useColor()
 
   return (
     <div className={`${bg100Color} w-[240px] overflow-hidden rounded-md`}>

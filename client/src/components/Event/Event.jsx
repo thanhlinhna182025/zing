@@ -4,12 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import useColor from '~/hooks/useColor'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 import EventItem from './EventItem'
-import useColorHover from '~/hooks/useColorHover'
 
 const Event = ({ event }) => {
   const swiperRef = useRef()
-  const { bg300Color } = useColor()
-  const { hoverColor300 } = useColorHover()
+  const { bg300Color, hoverColor300 } = useColor()
 
   return (
     <div className='relative'>

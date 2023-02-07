@@ -4,7 +4,7 @@ import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
 import { PlayVideoIcon, ShuffleIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColor from '~/hooks/useColor'
-import { numberWithCommas } from '../../../utils/hepper'
+import { numberWithCommas } from '~/utils/hepper'
 
 const AlbumThumnail = ({
   thumbnailM,

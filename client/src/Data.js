@@ -9,6 +9,87 @@ import karik from '~/assets/images/karik.png'
 import mrSiro from '~/assets/images/mr-siro.png'
 import onlyC from '~/assets/images/onlyc.png'
 import trinhThanhBinh from '~/assets/images/trinh-thanh-binh.png'
+import configs from '~/configs'
+
+import {
+  DiscoveryIcon,
+  FollowIcon,
+  MusicBageIcon,
+  MVIcon,
+  NewMusicIcon,
+  RadioIcon,
+  Top100Icon,
+  TypeMusicIcon,
+  ZingChatIcon
+} from '~/components/Icons/Icons'
+
+export const ListTop = [
+  {
+    id: 1,
+    path: configs.routes.login,
+    icon: MusicBageIcon,
+    title: 'Cá Nhân',
+    disabled: true
+  },
+  {
+    id: 2,
+    path: configs.routes.home,
+    icon: DiscoveryIcon,
+    title: ' Khám Phá'
+  },
+  {
+    id: 3,
+    path: configs.routes.zingchart,
+    icon: ZingChatIcon,
+    title: '#zingchart',
+    playVideoIcon: true
+  },
+  {
+    id: 4,
+    path: configs.routes.radio,
+    icon: RadioIcon,
+    title: 'Radio',
+    playVideoIcon: true,
+    liveIcon: true,
+    disabled: true
+  },
+  {
+    id: 5,
+    path: configs.routes.follow,
+    icon: FollowIcon,
+    title: 'Theo Dõi',
+    disabled: true
+  }
+]
+export const ListBottom = [
+  {
+    id: 6,
+    path: configs.routes.newMusic,
+    icon: NewMusicIcon,
+    title: 'Nhạc Mới',
+    playVideoIcon: true
+  },
+  {
+    id: 7,
+    path: configs.routes.typeMusic,
+    icon: TypeMusicIcon,
+    title: ' Thể Loại',
+    disabled: true
+  },
+  {
+    id: 8,
+    path: configs.routes.top100,
+    icon: Top100Icon,
+    title: 'Top 100'
+  },
+  {
+    id: 9,
+    path: configs.routes.mv,
+    icon: MVIcon,
+    title: 'MV',
+    disabled: true
+  }
+]
 
 export const artistSpotlightData = [
   {

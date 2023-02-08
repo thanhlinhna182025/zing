@@ -10,23 +10,31 @@ const colorPalete = {
   'link-color': '#9D4BE0',
   gray: '#444444',
   'A-0': '#03C988',
+  'A-0-50': 'rgba(3,201,136,0.5)',
   'A-100': '#1C82AD',
   'A-200': '#00337C',
+  'A-200-50': 'rgba(0,51,124,0.5)',
   'A-300': '#13005A',
   'A-300-50': 'rgba(19,0,90,0.5)',
   'B-0': '#1C4A7C',
+  'B-0-50': 'rgba(28,74,124,0.5)',
   'B-100': '#22354E',
   'B-200': '#172F4F',
+  'B-200-50': 'rgba(23,47,79,0.5)',
   'B-300': '#0C1f40',
   'B-300-50': 'rgba(23,47,79,0.5)',
   'C-0': '#E7E3E0',
+  'C-0-50': 'rgba(231,227,224,0.5)',
   'C-100': '#95726A',
   'C-200': '#775850',
+  'C-200-50': 'rgba(119,88,80,0.5)',
   'C-300': '#5B4039',
   'C-300-50': 'rgba(119,88,80,0.5)',
   'D-0': '#F7E3E4',
+  'D-0-50': 'rgba(247,227,228,0.5)',
   'D-100': '#ffd1d1',
   'D-200': '#f9c6c5',
+  'D-200-50': 'rgba(249,198,197,0.5)',
   'D-300': '#fea9f7',
   'D-300-50': 'rgba(249,166,242,0.5)'
 }
@@ -123,10 +131,8 @@ module.exports = {
         'header-height': 'var(--header-height)',
         'search-input-width': 'var(--search-input-width)',
         'playlist-right-width': 'var(--playlist-right-width)',
-        'sidebar-width-sm': 'var(--sidebar-width-sm)'
-      },
-      width: {
-        'size-bar-width': '240px'
+        'sidebar-width-sm': 'var(--sidebar-width-sm)',
+        'sidebar-width': 'var(--sidebar-width)'
       }
     }
   },

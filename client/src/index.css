@@ -8,6 +8,7 @@
   --header-height: 70px;
   --playlist-right-width: 330px;
   --sidebar-width-sm: 70px;
+  --sidebar-width: 240px;
   --search-input-width: 400px;
   --margin-main: 49px;
   --margin-main-sm: 29px;
@@ -104,38 +105,7 @@
   .swiper-button-next {
     display: none;
   }
-  .bannerSwiper:hover ~ .swiper-button-prev-banner {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-  .bannerSwiper:hover ~ .swiper-button-next-banner {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
 
-  .swiper-button-prev-banner,
-  .swiper-button-next-banner {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.3);
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: flex;
-    box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
-  }
-  .swiper-button-prev-banner {
-    left: 10px;
-  }
-  .swiper-button-prev-banner:hover,
-  .swiper-button-next-banner:hover {
-    opacity: 0.5;
-  }
-  .swiper-button-next-banner {
-    right: 10px;
-  }
   /*liveSwiper */
   .liveSwiper {
     width: 200px;
@@ -145,32 +115,7 @@
   .swiper-button-next {
     display: none;
   }
-  .swiper-button-next-live,
-  .swiper-button-prev-live {
-    background-color: red;
-    width: 38px;
-    height: 38px;
-    border-radius: 100%;
-    position: absolute;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .swiper-button-prev-live {
-    top: 50%;
-    left: 0;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  .swiper-button-next-live {
-    right: 0;
-    top: 50%;
-    transform: translateX(80%) translateY(-50%);
-  }
-  .swiper-button-prev-live:hover,
-  .swiper-button-next-live:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
+
   /* artist swiper */
   .artistSwiper {
     width: 100%;

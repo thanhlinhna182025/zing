@@ -45,16 +45,14 @@ const DisplayModal = () => {
   }
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 bottom-0 z-[999] flex h-[100vh] w-[100vw] items-center justify-center ${bg300Color50}`}
-    >
+    <div className={`fixed top-0 left-0 right-0 bottom-0 z-[999] flex  items-center justify-center ${bg300Color50}`}>
       <div className={`${bg100Color} relative  max-h-[50vh] min-h-[500px] rounded-lg  p-[30px]`}>
         <Button type='text' className='absolute top-3 right-3 cursor-pointer' onClick={hideDisplay}>
           <CloseCirleIcon className='text-gray' width='30px' height='30px' />
         </Button>
-        <h5 className='mb-4 text-xl font-bold'>GIAO DIỆN</h5>
+        <h5 className='mb-4 text-xl font-bold text-light-mode dark:text-dark-mode'>GIAO DIỆN</h5>
         <div className='mb-10'>
-          <h5 className='mb-2 text-base font-semibold'>Dynamic</h5>
+          <h5 className='mb-2 text-base font-semibold text-light-mode dark:text-dark-mode'>Dynamic</h5>
           <div className='flex'>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -65,11 +63,13 @@ const DisplayModal = () => {
                   value='B'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={dynamicBlue} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>Blue</label>
+              <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
+                Blue
+              </label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -80,11 +80,11 @@ const DisplayModal = () => {
                   value='C'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={dynamicBrown} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
+              <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
                 Brown
               </label>
             </div>
@@ -97,16 +97,18 @@ const DisplayModal = () => {
                   value='D'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={dynamicPink} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>Pink</label>
+              <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
+                Pink
+              </label>
             </div>
           </div>
         </div>
         <div>
-          <h5 className='mb-2 text-base font-semibold'>Chủ đề</h5>
+          <h5 className='mb-2 text-base font-semibold text-light-mode dark:text-dark-mode'>Chủ đề</h5>
           <div className='flex'>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -117,11 +119,10 @@ const DisplayModal = () => {
                   value='1'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={bgOne} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>XONE</label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -132,13 +133,10 @@ const DisplayModal = () => {
                   value='2'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={bgTwo} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
-                Zing Music Award
-              </label>
             </div>
             <div className='mr-8 flex flex-col items-center'>
               <div className='flex items-center p-2'>
@@ -149,13 +147,10 @@ const DisplayModal = () => {
                   value='3'
                   className='mr-3'
                 />
-                <div className='h-[83px] w-[126px] overflow-hidden rounded-sm'>
+                <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
                   <img src={bgThree} className='block w-full object-cover' />
                 </div>
               </div>
-              <label className='mt-4 text-center text-sm font-semibold text-light-mode dark:text-dark-mode'>
-                Eiffel
-              </label>
             </div>
           </div>
         </div>

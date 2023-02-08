@@ -144,6 +144,9 @@ const appSlice = createSlice({
     toggleRightMode: (state) => {
       state.rightMode = !state.rightMode
     },
+    setRightMode: (state,action) => {
+      state.rightMode = action.rightMode
+    },
     setOmitPage: (state, action) => {
       state.omitPage = action.payload
     },
@@ -190,6 +193,7 @@ export const {
   setDarkMode,
   setVolume,
   toggleRightMode,
+  setRightMode,
   setOmitPage,
   toggleSideBarMode,
   setDisplayMode

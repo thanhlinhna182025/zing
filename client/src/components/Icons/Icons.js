@@ -1176,3 +1176,4 @@ export const ImageSkeletonIcon = ({ className, width = '20px', height = '20px' }
     </svg>
   )
 }
+

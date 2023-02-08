@@ -1,56 +1,38 @@
 import { useSelector } from 'react-redux'
-import Button from '~/components/Button'
+import { Link } from 'react-router-dom'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
+import useColor from '~/hooks/useColor'
 const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
   let Icon = icon
-  const color = useSelector((state) => state.app.color)
+  const { bg200Color, bg300Color, borderColor } = useColor()
   const sidebarMode = useSelector((state) => state.app.sidebarMode)
   return (
     <li
+      className={`${
+        active === item.id ? `${bg200Color} ${borderColor} lg:border-l-4 lg:border-solid lg:pl-[24px]` : 'lg:pl-7'
+      } group relative flex w-full justify-center py-3 lg:justify-start`}
       key={item?.path}
       onClick={() => setActive(item.id)}
-      className={`${
-        active === item.id
-          ? ` ${
-              color === 'B'
-                ? `border-l-B-300 bg-B-0`
-                : color === 'C'
-                ? 'border-l-C-300 bg-C-0'
-                : color === 'D'
-                ? 'border-l-D-300 bg-D-0'
-                : 'border-l-A-300 bg-A-0'
-            } border-l-solid w-full border-l-[3px] py-2 pl-[25px]`
-          : 'w-full py-2 pl-[28px]'
-      }`}
     >
-      <Button to={`${disabled ? '#' : item.path}`} disabled={disabled} type='text' className='group relative'>
-        <Icon className='text-light-mode dark:text-dark-mode' />
-        <span
-          className={`${
-            sidebarMode ? '' : 'hidden'
-          } ml-[10px]  font-[Inter] text-[13px] font-bold leading-4 text-light-mode dark:text-dark-mode md:inline-block`}
-        >
-          {item.title}
+      <Link
+        className={`${item.disabled && 'cursor-not-allowed'} flex items-center `}
+        to={`${disabled ? '#' : item.path}`}
+        disabled={disabled}
+        type='text'
+      >
+        <Icon className={`mr-2 text-light-mode hover:text-[#790c89] dark:text-dark-mode`} />
+        <span className={`hidden items-center lg:flex `}>
+          <span className='mr-2 text-sm font-bold text-light-mode dark:text-dark-mode'>{item.title}</span>
+          {item?.liveIcon && (
+            <span className='rounded-[3px] bg-red-600 p-[2px] text-[10px] font-semibold text-white'>LIVE</span>
+          )}
         </span>
-        {item?.liveIcon && (
-          <div
-            className={`${
-              sidebarMode ? '' : 'hidden'
-            } ml-2 rounded-[4px] bg-[#ff0a0a] px-[7px] py-[2px] font-[Inter] text-[8px] font-bold tracking-[0.58px] md:block`}
-          >
-            LIVE
-          </div>
-        )}
+      </Link>
+      <span className='absolute top-1/2 right-5 hidden translate-y-[-50%] lg:group-hover:inline-block'>
         {item?.playVideoIcon && (
-          <PlayVideoIcon
-            className={`absolute right-[20px] hidden ${
-              sidebarMode ? 'group-hover:inline-block' : 'hidden'
-            } lg:group-hover:inline-block`}
-            width='19px'
-            height='19px'
-          />
+          <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='19px' height='19px' />
         )}
-      </Button>
+      </span>
     </li>
   )
 }

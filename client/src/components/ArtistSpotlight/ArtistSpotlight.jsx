@@ -6,7 +6,7 @@ import useColor from '~/hooks/useColor'
 
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
 const ArtistSpotlight = ({ artists }) => {
-  const { bg300Color, hoverColor300 } = useColor()
+  const { bgColor50, hoverColor100 } = useColor()
 
   const swiperRef = useRef()
   return (
@@ -33,10 +33,10 @@ const ArtistSpotlight = ({ artists }) => {
             spaceBetween: 40
           }
         }}
-        // autoplay={{
-        //   delay: 4000,
-        //   disableOnInteraction: false
-        // }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false
+        }}
         loop={true}
         navigation={true}
       >
@@ -51,13 +51,13 @@ const ArtistSpotlight = ({ artists }) => {
         ))}
       </Swiper>
       <div
-        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
+        className={`${bgColor50} ${hoverColor100} absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
         onClick={() => swiperRef.current?.slidePrev()}
       >
         <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
       </div>
       <div
-        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full ${bg300Color} ${hoverColor300}`}
+        className={`${bgColor50} ${hoverColor100} absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
         onClick={() => swiperRef.current?.slideNext()}
       >
         <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />

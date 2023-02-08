@@ -86,7 +86,7 @@ const MainLayout = ({ children }) => {
       <RightPlayList />
       <div className=' w-full flex-col items-start px-2 '>
         <Header isTransparent={isTransparent} />
-        <main className='mt-header-height ml-[70px] mb-player-height md:ml-[240px] md:w-[calc(100%-240px)] lg:px-5 xl:px-main-padding'>
+        <main className='mt-header-height ml-[var(--sidebar-width-sm)] mb-player-height lg:ml-[var(--sidebar-width)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-5 xl:px-main-padding'>
           {children}
         </main>
       </div>

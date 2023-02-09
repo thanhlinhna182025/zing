@@ -1,3 +1,3 @@
-import NameArtist from "./NameArtist.jsx"
+import NameArtist from './NameArtist.jsx'
 
 export default NameArtist

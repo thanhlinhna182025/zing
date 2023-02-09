@@ -38,7 +38,7 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
     backgroundSize: `${volume}% 100%`
   }
   return (
-    <div className='flex items-center justify-end ml-4 md:ml-0 lg:w-[30%] '>
+    <div className='ml-4 flex items-center justify-end md:ml-0 lg:w-[30%] '>
       <span className='cursor-pointer'>
         <MVIcon width='20px' height='20px' className=' text-light-mode dark:text-dark-mode ' />
       </span>

@@ -1,3 +1,3 @@
-import Poster from "./Poster";
+import Poster from './Poster'
 
 export default Poster

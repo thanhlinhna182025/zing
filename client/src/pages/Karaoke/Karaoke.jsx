@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import useColor from '~/hooks/useColor'
-import PlayerKaraoke from './PlayerKaraoke'
-
-import { getAlbumPlaylist } from '~/feature/album/albumSlice'
-import { karaokeIsPlayingToggle, setKaraokeIsPlaying, setKaraokeMain, setKaraokMode } from '~/feature/app/appSlice'
+import {
+  getAlbumPlaylist,
+  karaokeIsPlayingToggle,
+  setKaraokeIsPlaying,
+  setKaraokeMain,
+  setKaraokMode
+} from '~/feature/app/appSlice'
 import { getInfoMusic, getLyricMusic } from '~/feature/music/musicSlice'
+import useColor from '~/hooks/useColor'
 import KaraokeList from '~/pages/Karaoke/KaraokeList'
 import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
 import KaraokeSong from '~/pages/Karaoke/KaraokeSong'
 import KaraokeHeader from './KaraokeHeader'
+import PlayerKaraoke from './PlayerKaraoke'
 const Karaoke = ({ url }) => {
   const { bg200Color } = useColor()
   //global State

@@ -1,3 +1,3 @@
-import AlbumSongItem from "./AlbumSongItem";
+import AlbumSongItem from './AlbumSongItem'
 
 export default AlbumSongItem

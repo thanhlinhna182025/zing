@@ -1,3 +1,3 @@
-import AboutSinger from "./AboutSinger";
+import AboutSinger from './AboutSinger'
 
 export default AboutSinger

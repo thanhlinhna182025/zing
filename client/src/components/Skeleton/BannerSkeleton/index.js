@@ -1,3 +1,3 @@
-import BannerSkeleton from "./BannerSkeleton";
+import BannerSkeleton from './BannerSkeleton'
 
 export default BannerSkeleton

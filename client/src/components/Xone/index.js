@@ -1,3 +1,3 @@
-import Xone from "./Xone";
+import Xone from './Xone'
 
 export default Xone

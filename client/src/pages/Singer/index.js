@@ -1,3 +1,3 @@
-import Singer from "./Singer";
+import Singer from './Singer'
 
 export default Singer

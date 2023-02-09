@@ -1,6 +1,4 @@
 const Discovery = () => {
-  return (
-    <div>Discovery</div>
-  )
+  return <div>Discovery</div>
 }
 export default Discovery

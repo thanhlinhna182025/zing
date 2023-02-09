@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import MusicCardHightlight from '~/components/MusicCardHightlight'
 import { getInfoSinger } from '~/feature/singer/singerSlice'
@@ -11,6 +11,7 @@ import MV from './MV/MV'
 import Poster from './Poster/Poster'
 import SingerListMusic from './SingerListMusic'
 import SingleSP from './SingleSP/SingleSP'
+import Loading from '~/components/Skeleton/Loading'
 
 const Singer = () => {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ const Singer = () => {
   const [appear, setAppear] = useState({})
   const [mayBeYouLike, setMayBeYouLike] = useState({})
   const [aboutSinger, setAboutSinger] = useState({})
+  const loading = useSelector((state) => state.app.loading)
 
   useEffect(() => {
     dispatch(getInfoSinger(name))
@@ -59,18 +61,24 @@ const Singer = () => {
       .catch((err) => console.log(err))
   }, [name])
   return (
-    <div className='mb-player-height w-full'>
-      <Poster poster={poster} isPoster={isPoster} />
-      <div className='mb-main-margin flex w-full flex-col items-start lg:flex-row'>
-        <MusicCardHightlight item={hightlightSong} large />
-        <SingerListMusic listMusic={listMusic} />
-      </div>
-      <SingleSP singleSP={singleSP} />
-      <MV mv={mv} />
-      <Collection collection={collection} />
-      <Appear appear={appear} />
-      <MayBeYouLike mayBeYouLike={mayBeYouLike} />
-      <AboutSinger aboutSinger={aboutSinger} />
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className='mb-player-height w-full'>
+          <Poster poster={poster} isPoster={isPoster} />
+          <div className='mb-main-margin flex w-full flex-col items-start lg:flex-row'>
+            <MusicCardHightlight item={hightlightSong} large />
+            <SingerListMusic listMusic={listMusic} />
+          </div>
+          <SingleSP singleSP={singleSP} />
+          <MV mv={mv} />
+          <Collection collection={collection} />
+          <Appear appear={appear} />
+          <MayBeYouLike mayBeYouLike={mayBeYouLike} />
+          <AboutSinger aboutSinger={aboutSinger} />
+        </div>
+      )}
     </div>
   )
 }

@@ -1,3 +1,3 @@
-import SortDescription from "./SortDescription";
+import SortDescription from './SortDescription'
 
 export default SortDescription

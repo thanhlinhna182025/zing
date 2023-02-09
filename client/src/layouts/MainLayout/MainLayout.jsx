@@ -11,6 +11,7 @@ import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
+
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)

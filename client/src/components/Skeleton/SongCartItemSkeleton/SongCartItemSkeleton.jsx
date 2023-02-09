@@ -10,7 +10,7 @@ const SongCartItemSkeleton = () => {
     >
       <div className='bg-gray-300  flex  w-full items-center justify-center rounded sm:w-96'>
         <div className='h-15 w-15 overflow-hidden'>
-          <ImageSkeletonIcon className="text-light-mode dark:text-dark-mode" width='60px' heght="60px" />
+          <ImageSkeletonIcon className='text-light-mode dark:text-dark-mode' width='60px' heght='60px' />
         </div>
       </div>
       <div className='w-full'>

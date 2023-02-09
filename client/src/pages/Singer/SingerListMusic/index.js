@@ -1,3 +1,3 @@
-import SingerListMusic from "./SingerListMusic";
+import SingerListMusic from './SingerListMusic'
 
 export default SingerListMusic

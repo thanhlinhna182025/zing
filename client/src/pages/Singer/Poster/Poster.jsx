@@ -43,7 +43,7 @@ const Poster = ({ poster, isPoster }) => {
         <div className=' xs:ml-[-59px] relative  mt-[-70px] mr-[-59px] min-h-[299px] bg-gradient-to-r from-cyan-500 to-blue-500 px-2 lg:px-main-margin '>
           <div className='flex-start absolute top-[80px] flex lg:left-[59px] lg:bottom-6 '>
             <div className='mr-2 w-[140px] lg:mr-8'>
-              <img src={poster?.thumbnail} className='block rounded-full object-cover' />
+              <img alt='thumbnail' src={poster?.thumbnail} className='block rounded-full object-cover' />
             </div>
             <div className='flex flex-col'>
               <div className='mb-[14px] flex items-center'>

@@ -91,7 +91,7 @@ const Header = ({ isTransparent }) => {
     <header
       className={`fixed ${
         isTransparent ? 'bg-transparent' : bg200Color
-      } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[70px] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 lg:right-0 lg:ml-0 lg:w-[calc(100%-var(--sidebar-width))] md:justify-between md:px-0 lg:px-main-margin `}
+      } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[70px] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 md:justify-between md:px-0 lg:right-0 lg:ml-0 lg:w-[calc(100%-var(--sidebar-width))] lg:px-main-margin `}
     >
       <div className='flex w-full items-center justify-center md:justify-start'>
         <div className='ml-[10px] hidden items-center lg:flex'>

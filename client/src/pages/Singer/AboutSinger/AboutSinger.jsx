@@ -9,7 +9,7 @@ const AboutSinger = ({ aboutSinger }) => {
   return (
     <div className='flex '>
       <div className='mr-5 w-[300px] overflow-hidden rounded-lg'>
-        <img src={aboutSinger?.thumbnailM} className='w-full object-cover' />
+        <img alt='thumbnailM' src={aboutSinger?.thumbnailM} className='w-full object-cover' />
       </div>
       <div className='flex flex-col'>
         <div className='relative h-[150px]'>

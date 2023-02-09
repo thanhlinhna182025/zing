@@ -1,3 +1,3 @@
-import TippyString from "./TippyString";
+import TippyString from './TippyString'
 
 export default TippyString

@@ -39,6 +39,7 @@ const KaraokeList = ({ playlists }) => {
             <div className='px-[14px]' onClick={() => handleRedirect(item)}>
               <div className='group relative mb-3 box-border overflow-hidden rounded-md' key={item.encodeId}>
                 <img
+                  alt='thumbnailM'
                   src={item.thumbnailM}
                   className='w-full rounded-md object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
                 />

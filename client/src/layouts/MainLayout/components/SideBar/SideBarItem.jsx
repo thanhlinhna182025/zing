@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
 import useColor from '~/hooks/useColor'
 const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
   let Icon = icon
-  const { bg200Color, bg300Color, borderColor } = useColor()
-  const sidebarMode = useSelector((state) => state.app.sidebarMode)
+  const { bg200Color, borderColor } = useColor()
   return (
     <li
       className={`${

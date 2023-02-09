@@ -20,7 +20,7 @@ const SingerSongItem = ({ item }) => {
             className='relative h-10 w-10 flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
             onClick={handleAddMusicId}
           >
-            <img src={item.thumbnailM} className='block w-full object-cover' />
+            <img alt='thumbnailM' src={item.thumbnailM} className='block w-full object-cover' />
             <PlayFullFillIcon
               className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  text-white group-hover:inline-block'
               width='16px'

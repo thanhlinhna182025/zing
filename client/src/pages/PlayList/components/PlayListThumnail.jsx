@@ -27,9 +27,10 @@ const PlayListThumnail = ({
           onClick={handleToggle}
         >
           <div className='absolute top-1/2 left-1/2 z-10 translate-x-[-50%] translate-y-[-50%]'>
-            <img className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
+            <img alt='musicbar' className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
           </div>
           <img
+            alt='thumbnailM'
             src={thumbnailM}
             className='h-[200px] w-[200px] animate-spin-slow rounded-full object-cover lg:h-[300px] lg:w-[300px] '
           />
@@ -44,6 +45,7 @@ const PlayListThumnail = ({
               <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='44px' height='44px' />
             </div>
             <img
+              alt='thumbnailM'
               src={thumbnailM}
               className='h-[200px] w-[200px] rounded-lg object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000] lg:h-[300px] lg:w-[300px]'
             />

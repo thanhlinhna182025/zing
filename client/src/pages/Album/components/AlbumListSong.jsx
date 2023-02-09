@@ -1,9 +1,11 @@
 import { memo } from 'react'
+import { useSelector } from 'react-redux'
 import AlbumSongItem from '~/components/AlbumSongItem'
 import { SortIcon } from '~/components/Icons/Icons'
+import SongCartItemSkeleton from '~/components/Skeleton/SongCartItemSkeleton'
 import { secondToHourMinute } from '~/utils/hepper'
-
 const AlbumListSong = ({ song, description }) => {
+  const loading = useSelector((state) => state.app.loading)
   return (
     <div className=' w-full'>
       <div className='mb-[10px] leading-[21px]'>
@@ -23,9 +25,9 @@ const AlbumListSong = ({ song, description }) => {
         </div>
       </div>
       <div className='flex max-h-[400px] flex-col scrollbar'>
-        {song?.items?.map((item, index) => (
-          <AlbumSongItem item={item} key={item.encodeId} index={index} />
-        ))}
+        {loading
+          ? [1, 2, 3, 4, 5, 6, 7].map((item) => <SongCartItemSkeleton key={item} />)
+          : song?.items?.map((item, index) => <AlbumSongItem item={item} key={item.encodeId} index={index} />)}
       </div>
       <div className='py-[6px]'>
         <span className='font-[Inter] text-xs font-semibold tracking-[-0.1px] text-light-mode dark:text-dark-mode'>

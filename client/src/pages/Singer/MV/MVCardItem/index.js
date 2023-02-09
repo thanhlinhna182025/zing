@@ -1,3 +1,3 @@
-import MVCardItem from "./MVCardItem";
+import MVCardItem from './MVCardItem'
 
 export default MVCardItem

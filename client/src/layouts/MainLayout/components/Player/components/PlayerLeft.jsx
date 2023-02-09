@@ -7,7 +7,7 @@ const PlayerLeft = ({ musicInfo }) => {
   return (
     <div className=' hidden w-[30%] items-center justify-start lg:flex'>
       <div className='mr-[10px] flex-shrink-0'>
-        <img src={thumbnail} className='block h-16 w-16 rounded-md object-cover' />
+        <img alt='thumbnail' src={thumbnail} className='block h-16 w-16 rounded-md object-cover' />
       </div>
       <div className='mr-[30px] max-w-[300px]'>
         <h5 className='truncate font-[Inter] text-sm font-semibold text-light-mode dark:text-dark-mode'>{title}</h5>

@@ -10,7 +10,7 @@ const AutoThemeTwo = ({ autoThemeTwo }) => {
       <div className='mb-5'>
         <Title>{autoThemeTwo.title}</Title>
       </div>
-      <div className='lg:ml-[-14px] lg:mr-[-14px] mb-main-margin-sm lg:main-main-margin grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'>
+      <div className='mb-main-margin-sm lg:main-main-margin grid grid-cols-2 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:grid-cols-5'>
         {loading
           ? [0, 1, 2, 3, 4].map((item) => <MusicCardItemSkeleton key={item} />)
           : autoThemeTwo?.items

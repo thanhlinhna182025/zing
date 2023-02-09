@@ -6,22 +6,7 @@ const initialState = {
   curentIndexAlBumSong: 0
 }
 const context = 'album'
-export const getAlbumPlaylist = createAsyncThunk(`${context}/getAlbumPlaylist`, async (id, thunkApi) => {
-  try {
-    const response = await http(
-      { url: '/detailplaylist', method: 'GET', params: { id: id } },
-      {
-        signal: thunkApi.signal
-      }
-    )
-    return response.data.data
-  } catch (error) {
-    if (error.name === 'AxiosError') {
-      return thunkApi.rejectWithValue(error.response.data)
-    }
-    throw error
-  }
-})
+
 const albumSlice = createSlice({
   name: 'album',
   initialState,

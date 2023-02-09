@@ -64,7 +64,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={dynamicBlue} className='block w-full object-cover' />
+                  <img alt='dynamicBlue' src={dynamicBlue} className='block w-full object-cover' />
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -81,7 +81,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={dynamicBrown} className='block w-full object-cover' />
+                  <img alt='dynamicBrown' src={dynamicBrown} className='block w-full object-cover' />
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -98,7 +98,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={dynamicPink} className='block w-full object-cover' />
+                  <img alt='dynamicPink' src={dynamicPink} className='block w-full object-cover' />
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -120,7 +120,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={bgOne} className='block w-full object-cover' />
+                  <img alt='bgOne' src={bgOne} className='block w-full object-cover' />
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={bgTwo} className='block w-full object-cover' />
+                  <img alt='bgTwo' src={bgTwo} className='block w-full object-cover' />
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='h-[80px] w-[80px] overflow-hidden rounded-sm lg:h-[83px] lg:w-[126px]'>
-                  <img src={bgThree} className='block w-full object-cover' />
+                  <img alt='bgThree' src={bgThree} className='block w-full object-cover' />
                 </div>
               </div>
             </div>

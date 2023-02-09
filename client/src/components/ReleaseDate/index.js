@@ -1,3 +1,3 @@
-import ReleaseDate from "./ReleaseDate";
+import ReleaseDate from './ReleaseDate'
 
 export default ReleaseDate

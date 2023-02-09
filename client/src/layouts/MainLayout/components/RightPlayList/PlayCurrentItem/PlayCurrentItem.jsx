@@ -15,7 +15,7 @@ const PlayCurrentItem = ({ item }) => {
           className='relative mr-2 h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-md'
           onClick={() => handleRedirect(item)}
         >
-          <img src={item?.thumbnail} />
+          <img alt='thumbnail' clear src={item?.thumbnail} />
           <PlayFillIcon
             className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
             width='16px'

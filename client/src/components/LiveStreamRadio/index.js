@@ -1,3 +1,3 @@
-import LiveStreamRadio from "./LiveStreamRadio";
+import LiveStreamRadio from './LiveStreamRadio'
 
 export default LiveStreamRadio

@@ -34,6 +34,22 @@ export const getHome = createAsyncThunk(`${context}/getHome`, async (_, thunkApi
     throw error
   }
 })
+export const getAlbumPlaylist = createAsyncThunk(`${context}/getAlbumPlaylist`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/detailplaylist', method: 'GET', params: { id: id } },
+      {
+        signal: thunkApi.signal
+      }
+    )
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
 export const getSearch = createAsyncThunk(`${context}/getSearch`, async (keyword, thunkApi) => {
   try {
     const response = await http(
@@ -144,7 +160,7 @@ const appSlice = createSlice({
     toggleRightMode: (state) => {
       state.rightMode = !state.rightMode
     },
-    setRightMode: (state,action) => {
+    setRightMode: (state, action) => {
       state.rightMode = action.rightMode
     },
     setOmitPage: (state, action) => {
@@ -160,7 +176,7 @@ const appSlice = createSlice({
   extraReducers(builder) {
     builder
       .addMatcher(
-        (action) => action.type.endsWith('/pending'),
+        (action) => action.type.endsWith('/pending') || action.type.endsWith('/reject'),
         (state) => {
           state.loading = true
         }

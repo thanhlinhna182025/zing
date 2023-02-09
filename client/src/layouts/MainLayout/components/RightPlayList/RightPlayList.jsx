@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import { ClockIcon, MoreIcon } from '~/components/Icons'
+import { getAlbumPlaylist } from '~/feature/app/appSlice'
 import { getInfoMusic } from '~/feature/music/musicSlice'
-import { getPlaylist } from '~/feature/playlist/playlistSlice'
-import useColor from '~/hooks/useColor'
 import { addPlaylistSongs } from '~/feature/playlist/playlistSlice'
+import useColor from '~/hooks/useColor'
 import PlayCurrentItem from './PlayCurrentItem'
 import PlayItem from './PlayItem'
 
@@ -29,7 +29,7 @@ const RightPlayList = () => {
   }, [musicId])
   useEffect(() => {
     if (playlistId) {
-      dispatch(getPlaylist(playlistId))
+      dispatch(getAlbumPlaylist(playlistId))
         .unwrap()
         .then((res) => {
           setTitle(res?.title)

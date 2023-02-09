@@ -1,3 +1,3 @@
-import Top100 from "./Top100";
+import Top100 from './Top100'
 
 export default Top100

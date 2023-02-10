@@ -166,7 +166,7 @@ const appSlice = createSlice({
     setOmitPage: (state, action) => {
       state.omitPage = action.payload
     },
-    toggleSideBarMode: (state, action) => {
+    toggleSideBarMode: (state) => {
       state.sidebarMode = !state.sidebarMode
     },
     setDisplayMode: (state, action) => {
@@ -176,13 +176,13 @@ const appSlice = createSlice({
   extraReducers(builder) {
     builder
       .addMatcher(
-        (action) => action.type.endsWith('/pending') || action.type.endsWith('/reject'),
+        (action) => action.type.endsWith('getHome/pending') || action.type.endsWith('getHome/reject'),
         (state) => {
           state.loading = true
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith('/fulfilled'),
+        (action) => action.type.endsWith('getHome/fulfilled'),
         (state) => {
           state.loading = false
         }

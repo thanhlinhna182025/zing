@@ -4,7 +4,6 @@ import bgOne from '~/assets/images/iu.jpg'
 import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
 import bgFour from '~/assets/images/lisa.jpg'
-import { addError } from '~/feature/app/appSlice'
 import { getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import Header from '~/layouts/MainLayout/components/Header'
@@ -29,11 +28,11 @@ const MainLayout = ({ children }) => {
       dispatch(getLinkMusic(musicId))
         .unwrap()
         .then((result) => {
+          console.log(result)
           if (result.error) {
-            dispatch(addError(result.msg))
+            console.log('Tai khoan VIP')
           } else {
             setUrl(result['128'])
-            dispatch(addError(null))
           }
         })
         .catch((error) => console.log(error))

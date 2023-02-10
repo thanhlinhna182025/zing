@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
+import BannerSkeleton from '~/components/Skeleton/BannerSkeleton'
 import useColors from '~/hooks/useColors'
-import BannerSkeleton from '../Skeleton/BannerSkeleton/BannerSkeleton'
 import BannerItem from './BannerItem'
 const Banner = ({ banner }) => {
   const swiperRef = useRef()

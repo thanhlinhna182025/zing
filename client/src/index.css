@@ -142,38 +142,12 @@
   }
 
   /* karaokeListSwiper */
-  .karaokeListSwiper {
-    width: 200px;
+  .karaokeSwiper {
+    width: 100%;
     padding: 0 0;
   }
-  .karaokeListSwiper > .swiper-button-prev,
+  .karaokeSwiper > .swiper-button-prev,
   .swiper-button-next {
     display: none;
-  }
-  .swiper-button-next-karaoke,
-  .swiper-button-prev-karaoke {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .swiper-button-prev-karaoke {
-    top: 30%;
-    left: 0px;
-    transform: translateX(50%);
-  }
-  .swiper-button-next-karaoke {
-    top: 30%;
-    right: 0;
-    transform: translateX(-50%);
-  }
-  .swiper-button-prev-karaoke:hover,
-  .swiper-button-next-karaoke:hover {
-    background-color: rgba(255, 255, 255, 0.9);
   }
 }

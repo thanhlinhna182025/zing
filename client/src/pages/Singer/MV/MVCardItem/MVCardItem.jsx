@@ -1,7 +1,7 @@
 import { PlayVideoIcon } from '~/components/Icons'
 import useColors from '~/hooks/useColors'
 const MVCardItem = ({ item }) => {
-  const {ColorText500}= useColors()
+  const { ColorText500 } = useColors()
   return (
     <div className='flex flex-col overflow-hidden rounded-md bg-gradient-to-r from-[#574643] to-[#312939]'>
       <div className=' group relative   flex-shrink-0 hover:opacity-80 '>

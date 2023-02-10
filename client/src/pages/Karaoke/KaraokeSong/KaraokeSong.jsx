@@ -2,9 +2,14 @@ import MusicBar from '~/assets/images/Z23N.gif'
 
 const KaraokeSong = ({ songData, thumbnailM, audioTime, karaokeIsPlaying }) => {
   return (
-    <div className='flex flex-col items-center gap-x-10 px-2 py-2 lg:flex-row lg:px-10'>
-      <div className='relative h-[100px] w-[100px] shrink-0 overflow-hidden rounded-md lg:h-[240px] lg:w-[240px]'>
-        <img alt='thumbnailM' clear src={thumbnailM} className='w-full object-cover' />
+    <div className='flex flex-col gap-x-10 px-3 py-3 lg:flex-row lg:px-10'>
+      <div className='relative flex shrink-0 items-center justify-center overflow-hidden rounded-md lg:h-[240px] lg:w-[240px]'>
+        <img
+          alt='thumbnailM'
+          clear
+          src={thumbnailM}
+          className='h-[100px] w-[100px] object-cover lg:h-[150px]  lg:w-[150px]'
+        />
         {karaokeIsPlaying && (
           <img
             alt='MusicBar'
@@ -13,8 +18,8 @@ const KaraokeSong = ({ songData, thumbnailM, audioTime, karaokeIsPlaying }) => {
           />
         )}
       </div>
-      <div className='flex-grow '>
-        <ul className='max-h-[450px] overflow-y-auto scroll-auto scrollbar overflow-x-hidden'>
+      <div className='py-3'>
+        <ul className='flex max-h-[380px] flex-col items-center overflow-y-auto scroll-auto scrollbar overflow-x-hidden md:max-h-[350px] lg:max-h-[420px]'>
           {songData?.sentences?.flatMap((item, index) => (
             <li key={index}>
               {item.words.map((w, index) => (

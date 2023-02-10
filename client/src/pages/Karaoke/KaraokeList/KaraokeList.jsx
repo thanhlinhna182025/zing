@@ -1,29 +1,37 @@
 import { useRef } from 'react'
-import { Autoplay, Navigation } from 'swiper'
+import { Autoplay, Navigation, Pagination } from 'swiper'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons/Icons'
-import NameArtist from '~/components/NameArtist'
-import SortDescription from '~/components/SortDescription'
 import useColors from '~/hooks/useColors'
-import useRedirect from '~/hooks/useRedirect'
-
+import KaraokeItem from './KaraokeItem'
 const KaraokeList = ({ playlists }) => {
-  const handleRedirect = useRedirect()
-  const { ColorHoverBg300, ColorText500 } = useColors()
-
   const swiperRef = useRef()
+  const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
 
   return (
-    <div className='relative m-auto w-[1080px]'>
+    <div className='relative'>
       <Swiper
-        className='karaokeListSwiper'
-        modules={[Navigation, Autoplay]}
-        slidesPerView={5}
-        spaceBetween={28}
+        className='karaokeSwiper'
+        modules={[Navigation, Autoplay, Pagination]}
+        slidesPerView={3}
+        spaceBetween={10}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 5,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 10
+          },
+          1024: {
+            slidesPerView: 7,
+            spaceBetween: 10
+          }
         }}
         autoplay={{
           delay: 4000,
@@ -31,45 +39,24 @@ const KaraokeList = ({ playlists }) => {
         }}
         loop={true}
         navigation={true}
-        centeredSlides={true}
-        freeMode={true}
       >
-        {playlists?.slice(0, 10).map((item) => (
+        {playlists?.map((item) => (
           <SwiperSlide key={item.encodeId}>
-            <div className='px-[14px]' onClick={() => handleRedirect(item)}>
-              <div className='group relative mb-3 box-border overflow-hidden rounded-md' key={item.encodeId}>
-                <img
-                  alt='thumbnailM'
-                  src={item.thumbnailM}
-                  className='w-full rounded-md object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
-                />
-                <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
-                  <div className='flex items-center gap-x-5'>
-                    <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
-                      <HeartIcon width='20px' height='20px' className={`${ColorText500}`} />
-                    </div>
-                    <PlayVideoIcon width='45px' height='45px' className={`${ColorText500} cursor-pointer`} />
-                    <div className={`rounded-full p-[5px] ${ColorHoverBg300}`}>
-                      <MoreIcon width='16px' height='16px' className={`${ColorText500} cursor-pointer`} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h5 className='hover:text-secondary-100 cursor-pointer truncate text-sm font-bold text-light-mode dark:text-dark-mode'>
-                {item.title}
-              </h5>
-              <NameArtist artists={item.artists} large />
-              <SortDescription>{item.sortDescription}</SortDescription>
-              <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>{item.releaseDateText}</span>
-            </div>
+            <KaraokeItem item={item} />
           </SwiperSlide>
         ))}
       </Swiper>
-      <button className='swiper-button-prev-karaoke' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className={`${ColorText500}`} width='14px' height='14px' />
+      <button
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 left-3 z-[1] flex h-[50px] w-[50px] translate-y-[-50%]  items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
+        onClick={() => swiperRef.current?.slidePrev()}
+      >
+        <LeftArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
       </button>
-      <button className='swiper-button-next-karaoke' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className={`${ColorText500}`} width='14px' height='14px' />
+      <button
+        className={`${ColorBg100} ${ColorHoverBg200} absolute right-3 top-1/2 z-[1] flex h-[50px] w-[50px] translate-y-[-50%] items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
+        onClick={() => swiperRef.current?.slideNext()}
+      >
+        <RightArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
       </button>
     </div>
   )

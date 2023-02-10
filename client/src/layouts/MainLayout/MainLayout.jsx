@@ -29,10 +29,12 @@ const MainLayout = ({ children }) => {
         .unwrap()
         .then((result) => {
           console.log(result)
-          if (result.error) {
-            console.log('Tai khoan VIP')
-          } else {
-            setUrl(result['128'])
+          if (result) {
+            if (result.error) {
+              console.log('Tai khoan VIP')
+            } else {
+              setUrl(result['128'])
+            }
           }
         })
         .catch((error) => console.log(error))

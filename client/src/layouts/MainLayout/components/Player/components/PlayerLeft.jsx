@@ -1,8 +1,10 @@
 import Button from '~/components/Button'
 import { HeartIcon, MoreIcon } from '~/components/Icons/Icons'
+import useColors from '~/hooks/useColors'
 
 const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo
+  const { ColorText500 } = useColors()
 
   return (
     <div className=' hidden w-[30%] items-center justify-start lg:flex'>
@@ -20,12 +22,8 @@ const PlayerLeft = ({ musicInfo }) => {
         </Button>
       </div>
       <div className='flex items-center'>
-        <HeartIcon
-          className='mr-[22px] cursor-pointer text-light-mode dark:text-dark-mode'
-          width='14px'
-          height='14px'
-        />
-        <MoreIcon className='mr-[22px] cursor-pointer text-light-mode dark:text-dark-mode' width='14px' height='14px' />
+        <HeartIcon className={`text-light-mode dark:text-dark-mode mr-[22px] cursor-pointer`} width='14px' height='14px' />
+        <MoreIcon className={`text-light-mode dark:text-dark-mode mr-[22px] cursor-pointer `} width='14px' height='14px' />
       </div>
     </div>
   )

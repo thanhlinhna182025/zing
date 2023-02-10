@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { StarIcon } from '~/components/Icons'
+import useColors from '~/hooks/useColors'
 
 const NameArtist = ({ artists, large }) => {
+  const { ColorHoverText500, ColorHoverTextDark500 } = useColors()
   let baseClass = large
-    ? `text-light-mode dark:text-dark-mode underline-offset-2 mr-[2px] inline text-sm text-left font-semibold cursor-pointer`
-    : `inline mr-[2px] text-xs text-left font-[600] underline-offset-8 text-light-mode dark:text-dark-mode cursor-pointer`
+    ? `${ColorHoverText500} ${ColorHoverTextDark500} text-light-mode dark:text-dark-mode underline-offset-2 mr-[2px] inline text-sm text-left font-semibold cursor-pointer`
+    : `${ColorHoverText500} ${ColorHoverTextDark500} text-light-mode dark:text-dark-mode inline mr-[2px] text-xs text-left font-[600] underline-offset-8 cursor-pointer`
 
   return (
     <div className='flex flex-grow leading-none'>
@@ -15,7 +17,7 @@ const NameArtist = ({ artists, large }) => {
           {artists?.map((art, index) => {
             if (artists.length === 1) {
               return (
-                <Link key={art?.id} className={baseClass} to={`/singer/${art.alias}`}>
+                <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
                     <StarIcon className='ml-[2px] inline translate-y-[-50%] text-light-mode dark:text-dark-mode' />
@@ -26,7 +28,7 @@ const NameArtist = ({ artists, large }) => {
               )
             } else if (index < artists.length - 1) {
               return (
-                <Link key={art?.id} className={baseClass} to={`/singer/${art.alias}`}>
+                <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
                     <StarIcon className='ml-[2px] inline translate-y-[-50%] text-light-mode dark:text-dark-mode ' />
@@ -38,7 +40,7 @@ const NameArtist = ({ artists, large }) => {
               )
             } else {
               return (
-                <Link key={art?.id} className={baseClass} to={`/singer/${art.alias}`}>
+                <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
                     <StarIcon className='ml-[2px] translate-y-[-50%]  text-light-mode dark:text-dark-mode' />

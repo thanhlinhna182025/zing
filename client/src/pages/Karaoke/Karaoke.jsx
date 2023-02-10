@@ -8,14 +8,14 @@ import {
   setKaraokMode
 } from '~/feature/app/appSlice'
 import { getInfoMusic, getLyricMusic } from '~/feature/music/musicSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import KaraokeList from '~/pages/Karaoke/KaraokeList'
 import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
 import KaraokeSong from '~/pages/Karaoke/KaraokeSong'
 import KaraokeHeader from './KaraokeHeader'
 import PlayerKaraoke from './PlayerKaraoke'
 const Karaoke = ({ url }) => {
-  const { bg200Color } = useColor()
+  const { ColorBg200 } = useColors()
   //global State
   const KaraokeMain = useSelector((state) => state.app.karaokeMain)
   const karaokMode = useSelector((state) => state.app.karaokMode)
@@ -127,7 +127,7 @@ const Karaoke = ({ url }) => {
     <div
       className={`${
         karaokMode ? 'animate-slide-top' : 'animate-slide-bottom'
-      } ${bg200Color} fixed right-0 left-0 bottom-0 top-0 z-[999999] translate-y-[100%] `}
+      } ${ColorBg200} fixed right-0 left-0 bottom-0 top-0 z-[999999] translate-y-[100%] `}
     >
       <KaraokeHeader
         headerData={headerData}

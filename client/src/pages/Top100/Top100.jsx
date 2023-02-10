@@ -5,11 +5,13 @@ import MusicCardItem from '~/components/MusicCardItem'
 import Loading from '~/components/Skeleton/Loading'
 import Title from '~/components/Title'
 import { getTop100 } from '~/feature/app/appSlice'
+import useColors from '~/hooks/useColors'
 
 const Top100 = () => {
   const [top100Data, setTop100Data] = useState([])
   const dispatch = useDispatch()
   const loading = useSelector((state) => state.app.loading)
+  const { ColorGradient500ToBottom, ColorGradient500ToTop } = useColors()
 
   useEffect(() => {
     dispatch(getTop100())
@@ -25,7 +27,7 @@ const Top100 = () => {
         <Loading />
       ) : (
         <div>
-          <div className='relative z-10 mt-[-70px] mr-[-59px] ml-[-59px] h-[280px] bg-transparent'>
+          <div className='relative mr-[-59px] ml-[-59px] h-[280px] bg-transparent'>
             <div
               style={{
                 backgroundImage: `url(${banner100})`,
@@ -35,8 +37,10 @@ const Top100 = () => {
               }}
               className='absolute top-0 left-0 right-0 bottom-0 z-0 sepia'
             ></div>
-            <div className='absolute top-0 left-0 right-0 bottom-0 z-[1] bg-gradient-to-b from-[hsla(0,0%,100%,0)] to-[hsla(214,55%,20%)]'></div>
-            <div className='absolute top-0 left-0 right-0 bottom-0 z-[1] bg-gradient-to-t from-[hsla(0,0%,100%,0)] to-[hsla(214,55%,20%)]'></div>
+            <div
+              className={`${ColorGradient500ToBottom} absolute top-0 left-0 right-0 bottom-0 z-[1] bg-gradient-to-b `}
+            ></div>
+            <div className={`absolute top-0 left-0 right-0 bottom-0 z-[1] bg-gradient-to-t `}></div>
             <div></div>
           </div>
           <div className='pt-3'>

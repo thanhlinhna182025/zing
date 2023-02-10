@@ -1,11 +1,11 @@
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 const ImageSkeleton = () => {
-  const { bg100Color } = useColor()
+  const { ColorBg100 } = useColors()
   return (
     <div
       role='status'
-      className={`animate-pulse space-y-8 rounded-md ${bg100Color} md:flex md:items-center md:space-y-0 md:space-x-8`}
+      className={`animate-pulse space-y-8 rounded-md ${ColorBg100} md:flex md:items-center md:space-y-0 md:space-x-8`}
     >
       <div className='bg-gray-300  flex h-48 w-full items-center justify-center rounded sm:w-96'>
         <svg

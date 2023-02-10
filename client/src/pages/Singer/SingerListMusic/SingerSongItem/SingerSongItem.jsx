@@ -2,19 +2,19 @@ import { useDispatch } from 'react-redux'
 import { PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import { addMusicId } from '~/feature/music/musicSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const SingerSongItem = ({ item }) => {
   const dispath = useDispatch()
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg200, ColorText500 } = useColors()
 
   const handleAddMusicId = () => {
     dispath(addMusicId(item.encodeId))
   }
   return (
-    <div className={`group flex flex-col ${hoverColor300}`}>
-      <div className='hover:bg-main-300 flex h-[60px] items-center justify-between rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px]'>
+    <div className={`group flex flex-col rounded-sm md:rounded-md ${ColorHoverBg200}`}>
+      <div className='hover:bg-main-300 flex h-[60px] items-center justify-between rounded-[4px] p-[10px]'>
         <div className='flex  items-center gap-[10px] '>
           <div
             className='relative h-10 w-10 flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
@@ -22,7 +22,7 @@ const SingerSongItem = ({ item }) => {
           >
             <img alt='thumbnailM' src={item.thumbnailM} className='block w-full object-cover' />
             <PlayFullFillIcon
-              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  text-white group-hover:inline-block'
+              className={`${ColorText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
               width='16px'
               height='16px'
             />

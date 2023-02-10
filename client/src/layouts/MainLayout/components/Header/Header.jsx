@@ -14,13 +14,13 @@ import {
 } from '~/components/Icons/Icons'
 import TippyString from '~/components/TippyString'
 import { getSearch, setDisplayMode } from '~/feature/app/appSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useDebounce from '~/hooks/useDebounce'
 import SearchModal from './SearchModal'
 import SettingModal from './SettingModal'
 
 const Header = ({ isTransparent }) => {
-  const { bgColor, bg200Color } = useColor()
+  const { ColorBg100, ColorBg500 } = useColors()
   const [visibleSetting, setVisibleSetting] = useState(false)
   const [visibleSearch, setVisibleSearch] = useState(false)
   const [keyword, setKeyword] = useState('')
@@ -90,11 +90,11 @@ const Header = ({ isTransparent }) => {
   return (
     <header
       className={`fixed ${
-        isTransparent ? 'bg-transparent' : bg200Color
+        isTransparent ? 'bg-transparent' : ColorBg500
       } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[70px] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 md:justify-between md:px-0 lg:right-0 lg:ml-0 lg:w-[calc(100%-var(--sidebar-width))] lg:px-main-margin `}
     >
       <div className='flex w-full items-center justify-center md:justify-start'>
-        <div className='ml-[10px] hidden items-center lg:flex'>
+        <div className='hidden items-center lg:ml-[20px] lg:flex'>
           <Button type='text' className='mr-[26px] ml-[2px] translate-y-[-1px] '>
             <PrevArrowIcon className='text-light-mode dark:text-dark-mode' width='19px' height='19px' />
           </Button>
@@ -120,7 +120,7 @@ const Header = ({ isTransparent }) => {
         >
           <form
             ref={formRef}
-            className={`flex w-full max-w-[500px] items-center rounded-full md:ml-[22px] lg:w-search-input-width ${bgColor}`}
+            className={`flex w-full max-w-[500px] items-center rounded-full md:ml-[22px] lg:w-search-input-width ${ColorBg100}`}
           >
             <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
               <SearchIcon

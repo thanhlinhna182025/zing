@@ -13,7 +13,7 @@ import {
   setVolume
 } from '~/feature/app/appSlice'
 import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 const Player = ({ url }) => {
@@ -40,7 +40,7 @@ const Player = ({ url }) => {
   const [indexSongs, setIndexSongs] = useState([])
   const [songsLength, setSongsLength] = useState(0)
 
-  const { bgColor } = useColor()
+  const { ColorBg400 } = useColors()
 
   const params = useParams()
   const audioRef = useRef()
@@ -228,7 +228,7 @@ const Player = ({ url }) => {
 
   return (
     <div
-      className={`${bgColor} border-t-solid fixed bottom-0 right-[4px] left-0 z-30 flex h-player-height-sm w-full items-center justify-center border-t border-t-[#414141]  px-5 sm:justify-between md:h-player-height `}
+      className={`${ColorBg400} border-t-solid fixed bottom-0 right-[4px] left-0 z-30 flex h-player-height-sm w-full items-center justify-center border-t border-t-[#414141]  px-5 sm:justify-between md:h-player-height `}
     >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />

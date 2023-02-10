@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-const useColor = () => {
+const useColors = () => {
   const color = useSelector((state) => state.app.color)
   const Color0 = `${color === 'B' ? `from-B-0` : color === 'C' ? 'from-C-0' : color === 'D' ? 'from-D-0' : 'from-A-0'}`
   const Color100 = `${
@@ -113,4 +113,4 @@ const useColor = () => {
     borderColor
   }
 }
-export default useColor
+export default useColors

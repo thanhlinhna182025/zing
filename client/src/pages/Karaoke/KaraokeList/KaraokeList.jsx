@@ -6,12 +6,12 @@ import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import SortDescription from '~/components/SortDescription'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 
 const KaraokeList = ({ playlists }) => {
   const handleRedirect = useRedirect()
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300, ColorText500 } = useColors()
 
   const swiperRef = useRef()
 
@@ -45,20 +45,12 @@ const KaraokeList = ({ playlists }) => {
                 />
                 <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
                   <div className='flex items-center gap-x-5'>
-                    <div className={`cursor-pointer rounded-full p-[5px] ${hoverColor300}`}>
-                      <HeartIcon width='20px' height='20px' className='text-light-mode dark:text-dark-mode' />
+                    <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
+                      <HeartIcon width='20px' height='20px' className={`${ColorText500}`} />
                     </div>
-                    <PlayVideoIcon
-                      width='45px'
-                      height='45px'
-                      className='cursor-pointer text-light-mode dark:text-dark-mode'
-                    />
-                    <div className={`rounded-full p-[5px] ${hoverColor300}`}>
-                      <MoreIcon
-                        width='16px'
-                        height='16px'
-                        className='cursor-pointer text-light-mode dark:text-dark-mode'
-                      />
+                    <PlayVideoIcon width='45px' height='45px' className={`${ColorText500} cursor-pointer`} />
+                    <div className={`rounded-full p-[5px] ${ColorHoverBg300}`}>
+                      <MoreIcon width='16px' height='16px' className={`${ColorText500} cursor-pointer`} />
                     </div>
                   </div>
                 </div>
@@ -74,10 +66,10 @@ const KaraokeList = ({ playlists }) => {
         ))}
       </Swiper>
       <button className='swiper-button-prev-karaoke' onClick={() => swiperRef.current?.slidePrev()}>
-        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
+        <LeftArrowIcon className={`${ColorText500}`} width='14px' height='14px' />
       </button>
       <button className='swiper-button-next-karaoke' onClick={() => swiperRef.current?.slideNext()}>
-        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
+        <RightArrowIcon className={`${ColorText500}`} width='14px' height='14px' />
       </button>
     </div>
   )

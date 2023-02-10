@@ -5,11 +5,11 @@ import { VolumeMutedIcon } from '~/components/Icons/Icons'
 import TippyString from '~/components/TippyString'
 import { setIsPlaying, setKaraokMode, toggleRightMode } from '~/feature/app/appSlice'
 import { getLyricMusic } from '~/feature/music/musicSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volume }, ref) => {
   const musicId = useSelector((state) => state.music.musicId)
   const rightMode = useSelector((state) => state.app.rightMode)
-  const { bg100Color, bg300Color } = useColor()
+  const { ColorBg100, ColorBg300 } = useColors()
 
   const [hasLyric, setHasLyric] = useState(false)
   const dispatch = useDispatch()
@@ -61,11 +61,11 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
       <span className='ml-2 flex cursor-pointer items-center md:ml-3 lg:ml-5'>
         {volume === 0 ? (
           <span onClick={handleActiveVolume}>
-            <VolumeMutedIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+            <VolumeMutedIcon width='20px' height='20px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
           </span>
         ) : (
           <span onClick={handleMuteVolume}>
-            <VolumeIcon width='28px' height='28px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+            <VolumeIcon width='20px' height='20px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
           </span>
         )}
         <div className='relative flex items-center'>
@@ -87,7 +87,7 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
       <TippyString content='Danh sách phát'>
         <span
           className={`${
-            rightMode ? bg300Color : bg100Color
+            rightMode ? ColorBg300 : ColorBg100
           } ml-5 hidden cursor-pointer rounded-[4px] py-2 px-[6px] md:inline-block`}
           onClick={handleRightMode}
         >

@@ -1,11 +1,11 @@
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 const BannerSkeleton = () => {
-  const { bg300Color, bg100Color } = useColor()
+  const { ColorBg300, ColorBg100 } = useColors()
   return (
     <div
       role='status'
-      className={`animate-pulse space-y-8 rounded-md ${bg100Color} md:flex md:items-center md:space-y-0 md:space-x-8`}
+      className={`animate-pulse space-y-8 rounded-md ${ColorBg100} md:flex md:items-center md:space-y-0 md:space-x-8`}
     >
       <div className='bg-gray-300  flex h-48 w-full items-center justify-center rounded sm:w-96'>
         <svg
@@ -19,12 +19,12 @@ const BannerSkeleton = () => {
         </svg>
       </div>
       <div className='w-full'>
-        <div className={`${bg300Color}  mb-4 h-2.5 w-48 rounded-full`} />
-        <div className={`${bg300Color}  mb-2.5 h-2 max-w-[480px] rounded-full`} />
-        <div className={`${bg300Color}  mb-2.5 h-2 rounded-full`} />
-        <div className={`${bg300Color}  mb-2.5 h-2 max-w-[440px] rounded-full`} />
-        <div className={`${bg300Color}  mb-2.5 h-2 max-w-[460px] rounded-full`} />
-        <div className={`${bg300Color}  h-2 max-w-[360px] rounded-full`} />
+        <div className={`${ColorBg300}  mb-4 h-2.5 w-48 rounded-full`} />
+        <div className={`${ColorBg300}  mb-2.5 h-2 max-w-[480px] rounded-full`} />
+        <div className={`${ColorBg300}  mb-2.5 h-2 rounded-full`} />
+        <div className={`${ColorBg300}  mb-2.5 h-2 max-w-[440px] rounded-full`} />
+        <div className={`${ColorBg300}  mb-2.5 h-2 max-w-[460px] rounded-full`} />
+        <div className={`${ColorBg300}  h-2 max-w-[360px] rounded-full`} />
       </div>
       <span className='sr-only'>Loading...</span>
     </div>

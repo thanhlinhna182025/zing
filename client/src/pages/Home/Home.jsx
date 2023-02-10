@@ -34,7 +34,6 @@ const Home = () => {
       .unwrap()
       .then((result) => {
         setBanner(result.items.find((item) => item.sectionType === 'banner' && item.sectionId === 'hSlider'))
-
         setPlayList(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hArtistTheme'))
         setRecentPlaylist(
           result.items.find((item) => item.sectionType === 'recentPlaylist' && item.sectionId === 'hRecent')

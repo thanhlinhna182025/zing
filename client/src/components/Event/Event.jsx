@@ -1,13 +1,14 @@
 import { useRef } from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import { LeftArrowIcon, RightArrowIcon } from '../Icons/Icons'
 import EventItem from './EventItem'
 
 const Event = ({ event }) => {
   const swiperRef = useRef()
-  const { bgColor50, hoverColor100 } = useColor()
+  const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
+
 
   return (
     <div className='relative'>
@@ -47,16 +48,16 @@ const Event = ({ event }) => {
         ))}
       </Swiper>
       <button
-        className={`absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl ${bgColor50} ${hoverColor100}`}
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 left-0 z-[1] flex h-[50px] w-[50px]  translate-y-[-50%] items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:translate-x-[-50%] `}
         onClick={() => swiperRef.current?.slidePrev()}
       >
-        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
+        <LeftArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
       </button>
       <button
-        className={`absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl ${bgColor50} ${hoverColor100}`}
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 right-0 z-[1] flex h-[50px] w-[50px]  translate-y-[-50%] items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:translate-x-[50%] `}
         onClick={() => swiperRef.current?.slideNext()}
       >
-        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
+        <RightArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
       </button>
     </div>
   )

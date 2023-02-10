@@ -1,15 +1,15 @@
 import { PlayFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 
 const ZingChartItem = ({ item, number, totalScore }) => {
-  const { bg100Color, hoverColor300 } = useColor()
+  const { ColorBg100, ColorHoverBg300 , ColorText500 } = useColors()
 
   const handleRedirect = useRedirect()
   return (
     <div className={`mr-5 w-full `}>
-      <div className={`flex items-center p-3 ${bg100Color} group rounded-md ${hoverColor300}`}>
+      <div className={`flex items-center p-3 ${ColorBg100} group rounded-md ${ColorHoverBg300}`}>
         <span
           style={{
             paintOrder: 'stroke fill',
@@ -29,7 +29,7 @@ const ZingChartItem = ({ item, number, totalScore }) => {
           >
             <img src={item.thumbnail} />
             <PlayFillIcon
-              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
+              className={`${ColorText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
               width='16px'
               height='16px'
             />
@@ -40,7 +40,7 @@ const ZingChartItem = ({ item, number, totalScore }) => {
           </div>
         </div>
         {totalScore && (
-          <span className='text-[20px] font-bold text-light-mode dark:text-dark-mode'>
+          <span className={`${ColorText500} text-[20px] font-bold `}>
             {Math.round((item.score * 100) / totalScore)}%
           </span>
         )}

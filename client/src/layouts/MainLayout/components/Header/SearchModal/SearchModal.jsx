@@ -1,4 +1,4 @@
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 import ResultItem from './ResultItem'
 import SuggestItem from './SuggestItem'
@@ -18,10 +18,10 @@ const suggests = [
 ]
 
 const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword, formWidth }) => {
-  const { bgColor } = useColor()
+  const { ColorBg100 } = useColors()
 
   return (
-    <div style={{ width: `${formWidth}px` }} className={`${bgColor} relative z-20 w-full rounded-md px-2 py-4`}>
+    <div style={{ width: `${formWidth}px` }} className={`${ColorBg100} relative z-20 w-full rounded-md px-2 py-4`}>
       <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Đề xuất cho bạn</p>
       <div className='max-h-[calc(100vh-var(--header-height)-var(--player-height)-70px)] scrollbar'>
         <ul className='mt-3 border-b-[1px] border-solid border-white py-1'>

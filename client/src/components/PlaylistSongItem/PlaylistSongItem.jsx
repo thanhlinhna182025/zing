@@ -7,11 +7,11 @@ import NameArtist from '~/components/NameArtist'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
 
 const PlaylistSongItem = ({ item, index, release }) => {
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg100, ColorText500 } = useColors()
 
   const dispatch = useDispatch()
   const [albumLink, setAlbumLink] = useState(null)
@@ -29,7 +29,7 @@ const PlaylistSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex flex-col ${hoverColor300}`}>
+    <div className={`group flex flex-col ${ColorHoverBg100}`}>
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >
@@ -44,13 +44,13 @@ const PlaylistSongItem = ({ item, index, release }) => {
               <img src={MusicBar} alt='musicBar' className='absolute top-0 left-0 z-10' />
             ) : (
               <PlayFullFillIcon
-                className='absolute top-1/2 left-1/2 hidden translate-x-[-50%]  translate-y-[-50%]  text-white group-hover:inline-block'
+                className={`${ColorText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
                 width='16px'
                 height='16px'
               />
             )}
             <PlayFullFillIcon
-              className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%]  text-white group-hover:inline-block'
+              className={`${ColorText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
               width='16px'
               height='16px'
             />

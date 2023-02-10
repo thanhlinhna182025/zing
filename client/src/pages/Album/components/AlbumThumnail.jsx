@@ -3,7 +3,7 @@ import Button from '~/components/Button'
 import { HeartIcon, MoreIcon, PlayFillIcon } from '~/components/Icons'
 import { PlayVideoIcon, ShuffleIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import { numberWithCommas } from '~/utils/hepper'
 const AlbumThumnail = ({
   thumbnailM,
@@ -17,7 +17,7 @@ const AlbumThumnail = ({
   isPlaying,
   isPlayAll
 }) => {
-  const { bgColor } = useColor()
+  const { ColorBg100 ,ColorText500} = useColors()
   return (
     <div>
       {isPlaying ? (
@@ -41,7 +41,7 @@ const AlbumThumnail = ({
         >
           <div className='relative overflow-hidden'>
             <div className='absolute top-0 bottom-0 left-0 right-0 z-[-1] flex cursor-pointer items-center justify-center bg-[rgba(0,0,0,0.5)] group-hover:z-10'>
-              <PlayVideoIcon className='text-light-mode dark:text-dark-mode' width='44px' height='44px' />
+              <PlayVideoIcon className={`${ColorText500}`} width='44px' height='44px' />
             </div>
             <img
               alt='thumbnailM'
@@ -76,29 +76,33 @@ const AlbumThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
             onClick={handleShuffle}
           >
-            <ShuffleIcon className='mr-[5px] text-white' width='20px' height='20px' />
+            <ShuffleIcon className={`${ColorText500} mr-[5px]`} width='20px' height='20px' />
             <span className='text-sm font-normal leading-normal'> PHÁT NGẪU NHIÊN </span>
           </Button>
         ) : (
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${bgColor}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
             onClick={handlePlayAll}
           >
-            <PlayFillIcon className='mr-[5px] text-white' width='16px' height='16px' />
+            <PlayFillIcon className={`${ColorText500} mr-[5px]`} width='16px' height='16px' />
             <span className='text-sm font-normal leading-normal'>PHÁT TẤT CẢ</span>
           </Button>
         )}
         <div className='mr-2 flex items-center'>
-          <Button type='text' rounded className={`mr-5 flex h-[35px] w-[35px] items-center justify-center ${bgColor}`}>
-            <HeartIcon className='text-white' width='16px' height='16px' />
+          <Button
+            type='text'
+            rounded
+            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}
+          >
+            <HeartIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
-          <Button type='text' rounded className={`flex h-[35px] w-[35px] items-center justify-center ${bgColor}`}>
-            <MoreIcon className='text-white' width='16px' height='16px' />
+          <Button type='text' rounded className={`flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}>
+            <MoreIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
         </div>
       </div>

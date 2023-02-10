@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { BackMusicIcon, NextMusicIcon, PauseIcon, PlayVideoIcon, RepeatIcon, ShuffleIcon } from '~/components/Icons'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const PlayerKaraoke = (
@@ -8,7 +8,7 @@ const PlayerKaraoke = (
   ref
 ) => {
   const style = { backgroundSize: `${(audioTime * 100) / audioDuration}% 100%` }
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300 } = useColors()
 
   return (
     <div className='fixed left-0 bottom-0 right-0 h-[70px] '>
@@ -36,12 +36,12 @@ const PlayerKaraoke = (
         </div>
         <div className=' flex items-center justify-center gap-[17px]'>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] ${hoverColor300}`}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px]  py-[3px] ${ColorHoverBg300}`}
           >
             <ShuffleIcon className='text-light-mode dark:text-dark-mode' width='24px' height='24px' />
           </span>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${hoverColor300} `}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${ColorHoverBg300} `}
           >
             <BackMusicIcon className={`text-light-mode dark:text-dark-mode`} width='14px' height='14px' />
           </span>
@@ -53,12 +53,12 @@ const PlayerKaraoke = (
             )}
           </span>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${hoverColor300} `}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${ColorHoverBg300} `}
           >
             <NextMusicIcon className={`text-light-mode dark:text-dark-mode`} height='14px' />
           </span>
           <span
-            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${hoverColor300}`}
+            className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px] ${ColorHoverBg300}`}
           >
             <RepeatIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />
           </span>

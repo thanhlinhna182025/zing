@@ -5,11 +5,11 @@ import { LogoIcon, MP3ZingLogoIcon, PlayListIcon, SettingIcon } from '~/componen
 import configs from '~/configs'
 import { ListBottom, ListTop } from '~/Data'
 import { setDisplayMode, setRightMode, toggleRightMode } from '~/feature/app/appSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import SideBarItem from './SideBarItem'
 const SideBar = () => {
   const [active, setActive] = useState(2)
-  const { bg100Color, bg300Color } = useColor()
+  const { ColorBg200, ColorBg300, ColorBorder500 } = useColors()
   const sidebarMode = useSelector((state) => state.app.sidebarMode)
   const rightMode = useSelector((state) => state.app.rightMode)
   const displayMode = useSelector((state) => state.app.displayMode)
@@ -29,7 +29,7 @@ const SideBar = () => {
   const hideDisplay = () => dispatch(setDisplayMode(false))
   return (
     <div
-      className={`${bg100Color} ${sidebarMode ? 'w-sidebar-width' : 'w-sidebar-width-sm'} ${
+      className={`${ColorBg200} ${sidebarMode ? 'w-sidebar-width' : 'w-sidebar-width-sm'} ${
         musicId ? 'h-[calc(100vh-var(--player-height-sm))] lg:h-[calc(100vh-var(--player-height))]' : 'h-[100vh]'
       } fixed top-0 left-0 z-[20]    flex-shrink-0  transition-all duration-1000 ease-linear lg:w-sidebar-width `}
     >
@@ -76,18 +76,18 @@ const SideBar = () => {
             })}
           </ul>
         </nav>
-        <div className='absolute bottom-5 right-1/2 translate-x-[50%] md:hidden'>
+        <div className='absolute flex flex-col bottom-5 right-1/2 translate-x-[50%] md:hidden'>
           <button
             onClick={handleRightMode}
             className={`${
-              rightMode && bg300Color
-            } mb-5 rounded-[3px] border-[2px] border-solid border-[#9D4BE0] p-1 shadow hover:shadow-lg`}
+              rightMode && ColorBg300
+            } mb-5 rounded-[3px] border-[2px] border-solid ${ColorBorder500} p-1 shadow hover:shadow-lg`}
           >
             <PlayListIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
           </button>
           <button
             onClick={displayMode ? hideDisplay : showDisplay}
-            className={`rounded-[3px] border-[2px] border-solid border-[#9D4BE0] p-1 shadow hover:shadow-lg`}
+            className={`rounded-[3px] border-[2px] border-solid ${ColorBorder500} p-1 shadow hover:shadow-lg`}
           >
             <SettingIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
           </button>

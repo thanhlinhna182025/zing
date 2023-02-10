@@ -678,38 +678,53 @@ export const ShuffleIcon = ({ className, width = '20px', height = '20px' }) => {
 }
 export const VolumeIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
-    <svg
-      fill='currentColor'
-      className={className}
-      width={width}
-      height={height}
-      stroke='currentColor'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-    >
-      <polygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5' />
-      <path d='M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07' />
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
+      <path
+        d='M2 10V14C2 16 3 17 5 17H6.43C6.8 17 7.17 17.11 7.49 17.3L10.41 19.13C12.93 20.71 15 19.56 15 16.59V7.41003C15 4.43003 12.93 3.29003 10.41 4.87003L7.49 6.70003C7.17 6.89003 6.8 7.00003 6.43 7.00003H5C3 7.00003 2 8.00003 2 10Z'
+        stroke='#292D32'
+        strokeWidth='1.5'
+      />
+      <path
+        d='M18 8C19.78 10.37 19.78 13.63 18 16'
+        stroke='#292D32'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M19.83 5.5C22.72 9.35 22.72 14.65 19.83 18.5'
+        stroke='#292D32'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
     </svg>
   )
 }
 export const VolumeMutedIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
-    <svg
-      fill='currentColor'
-      className={className}
-      width={width}
-      height={height}
-      viewBox='0 0 24 24'
-      xmlns='http://www.w3.org/2000/svg'
-      mirror-in-rtl='true'
-    >
-      <mask id='a' fill='#ffffff'>
-        <path d='M2.113.71l.094.083 21 21a1 1 0 01-1.32 1.497l-.094-.083-1.514-1.512c-.706 1.189-1.285 1.87-1.332 1.925a1.11 1.11 0 01-.72.372l-.136.008-.14-.008a1.136 1.136 0 01-.532-.206c-.476-.34-.558-.97-.188-1.403l.012-.014.037-.044c.187-.228.787-.992 1.444-2.187l-2.372-2.373c-.161.267-.336.537-.525.807a1.006 1.006 0 01-1.397.248.996.996 0 01-.25-1.392c.267-.382.5-.76.7-1.134l-2.879-2.878V17.5c0 .913-.5 1.749-1.288 2.188l-.162.082c-.322.153-.675.23-1.05.23-.567 0-1.13-.202-1.59-.568l-.053-.042-.05-.046L5.252 17H2.98A2.982 2.982 0 010 14.02V9.98C0 8.34 1.337 7 2.98 7h2.264l.178-.163-4.63-4.63A1 1 0 012.113.71zm4.724 7.542L6.02 9H2.98c-.54 0-.98.44-.98.98v4.04c0 .54.44.98.98.98h3.05l3.13 2.87c.1.08.22.13.34.13.07 0 .14-.01.2-.04.18-.08.3-.26.3-.46v-6.085L6.837 8.252zM19.004.45c4.66 6.5 4.407 12.446 3.373 16.29-.105.39-.22.768-.342 1.13l-1.72-1.718c.984-3.768.93-8.929-3.137-14.603-.332-.463-.192-1.083.313-1.386.504-.304 1.18-.174 1.513.287zm-3.221 4.92c.038.047 2.848 3.586 2.087 8.335l-1.877-1.877c-.067-3.056-1.743-5.166-1.769-5.198a.996.996 0 01.147-1.406 1.005 1.005 0 011.412.146zM9.506 4a2.497 2.497 0 012.495 2.5v1.337L8.415 4.249c.278-.134.58-.216.889-.24L9.505 4z' />
-      </mask>
-      <g mask='url(#a)' fill='currentColor'>
-        <path d='M0 0h24v24H0z' />
-      </g>
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
+      <path
+        d='M2 10.1595V14.1595C2 16.1595 3 17.1595 5 17.1595H6.43C6.8 17.1595 7.17 17.2695 7.49 17.4595L10.41 19.2895C12.93 20.8695 15 19.7195 15 16.7495V7.56946C15 4.58946 12.93 3.44946 10.41 5.02946L7.49 6.85946C7.17 7.04946 6.8 7.15946 6.43 7.15946H5C3 7.15946 2 8.15946 2 10.1595Z'
+        stroke='#292D32'
+        strokeWidth='1.5'
+      />
+      <path
+        d='M22 14.1194L18.04 10.1594'
+        stroke='#292D32'
+        strokeWidth='1.5'
+        stroke-miterlimit='10'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M21.96 10.1995L18 14.1595'
+        stroke='#292D32'
+        strokeWidth='1.5'
+        stroke-miterlimit='10'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
     </svg>
   )
 }

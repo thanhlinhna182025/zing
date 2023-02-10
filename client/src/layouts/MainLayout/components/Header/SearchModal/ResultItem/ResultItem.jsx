@@ -5,7 +5,7 @@ import { addMusicId } from '~/feature/music/musicSlice'
 import useColor from '~/hooks/useColor'
 
 const ResultItem = ({ item, handleClearKeyword }) => {
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300 } = useColor()
 
   const dispatch = useDispatch()
   const handleKaraokMode = () => {
@@ -16,7 +16,7 @@ const ResultItem = ({ item, handleClearKeyword }) => {
   }
 
   return (
-    <li className={`w-full cursor-pointer rounded-[4px] px-[10px] py-2 ${hoverColor300}`}>
+    <li className={`w-full cursor-pointer rounded-[4px] px-[10px] py-2 ${ColorHoverBg300}`}>
       {item.objectType === 'artist' ? (
         <Link onClick={handleClearKeyword} to={`/singer/${item.alias}`} className='flex w-full items-center '>
           <div className={`mr-3 h-[52px] w-[52px] overflow-hidden rounded-full `}>

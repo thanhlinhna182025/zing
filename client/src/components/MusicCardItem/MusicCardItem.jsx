@@ -1,13 +1,13 @@
 import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 import ReleaseDate from '../ReleaseDate/ReleaseDate'
 import SortDescription from '../SortDescription/SortDescription'
 
 const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releaseDateText, large }) => {
   const baseClass = large ? 'flex items-center gap-x-5' : 'flex items-center gap-x-1'
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300, ColorHoverText500, ColorHoverTextDark500, ColorText500 } = useColors()
 
   const handleRedirect = useRedirect()
 
@@ -21,19 +21,21 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
         />
         <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
           <div className={baseClass}>
-            <div className={`cursor-pointer rounded-full p-[5px] ${hoverColor300}`}>
-              <HeartIcon width='20px' height='20px' className='text-white' />
+            <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
+              <HeartIcon width='20px' height='20px' className={`${ColorText500}`} />
             </div>
-            <PlayVideoIcon width='45px' height='45px' className='cursor-pointer text-white' />
-            <div className={`rounded-full p-[5px] ${hoverColor300}`}>
-              <MoreIcon width='16px' height='16px' className='cursor-pointer text-white' />
+            <PlayVideoIcon width='45px' height='45px' className={`${ColorText500}`} />
+            <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
+              <MoreIcon width='16px' height='16px' className={`${ColorText500}`} />
             </div>
           </div>
         </div>
       </div>
 
       {title && (
-        <h5 className='hover:text-secondary-100 cursor-pointer truncate text-sm font-bold text-light-mode dark:text-dark-mode'>
+        <h5
+          className={`${ColorHoverText500} ${ColorHoverTextDark500} cursor-pointer truncate text-sm font-bold text-light-mode dark:text-dark-mode`}
+        >
           {item.title}
         </h5>
       )}

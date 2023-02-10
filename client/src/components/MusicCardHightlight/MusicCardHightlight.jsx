@@ -1,11 +1,11 @@
 import { HeartIcon, MoreIcon, PlayVideoIcon } from '~/components/Icons'
 import Title from '~/components/Title'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 
 const MusicCardHightlight = ({ item }) => {
   const handleRedirect = useRedirect()
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300 ,ColorText500} = useColors()
 
   return (
     <div className='w-full lg:w-fit'>
@@ -25,16 +25,12 @@ const MusicCardHightlight = ({ item }) => {
                 className='w-full object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1]'
               />
               <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center gap-x-3 hover:bg-[rgba(0,0,0,0.2)]'>
-                <div className={`cursor-pointer rounded-full p-[5px] ${hoverColor300}`}>
-                  <HeartIcon width='20px' height='20px' className='text-light-mode dark:text-dark-mode' />
+                <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
+                  <HeartIcon width='20px' height='20px' className={`${ColorText500}`} />
                 </div>
-                <PlayVideoIcon
-                  width='45px'
-                  height='45px'
-                  className='cursor-pointer text-light-mode dark:text-dark-mode'
-                />
-                <div className={`rounded-full p-[5px] ${hoverColor300}`}>
-                  <MoreIcon width='16px' height='16px' className='cursor-pointer text-light-mode dark:text-dark-mode' />
+                <PlayVideoIcon width='45px' height='45px' className={`${ColorText500} cursor-pointer`} />
+                <div className={`rounded-full p-[5px] ${ColorHoverBg300}`}>
+                  <MoreIcon width='16px' height='16px' className={`${ColorText500} cursor-pointer`} />
                 </div>
               </div>
             </div>

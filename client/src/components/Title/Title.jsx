@@ -1,4 +1,6 @@
+import useColors from '~/hooks/useColors'
 const Title = ({ children }) => {
-  return <h4 className=' text-[20px] font-bold capitalize text-light-mode dark:text-dark-mode'>{children}</h4>
+  const { ColorText500 } = useColors()
+  return <h4 className={`${ColorText500} text-[20px] font-bold capitalize`}>{children}</h4>
 }
 export default Title

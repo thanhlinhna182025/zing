@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { PlayVideoIcon } from '~/components/Icons/Icons'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
   let Icon = icon
-  const { bg200Color, borderColor } = useColor()
+  const { ColorBg100, ColorBorder300 } = useColors()
   return (
     <li
       className={`${
-        active === item.id ? `${bg200Color} ${borderColor} lg:border-l-4 lg:border-solid lg:pl-[24px]` : 'lg:pl-7'
+        active === item.id ? `${ColorBg100} ${ColorBorder300} lg:border-l-4 lg:border-solid lg:pl-[24px]` : 'lg:pl-7'
       } group relative flex w-full justify-center py-3 lg:justify-start`}
       key={item?.path}
       onClick={() => setActive(item.id)}

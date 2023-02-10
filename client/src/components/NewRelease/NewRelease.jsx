@@ -5,13 +5,14 @@ import SeeAllButton from '~/components/SeeAllButton'
 import SongCardItem from '~/components/SongCardItem'
 import Title from '~/components/Title'
 import configs from '~/configs'
+import useColors from '~/hooks/useColors'
 import SongCartItemSkeleton from '../Skeleton/SongCartItemSkeleton/SongCartItemSkeleton'
 const NewRelease = ({ newRelease }) => {
+  const loading = useSelector((state) => state.app.loading)
+
   const [data, setData] = useState(newRelease?.items?.all?.slice(0, 12))
   const [typeData, setTypeData] = useState('all')
-  const color = useSelector((state) => state.app.color)
-  const bgColor = `${color === 'B' ? `bg-BB` : color === 'C' ? 'bg-CC' : color === 'D' ? 'bg-DD' : 'bg-AA'}`
-
+  const { ColorBg100, ColorBorder500 } = useColors()
   useEffect(() => {
     if (typeData === 'vPop') {
       setData(newRelease?.items?.vPop?.slice(0, 12))
@@ -24,7 +25,6 @@ const NewRelease = ({ newRelease }) => {
   const handleTypeData = (type) => {
     setTypeData(type)
   }
-  const loading = useSelector((state) => state.app.loading)
 
   return (
     <div className='my-margin-main-sm lg:my-main-margin'>
@@ -37,9 +37,9 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('all')}
             rounded
-            className={`mr-[14px] ${
-              typeData === 'all' && bgColor
-            } py-1 px-3 text-xs font-normal leading-[1.42] sm:px-6`}
+            className={`${
+              typeData === 'all' ? ColorBg100 : ''
+            } ${ColorBorder500} mr-[14px] border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6`}
           >
             TẤT CẢ
           </Button>
@@ -48,8 +48,8 @@ const NewRelease = ({ newRelease }) => {
             onClick={() => handleTypeData('vPop')}
             rounded
             className={`mr-[14px] ${
-              typeData === 'vPop' && bgColor
-            } py-1 px-3 text-xs  font-normal leading-[1.42] sm:px-6`}
+              typeData === 'vPop' && ColorBg100
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs  font-semibold leading-[1.42] sm:px-6`}
           >
             VIỆT NAM
           </Button>
@@ -58,8 +58,8 @@ const NewRelease = ({ newRelease }) => {
             onClick={() => handleTypeData('others')}
             rounded
             className={`mr-[14px] ${
-              typeData === 'others' && bgColor
-            } py-1 px-3 text-xs font-normal leading-[1.42] sm:px-6`}
+              typeData === 'others' && ColorBg100
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6`}
           >
             QUÔC TẾ
           </Button>

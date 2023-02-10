@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import bgOne from '~/assets/images/bg_1.jpg'
-import bgTwo from '~/assets/images/bg_2.jpg'
-import bgThree from '~/assets/images/bg_3.jpg'
+import bgOne from '~/assets/images/iu.jpg'
+import bgTwo from '~/assets/images/jack.jpg'
+import bgThree from '~/assets/images/ji-chang-wook.jpg'
+import bgFour from '~/assets/images/lisa.jpg'
 import { addError } from '~/feature/app/appSlice'
 import { getLinkMusic } from '~/feature/music/musicSlice'
+import useColors from '~/hooks/useColors'
 import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
-
 const MainLayout = ({ children }) => {
+  const { ColorBg300 } = useColors()
   const dispatch = useDispatch()
   const [url, setUrl] = useState(null)
   const musicId = useSelector((state) => state.music.musicId)
   const color = useSelector((state) => state.app.color)
   const displayMode = useSelector((state) => state.app.displayMode)
   const ref = useRef()
-
   const [urlImg, setUrlImg] = useState()
   const [isTransparent, setIsTransparent] = useState(false)
 
@@ -38,7 +39,6 @@ const MainLayout = ({ children }) => {
         .catch((error) => console.log(error))
     }
   }, [musicId])
-  const bgColor = `${color === 'B' ? `bg-B-200` : color === 'C' ? 'bg-C-200' : color === 'D' ? 'bg-D-200' : 'bg-A-200'}`
   useEffect(() => {
     if (color === '1') {
       setUrlImg({
@@ -57,6 +57,13 @@ const MainLayout = ({ children }) => {
     } else if (color === '3') {
       setUrlImg({
         backgroundImage: `url(${bgThree})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      })
+    } else if (color === '4') {
+      setUrlImg({
+        backgroundImage: `url(${bgFour})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -82,7 +89,7 @@ const MainLayout = ({ children }) => {
   }
 
   return (
-    <div ref={ref} style={urlImg} className={`${bgColor} relative flex h-[100vh] w-full items-start scrollbar`}>
+    <div ref={ref} style={urlImg} className={`${ColorBg300} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
       <RightPlayList />
       <div className=' w-full flex-col items-start px-2 '>

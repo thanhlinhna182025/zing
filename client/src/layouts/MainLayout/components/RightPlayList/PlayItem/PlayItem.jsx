@@ -6,13 +6,13 @@ import NameArtist from '~/components/NameArtist'
 import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 const PlayItem = ({ item, index }) => {
   const dispatch = useDispatch()
   const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
   const musicId = useSelector((state) => state.music.musicId)
-  const { hoverColor300 } = useColor()
+  const { ColorHoverBg300, ColorText500 } = useColors()
 
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
@@ -22,12 +22,12 @@ const PlayItem = ({ item, index }) => {
     }
   }
   return (
-    <div onClick={handleSong} className={`group flex items-center rounded-md p-[6px] ${hoverColor300}`}>
+    <div onClick={handleSong} className={`group flex items-center rounded-md p-[6px] ${ColorHoverBg300}`}>
       <div className='mr-2 flex flex-grow items-center'>
         <div className='relative mr-2 h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-md'>
           <img src={item?.thumbnail} />
           <PlayFillIcon
-            className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
+            className={`${ColorText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
             width='16px'
             height='16px'
           />
@@ -41,8 +41,8 @@ const PlayItem = ({ item, index }) => {
         </div>
       </div>
       <div className='mr-3 flex flex-grow gap-x-2'>
-        <HeartIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
-        <MoreIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
+        <HeartIcon className={`${ColorText500}`} width='14px' height='14px' />
+        <MoreIcon className={`${ColorText500}`} width='14px' height='14px' />
       </div>
     </div>
   )

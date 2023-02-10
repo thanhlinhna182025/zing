@@ -16,13 +16,13 @@ import Button from '~/components/Button'
 import { PlayFillIcon } from '~/components/Icons'
 import configs from '~/configs'
 import { getChartHome } from '~/feature/app/appSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 import ZingChartItem from './ZingChartItem'
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip)
 
 const Chart = () => {
-  const { bgColor, bg200Color, bg300Color, hoverColor300 } = useColor()
+  const { ColorBg100, ColorBg200, ColorBg300, ColorHoverBg200, ColorText500 } = useColors()
 
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
@@ -247,11 +247,11 @@ const Chart = () => {
   }
 
   return (
-    <div className={`mb-margin-main-sm w-full gap-x-5 lg:mb-main-margin ${bgColor} rounded-lg px-4 py-2`}>
+    <div className={`mb-margin-main-sm w-full gap-x-5 lg:mb-main-margin ${ColorBg100} rounded-lg px-4 py-2`}>
       <div className='mb-2 flex items-center'>
-        <h5 className='mr-2 text-[28px] font-bold text-light-mode dark:text-dark-mode'>#ZingChart</h5>
-        <Button text='text' rounded className={`flex h-[32px] w-[32px] items-center justify-center ${bg200Color}`}>
-          <PlayFillIcon className='text-white' width='14px' height='14px' />
+        <h5 className={`${ColorText500} mr-2 text-[28px] font-bold`}>#ZingChart</h5>
+        <Button text='text' rounded className={`flex h-[32px] w-[32px] items-center justify-center ${ColorBg200}`}>
+          <PlayFillIcon className={`${ColorText500}`} width='14px' height='14px' />
         </Button>
       </div>
       <div className='flex w-full flex-col-reverse gap-x-5 lg:flex-row'>
@@ -261,7 +261,7 @@ const Chart = () => {
           ))}
           <Link
             to={configs.routes.zingchart}
-            className={`${bg300Color} inline-block w-32 rounded-full py-1 text-center text-light-mode ${hoverColor300} dark:text-dark-mode`}
+            className={`${ColorBg300} inline-block w-32 rounded-full py-1 text-center text-light-mode ${ColorHoverBg200} dark:text-dark-mode`}
           >
             Xem Thêm
           </Link>

@@ -8,12 +8,12 @@ import { PlayFillIcon } from '~/components/Icons'
 import Loading from '~/components/Skeleton/Loading'
 import configs from '~/configs'
 import { getHome } from '~/feature/app/appSlice'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 const NewReleaseAlbum = () => {
   const [data, setData] = useState([])
   const [typeData, setTypeData] = useState('all')
-  const { bgColor, bg300Color, Color200 } = useColor()
+  const { ColorBg100, ColorBg300, ColorBg500 } = useColors()
   const loading = useSelector((state) => state.app.loading)
 
   const handleTypeData = (type) => {
@@ -45,14 +45,14 @@ const NewReleaseAlbum = () => {
               backgroundPosition: 'center'
             }}
           >
-            <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t ${Color200}`}></div>
-            <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b ${Color200}`}></div>
+            <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t ${ColorBg500}`}></div>
+            <div className={`absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b ${ColorBg500}`}></div>
             <div className=' relative  px-[10px] pt-[70px] lg:pt-[115px]'>
               <div className='mb-[25px] flex items-center lg:mb-[45px]'>
                 <h3 className=' mr-[5px] font-[Inter] text-[40px] font-bold capitalize text-light-mode dark:text-dark-mode'>
                   Mới Phát Hành
                 </h3>
-                <Button type='secondary' rounded className={`px-3 py-3 ${bgColor}`}>
+                <Button type='secondary' rounded className={`px-3 py-3 ${ColorBg100}`}>
                   <PlayFillIcon className='text-light-mode dark:text-dark-mode' width='16px' height='16px' />
                 </Button>
               </div>
@@ -82,7 +82,7 @@ const NewReleaseAlbum = () => {
                   type='primary'
                   rounded
                   className={`mr-[14px] ${
-                    typeData === 'all' && bg300Color
+                    typeData === 'all' && ColorBg300
                   } py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
                 >
                   TẤT CẢ
@@ -94,7 +94,7 @@ const NewReleaseAlbum = () => {
                   type='primary'
                   rounded
                   className={`mr-[14px] ${
-                    typeData === 'vPop' && bg300Color
+                    typeData === 'vPop' && ColorBg300
                   }  py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
                 >
                   VIỆT NAM
@@ -106,7 +106,7 @@ const NewReleaseAlbum = () => {
                   type='primary'
                   rounded
                   className={`mr-[14px] ${
-                    typeData === 'others' && bg300Color
+                    typeData === 'others' && ColorBg300
                   }  py-[4px] px-[24px] text-xs font-[500] leading-[1.42]`}
                 >
                   QUỐC TẾ

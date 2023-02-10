@@ -1,7 +1,7 @@
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 const MV = () => {
-  const { hoverColor300 } = useColor()
-  return <div className={`h-5 w-10 ${hoverColor300}`}>MV</div>
+  const { ColorHoverBg300 } = useColors()
+  return <div className={`h-5 w-10 ${ColorHoverBg300}`}>MV</div>
 }
 export default MV

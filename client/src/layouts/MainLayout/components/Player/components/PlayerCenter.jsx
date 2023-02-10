@@ -8,6 +8,7 @@ import {
   RepeatIcon,
   ShuffleIcon
 } from '~/components/Icons/Icons'
+import useColors from '~/hooks/useColors'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 const PlayerCenter = (
   {
@@ -33,6 +34,7 @@ const PlayerCenter = (
   const [percent, setPercent] = useState(0)
   const [second, setSecond] = useState(0)
   const [minute, setMinute] = useState(0)
+  const { ColorText500, ColorHoverBg200, ColorBg200 } = useColors()
 
   useEffect(() => {
     setPercent(Math.round((currentTime / duration).toFixed(4) * 100))
@@ -49,23 +51,23 @@ const PlayerCenter = (
       <div className=' flex items-center justify-center gap-[17px]'>
         {isSingle ? (
           <span
-            className={`flex h-[32px] w-[32px] cursor-not-allowed items-center justify-center rounded-full  px-[3px] py-[3px]  hover:bg-A-100`}
+            className={`  flex h-[32px] w-[32px] cursor-not-allowed items-center justify-center rounded-full  px-[3px] py-[3px] `}
           >
             <ShuffleIcon className='text-light-mode dark:text-dark-mode' width='24px' height='24px' />
           </span>
         ) : isShuffle ? (
           <Tippy content={<span className='text-xs text-light-mode dark:text-dark-mode'>Tắt phát ngẫu nhiên</span>}>
             <span
-              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full  px-[3px] py-[3px] hover:bg-B-200 dark:hover:bg-D-200'
+              className={`${ColorBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
               onClick={togleIsShuffle}
             >
-              <ShuffleIcon className='text-D-300' width='24px' height='24px' />
+              <ShuffleIcon className={`${ColorText500}`} width='24px' height='24px' />
             </span>
           </Tippy>
         ) : (
-          <Tippy content={<span className='text-xs text-light-mode dark:text-dark-mode'>Bật phát ngẫu nhiên</span>}>
+          <Tippy content={<span className={`text-xs text-light-mode dark:text-dark-mode`}>Bật phát ngẫu nhiên</span>}>
             <span
-              className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-B-200 dark:hover:bg-D-200`}
+              className={`${ColorHoverBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
               onClick={setShuffle}
             >
               <ShuffleIcon className='text-light-mode dark:text-dark-mode' width='24px' height='24px' />
@@ -74,9 +76,9 @@ const PlayerCenter = (
         )}
         <span
           onClick={handlePrevSong}
-          className={`flex h-[32px] w-[32px]  items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-D-200 ${
+          className={`${
             prevActive ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
-          }`}
+          } ${ColorHoverBg200} flex h-[32px] w-[32px]  items-center justify-center rounded-full px-[3px] py-[3px]`}
         >
           <BackMusicIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </span>
@@ -89,25 +91,25 @@ const PlayerCenter = (
         </span>
         <span
           onClick={handleNextSong}
-          className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-D-200 ${
+          className={`${
             nextActive ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
-          }`}
+          } ${ColorHoverBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
         >
           <NextMusicIcon className='text-light-mode dark:text-dark-mode' height='14px' />
         </span>
         {isRepeat ? (
           <Tippy content={<span className='text-xs text-light-mode dark:text-dark-mode'>Tắt phát lại</span>}>
             <span
-              className={`flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-A-100`}
+              className={`${ColorBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
               onClick={toggleIsRepeat}
             >
-              <RepeatIcon className='text-active-light-mode dark:text-active-dark-mode' width='20px' height='20px' />
+              <RepeatIcon className={`${ColorText500}`} width='20px' height='20px' />
             </span>
           </Tippy>
         ) : (
           <Tippy content={<span className='text-xs text-light-mode dark:text-dark-mode'>Bật phát lại</span>}>
             <span
-              className='flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]  hover:bg-A-100'
+              className={`${ColorHoverBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
               onClick={setRepeat}
             >
               <RepeatIcon className='text-light-mode dark:text-dark-mode' width='20px' height='20px' />

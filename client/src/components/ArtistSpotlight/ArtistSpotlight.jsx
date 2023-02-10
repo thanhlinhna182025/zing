@@ -2,11 +2,11 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import useColor from '~/hooks/useColor'
+import useColors from '~/hooks/useColors'
 
 import { LeftArrowIcon, RightArrowIcon } from '~/components/Icons'
 const ArtistSpotlight = ({ artists }) => {
-  const { bgColor50, hoverColor100 } = useColor()
+  const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
 
   const swiperRef = useRef()
   return (
@@ -50,18 +50,18 @@ const ArtistSpotlight = ({ artists }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div
-        className={`${bgColor50} ${hoverColor100} absolute -top-6 left-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
+      <button
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 left-0 z-[1] flex h-[50px] w-[50px]  translate-y-[-50%] items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:translate-x-[-50%] `}
         onClick={() => swiperRef.current?.slidePrev()}
       >
-        <LeftArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
-      </div>
-      <div
-        className={`${bgColor50} ${hoverColor100} absolute -top-6 right-0 z-[10] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl`}
+        <LeftArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
+      </button>
+      <button
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 right-0 z-[1] flex h-[50px] w-[50px]  translate-y-[-50%] items-center justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:translate-x-[50%] `}
         onClick={() => swiperRef.current?.slideNext()}
       >
-        <RightArrowIcon className='text-light-mode dark:text-dark-mode' width='25px' height='25px' />
-      </div>
+        <RightArrowIcon className={`${ColorText500}`} width='25px' height='25px' />
+      </button>
     </div>
   )
 }

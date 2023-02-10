@@ -105,6 +105,9 @@
   .swiper-button-next {
     display: none;
   }
+  .bannerSwiper > .swiper-button-next {
+    display: none;
+  }
 
   /*liveSwiper */
   .liveSwiper {
@@ -113,6 +116,9 @@
   }
   .liveSwiper > .swiper-button-prev,
   .swiper-button-next {
+    display: none;
+  }
+  .liveSwiper > .swiper-button-next {
     display: none;
   }
 

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
   musicId: null,
+  errorMusicId: null,
   musicLink: null,
   isPlaying: false,
   musicLoading: false
@@ -81,6 +82,9 @@ const musicSlice = createSlice({
     addMusicId: (state, action) => {
       state.musicId = action.payload
       state.isPlaying = true
+    },
+    addErrorMusicId: (state, action) => {
+      state.errorMusicId = action.payload
     }
   },
   extraReducers(builder) {
@@ -100,7 +104,7 @@ const musicSlice = createSlice({
   }
 })
 
-export const { addMusicId } = musicSlice.actions
+export const { addMusicId, addErrorMusicId } = musicSlice.actions
 const musicReducer = musicSlice.reducer
 
 export default musicReducer

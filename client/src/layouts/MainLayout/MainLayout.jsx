@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import bgOne from '~/assets/images/iu.jpg'
 import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
@@ -10,13 +10,17 @@ import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
+import { setError } from '../../feature/app/appSlice'
+import { addErrorMusicId, getLinkMusic } from '../../feature/music/musicSlice'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
+
 const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
   const [urlImg, setUrlImg] = useState()
 
   const musicId = useSelector((state) => state.music.musicId)
+  const errorMusicId = useSelector((state) => state.music.errorMusicId)
   const color = useSelector((state) => state.app.color)
   const error = useSelector((state) => state.app.error)
   const displayMode = useSelector((state) => state.app.displayMode)
@@ -24,6 +28,17 @@ const MainLayout = ({ children }) => {
 
   const { ColorBg300 } = useColors()
   const ref = useRef()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (errorMusicId) {
+      dispatch(getLinkMusic(errorMusicId))
+        .unwrap()
+        .then((result) => {
+          dispatch(setError(result))
+          dispatch(addErrorMusicId(null))
+        })
+    }
+  }, [errorMusicId])
 
   useEffect(() => {
     if (color === '1') {
@@ -66,6 +81,7 @@ const MainLayout = ({ children }) => {
       if (ref.current) ref.current.removeEventListener('scroll', handleHeaderColor)
     }
   }, [])
+
   const handleHeaderColor = () => {
     if (ref.current.scrollTop >= 32) {
       setIsTransparent(false)

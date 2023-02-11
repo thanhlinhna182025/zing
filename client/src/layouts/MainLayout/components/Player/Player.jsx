@@ -6,16 +6,16 @@ import {
   isPlayingToggle,
   isRepeatToggle,
   isShuffleToggle,
-  setError,
   setIsPlayAll,
   setIsPlaying,
   setIsRepeat,
   setIsShuffle,
   setVolume
 } from '~/feature/app/appSlice'
-import { addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlice'
+import { addMusicId, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
+import { getInfoSong } from '../../../../feature/music/musicSlice'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 
 const Player = () => {
@@ -48,26 +48,14 @@ const Player = () => {
       dispatch(getLinkMusic(musicId))
         .unwrap()
         .then((result) => {
-          if (result) {
-            if (result.error) {
-              dispatch(setError(result))
-              return false
-            } else {
-              setUrl(result['128'])
-              dispatch(setError(null))
-              return true
-            }
-          }
+          setUrl(result['128'])
         })
-        .then((data) => {
-          if (data) {
-            dispatch(getInfoSong(musicId))
-              .unwrap()
-              .then((result) => {
-                setMusicInfo(result)
-                setDuration(result?.duration)
-              })
-              .catch((error) => console.log(error))
+        .catch((error) => console.log(error))
+      dispatch(getInfoSong(musicId))
+        .then((result) => {
+          if (result) {
+            setMusicInfo(result.payload)
+            setDuration(result.payload.duration)
           }
         })
         .catch((error) => console.log(error))

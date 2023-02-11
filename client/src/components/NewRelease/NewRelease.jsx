@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import SeeAllButton from '~/components/SeeAllButton'
-import SongCardItem from '~/components/SongCardItem'
 import Title from '~/components/Title'
 import configs from '~/configs'
 import useColors from '~/hooks/useColors'
 import SongCartItemSkeleton from '../Skeleton/SongCartItemSkeleton/SongCartItemSkeleton'
+import SongCardItem from './SongCardItem'
 const NewRelease = ({ newRelease }) => {
   const loading = useSelector((state) => state.app.loading)
 

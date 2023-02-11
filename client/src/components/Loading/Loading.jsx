@@ -1,9 +1,9 @@
-const Loading = () => {
+const Loading = ({ width = 'w-8', height = 'h-8', fixed }) => {
   return (
-    <div role='status'>
+    <div role='status' className={`${fixed ? 'fixed top-1/2 left-1/2 z-20 translate-x-[50%] translate-y-[-50%]' : ''}`}>
       <svg
         aria-hidden='true'
-        className='text-gray-200 dark:text-gray-600 mr-2 inline h-8 w-8 animate-spin fill-blue-600'
+        className={`text-gray-200 dark:text-gray-600 mr-2 inline ${width} ${height} animate-spin fill-blue-600`}
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

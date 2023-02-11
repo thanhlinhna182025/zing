@@ -34,12 +34,14 @@ const Chart = () => {
     dispatch(getChartHome())
       .unwrap()
       .then((result) => {
-        setLabelNames(result?.RTChart?.chart.times)
-        setTop123Data(Object.values(result?.RTChart?.chart.items))
-        setTop123(
-          result?.RTChart.items.filter((item) => Object.keys(result?.RTChart?.chart?.items).includes(item.encodeId))
-        )
-        setTotalScore(result?.RTChart?.chart?.totalScore)
+        if (result) {
+          setLabelNames(result?.RTChart?.chart.times)
+          setTop123Data(Object.values(result?.RTChart?.chart.items))
+          setTop123(
+            result?.RTChart.items.filter((item) => Object.keys(result?.RTChart?.chart?.items).includes(item.encodeId))
+          )
+          setTotalScore(result?.RTChart?.chart?.totalScore)
+        }
       })
       .catch((err) => console.log(err))
   }, [])

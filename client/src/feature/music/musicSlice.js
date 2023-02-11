@@ -7,7 +7,23 @@ const initialState = {
   musicLoading: false
 }
 const context = 'music'
-export const getInfoMusic = createAsyncThunk(`${context}/getInfoMusic`, async (id, thunkApi) => {
+export const getInfoSong = createAsyncThunk(`${context}/getInfoSong`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/infosong', method: 'GET', params: { id: id } },
+      {
+        signal: thunkApi.signal
+      }
+    )
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
+export const getInfoCurrentSong = createAsyncThunk(`${context}/getInfoCurrentSong`, async (id, thunkApi) => {
   try {
     const response = await http(
       { url: '/infosong', method: 'GET', params: { id: id } },
@@ -70,13 +86,13 @@ const musicSlice = createSlice({
   extraReducers(builder) {
     builder
       .addMatcher(
-        (action) => action.type.endsWith('/pending') || action.type.endsWith('/reject'),
+        (action) => action.type.endsWith('getInfoSong/pending') || action.type.endsWith('getInfoSong/reject'),
         (state) => {
           state.musicLoading = true
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith('/fulfilled'),
+        (action) => action.type.endsWith('getInfoSong/fulfilled'),
         (state) => {
           state.musicLoading = false
         }

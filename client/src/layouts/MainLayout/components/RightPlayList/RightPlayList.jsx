@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import Button from '~/components/Button'
 import { ClockIcon, MoreIcon } from '~/components/Icons'
 import { getAlbumPlaylist } from '~/feature/app/appSlice'
-import { getInfoMusic } from '~/feature/music/musicSlice'
 import { addPlaylistSongs } from '~/feature/playlist/playlistSlice'
 import useColors from '~/hooks/useColors'
 import PlayCurrentItem from './PlayCurrentItem'
@@ -11,22 +10,13 @@ import PlayItem from './PlayItem'
 
 const RightPlayList = () => {
   const rightMode = useSelector((state) => state.app.rightMode)
-  const musicId = useSelector((state) => state.music.musicId)
   const playlistId = useSelector((state) => state.playlist.playlistId)
   const { ColorBg100, ColorBg200, ColorText500 } = useColors()
-  const [currentMusic, setCurrentMusic] = useState()
   const [musicData, setMusicData] = useState([])
   const [title, setTitle] = useState('')
 
   const dispatch = useDispatch()
-  useEffect(() => {
-    if (musicId) {
-      dispatch(getInfoMusic(musicId))
-        .unwrap()
-        .then((res) => setCurrentMusic(res))
-        .catch((err) => console.log(err))
-    }
-  }, [musicId])
+
   useEffect(() => {
     if (playlistId) {
       dispatch(getAlbumPlaylist(playlistId))
@@ -65,7 +55,7 @@ const RightPlayList = () => {
         </div>
       </div>
       <div className='mt-header-height h-[calc(100vh-var(--header-height)-var(--player-height))] scrollbar'>
-        {musicId && <PlayCurrentItem item={currentMusic} />}
+        {rightMode && <PlayCurrentItem />}
         <div className='mt-5'>
           <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Tiếp theo</p>
           <div>

@@ -13,7 +13,7 @@ import {
   setIsShuffle,
   setVolume
 } from '~/feature/app/appSlice'
-import { addMusicId, getInfoMusic, getLinkMusic } from '~/feature/music/musicSlice'
+import { addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
@@ -61,7 +61,7 @@ const Player = () => {
         })
         .then((data) => {
           if (data) {
-            dispatch(getInfoMusic(musicId))
+            dispatch(getInfoSong(musicId))
               .unwrap()
               .then((result) => {
                 setMusicInfo(result)
@@ -177,20 +177,6 @@ const Player = () => {
       dispatch(addAlbumSongs([]))
     }
   }, [params])
-
-  // useEffect(() => {
-  //   if (!error) {
-  //     dispatch(getInfoMusic(musicId))
-  //       .unwrap()
-  //       .then((result) => {
-  //         if (!error) {
-  //           setMusicInfo(result)
-  //           setDuration(result?.duration)
-  //         }
-  //       })
-  //       .catch((error) => console.log(error))
-  //   }
-  // }, [musicId, error])
 
   useEffect(() => {
     let timerId

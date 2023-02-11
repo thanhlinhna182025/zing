@@ -7,7 +7,7 @@ import {
   setKaraokeMain,
   setKaraokMode
 } from '~/feature/app/appSlice'
-import { getInfoMusic, getLinkMusic, getLyricMusic } from '~/feature/music/musicSlice'
+import { getInfoSong, getLinkMusic, getLyricMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import KaraokeList from '~/pages/Karaoke/KaraokeList'
 import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
@@ -59,7 +59,7 @@ const Karaoke = () => {
   }, [])
   useEffect(() => {
     if (musicId) {
-      dispatch(getInfoMusic(musicId))
+      dispatch(getInfoSong(musicId))
         .unwrap()
         .then((result) => {
           setThumbnailM(result?.thumbnailM)

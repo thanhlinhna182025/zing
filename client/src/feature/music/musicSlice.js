@@ -3,7 +3,8 @@ import http from '~/utils/http'
 const initialState = {
   musicId: null,
   musicLink: null,
-  isPlaying: false
+  isPlaying: false,
+  musicLoading: false
 }
 const context = 'music'
 export const getInfoMusic = createAsyncThunk(`${context}/getInfoMusic`, async (id, thunkApi) => {
@@ -65,6 +66,21 @@ const musicSlice = createSlice({
       state.musicId = action.payload
       state.isPlaying = true
     }
+  },
+  extraReducers(builder) {
+    builder
+      .addMatcher(
+        (action) => action.type.endsWith('/pending') || action.type.endsWith('/reject'),
+        (state) => {
+          state.musicLoading = true
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('/fulfilled'),
+        (state) => {
+          state.musicLoading = false
+        }
+      )
   }
 })
 

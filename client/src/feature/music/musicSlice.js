@@ -49,6 +49,9 @@ export const getLinkMusic = createAsyncThunk(`${context}/getLinkMusic`, async (i
         signal: thunkApi.signal
       }
     )
+    if (response.data.err) {
+      return response.data
+    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {

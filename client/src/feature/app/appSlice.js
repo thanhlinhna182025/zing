@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
-  error: null,
+  error: false,
   isPlaying: false,
   isPlayAll: false,
   isRepeat: false,

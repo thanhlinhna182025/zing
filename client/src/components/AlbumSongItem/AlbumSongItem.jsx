@@ -6,7 +6,7 @@ import { MusicNodeIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
 import { setCurrentIndexAlbumSong } from '~/feature/album/albumSlice'
 import { setOmitPage } from '~/feature/app/appSlice'
-import { addMusicId } from '~/feature/music/musicSlice'
+import { addErrorMusicId, addMusicId } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import { releaseDay, secondToMinuteAndSecond } from '~/utils/hepper'
 
@@ -22,10 +22,14 @@ const AlbumSongItem = ({ item, index, release }) => {
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const musicId = useSelector((state) => state.music.musicId)
 
-  const handleSong = () => {
-    dispatch(addMusicId(item.encodeId))
-    dispatch(setCurrentIndexAlbumSong(index))
-    dispatch(setOmitPage('album'))
+  const handleSong = (item) => {
+    if (item.streamingStatus === 1) {
+      dispatch(addMusicId(item.encodeId))
+      dispatch(setCurrentIndexAlbumSong(index))
+      dispatch(setOmitPage('album'))
+    } else if (item.streamingStatus === 2) {
+      dispatch(addErrorMusicId(item.encodeId))
+    }
   }
 
   return (

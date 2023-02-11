@@ -28,7 +28,6 @@ const Album = () => {
   }
   useEffect(() => {
     setLoading(true)
-
     dispatch(getAlbumPlaylist(id))
       .unwrap()
       .then((result) => {

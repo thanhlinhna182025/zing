@@ -5,19 +5,20 @@ import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
 import bgFour from '~/assets/images/lisa.jpg'
 import Toast from '~/components/Toast/Toast'
+import { addErrorMusicId, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
 import { setError } from '../../feature/app/appSlice'
-import { addErrorMusicId, getLinkMusic } from '../../feature/music/musicSlice'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 
 const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
   const [urlImg, setUrlImg] = useState()
+  const [errorToast, setErrorToast] = useState({})
 
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
@@ -31,14 +32,29 @@ const MainLayout = ({ children }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (errorMusicId) {
+      dispatch(setError(true))
       dispatch(getLinkMusic(errorMusicId))
         .unwrap()
         .then((result) => {
-          dispatch(setError(result))
-          dispatch(addErrorMusicId(null))
+          if (result) {
+            setErrorToast(result)
+          }
         })
+        .catch((error) => console.log(error))
     }
   }, [errorMusicId])
+  useEffect(() => {
+    let timerId
+    if (error) {
+      timerId = setTimeout(() => {
+        dispatch(setError(false))
+        dispatch(addErrorMusicId(null))
+      }, 3000)
+    }
+    return () => {
+      clearTimeout(timerId)
+    }
+  }, [error])
 
   useEffect(() => {
     if (color === '1') {
@@ -103,7 +119,7 @@ const MainLayout = ({ children }) => {
       {musicId && <Player />}
       {karaokMode && <Karaoke />}
       {displayMode && <DisplayModal />}
-      {error && <Toast />}
+      {error && <Toast errorToast={errorToast} />}
     </div>
   )
 }

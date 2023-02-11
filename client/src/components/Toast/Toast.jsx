@@ -1,15 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setError } from '~/feature/app/appSlice'
-const Toast = () => {
+import { addErrorMusicId } from '~/feature/music/musicSlice'
+
+const Toast = ({ errorToast }) => {
   const dispatch = useDispatch()
-  const error = useSelector((state) => state.app.error)
   const handleError = () => {
-    dispatch(setError(null))
+    dispatch(setError(false))
+    dispatch(addErrorMusicId(null))
   }
   return (
     <div
       id='alert-border-1'
-      className='dark:bg-gray-800 fixed top-[60px] right-10 z-[10] mb-4 flex border-t-4 border-blue-300 bg-blue-50 p-4 text-blue-800 dark:border-blue-800 dark:text-blue-400'
+      className='dark:bg-gray-800 fixed top-[80px] right-10 z-[30] mb-4 flex border-t-4 border-blue-300 bg-blue-50 p-4 text-blue-800 dark:border-blue-800 dark:text-blue-400'
       role='alert'
     >
       <svg className='h-5 w-5 flex-shrink-0' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
@@ -19,7 +21,7 @@ const Toast = () => {
           clipRule='evenodd'
         />
       </svg>
-      <div className='ml-3 text-sm font-medium'>{error.msg}</div>
+      <div className='ml-3 text-sm font-medium'>{errorToast?.msg}</div>
       <button
         onClick={handleError}
         type='button'

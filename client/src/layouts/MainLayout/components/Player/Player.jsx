@@ -12,10 +12,9 @@ import {
   setIsShuffle,
   setVolume
 } from '~/feature/app/appSlice'
-import { addMusicId, getLinkMusic } from '~/feature/music/musicSlice'
+import { addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
-import { getInfoSong } from '../../../../feature/music/musicSlice'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 
 const Player = () => {
@@ -31,7 +30,6 @@ const Player = () => {
   const isRepeat = useSelector((state) => state.app.isRepeat)
   const volume = useSelector((state) => state.app.volume)
   const omitPage = useSelector((state) => state.app.omitPage)
-  const error = useSelector((state) => state.app.error)
 
   //Local state
   const [musicInfo, setMusicInfo] = useState({})

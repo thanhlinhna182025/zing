@@ -1,7 +1,9 @@
 import Tippy from '@tippyjs/react'
 import { forwardRef, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import {
   BackMusicIcon,
+  MusicLoadingIcon,
   NextMusicIcon,
   PauseIcon,
   PlayVideoIcon,
@@ -35,6 +37,7 @@ const PlayerCenter = (
   const [second, setSecond] = useState(0)
   const [minute, setMinute] = useState(0)
   const { ColorText500, ColorHoverBg200, ColorBg200 } = useColors()
+  const urlLoading = useSelector((state) => state.music.urlLoading)
 
   useEffect(() => {
     setPercent(Math.round((currentTime / duration).toFixed(4) * 100))
@@ -83,7 +86,9 @@ const PlayerCenter = (
           <BackMusicIcon className='text-light-mode dark:text-dark-mode' width='14px' height='14px' />
         </span>
         <span className='cursor-pointer ' onClick={togglePlaying}>
-          {isPlaying ? (
+          {urlLoading ? (
+            <MusicLoadingIcon className='h-[30px] w-[30px] animate-spin text-light-mode dark:text-dark-mode lg:h-[38px] lg:w-[38px]' />
+          ) : isPlaying ? (
             <PauseIcon className='h-[30px] w-[30px] text-light-mode dark:text-dark-mode lg:h-[38px] lg:w-[38px]' />
           ) : (
             <PlayVideoIcon className='h-[30px] w-[30px] text-light-mode dark:text-dark-mode lg:h-[38px] lg:w-[38px]' />
@@ -93,7 +98,7 @@ const PlayerCenter = (
           onClick={handleNextSong}
           className={`${
             nextActive ? 'cursor-pointer' : 'cursor-not-allowed opacity-70'
-          } ${ColorHoverBg200} flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
+          } ${ColorHoverBg200} flex h-[32px] w-[32px]  cursor-pointer items-center justify-center rounded-full px-[3px] py-[3px]`}
         >
           <NextMusicIcon className='text-light-mode dark:text-dark-mode' height='14px' />
         </span>

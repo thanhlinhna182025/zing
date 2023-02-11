@@ -5,7 +5,8 @@ const initialState = {
   errorMusicId: null,
   musicLink: null,
   isPlaying: false,
-  musicLoading: false
+  musicLoading: false,
+  urlLoading: false
 }
 const context = 'music'
 export const getInfoSong = createAsyncThunk(`${context}/getInfoSong`, async (id, thunkApi) => {
@@ -48,9 +49,6 @@ export const getLinkMusic = createAsyncThunk(`${context}/getLinkMusic`, async (i
         signal: thunkApi.signal
       }
     )
-    if (response.data.err === -1150) {
-      return { error: true, msg: response.data.msg }
-    }
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {
@@ -99,6 +97,18 @@ const musicSlice = createSlice({
         (action) => action.type.endsWith('getInfoSong/fulfilled'),
         (state) => {
           state.musicLoading = false
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('getLinkMusic/pending') || action.type.endsWith('getLinkMusic/reject'),
+        (state) => {
+          state.urlLoading = true
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('getLinkMusic/fulfilled'),
+        (state) => {
+          state.urlLoading = false
         }
       )
   }

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import bgOne from '~/assets/images/iu.jpg'
 import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
 import bgFour from '~/assets/images/lisa.jpg'
-import { getLinkMusic } from '~/feature/music/musicSlice'
+import Toast from '~/components/Toast/Toast'
 import useColors from '~/hooks/useColors'
 import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
@@ -13,33 +13,18 @@ import Karaoke from '~/pages/Karaoke'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 const MainLayout = ({ children }) => {
-  const { ColorBg300 } = useColors()
-  const dispatch = useDispatch()
-  const [url, setUrl] = useState(null)
+  const [isTransparent, setIsTransparent] = useState(false)
+  const [urlImg, setUrlImg] = useState()
+
   const musicId = useSelector((state) => state.music.musicId)
   const color = useSelector((state) => state.app.color)
+  const error = useSelector((state) => state.app.error)
   const displayMode = useSelector((state) => state.app.displayMode)
-  const ref = useRef()
-  const [urlImg, setUrlImg] = useState()
-  const [isTransparent, setIsTransparent] = useState(false)
+  const karaokMode = useSelector((state) => state.app.karaokMode)
 
-  useEffect(() => {
-    if (musicId) {
-      dispatch(getLinkMusic(musicId))
-        .unwrap()
-        .then((result) => {
-          console.log(result)
-          if (result) {
-            if (result.error) {
-              console.log('Tai khoan VIP')
-            } else {
-              setUrl(result['128'])
-            }
-          }
-        })
-        .catch((error) => console.log(error))
-    }
-  }, [musicId])
+  const { ColorBg300 } = useColors()
+  const ref = useRef()
+
   useEffect(() => {
     if (color === '1') {
       setUrlImg({
@@ -99,9 +84,10 @@ const MainLayout = ({ children }) => {
           {children}
         </main>
       </div>
-      {url && <Player url={url} />}
-      <Karaoke url={url} />
+      {musicId && <Player />}
+      {karaokMode && <Karaoke />}
       {displayMode && <DisplayModal />}
+      {error && <Toast />}
     </div>
   )
 }

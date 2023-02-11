@@ -6,17 +6,19 @@ import {
   isPlayingToggle,
   isRepeatToggle,
   isShuffleToggle,
+  setError,
   setIsPlayAll,
   setIsPlaying,
   setIsRepeat,
   setIsShuffle,
   setVolume
 } from '~/feature/app/appSlice'
-import { addMusicId, getInfoMusic } from '~/feature/music/musicSlice'
+import { addMusicId, getInfoMusic, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
-const Player = ({ url }) => {
+
+const Player = () => {
   //Global state
   const albumSongs = useSelector((state) => state.album.albumSongs)
   const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
@@ -29,6 +31,7 @@ const Player = ({ url }) => {
   const isRepeat = useSelector((state) => state.app.isRepeat)
   const volume = useSelector((state) => state.app.volume)
   const omitPage = useSelector((state) => state.app.omitPage)
+  const error = useSelector((state) => state.app.error)
 
   //Local state
   const [musicInfo, setMusicInfo] = useState({})
@@ -39,6 +42,37 @@ const Player = ({ url }) => {
   const [dataSongs, setDataSongs] = useState([])
   const [indexSongs, setIndexSongs] = useState([])
   const [songsLength, setSongsLength] = useState(0)
+  const [url, setUrl] = useState(null)
+  useEffect(() => {
+    if (musicId) {
+      dispatch(getLinkMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          if (result) {
+            if (result.error) {
+              dispatch(setError(result))
+              return false
+            } else {
+              setUrl(result['128'])
+              dispatch(setError(null))
+              return true
+            }
+          }
+        })
+        .then((data) => {
+          if (data) {
+            dispatch(getInfoMusic(musicId))
+              .unwrap()
+              .then((result) => {
+                setMusicInfo(result)
+                setDuration(result?.duration)
+              })
+              .catch((error) => console.log(error))
+          }
+        })
+        .catch((error) => console.log(error))
+    }
+  }, [musicId])
 
   const { ColorBg400 } = useColors()
 
@@ -144,15 +178,19 @@ const Player = ({ url }) => {
     }
   }, [params])
 
-  useEffect(() => {
-    dispatch(getInfoMusic(musicId))
-      .unwrap()
-      .then((result) => {
-        setMusicInfo(result)
-        setDuration(result?.duration)
-      })
-      .catch((error) => console.log(error))
-  }, [musicId])
+  // useEffect(() => {
+  //   if (!error) {
+  //     dispatch(getInfoMusic(musicId))
+  //       .unwrap()
+  //       .then((result) => {
+  //         if (!error) {
+  //           setMusicInfo(result)
+  //           setDuration(result?.duration)
+  //         }
+  //       })
+  //       .catch((error) => console.log(error))
+  //   }
+  // }, [musicId, error])
 
   useEffect(() => {
     let timerId

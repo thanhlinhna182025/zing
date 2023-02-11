@@ -99,7 +99,7 @@ const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    addError: (state, action) => {
+    setError: (state, action) => {
       state.error = action.payload
     },
     isPlayingToggle: (state) => {
@@ -191,7 +191,7 @@ const appSlice = createSlice({
 })
 
 export const {
-  addError,
+  setError,
   setIsPlaying,
   isPlayingToggle,
   setIsPlayAll,

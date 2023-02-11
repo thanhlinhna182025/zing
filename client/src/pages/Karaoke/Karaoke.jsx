@@ -7,14 +7,15 @@ import {
   setKaraokeMain,
   setKaraokMode
 } from '~/feature/app/appSlice'
-import { getInfoMusic, getLyricMusic } from '~/feature/music/musicSlice'
+import { getInfoMusic, getLinkMusic, getLyricMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import KaraokeList from '~/pages/Karaoke/KaraokeList'
 import KaraokeLyric from '~/pages/Karaoke/KaraokeLyric'
 import KaraokeSong from '~/pages/Karaoke/KaraokeSong'
 import KaraokeHeader from './KaraokeHeader'
 import PlayerKaraoke from './PlayerKaraoke'
-const Karaoke = ({ url }) => {
+
+const Karaoke = () => {
   const { ColorBg200 } = useColors()
   //global State
   const KaraokeMain = useSelector((state) => state.app.karaokeMain)
@@ -30,10 +31,24 @@ const Karaoke = ({ url }) => {
   const [thumbnailM, setThumbnailM] = useState({})
   const [audioTime, setAudioTime] = useState(0)
   const [audioDuration, setAudioDuration] = useState(0)
+  const [url, setUrl] = useState(0)
 
   const handleKaraokeMain = (mode) => {
     dispatch(setKaraokeMain(mode))
   }
+  useEffect(() => {
+    if (musicId) {
+      dispatch(getLinkMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          if (result) {
+            setUrl(result['128'])
+          }
+        })
+        .catch((error) => console.log(error))
+    }
+  }, [musicId])
+
   useEffect(() => {
     dispatch(getChartHome())
       .unwrap()

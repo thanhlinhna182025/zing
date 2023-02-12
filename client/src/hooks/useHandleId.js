@@ -4,6 +4,7 @@ import { addErrorMusicId, addMusicId } from '~/feature/music/musicSlice'
 const useHandleId = () => {
   const dispatch = useDispatch()
   const handleAddMusicId = (item) => {
+    console.log(item)
     if (item.streamingStatus === 1) {
       dispatch(addMusicId(item.encodeId))
     } else if (item.streamingStatus === 2) {

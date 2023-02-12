@@ -5,13 +5,13 @@ import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
 import bgFour from '~/assets/images/lisa.jpg'
 import Toast from '~/components/Toast/Toast'
+import { setContentError, setError } from '~/feature/app/appSlice'
 import { addErrorMusicId, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
-import { setError } from '../../feature/app/appSlice'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 
@@ -19,7 +19,6 @@ const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
   const [urlImg, setUrlImg] = useState()
   const error = useSelector((state) => state.app.error)
-  const [errorToast, setErrorToast] = useState(error)
 
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
@@ -37,7 +36,7 @@ const MainLayout = ({ children }) => {
         .unwrap()
         .then((result) => {
           if (result) {
-            setErrorToast(result)
+            dispatch(setContentError(result))
           }
         })
         .catch((error) => console.log(error))
@@ -119,7 +118,7 @@ const MainLayout = ({ children }) => {
       {musicId && <Player />}
       {karaokMode && <Karaoke />}
       {displayMode && <DisplayModal />}
-      {error && <Toast errorToast={errorToast} />}
+      {error && <Toast />}
     </div>
   )
 }

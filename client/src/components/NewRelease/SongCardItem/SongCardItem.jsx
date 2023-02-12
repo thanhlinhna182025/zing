@@ -1,12 +1,20 @@
+import { useDispatch } from 'react-redux'
 import { MoreIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
+import { addErrorMusicId, addMusicId } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
-import useHandleId from '~/hooks/useHandleId'
 import { releaseDay } from '~/utils/hepper'
-
 const SongCardItem = ({ item }) => {
   const { ColorHoverBg200, ColorText500 } = useColors()
-  const handleAddMusicId = useHandleId()
+  const dispatch = useDispatch()
+  const handleAddMusicId = (item) => {
+    console.log(item)
+    if (item.streamingStatus === 1) {
+      dispatch(addMusicId(item.encodeId))
+    } else if (item.streamingStatus === 2) {
+      dispatch(addErrorMusicId(item.encodeId))
+    }
+  }
 
   return (
     <div className={`group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 ${ColorHoverBg200}`}>

@@ -6,6 +6,7 @@ import {
   isPlayingToggle,
   isRepeatToggle,
   isShuffleToggle,
+  setContentError,
   setError,
   setIsPlayAll,
   setIsPlaying,
@@ -125,6 +126,7 @@ const Player = () => {
           console.log(result)
           if (result.err) {
             dispatch(setError(true))
+            dispatch(setContentError(result))
             return
           }
           setUrl(result['128'])

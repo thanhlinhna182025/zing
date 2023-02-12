@@ -1,9 +1,11 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setError } from '~/feature/app/appSlice'
 import { addErrorMusicId } from '~/feature/music/musicSlice'
 
-const Toast = ({ errorToast }) => {
+const Toast = () => {
   const dispatch = useDispatch()
+  const contentError = useSelector((state) => state.app.contentError)
+
   const handleError = () => {
     dispatch(setError(false))
     dispatch(addErrorMusicId(null))
@@ -21,7 +23,7 @@ const Toast = ({ errorToast }) => {
           clipRule='evenodd'
         />
       </svg>
-      <div className='ml-3 text-sm font-medium'>{errorToast?.msg}</div>
+      <div className='ml-3 text-sm font-medium'>{contentError?.msg}</div>
       <button
         onClick={handleError}
         type='button'

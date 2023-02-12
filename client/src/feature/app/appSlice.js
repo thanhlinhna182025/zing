@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import http from '~/utils/http'
 const initialState = {
   error: false,
+  contentError: null,
   isPlaying: false,
   isPlayAll: false,
   isRepeat: false,
@@ -102,6 +103,9 @@ const appSlice = createSlice({
     setError: (state, action) => {
       state.error = action.payload
     },
+    setContentError: (state, action) => {
+      state.contentError = action.payload
+    },
     isPlayingToggle: (state) => {
       state.isPlaying = !state.isPlaying
     },
@@ -192,6 +196,7 @@ const appSlice = createSlice({
 
 export const {
   setError,
+  setContentError,
   setIsPlaying,
   isPlayingToggle,
   setIsPlayAll,

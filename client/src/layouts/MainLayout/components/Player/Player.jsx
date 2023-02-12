@@ -14,7 +14,7 @@ import {
   setIsShuffle,
   setVolume
 } from '~/feature/app/appSlice'
-import { addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlice'
+import { addErrorMusicId, addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
@@ -80,21 +80,27 @@ const Player = () => {
     dispatch(isRepeatToggle())
   }
   /** Check music is single or album. if false => play next song */
+
   const handleNextSong = () => {
     if (!isSingle) {
-      if (indexSongs < dataSongs.length - 1) {
+      if (indexSongs < dataSongs.length - 1 && dataSongs[indexSongs + 1].streamingStatus === 1) {
         dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
         setIndexSongs(indexSongs + 1)
+      } else if (indexSongs < dataSongs.length - 1 && dataSongs[indexSongs + 1].streamingStatus === 2) {
+        dispatch(addErrorMusicId(dataSongs[indexSongs + 1].encodeId))
       }
     }
   }
 
   /** Check music is single or album. if false => play prev song */
+
   const handlePrevSong = () => {
     if (!isSingle) {
-      if (indexSongs > 0) {
+      if (indexSongs > 0 && dataSongs[indexSongs - 1].streamingStatus === 1) {
         dispatch(addMusicId(dataSongs[indexSongs - 1].encodeId))
         setIndexSongs(indexSongs - 1)
+      } else if (indexSongs > 0 && dataSongs[indexSongs - 1].streamingStatus === 2) {
+        dispatch(addErrorMusicId(dataSongs[indexSongs - 1].encodeId))
       }
     }
   }

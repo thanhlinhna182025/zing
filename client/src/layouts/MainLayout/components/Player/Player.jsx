@@ -54,9 +54,6 @@ const Player = () => {
       !audioRef.current.paused &&
       !audioRef.current.ended &&
       audioRef.current.readyState > audioRef.current.HAVE_CURRENT_DATA
-    console.log('isReady :', isReady)
-    console.log('audioRef.current.paused :', audioRef.current.paused)
-    console.log('audioRef.current.ended :', audioRef.current.ended)
     if (!isReady) {
       audioRef.current.play()
     }
@@ -137,6 +134,9 @@ const Player = () => {
           }
         })
         .catch((error) => console.log(error))
+    }
+    return () => {
+      setUrl(null)
     }
   }, [musicId])
 

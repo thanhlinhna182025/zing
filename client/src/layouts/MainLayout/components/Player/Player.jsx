@@ -6,6 +6,7 @@ import {
   isPlayingToggle,
   isRepeatToggle,
   isShuffleToggle,
+  setError,
   setIsPlayAll,
   setIsPlaying,
   setIsRepeat,
@@ -16,7 +17,6 @@ import { addMusicId, getInfoSong, getLinkMusic } from '~/feature/music/musicSlic
 import useColors from '~/hooks/useColors'
 import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
-
 const Player = () => {
   const { ColorBg400 } = useColors()
   const params = useParams()
@@ -123,6 +123,10 @@ const Player = () => {
         .unwrap()
         .then((result) => {
           console.log(result)
+          if (result.err) {
+            dispatch(setError(result))
+            return
+          }
           setUrl(result['128'])
           setCurrentTime(0)
         })

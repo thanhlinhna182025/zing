@@ -18,12 +18,12 @@ import RightPlayList from './components/RightPlayList'
 const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
   const [urlImg, setUrlImg] = useState()
-  const [errorToast, setErrorToast] = useState({})
+  const error = useSelector((state) => state.app.error)
+  const [errorToast, setErrorToast] = useState(error)
 
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
   const color = useSelector((state) => state.app.color)
-  const error = useSelector((state) => state.app.error)
   const displayMode = useSelector((state) => state.app.displayMode)
   const karaokMode = useSelector((state) => state.app.karaokMode)
 

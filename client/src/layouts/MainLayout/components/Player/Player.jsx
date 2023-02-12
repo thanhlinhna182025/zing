@@ -18,6 +18,13 @@ import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 
 const Player = () => {
+  const { ColorBg400 } = useColors()
+  const params = useParams()
+  const audioRef = useRef()
+  const processbarRef = useRef()
+  const volumeBarRef = useRef()
+  const isSingle = useSingleSong()
+  const dispatch = useDispatch()
   //Global state
   const albumSongs = useSelector((state) => state.album.albumSongs)
   const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
@@ -30,7 +37,6 @@ const Player = () => {
   const isRepeat = useSelector((state) => state.app.isRepeat)
   const volume = useSelector((state) => state.app.volume)
   const omitPage = useSelector((state) => state.app.omitPage)
-
   //Local state
   const [musicInfo, setMusicInfo] = useState({})
   const [duration, setDuration] = useState(0)
@@ -41,36 +47,6 @@ const Player = () => {
   const [indexSongs, setIndexSongs] = useState([])
   const [songsLength, setSongsLength] = useState(0)
   const [url, setUrl] = useState(null)
-  useEffect(() => {
-    if (musicId) {
-      dispatch(getLinkMusic(musicId))
-        .unwrap()
-        .then((result) => {
-          setUrl(result['128'])
-          setCurrentTime(0)
-        })
-        .catch((error) => console.log(error))
-      dispatch(getInfoSong(musicId))
-        .then((result) => {
-          if (result) {
-            setMusicInfo(result.payload)
-            setDuration(result.payload.duration)
-          }
-        })
-        .catch((error) => console.log(error))
-    }
-  }, [musicId])
-
-  const { ColorBg400 } = useColors()
-
-  const params = useParams()
-  const audioRef = useRef()
-  const processbarRef = useRef()
-  const volumeBarRef = useRef()
-
-  const dispatch = useDispatch()
-  const isSingle = useSingleSong()
-
   /** Play music */
   const audioPlay = () => {
     var isReady =
@@ -78,6 +54,9 @@ const Player = () => {
       !audioRef.current.paused &&
       !audioRef.current.ended &&
       audioRef.current.readyState > audioRef.current.HAVE_CURRENT_DATA
+    console.log('isReady :', isReady)
+    console.log('audioRef.current.paused :', audioRef.current.paused)
+    console.log('audioRef.current.ended :', audioRef.current.ended)
     if (!isReady) {
       audioRef.current.play()
     }
@@ -140,6 +119,27 @@ const Player = () => {
     audioRef.current.currentTime = Number(e.target.value)
     setCurrentTime(e.target.value)
   }
+
+  useEffect(() => {
+    if (musicId) {
+      dispatch(getLinkMusic(musicId))
+        .unwrap()
+        .then((result) => {
+          setUrl(result['128'])
+          setCurrentTime(0)
+        })
+        .catch((error) => console.log(error))
+      dispatch(getInfoSong(musicId))
+        .then((result) => {
+          if (result) {
+            setMusicInfo(result.payload)
+            setDuration(result.payload.duration)
+          }
+        })
+        .catch((error) => console.log(error))
+    }
+  }, [musicId])
+
   useEffect(() => {
     if (omitPage === 'album') {
       setDataSongs(albumSongs)

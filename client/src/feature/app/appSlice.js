@@ -18,7 +18,8 @@ const initialState = {
   omitPage: '',
   loading: false,
   sidebarMode: false,
-  displayMode: false
+  displayMode: false,
+  dataSongs: []
 }
 const context = 'app'
 
@@ -175,6 +176,9 @@ const appSlice = createSlice({
     },
     setDisplayMode: (state, action) => {
       state.displayMode = action.payload
+    },
+    setDataSongs: (state, action) => {
+      state.dataSongs = action.payload
     }
   },
   extraReducers(builder) {
@@ -217,7 +221,8 @@ export const {
   setRightMode,
   setOmitPage,
   toggleSideBarMode,
-  setDisplayMode
+  setDisplayMode,
+  setDataSongs
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

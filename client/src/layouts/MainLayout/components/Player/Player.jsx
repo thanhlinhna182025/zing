@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { addAlbumSongs } from '~/feature/album/albumSlice'
 import {
+  getAlbumPlaylist,
   isPlayingToggle,
   isRepeatToggle,
   isShuffleToggle,
   setContentError,
+  setDataSongs,
   setError,
   setIsPlayAll,
   setIsPlaying,
@@ -20,18 +20,18 @@ import useSingleSong from '~/hooks/useSingleSong'
 import { PlayerCenter, PlayerLeft, PlayerRight } from './components'
 const Player = () => {
   const { ColorBg400 } = useColors()
-  const params = useParams()
   const audioRef = useRef()
   const processbarRef = useRef()
   const volumeBarRef = useRef()
   const isSingle = useSingleSong()
   const dispatch = useDispatch()
   //Global state
-  const albumSongs = useSelector((state) => state.album.albumSongs)
-  const playlistSongs = useSelector((state) => state.playlist.playlistSongs)
+  const dataSongs = useSelector((state) => state.app.dataSongs)
   const curentIndexAlBumSong = useSelector((state) => state.album.curentIndexAlBumSong)
   const curentIndexPlaylistSong = useSelector((state) => state.playlist.curentIndexPlaylistSong)
   const musicId = useSelector((state) => state.music.musicId)
+  const albumId = useSelector((state) => state.album.albumId)
+  const playlistId = useSelector((state) => state.playlist.playlistId)
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const isPlayAll = useSelector((state) => state.app.isPlayAll)
   const isShuffle = useSelector((state) => state.app.isShuffle)
@@ -44,9 +44,7 @@ const Player = () => {
   const [nextActive, setNextActive] = useState(false)
   const [prevActive, setPrevActive] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
-  const [dataSongs, setDataSongs] = useState([])
-  const [indexSongs, setIndexSongs] = useState([])
-  const [songsLength, setSongsLength] = useState(0)
+  const [indexSongs, setIndexSongs] = useState(0)
   const [url, setUrl] = useState(null)
   /** Play music */
   const audioPlay = () => {
@@ -84,7 +82,7 @@ const Player = () => {
   /** Check music is single or album. if false => play next song */
   const handleNextSong = () => {
     if (!isSingle) {
-      if (indexSongs < songsLength - 1) {
+      if (indexSongs < dataSongs.length - 1) {
         dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
         setIndexSongs(indexSongs + 1)
       }
@@ -123,21 +121,25 @@ const Player = () => {
       dispatch(getLinkMusic(musicId))
         .unwrap()
         .then((result) => {
-          console.log(result)
           if (result.err) {
             dispatch(setError(true))
             dispatch(setContentError(result))
-            return
+            return false
           }
           setUrl(result['128'])
           setCurrentTime(0)
+          return true
         })
-        .catch((error) => console.log(error))
-      dispatch(getInfoSong(musicId))
-        .then((result) => {
-          if (result) {
-            setMusicInfo(result.payload)
-            setDuration(result.payload.duration)
+        .then((flag) => {
+          if (flag) {
+            dispatch(getInfoSong(musicId))
+              .then((result) => {
+                if (result) {
+                  setMusicInfo(result.payload)
+                  setDuration(result.payload.duration)
+                }
+              })
+              .catch((error) => console.log(error))
           }
         })
         .catch((error) => console.log(error))
@@ -149,15 +151,29 @@ const Player = () => {
 
   useEffect(() => {
     if (omitPage === 'album') {
-      setDataSongs(albumSongs)
-      setSongsLength(albumSongs?.length)
       dispatch(setIsPlayAll())
+      setIndexSongs(0)
+      dispatch(getAlbumPlaylist(albumId))
+        .unwrap()
+        .then((result) => {
+          if (result) {
+            dispatch(setDataSongs(result.song.items))
+          }
+        })
+        .catch((err) => console.log(err))
     } else if (omitPage === 'playlist') {
-      setDataSongs(playlistSongs)
-      setSongsLength(playlistSongs?.length)
       dispatch(setIsPlayAll())
+      setIndexSongs(0)
+      dispatch(getAlbumPlaylist(playlistId))
+        .unwrap()
+        .then((result) => {
+          if (result) {
+            dispatch(setDataSongs(result.song.items))
+          }
+        })
+        .catch((err) => console.log(err))
     }
-  }, [omitPage])
+  }, [omitPage, albumId, playlistId])
   useEffect(() => {
     if (omitPage === 'album') {
       setIndexSongs(curentIndexAlBumSong)
@@ -166,11 +182,6 @@ const Player = () => {
     }
   }, [curentIndexAlBumSong, curentIndexPlaylistSong])
 
-  useEffect(() => {
-    if (!params.id || !params.title) {
-      dispatch(addAlbumSongs([]))
-    }
-  }, [params])
   useEffect(() => {
     setCurrentTime(0)
   }, [url])
@@ -199,7 +210,7 @@ const Player = () => {
       if (indexSongs === 0) {
         setPrevActive(false)
         setNextActive(true)
-      } else if (indexSongs === songsLength - 1) {
+      } else if (indexSongs === dataSongs.length - 1) {
         setPrevActive(true)
         setNextActive(false)
       } else {
@@ -216,14 +227,14 @@ const Player = () => {
     const handleEnded = () => {
       const hadleIsPlayAll = () => {
         if (!isSingle) {
-          if (indexSongs < songsLength - 1) {
+          if (indexSongs < dataSongs.length - 1) {
             dispatch(addMusicId(dataSongs[indexSongs + 1].encodeId))
             setIndexSongs(indexSongs + 1)
           }
         }
       }
       const handleIsShuffle = () => {
-        let randomIndex = Math.round(Math.random() * songsLength - 1)
+        let randomIndex = Math.round(Math.random() * dataSongs.length - 1)
         dispatch(addMusicId(dataSongs[randomIndex]?.encodeId))
       }
       const handleIsRepeat = () => {

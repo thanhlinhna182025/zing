@@ -26,7 +26,7 @@ const AlbumSongItem = ({ item, index, release }) => {
     if (item.streamingStatus === 1) {
       dispatch(addMusicId(item.encodeId))
       dispatch(setCurrentIndexAlbumSong(index))
-      dispatch(setOmitPage('album'))
+      
     } else if (item.streamingStatus === 2) {
       dispatch(addErrorMusicId(item.encodeId))
     }

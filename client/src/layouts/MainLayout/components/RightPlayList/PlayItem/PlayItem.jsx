@@ -3,7 +3,6 @@ import MusicBar from '~/assets/images/Z23N.gif'
 import { HeartIcon, PlayFillIcon } from '~/components/Icons'
 import { MoreIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
-import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
 import useColors from '~/hooks/useColors'
@@ -18,7 +17,6 @@ const PlayItem = ({ item, index }) => {
     dispatch(addMusicId(item.encodeId))
     if (playlistSongs.length > 0) {
       dispatch(setCurrentIndexPlaylistSong(index))
-      dispatch(setOmitPage('playlist'))
     }
   }
   return (

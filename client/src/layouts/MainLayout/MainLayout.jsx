@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import bgOne from '~/assets/images/iu.jpg'
 import bgTwo from '~/assets/images/jack.jpg'
 import bgThree from '~/assets/images/ji-chang-wook.jpg'
@@ -12,6 +13,7 @@ import Header from '~/layouts/MainLayout/components/Header'
 import Player from '~/layouts/MainLayout/components/Player'
 import SideBar from '~/layouts/MainLayout/components/SideBar'
 import Karaoke from '~/pages/Karaoke'
+import { setOmitPage } from '../../feature/app/appSlice'
 import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 
@@ -19,16 +21,23 @@ const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
   const [urlImg, setUrlImg] = useState()
   const error = useSelector((state) => state.app.error)
-
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
   const color = useSelector((state) => state.app.color)
   const displayMode = useSelector((state) => state.app.displayMode)
   const karaokMode = useSelector((state) => state.app.karaokMode)
-
   const { ColorBg300 } = useColors()
   const ref = useRef()
   const dispatch = useDispatch()
+  const location = useLocation()
+  useEffect(() => {
+    if (location.pathname.startsWith('/album')) {
+      dispatch(setOmitPage('album'))
+    } else if (location.pathname.startsWith('/playlist')) {
+      dispatch(setOmitPage('playlist'))
+    }
+  }, [location])
+
   useEffect(() => {
     if (errorMusicId) {
       dispatch(setError(true))

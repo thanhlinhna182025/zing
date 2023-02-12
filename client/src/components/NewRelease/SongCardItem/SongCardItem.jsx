@@ -8,7 +8,6 @@ const SongCardItem = ({ item }) => {
   const { ColorHoverBg200, ColorText500 } = useColors()
   const dispatch = useDispatch()
   const handleAddMusicId = (item) => {
-    console.log(item)
     if (item.streamingStatus === 1) {
       dispatch(addMusicId(item.encodeId))
     } else if (item.streamingStatus === 2) {

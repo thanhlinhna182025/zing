@@ -25,7 +25,6 @@ const PlaylistSongItem = ({ item, index, release }) => {
   const handleSong = () => {
     dispatch(addMusicId(item.encodeId))
     dispatch(setCurrentIndexPlaylistSong(index))
-    dispatch(setOmitPage('playlist'))
   }
 
   return (

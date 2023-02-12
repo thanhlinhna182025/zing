@@ -20,7 +20,7 @@ const NameArtist = ({ artists, large }) => {
                 <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
-                    <StarIcon className='ml-[2px] inline translate-y-[-50%] text-light-mode dark:text-dark-mode' />
+                    <StarIcon className='ml-[2px] inline-block translate-y-[-50%] text-light-mode dark:text-dark-mode' />
                   ) : (
                     ''
                   )}
@@ -31,7 +31,7 @@ const NameArtist = ({ artists, large }) => {
                 <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
-                    <StarIcon className='ml-[2px] inline translate-y-[-50%] text-light-mode dark:text-dark-mode ' />
+                    <StarIcon className='ml-[2px] inline-block translate-y-[-50%] text-light-mode dark:text-dark-mode ' />
                   ) : (
                     ''
                   )}
@@ -43,7 +43,7 @@ const NameArtist = ({ artists, large }) => {
                 <Link key={art?.id} className={`${baseClass}`} to={`/singer/${art.alias}`}>
                   {art?.name}
                   {art?.spotlight ? (
-                    <StarIcon className='ml-[2px] translate-y-[-50%]  text-light-mode dark:text-dark-mode' />
+                    <StarIcon className='ml-[2px] inline-block translate-y-[-50%] text-light-mode dark:text-dark-mode' />
                   ) : (
                     ''
                   )}

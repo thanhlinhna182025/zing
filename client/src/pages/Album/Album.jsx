@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Loading from '~/components/Loading'
-import { addAlbumSongs } from '~/feature/album/albumSlice'
 import { getAlbumPlaylist, isPlayingToggle, setIsPlayAll, setIsShuffle } from '~/feature/app/appSlice'
+import { addAlbumId } from '../../feature/album/albumSlice'
 import { AlbumListSong, AlbumThumnail, Artists } from './components'
-
 const Album = () => {
   const [albumResource, setAlbumResource] = useState(null)
   const isPlaying = useSelector((state) => state.app.isPlaying)
@@ -31,8 +30,8 @@ const Album = () => {
       .unwrap()
       .then((result) => {
         setAlbumResource(result)
-        dispatch(addAlbumSongs(result?.song?.items))
         setLoading(false)
+        dispatch(addAlbumId(id))
       })
       .catch((err) => console.log(err))
   }, [id])

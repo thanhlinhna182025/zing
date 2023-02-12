@@ -124,7 +124,7 @@ const Player = () => {
         .then((result) => {
           console.log(result)
           if (result.err) {
-            dispatch(setError(result))
+            dispatch(setError(true))
             return
           }
           setUrl(result['128'])

@@ -46,8 +46,8 @@ const Player = () => {
       dispatch(getLinkMusic(musicId))
         .unwrap()
         .then((result) => {
-          console.log(result)
           setUrl(result['128'])
+          setCurrentTime(0)
         })
         .catch((error) => console.log(error))
       dispatch(getInfoSong(musicId))

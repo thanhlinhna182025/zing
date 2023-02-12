@@ -45,7 +45,7 @@ const AlbumSongItem = ({ item, index, release }) => {
           />
           <div
             className='relative h-[40px] w-[40px] flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
-            onClick={handleSong}
+            onClick={() => handleSong(item)}
           >
             <img alt={item.title} src={item.thumbnailM} className='block w-full object-cover' />
             {musicId === item.encodeId && isPlaying ? (

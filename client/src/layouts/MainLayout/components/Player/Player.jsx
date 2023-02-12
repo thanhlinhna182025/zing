@@ -46,6 +46,7 @@ const Player = () => {
       dispatch(getLinkMusic(musicId))
         .unwrap()
         .then((result) => {
+          console.log(result)
           setUrl(result['128'])
         })
         .catch((error) => console.log(error))
@@ -163,6 +164,9 @@ const Player = () => {
       dispatch(addAlbumSongs([]))
     }
   }, [params])
+  useEffect(() => {
+    setCurrentTime(0)
+  }, [url])
 
   useEffect(() => {
     let timerId

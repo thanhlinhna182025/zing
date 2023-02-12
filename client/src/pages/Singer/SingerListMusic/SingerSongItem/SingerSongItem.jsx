@@ -1,13 +1,21 @@
+import { useDispatch } from 'react-redux'
 import { PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
+import { addErrorMusicId, addMusicId } from '~/feature/music/musicSlice'
 import useColors from '~/hooks/useColors'
-import useHandleId from '~/hooks/useHandleId'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const SingerSongItem = ({ item }) => {
   const { ColorHoverBg200, ColorText500 } = useColors()
+  const dispatch = useDispatch()
 
-  const handleAddMusicId = useHandleId()
+  const handleSong = (item) => {
+    if (item.streamingStatus === 1) {
+      dispatch(addMusicId(item.encodeId))
+    } else if (item.streamingStatus === 2) {
+      dispatch(addErrorMusicId(item.encodeId))
+    }
+  }
 
   return (
     <div className={`group flex flex-col rounded-sm md:rounded-md ${ColorHoverBg200}`}>
@@ -15,7 +23,7 @@ const SingerSongItem = ({ item }) => {
         <div className='flex  items-center gap-[10px] '>
           <div
             className='relative h-10 w-10 flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
-            onClick={() => handleAddMusicId(item)}
+            onClick={() => handleSong(item)}
           >
             <img alt='thumbnailM' src={item.thumbnailM} className='block w-full object-cover' />
             <PlayFullFillIcon

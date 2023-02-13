@@ -5,6 +5,7 @@ import useRedirect from '~/hooks/useRedirect'
 import ReleaseDate from '../ReleaseDate/ReleaseDate'
 import SortDescription from '../SortDescription/SortDescription'
 
+/** Tùy chọn dựa trên title, name, sortDescription, releaseDate, releaseDateText, large, padding */
 const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releaseDateText, large, padding }) => {
   const baseClass = large ? 'flex items-center gap-x-5' : 'flex items-center gap-x-1'
   const { ColorHoverBg300, ColorHoverText500, ColorHoverTextDark500, ColorText500 } = useColors()

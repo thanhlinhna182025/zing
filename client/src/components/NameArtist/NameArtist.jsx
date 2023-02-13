@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { StarIcon } from '~/components/Icons'
 import useColors from '~/hooks/useColors'
-
+/** Tên ca sĩ bài hát */
 const NameArtist = ({ artists, large }) => {
   const { ColorHoverText500, ColorHoverTextDark500 } = useColors()
   let baseClass = large

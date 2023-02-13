@@ -23,7 +23,7 @@ ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineEleme
 
 const Chart = () => {
   const { ColorBg100, ColorBg200, ColorBg300, ColorHoverBg200, ColorText500 } = useColors()
-
+  //Local state
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
   const [labelNames, setLabelNames] = useState([])

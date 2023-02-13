@@ -7,9 +7,9 @@ import BannerSkeleton from '~/components/Skeleton/BannerSkeleton'
 import useColors from '~/hooks/useColors'
 import BannerItem from './BannerItem'
 const Banner = ({ banner }) => {
+  const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
   const swiperRef = useRef()
   const loading = useSelector((state) => state.app.loading)
-  const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
 
   return (
     <div className='relative'>

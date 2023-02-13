@@ -7,12 +7,14 @@ import configs from '~/configs'
 import useColors from '~/hooks/useColors'
 import SongCartItemSkeleton from '../Skeleton/SongCartItemSkeleton/SongCartItemSkeleton'
 import SongCardItem from './SongCardItem'
+
 const NewRelease = ({ newRelease }) => {
   const loading = useSelector((state) => state.app.loading)
-
+  const { ColorBg100, ColorBorder500 } = useColors()
+  //  Local state
   const [data, setData] = useState(newRelease?.items?.all?.slice(0, 12))
   const [typeData, setTypeData] = useState('all')
-  const { ColorBg100, ColorBorder500 } = useColors()
+
   useEffect(() => {
     if (typeData === 'vPop') {
       setData(newRelease?.items?.vPop?.slice(0, 12))
@@ -22,6 +24,7 @@ const NewRelease = ({ newRelease }) => {
       setData(newRelease?.items?.all?.slice(0, 12))
     }
   }, [typeData, newRelease])
+
   const handleTypeData = (type) => {
     setTypeData(type)
   }

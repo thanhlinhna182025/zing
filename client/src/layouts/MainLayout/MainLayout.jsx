@@ -18,18 +18,22 @@ import DisplayModal from './components/Header/DisplayModal'
 import RightPlayList from './components/RightPlayList'
 
 const MainLayout = ({ children }) => {
-  const [isTransparent, setIsTransparent] = useState(false)
-  const [urlImg, setUrlImg] = useState({})
+  const { ColorBg300 } = useColors()
+  //Global state
   const error = useSelector((state) => state.app.error)
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
   const color = useSelector((state) => state.app.color)
   const displayMode = useSelector((state) => state.app.displayMode)
   const karaokMode = useSelector((state) => state.app.karaokMode)
-  const { ColorBg300, Color50Bg500 } = useColors()
+  //Local state
+  const [isTransparent, setIsTransparent] = useState(false)
+  const [urlImg, setUrlImg] = useState({})
+
   const ref = useRef()
   const dispatch = useDispatch()
   const location = useLocation()
+  
   useEffect(() => {
     if (location.pathname.startsWith('/album')) {
       dispatch(setOmitPage('album'))

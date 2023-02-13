@@ -4,8 +4,8 @@ import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 
 const MusicCardHightlight = ({ item }) => {
+  const { ColorHoverBg300, ColorText500 } = useColors()
   const handleRedirect = useRedirect()
-  const { ColorHoverBg300 ,ColorText500} = useColors()
 
   return (
     <div className='w-full lg:w-fit'>

@@ -7,6 +7,7 @@ import { addPlaylistId } from '~/feature/playlist/playlistSlice'
 const useRedirect = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  /** Nhận vào item và kiểm tra xem link của item bắt đầu bằng gì , chuyển trang theo link của item */
   const handleRedirect = (item) => {
     if (item.link.startsWith('/bai-hat')) {
       dispatch(addMusicId(item.encodeId))

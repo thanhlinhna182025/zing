@@ -15,7 +15,7 @@ const ZingMusicItem = ({ item, number }) => {
   const { ColorHoverBg200 } = useColors()
 
   return (
-    <div className={` ${ColorHoverBg200} group flex items-center rounded-md py-3`}>
+    <div className={` ${ColorHoverBg200} hover:shadow group flex items-center rounded-md py-3`}>
       <div className='flex flex-grow'>
         <div className='flex flex-grow'>
           <span

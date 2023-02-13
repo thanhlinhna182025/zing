@@ -7,7 +7,7 @@ const Appear = ({ appear }) => {
       <div className='mb-5'>
         <Title>{appear?.title}</Title>
       </div>
-      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-5'>
+      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3'>
         {appear?.items?.slice(0, 5).map((item) => (
           <MusicCardItem item={item} key={item.encodeId} name large title />
         ))}

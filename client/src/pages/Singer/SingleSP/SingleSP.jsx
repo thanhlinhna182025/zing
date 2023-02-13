@@ -7,7 +7,7 @@ const SingleSP = ({ singleSP }) => {
       <div className='mb-5'>
         <Title>{singleSP?.title}</Title>
       </div>
-      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-5'>
         {singleSP?.items?.slice(0, 5).map((item) => (
           <MusicCardItem item={item} key={item.encodeId} large title releaseDateText />
         ))}

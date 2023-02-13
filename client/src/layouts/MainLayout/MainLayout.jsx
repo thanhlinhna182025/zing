@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import bgOne from '~/assets/images/iu.jpg'
-import bgTwo from '~/assets/images/jack.jpg'
-import bgThree from '~/assets/images/ji-chang-wook.jpg'
-import bgFour from '~/assets/images/lisa.jpg'
+import bgOne from '~/assets/images/bg-iu.jpg'
+import bgTwo from '~/assets/images/bg-jack.jpg'
+import bgThree from '~/assets/images/bg-ji-chang-wook.jpg'
+import bgFour from '~/assets/images/bg-lisa.jpg'
 import Toast from '~/components/Toast/Toast'
 import { setContentError, setError } from '~/feature/app/appSlice'
 import { addErrorMusicId, getLinkMusic } from '~/feature/music/musicSlice'
@@ -19,14 +19,14 @@ import RightPlayList from './components/RightPlayList'
 
 const MainLayout = ({ children }) => {
   const [isTransparent, setIsTransparent] = useState(false)
-  const [urlImg, setUrlImg] = useState()
+  const [urlImg, setUrlImg] = useState({})
   const error = useSelector((state) => state.app.error)
   const musicId = useSelector((state) => state.music.musicId)
   const errorMusicId = useSelector((state) => state.music.errorMusicId)
   const color = useSelector((state) => state.app.color)
   const displayMode = useSelector((state) => state.app.displayMode)
   const karaokMode = useSelector((state) => state.app.karaokMode)
-  const { ColorBg300 } = useColors()
+  const { ColorBg300, Color50Bg500 } = useColors()
   const ref = useRef()
   const dispatch = useDispatch()
   const location = useLocation()
@@ -118,9 +118,9 @@ const MainLayout = ({ children }) => {
     <div ref={ref} style={urlImg} className={`${ColorBg300} relative flex h-[100vh] w-full items-start scrollbar`}>
       <SideBar />
       <RightPlayList />
-      <div className=' w-full flex-col items-start px-2 '>
+      <div className='w-full flex-col items-start px-2 '>
         <Header isTransparent={isTransparent} />
-        <main className='mt-header-height ml-[var(--sidebar-width-sm)] mb-player-height lg:ml-[var(--sidebar-width)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-5 xl:px-main-padding'>
+        <main className='mt-header-height ml-[var(--sidebar-width-sm)] mb-[calc(var(--player-height)+30px)] lg:ml-[var(--sidebar-width)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-5 xl:px-main-padding'>
           {children}
         </main>
       </div>

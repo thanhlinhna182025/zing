@@ -13,6 +13,7 @@ const colorPalete = {
     100: '#fae8e6',
     '100-50': 'rgba(250,232,230,0.5)',
     200: '#f6d5d2',
+    '200-70': 'rgba(246,213,210,0.7)',
     300: '#efb7b2',
     400: '#e48d85',
     500: '#d6675d',
@@ -23,6 +24,7 @@ const colorPalete = {
     100: '#fee5f0',
     '100-50': 'rgba(254,229,240,0.5)',
     200: '#ffcae4',
+    '200-70': 'rgba(255,202,228,0.7)',
     300: '#ff9fcb',
     400: '#ff63a7',
     500: '#ff247a',
@@ -30,8 +32,9 @@ const colorPalete = {
   },
   C: {
     100: '#e1e1fe',
-    '100-2': 'rgba(225,225,254,0.5)',
+    '100-50': 'rgba(225,225,254,0.5)',
     200: '#c8c8fd',
+    '200-70': 'rgba(200,200,253,0.7)',
     300: '#aaa7fa',
     400: '#9284f5',
     500: '#8167ed',
@@ -39,8 +42,9 @@ const colorPalete = {
   },
   D: {
     100: '#d5f3f8',
-    '100-2': 'rgba(213,243,248,0.5)',
+    '100-50': 'rgba(213,243,248,0.5)',
     200: '#b0e7f1',
+    '200-70': 'rgba(176,231,241,0.7)',
     300: '#7ad5e6',
     400: '#3cb9d4',
     500: '#219ebc',
@@ -48,8 +52,9 @@ const colorPalete = {
   },
   E: {
     100: '#e7edff',
-    '100-2': 'rgba(231,237,255,0.5)',
+    '100-50': 'rgba(231,237,255,0.5)',
     200: '#d2deff',
+    '200-70': 'rgba(210,222,255,0.7)',
     300: '#aec0ff',
     400: '#8097ff',
     500: '#4d63ff',
@@ -151,6 +156,13 @@ module.exports = {
         'playlist-right-width': 'var(--playlist-right-width)',
         'sidebar-width-sm': 'var(--sidebar-width-sm)',
         'sidebar-width': 'var(--sidebar-width)'
+      },
+      boxShadow: {
+        right: {
+          'box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)',
+          '-webkit-box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)',
+          '-moz-box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)'
+        }
       }
     }
   },

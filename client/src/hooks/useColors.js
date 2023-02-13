@@ -222,6 +222,28 @@ const useColors = () => {
       ? 'bg-D-500'
       : 'bg-E-500'
   }`
+  const Color50Bg100 = `${
+    color === 'A'
+      ? `bg-A-100-50`
+      : color === 'B'
+      ? 'bg-B-100-50'
+      : color === 'C'
+      ? 'bg-C-100-50'
+      : color === 'D'
+      ? 'bg-D-100-50'
+      : 'bg-E-100-50'
+  }`
+  const Color70Bg200 = `${
+    color === 'A'
+      ? `bg-A-200-70`
+      : color === 'B'
+      ? 'bg-B-200-70'
+      : color === 'C'
+      ? 'bg-C-200-70'
+      : color === 'D'
+      ? 'bg-D-200-70'
+      : 'bg-E-200-70'
+  }`
   const Color50Bg500 = `${
     color === 'A'
       ? `bg-A-500-50`
@@ -422,6 +444,8 @@ const useColors = () => {
     ColorBg400,
     ColorBg500,
     Color50Bg500,
+    Color50Bg100,
+    Color70Bg200,
     ColorHoverBg100,
     ColorHoverBg200,
     ColorHoverBg300,

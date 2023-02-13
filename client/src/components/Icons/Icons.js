@@ -681,19 +681,19 @@ export const VolumeIcon = ({ className, width = '20px', height = '20px' }) => {
     <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
       <path
         d='M2 10V14C2 16 3 17 5 17H6.43C6.8 17 7.17 17.11 7.49 17.3L10.41 19.13C12.93 20.71 15 19.56 15 16.59V7.41003C15 4.43003 12.93 3.29003 10.41 4.87003L7.49 6.70003C7.17 6.89003 6.8 7.00003 6.43 7.00003H5C3 7.00003 2 8.00003 2 10Z'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
       />
       <path
         d='M18 8C19.78 10.37 19.78 13.63 18 16'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
         d='M19.83 5.5C22.72 9.35 22.72 14.65 19.83 18.5'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -706,12 +706,12 @@ export const VolumeMutedIcon = ({ className, width = '20px', height = '20px' }) 
     <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
       <path
         d='M2 10.1595V14.1595C2 16.1595 3 17.1595 5 17.1595H6.43C6.8 17.1595 7.17 17.2695 7.49 17.4595L10.41 19.2895C12.93 20.8695 15 19.7195 15 16.7495V7.56946C15 4.58946 12.93 3.44946 10.41 5.02946L7.49 6.85946C7.17 7.04946 6.8 7.15946 6.43 7.15946H5C3 7.15946 2 8.15946 2 10.1595Z'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
       />
       <path
         d='M22 14.1194L18.04 10.1594'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
         stroke-miterlimit='10'
         strokeLinecap='round'
@@ -719,7 +719,7 @@ export const VolumeMutedIcon = ({ className, width = '20px', height = '20px' }) 
       />
       <path
         d='M21.96 10.1995L18 14.1595'
-        stroke='#292D32'
+        stroke='currentColor'
         strokeWidth='1.5'
         stroke-miterlimit='10'
         strokeLinecap='round'
@@ -1072,14 +1072,14 @@ export const CloseCirleIcon = ({ className, width = '20px', height = '20px' }) =
       <g id='Page-1' stroke='none' strokeWidth={1} fill='none' fillRule='evenodd'>
         <g id='Close-Circle'>
           <rect id='Rectangle' fillRule='nonzero' x={0} y={0} width={24} height={24} />
-          <circle id='Oval' stroke='#0C0310' strokeWidth={2} strokeLinecap='round' cx={12} cy={12} r={9} />
+          <circle id='Oval' stroke='currentColor' strokeWidth={2} strokeLinecap='round' cx={12} cy={12} r={9} />
           <line
             x1='14.1213'
             y1='9.87866'
             x2='9.8787'
             y2='14.1213'
             id='Path'
-            stroke='#0C0310'
+            stroke='currentColor'
             strokeWidth={2}
             strokeLinecap='round'
           />
@@ -1089,7 +1089,7 @@ export const CloseCirleIcon = ({ className, width = '20px', height = '20px' }) =
             x2='14.1213'
             y2='14.1213'
             id='Path'
-            stroke='#0C0310'
+            stroke='currentColor'
             strokeWidth={2}
             strokeLinecap='round'
           />

@@ -8,7 +8,7 @@ const ZingChartItem = ({ item, number, totalScore }) => {
 
   const handleRedirect = useRedirect()
   return (
-    <div className={`mr-5 w-full `}>
+    <div className={`mr-5 w-full rounded-md hover:shadow `}>
       <div className={`flex items-center p-3 ${ColorBg100} group rounded-md ${ColorHoverBg300}`}>
         <span
           style={{

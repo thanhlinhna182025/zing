@@ -33,7 +33,7 @@ const AlbumSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex flex-col ${ColorHoverBg300} `}>
+    <div className={`group flex  flex-col hover:shadow ${ColorHoverBg300} `}>
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >

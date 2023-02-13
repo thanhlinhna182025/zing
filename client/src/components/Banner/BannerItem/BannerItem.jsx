@@ -4,7 +4,7 @@ const BannerItem = ({ item }) => {
   const handleRedirect = useRedirect()
 
   return (
-    <div className='rounded-lg'>
+    <div className='rounded-lg hover:shadow cursor-pointer'>
       <img alt={item.title} src={item.banner} className='rounded-lg' onClick={() => handleRedirect(item)} />
     </div>
   )

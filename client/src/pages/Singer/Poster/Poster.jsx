@@ -8,7 +8,7 @@ const Poster = ({ poster, isPoster }) => {
     <div>
       {isPoster ? (
         <div
-          className=' relative ml-[-59px] mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:min-h-[410px]'
+          className=' relative lg:ml-[-59px] mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:min-h-[410px]'
           style={{
             backgroundImage: `url(${poster?.cover})`,
             backgroundRepeat: 'no-repeat',
@@ -36,7 +36,7 @@ const Poster = ({ poster, isPoster }) => {
                 {poster?.follow && numberWithCommas(poster?.follow)} người quan tâm
               </span>
               <button
-                className={`${ColorBorder500} flex w-fit items-center rounded-full border-[1px] border-solid py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80`}
+                className={`${ColorBorder500} flex w-fit items-center rounded-full border-[1px] border-solid py-[5px] px-6 shadow drop-shadow-xl hover:bg-opacity-80 md:shadow-md`}
               >
                 <AddUserIcon width='16px' height='16px' className={`${ColorText500} mr-1`} />
                 <span className={`${ColorText500} text-xs font-semibold`}>QUAN TÂM</span>
@@ -76,7 +76,7 @@ const Poster = ({ poster, isPoster }) => {
                   {poster?.follow && numberWithCommas(poster?.follow)} người quan tâm
                 </span>
                 <button
-                  className={`${ColorBorder500} flex w-fit items-center rounded-full border-[1px] border-solid py-[5px] px-6 drop-shadow-xl hover:bg-opacity-80`}
+                  className={`${ColorBorder500} flex w-fit items-center rounded-full border-[1px] border-solid py-[5px] px-6 shadow drop-shadow-xl hover:bg-opacity-80 md:shadow-md`}
                 >
                   <AddUserIcon width='16px' height='16px' className={`${ColorText500} mr-1`} />
                   <span className={`${ColorText500} text-xs font-semibold`}>QUAN TÂM</span>

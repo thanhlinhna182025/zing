@@ -10,7 +10,7 @@ const AlbumItem = ({ item }) => {
   return (
     <div
       onClick={() => handleRedirect(item)}
-      className={`group flex cursor-pointer items-center rounded-md p-[10px] ${ColorHoverBg300}`}
+      className={`group hover:shadow flex cursor-pointer items-center rounded-md p-[10px] ${ColorHoverBg300}`}
     >
       <div className='w-[50%] pl-3'>
         <div className='flex'>

@@ -77,7 +77,7 @@ const PlayListThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
             onClick={handleShuffle}
           >
             <ShuffleIcon className={`${ColorText500} mr-[5px]`} width='20px' height='20px' />
@@ -87,7 +87,7 @@ const PlayListThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
             onClick={handlePlayAll}
           >
             <PlayFillIcon className={`${ColorText500} mr-[5px]`} width='16px' height='16px' />
@@ -98,11 +98,15 @@ const PlayListThumnail = ({
           <Button
             type='text'
             rounded
-            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}
+            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
           >
             <HeartIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
-          <Button type='text' rounded className={`flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}>
+          <Button
+            type='text'
+            rounded
+            className={`flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
+          >
             <MoreIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
         </div>

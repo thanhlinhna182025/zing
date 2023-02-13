@@ -13,7 +13,7 @@ import useColors from '~/hooks/useColors'
 const DisplayModal = () => {
   const dispatch = useDispatch()
   const darkMode = useSelector((state) => state.app.darkMode)
-  const { Color50Bg500, ColorBg300 } = useColors()
+  const { Color50Bg500, ColorBg300, ColorText500 } = useColors()
   const hideDisplay = () => dispatch(setDisplayMode(false))
 
   useEffect(() => {
@@ -49,9 +49,9 @@ const DisplayModal = () => {
         className={`${ColorBg300} relative max-h-[50vh] min-h-[400px] min-w-[300px] rounded-lg p-[30px]  lg:min-h-[500px]`}
       >
         <Button type='text' className='absolute top-3 right-3 cursor-pointer' onClick={hideDisplay}>
-          <CloseCirleIcon className='text-gray' width='30px' height='30px' />
+          <CloseCirleIcon className={`${ColorText500}`} width='30px' height='30px' />
         </Button>
-        <h5 className='mb-4 text-xl font-bold text-light-mode dark:text-dark-mode'>GIAO DIỆN</h5>
+        <h5 className={`${ColorText500} mb-4 text-xl font-bold`}>GIAO DIỆN</h5>
         <div className='mb-10'>
           <h5 className='mb-2 text-base font-semibold text-light-mode dark:text-dark-mode'>Dynamic</h5>
           <div className='flex items-center justify-between'>

@@ -21,7 +21,10 @@ const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword
   const { ColorBg100 } = useColors()
 
   return (
-    <div style={{ width: `${formWidth}px` }} className={`${ColorBg100} relative z-20 w-full rounded-md px-2 py-4`}>
+    <div
+      style={{ width: `${formWidth}px` }}
+      className={`${ColorBg100} relative z-20 w-full rounded-md px-2 py-4 shadow md:shadow-md`}
+    >
       <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Đề xuất cho bạn</p>
       <div className='max-h-[calc(100vh-var(--header-height)-var(--player-height)-70px)] scrollbar'>
         <ul className='mt-3 border-b-[1px] border-solid border-white py-1'>

@@ -9,7 +9,7 @@ import useColors from '~/hooks/useColors'
 import SideBarItem from './SideBarItem'
 const SideBar = () => {
   const [active, setActive] = useState(2)
-  const { ColorBg200, ColorBg300, ColorBorder500 } = useColors()
+  const { ColorBg200, ColorBg300, ColorBorder500, Color70Bg200 } = useColors()
   const sidebarMode = useSelector((state) => state.app.sidebarMode)
   const rightMode = useSelector((state) => state.app.rightMode)
   const displayMode = useSelector((state) => state.app.displayMode)
@@ -28,10 +28,10 @@ const SideBar = () => {
   }
   const hideDisplay = () => dispatch(setDisplayMode(false))
   return (
-    <div
-      className={`${ColorBg200} ${sidebarMode ? 'w-sidebar-width' : 'w-sidebar-width-sm'} ${
+    <aside
+      className={`${Color70Bg200} ${sidebarMode ? 'w-sidebar-width' : 'w-sidebar-width-sm'} ${
         musicId ? 'h-[calc(100vh-var(--player-height-sm))] lg:h-[calc(100vh-var(--player-height))]' : 'h-[100vh]'
-      } fixed top-0 left-0 z-[20]    flex-shrink-0  transition-all duration-1000 ease-linear lg:w-sidebar-width `}
+      } fixed top-0 left-0 z-[20] flex-shrink-0 shadow transition-all duration-1000 ease-linear md:shadow-lg lg:w-sidebar-width `}
     >
       <div className='relative flex h-full w-full flex-col items-center'>
         <div className='flex h-[70px] w-[70px] items-center justify-center '>
@@ -76,7 +76,7 @@ const SideBar = () => {
             })}
           </ul>
         </nav>
-        <div className='absolute flex flex-col bottom-5 right-1/2 translate-x-[50%] md:hidden'>
+        <div className='absolute bottom-5 right-1/2 flex translate-x-[50%] flex-col md:hidden'>
           <button
             onClick={handleRightMode}
             className={`${
@@ -93,7 +93,7 @@ const SideBar = () => {
           </button>
         </div>
       </div>
-    </div>
+    </aside>
   )
 }
 export default SideBar

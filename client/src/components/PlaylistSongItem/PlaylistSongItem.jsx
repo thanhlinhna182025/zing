@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import MusicBar from '~/assets/images/Z23N.gif'
 import { MusicNodeIcon, PlayFullFillIcon } from '~/components/Icons'
 import NameArtist from '~/components/NameArtist'
-import { setOmitPage } from '~/feature/app/appSlice'
 import { addMusicId } from '~/feature/music/musicSlice'
 import { setCurrentIndexPlaylistSong } from '~/feature/playlist/playlistSlice'
 import useColors from '~/hooks/useColors'
@@ -28,7 +27,7 @@ const PlaylistSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex flex-col ${ColorHoverBg100}`}>
+    <div className={`group flex  flex-col hover:shadow ${ColorHoverBg100}`}>
       <div
         className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
       >

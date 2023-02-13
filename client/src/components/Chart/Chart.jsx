@@ -263,7 +263,7 @@ const Chart = () => {
           ))}
           <Link
             to={configs.routes.zingchart}
-            className={`${ColorBg300} inline-block w-32 rounded-full py-1 text-center text-light-mode ${ColorHoverBg200} dark:text-dark-mode`}
+            className={`${ColorBg300} inline-block w-32 rounded-full py-1 text-center text-light-mode shadow md:shadow-md lg:shadow-lg ${ColorHoverBg200} dark:text-dark-mode`}
           >
             Xem Thêm
           </Link>

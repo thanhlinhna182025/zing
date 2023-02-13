@@ -21,7 +21,7 @@ const SingleSingerItem = ({ item }) => {
         <span className='mb-4 text-xs font-bold text-light-mode dark:text-dark-mode'>
           {numberToStringFollow(item?.totalFollow)} quan tâm
         </span>
-        <Button type='primary' rounded className={`${ColorBg200} flex items-center py-[6px] px-[19px]`}>
+        <Button type='primary' rounded className={`${ColorBg200} flex items-center py-[6px] px-[19px] shadow md:shadow-md`}>
           <AddUserIcon width='14px' height='14px' />
           <span className='ml-1 text-xs font-semibold'>QUAN TÂM</span>
         </Button>

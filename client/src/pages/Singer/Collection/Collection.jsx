@@ -4,10 +4,10 @@ import Title from '~/components/Title'
 const Collection = ({ collection }) => {
   return (
     <div className='my-main-margin '>
-      <div className='mb-5'>
+      <div className='mb-5 flex items-center justify-between'>
         <Title>{collection?.title}</Title>
       </div>
-      <div className='ml-[-14px] mr-[-14px] mb-main-margin grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
         {collection?.items?.slice(0, 5).map((item) => (
           <MusicCardItem item={item} key={item.encodeId} name large title />
         ))}

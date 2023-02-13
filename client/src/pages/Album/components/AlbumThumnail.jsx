@@ -17,9 +17,9 @@ const AlbumThumnail = ({
   isPlaying,
   isPlayAll
 }) => {
-  const { ColorBg100 ,ColorText500} = useColors()
+  const { ColorBg100, ColorText500 } = useColors()
   return (
-    <div>
+    <div className='mb-2'>
       {isPlaying ? (
         <div
           className='relative mb-3 flex w-full cursor-pointer items-center justify-center overflow-hidden lg:h-[300px] lg:w-[300px] '
@@ -76,7 +76,7 @@ const AlbumThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md ${ColorBg100}`}
             onClick={handleShuffle}
           >
             <ShuffleIcon className={`${ColorText500} mr-[5px]`} width='20px' height='20px' />
@@ -86,7 +86,7 @@ const AlbumThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md ${ColorBg100}`}
             onClick={handlePlayAll}
           >
             <PlayFillIcon className={`${ColorText500} mr-[5px]`} width='16px' height='16px' />
@@ -97,11 +97,15 @@ const AlbumThumnail = ({
           <Button
             type='text'
             rounded
-            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}
+            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md ${ColorBg100}`}
           >
             <HeartIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
-          <Button type='text' rounded className={`flex h-[35px] w-[35px] items-center justify-center ${ColorBg100}`}>
+          <Button
+            type='text'
+            rounded
+            className={`flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md ${ColorBg100}`}
+          >
             <MoreIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
         </div>

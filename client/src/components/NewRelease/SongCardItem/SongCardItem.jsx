@@ -16,7 +16,9 @@ const SongCardItem = ({ item }) => {
   }
 
   return (
-    <div className={`group relative flex h-[80px] items-center gap-x-2 rounded-md px-2 ${ColorHoverBg200}`}>
+    <div
+      className={`group relative flex h-[80px] cursor-pointer items-center gap-x-2 rounded-md px-2 ${ColorHoverBg200}`}
+    >
       <div className=' relative w-[60px]' onClick={() => handleAddMusicId(item)}>
         <img className='block w-full object-cover' src={item.thumbnail} alt={item.title} />
         <PlayFullFillIcon

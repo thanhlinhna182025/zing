@@ -9,11 +9,9 @@ const NameArtist = ({ artists, large }) => {
     : `${ColorHoverText500} ${ColorHoverTextDark500} text-light-mode dark:text-dark-mode inline mr-[2px] text-xs text-left font-[600] underline-offset-8 cursor-pointer`
 
   return (
-    <div className='flex flex-grow leading-none'>
+    <div className='flex leading-none'>
       {artists && (
-        <h3
-          className={`flex flex-grow overflow-hidden  text-ellipsis text-light-mode line-clamp-2 dark:text-dark-mode`}
-        >
+        <h3 className={`flex  overflow-hidden text-ellipsis text-light-mode line-clamp-2 dark:text-dark-mode`}>
           {artists?.map((art, index) => {
             if (artists.length === 1) {
               return (

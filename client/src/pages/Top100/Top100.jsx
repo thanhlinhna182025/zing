@@ -27,7 +27,7 @@ const Top100 = () => {
         <Loading />
       ) : (
         <div>
-          <div className='relative mr-[-59px] ml-[-59px] h-[280px] bg-transparent'>
+          <div className='relative lg:mr-[-59px] lg:ml-[-59px] h-[280px] bg-transparent'>
             <div
               style={{
                 backgroundImage: `url(${banner100})`,
@@ -46,7 +46,7 @@ const Top100 = () => {
           <div className='pt-3'>
             <div className='mb-5'>
               <Title>{top100Data[0]?.title}</Title>
-              <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+              <div className='mt-5 grid gap-3 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
                 {top100Data[0]?.items?.slice(0, 5).map((item) => (
                   <MusicCardItem item={item} name title key={item.encodeId} />
                 ))}
@@ -54,7 +54,7 @@ const Top100 = () => {
             </div>
             <div className='mb-5 '>
               <Title>{top100Data[1]?.title}</Title>
-              <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+              <div className='mt-5 grid gap-3 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
                 {top100Data[1]?.items?.map((item) => (
                   <MusicCardItem item={item} name title key={item.encodeId} />
                 ))}
@@ -62,7 +62,7 @@ const Top100 = () => {
             </div>
             <div className='mb-5 '>
               <Title>{top100Data[2]?.title}</Title>
-              <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+              <div className='mt-5 grid gap-3 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
                 {top100Data[2]?.items?.map((item) => (
                   <MusicCardItem item={item} name title key={item.encodeId} />
                 ))}
@@ -70,7 +70,7 @@ const Top100 = () => {
             </div>
             <div className='mb-5 '>
               <Title>{top100Data[3]?.title}</Title>
-              <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+              <div className='mt-5 grid gap-3 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
                 {top100Data[3]?.items?.map((item) => (
                   <MusicCardItem item={item} name title key={item.encodeId} />
                 ))}
@@ -78,7 +78,7 @@ const Top100 = () => {
             </div>
             <div className='mb-5 '>
               <Title>{top100Data[4]?.title}</Title>
-              <div className='mt-5 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+              <div className='mt-5 grid gap-3 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
                 {top100Data[4]?.items?.map((item) => (
                   <MusicCardItem item={item} name title key={item.encodeId} />
                 ))}

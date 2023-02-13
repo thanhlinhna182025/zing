@@ -20,7 +20,7 @@ const SingerSongItem = ({ item }) => {
   return (
     <div className={`group flex flex-col rounded-sm md:rounded-md ${ColorHoverBg200}`}>
       <div className='hover:bg-main-300 flex h-[60px] items-center justify-between rounded-[4px] p-[10px]'>
-        <div className='flex  items-center gap-[10px] '>
+        <div className='flex items-center gap-[10px] '>
           <div
             className='relative h-10 w-10 flex-shrink-0 cursor-pointer overflow-hidden rounded-[4px]'
             onClick={() => handleSong(item)}
@@ -32,8 +32,8 @@ const SingerSongItem = ({ item }) => {
               height='16px'
             />
           </div>
-          <div className='flex flex-col justify-start'>
-            <span className='mb-[2px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-light-mode dark:text-dark-mode'>
+          <div className='flex flex-grow flex-col justify-start'>
+            <span className='mb-[2px] max-w-[300px] md:max-w-[350px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-light-mode dark:text-dark-mode'>
               {item?.title}
             </span>
             <div className='flex items-center'>
@@ -41,7 +41,7 @@ const SingerSongItem = ({ item }) => {
             </div>
           </div>
         </div>
-        <span className='px-[6px] text-right text-xs font-semibold capitalize text-light-mode dark:text-dark-mode'>
+        <span className='inline-block px-[6px] text-right text-xs font-semibold capitalize text-light-mode dark:text-dark-mode'>
           {secondToMinuteAndSecond(parseInt(item.duration))}
         </span>
       </div>

@@ -3,7 +3,7 @@ import { PlayVideoIcon } from '~/components/Icons/Icons'
 import useColors from '~/hooks/useColors'
 const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
   let Icon = icon
-  const { ColorBg100, ColorBorder300 } = useColors()
+  const { ColorBg100, ColorBorder300, ColorHoverText500, ColorHoverTextDark500 } = useColors()
   return (
     <li
       className={`${
@@ -18,7 +18,7 @@ const SideBarItem = ({ item, icon, setActive, active, disabled }) => {
         disabled={disabled}
         type='text'
       >
-        <Icon className={`mr-2 text-light-mode hover:text-[#790c89] dark:text-dark-mode`} />
+        <Icon className={`${ColorHoverText500} ${ColorHoverTextDark500} mr-2 text-light-mode dark:text-dark-mode`} />
         <span className={`hidden items-center lg:flex `}>
           <span className='mr-2 text-sm font-bold text-light-mode dark:text-dark-mode'>{item.title}</span>
           {item?.liveIcon && (

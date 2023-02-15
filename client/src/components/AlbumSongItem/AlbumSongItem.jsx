@@ -13,7 +13,7 @@ const AlbumSongItem = ({ item, index, release }) => {
   // Global State
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const musicId = useSelector((state) => state.music.musicId)
-  const { ColorHoverBg300, ColorText500 } = useColors()
+  const { ColorHoverBg200, ColorText500 } = useColors()
   //Local Sstate
   const [albumLink, setAlbumLink] = useState(null)
 
@@ -34,10 +34,8 @@ const AlbumSongItem = ({ item, index, release }) => {
   }
 
   return (
-    <div className={`group flex  flex-col hover:shadow ${ColorHoverBg300} `}>
-      <div
-        className={`flex h-[60px] items-center rounded-[4px] border-b-[1px] border-solid border-[#231B2E] p-[10px] `}
-      >
+    <div className={`group flex flex-col hover:shadow md:hover:shadow-md lg:hover:shadow-lg ${ColorHoverBg200} `}>
+      <div className={`flex h-[60px] items-center rounded-[4px] p-[10px] `}>
         <div className='flex flex-grow items-center gap-[10px] gap-x-2 overflow-hidden lg:w-1/2'>
           <MusicNodeIcon
             className=' hidden flex-shrink-0 text-light-mode dark:text-dark-mode lg:inline-block '

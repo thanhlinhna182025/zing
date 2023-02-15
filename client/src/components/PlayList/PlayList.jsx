@@ -10,7 +10,7 @@ const PlayList = ({ playList, recentPlaylist }) => {
       <div className='mb-5'>
         <Title>{playList.title}</Title>
       </div>
-      <div className='mb-margin-main-sm grid grid-cols-2 gap-3 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:mb-main-margin lg:grid-cols-5'>
+      <div className='grid grid-cols-2 gap-3 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:grid-cols-5'>
         {loading
           ? [0, 1, 2, 3, 4].map((item) => <MusicCardItemSkeleton key={item} />)
           : playList?.items

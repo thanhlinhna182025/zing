@@ -21,9 +21,9 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
         <img
           alt={item.title}
           src={item.thumbnail}
-          className=' w-full  object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
+          className=' w-full object-cover transition-all duration-1000 ease-[3000] group-hover:scale-[1.1] hover:ease-[3000]'
         />
-        <div className='absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
+        <div className='group-hover:flex absolute top-0 right-0 bottom-0 left-0 hidden  items-center justify-center group-hover:bg-[rgba(0,0,0,0.5)]'>
           <div className={baseClass}>
             <div className={`cursor-pointer rounded-full p-[5px] ${ColorHoverBg300}`}>
               <HeartIcon width='20px' height='20px' className={`${ColorText500}`} />

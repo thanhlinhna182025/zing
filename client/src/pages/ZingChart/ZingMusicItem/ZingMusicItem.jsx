@@ -7,7 +7,7 @@ import useRedirect from '~/hooks/useRedirect'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 
 const ZingMusicItem = ({ item, number }) => {
-  const { ColorHoverBg200 } = useColors()
+  const { ColorHoverBg200, ColorHoverText500 } = useColors()
 
   const [link, setLink] = useState(null)
   useEffect(() => {
@@ -35,7 +35,7 @@ const ZingMusicItem = ({ item, number }) => {
         >
           <img src={item?.thumbnail} alt={item.title} />
           <PlayFillIcon
-            className='absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] text-white group-hover:inline-block'
+            className={`${ColorHoverText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
             width='16px'
             height='16px'
           />

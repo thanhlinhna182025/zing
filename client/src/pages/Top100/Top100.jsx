@@ -27,7 +27,7 @@ const Top100 = () => {
         <Loading />
       ) : (
         <div>
-          <div className='relative ml-[-8px] mr-[-8px] h-[280px] bg-transparent lg:mr-[-67px] lg:ml-[-67px]'>
+          <div className='relative -mt-[var(--header-height)] ml-[-8px] mr-[-8px] h-[280px] bg-transparent lg:mr-[-67px] lg:ml-[-67px]'>
             <div
               style={{
                 backgroundImage: `url(${banner100})`,

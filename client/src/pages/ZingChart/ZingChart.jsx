@@ -14,17 +14,18 @@ import { Line } from 'react-chartjs-2'
 import { useDispatch } from 'react-redux'
 import Button from '~/components/Button'
 import { getChartHome } from '~/feature/app/appSlice'
+import useColors from '~/hooks/useColors'
 import ZingMusicItem from './ZingMusicItem'
-
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Colors, Title, Tooltip, Legend)
 
 const ZingChart = () => {
+  const { ColorBorder500, ColorHoverBg200 } = useColors()
   const dispatch = useDispatch()
   const [top123, setTop123] = useState([])
   const [top123Data, setTop123Data] = useState([])
   const [labelNames, setLabelNames] = useState([])
-  const [totalScore, setTotalScore] = useState(0)
   const [musicsData, setMusicsData] = useState([])
+  const [totalScore, setTotalScore] = useState(0)
   const [numberSlice, setNumberSlice] = useState(10)
   useEffect(() => {
     dispatch(getChartHome())
@@ -259,7 +260,12 @@ const ZingChart = () => {
       {musicsData.map((item, index) => (
         <ZingMusicItem number={index + 1} item={item} key={item.encodeId} />
       ))}
-      <Button type='primary' rounded className='py-1 px-5 ' onClick={handleNumberSlice}>
+      <Button
+        type='primary'
+        rounded
+        className={`${ColorBorder500} ${ColorHoverBg200}  border-[1px] border-solid py-1 px-5`}
+        onClick={handleNumberSlice}
+      >
         Xem top 100
       </Button>
     </div>

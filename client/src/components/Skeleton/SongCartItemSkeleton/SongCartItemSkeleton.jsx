@@ -13,7 +13,7 @@ const SongCartItemSkeleton = () => {
           <ImageSkeletonIcon className='text-light-mode dark:text-dark-mode' width='60px' heght='60px' />
         </div>
       </div>
-      <div className='w-full'>
+      <div className='md:py-2 w-full py-1'>
         <div className={`${ColorBg300}  mb-4 h-2.5 w-48 rounded-full`} />
         <div className={`${ColorBg300}  mb-2.5 h-2 max-w-[460px] rounded-full`} />
         <div className={`${ColorBg300}  h-2 max-w-[360px] rounded-full`} />

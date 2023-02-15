@@ -42,7 +42,7 @@ const NewRelease = ({ newRelease }) => {
             rounded
             className={`${
               typeData === 'all' ? ColorBg100 : ''
-            } ${ColorBorder500} mr-[14px] border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6`}
+            } ${ColorBorder500} mr-[14px] border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:shadow-md lg:shadow-lg`}
           >
             TẤT CẢ
           </Button>
@@ -52,7 +52,7 @@ const NewRelease = ({ newRelease }) => {
             rounded
             className={`mr-[14px] ${
               typeData === 'vPop' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs  font-semibold leading-[1.42] sm:px-6`}
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow  sm:px-6 md:shadow-md lg:shadow-lg`}
           >
             VIỆT NAM
           </Button>
@@ -62,7 +62,7 @@ const NewRelease = ({ newRelease }) => {
             rounded
             className={`mr-[14px] ${
               typeData === 'others' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6`}
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:shadow-md lg:shadow-lg`}
           >
             QUÔC TẾ
           </Button>
@@ -71,7 +71,7 @@ const NewRelease = ({ newRelease }) => {
           <SeeAllButton to={configs.routes.newreleaseSong} />
         </div>
       </div>
-      <div className='grid grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-2 gap-y-1 sm:grid-cols-2 lg:grid-cols-3'>
         {loading
           ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <SongCartItemSkeleton key={item} />)
           : data?.map((item) => <SongCardItem key={item.encodeId} item={item} />)}

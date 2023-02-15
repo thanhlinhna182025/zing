@@ -7,9 +7,9 @@ const MusicCardItemSkeleton = () => {
       <div className='bg-gray-300 mb-3 flex items-center justify-center rounded'>
         <ImageSkeletonIcon width='130px' height='130px' className='text-light-mode dark:text-dark-mode' />
       </div>
-      <div className={`${ColorBg300} mb-2.5 h-2 rounded-full`} />
-      <div className={`${ColorBg300} mb-2.5 h-2 rounded-full`} />
-      <div className={`${ColorBg300} mb-2.5 h-2 rounded-full`} />
+      <div className={`${ColorBg300} mb-2 h-2 rounded-full`} />
+      <div className={`${ColorBg300} mb-2 h-2 rounded-full`} />
+      <div className={`${ColorBg300} mb-2 h-2 rounded-full`} />
       <span className='sr-only'>Loading...</span>
     </div>
   )

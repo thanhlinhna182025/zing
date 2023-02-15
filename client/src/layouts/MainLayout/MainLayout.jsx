@@ -33,7 +33,7 @@ const MainLayout = ({ children }) => {
   const ref = useRef()
   const dispatch = useDispatch()
   const location = useLocation()
-  
+
   useEffect(() => {
     if (location.pathname.startsWith('/album')) {
       dispatch(setOmitPage('album'))
@@ -124,7 +124,7 @@ const MainLayout = ({ children }) => {
       <RightPlayList />
       <div className='w-full flex-col items-start px-2 '>
         <Header isTransparent={isTransparent} />
-        <main className='mt-header-height ml-[var(--sidebar-width-sm)] mb-[calc(var(--player-height)+30px)] lg:ml-[var(--sidebar-width)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-5 xl:px-main-padding'>
+        <main className='mt-header-height ml-[var(--sidebar-width-sm)] mb-[70px] lg:ml-[var(--sidebar-width)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-5 xl:px-main-padding'>
           {children}
         </main>
       </div>

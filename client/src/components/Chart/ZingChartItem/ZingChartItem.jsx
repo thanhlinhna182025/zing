@@ -4,11 +4,11 @@ import useColors from '~/hooks/useColors'
 import useRedirect from '~/hooks/useRedirect'
 
 const ZingChartItem = ({ item, number, totalScore }) => {
-  const { ColorBg100, ColorHoverBg300 , ColorText500 } = useColors()
+  const { ColorBg100, ColorHoverBg300, ColorText500 } = useColors()
 
   const handleRedirect = useRedirect()
   return (
-    <div className={`mr-5 w-full rounded-md hover:shadow `}>
+    <div className={`mr-5 w-full rounded-md hover:shadow hover:md:shadow-md hover:lg:shadow-lg `}>
       <div className={`flex items-center p-3 ${ColorBg100} group rounded-md ${ColorHoverBg300}`}>
         <span
           style={{

@@ -8,7 +8,7 @@ const Top100 = ({ top100 }) => {
         <Title>{top100.title}</Title>
         <SeeAllButton />
       </div>
-      <div className='mb-main-margin-sm grid grid-cols-2  gap-x-3 sm:grid-cols-5 lg:ml-[-14px] lg:mr-[-14px] lg:mb-main-margin'>
+      <div className='mb-main-margin-sm grid grid-cols-2  gap-3 sm:grid-cols-5 lg:ml-[-14px] lg:mr-[-14px] lg:mb-main-margin'>
         {top100?.items?.slice(0, 5).map((item) => (
           <MusicCardItem padding='p-0' item={item} key={item.encodeId} large />
         ))}

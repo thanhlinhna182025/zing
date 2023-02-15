@@ -28,7 +28,7 @@ const ResultItem = ({ item, handleClearKeyword }) => {
         </Link>
       ) : (
         <div onClick={handleKaraokMode} className='flex w-full items-center'>
-          <div className={`mr-3 h-[52px] w-[52px] overflow-hidden rounded-md`}>
+          <div className={`mr-3 h-[52px] w-[52px] shrink-0 overflow-hidden rounded-md`}>
             <img src={item.thumbnail} className='block w-full object-cover' />
           </div>
           <div>

@@ -387,6 +387,17 @@ const useColors = () => {
       ? 'from-D-500-50 to-D-100-20'
       : 'from-E-500-50 to-E-100-20'
   }`
+  const ColorFrom200 = `${
+    color === 'A'
+      ? `from-A-200`
+      : color === 'B'
+      ? 'from-B-200'
+      : color === 'C'
+      ? 'from-C-200'
+      : color === 'D'
+      ? 'from-D-200'
+      : 'from-E-200'
+  }`
   const ColorFrom300 = `${
     color === 'A'
       ? `from-A-300`
@@ -468,6 +479,7 @@ const useColors = () => {
     ColorHoverTextDark500,
     ColorGradient500ToBottom,
     ColorGradient500ToTop,
+    ColorFrom200,
     ColorFrom300,
     ColorFrom400,
     ColorTo300,

@@ -18,7 +18,9 @@ const SingerSongItem = ({ item }) => {
   }
 
   return (
-    <div className={`group flex flex-col rounded-sm md:rounded-md ${ColorHoverBg200}`}>
+    <div
+      className={`group flex flex-col rounded-sm hover:shadow md:rounded-md hover:md:shadow-md hover:lg:shadow-lg ${ColorHoverBg200}`}
+    >
       <div className='hover:bg-main-300 flex h-[60px] items-center justify-between rounded-[4px] p-[10px]'>
         <div className='flex items-center gap-[10px] '>
           <div
@@ -33,7 +35,7 @@ const SingerSongItem = ({ item }) => {
             />
           </div>
           <div className='flex flex-grow flex-col justify-start'>
-            <span className='mb-[2px] max-w-[300px] md:max-w-[350px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-light-mode dark:text-dark-mode'>
+            <span className='mb-[2px] max-w-[300px] translate-y-[-2px] truncate text-left text-sm font-medium leading-[17px] text-light-mode dark:text-dark-mode md:max-w-[350px]'>
               {item?.title}
             </span>
             <div className='flex items-center'>

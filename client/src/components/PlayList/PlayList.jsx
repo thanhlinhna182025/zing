@@ -5,22 +5,23 @@ import Title from '~/components/Title'
 
 const PlayList = ({ playList, recentPlaylist }) => {
   const loading = useSelector((state) => state.app.loading)
-
   return (
     <div className='my-margin-main-sm lg:my-main-margin '>
       <div className='mb-5'>
         <Title>{playList.title}</Title>
       </div>
-      <div className='mb-margin-main-sm gap-3 grid grid-cols-2 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:mb-main-margin lg:grid-cols-5'>
+      <div className='mb-margin-main-sm grid grid-cols-2 gap-3 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:mb-main-margin lg:grid-cols-5'>
         {loading
           ? [0, 1, 2, 3, 4].map((item) => <MusicCardItemSkeleton key={item} />)
           : playList?.items
               ?.slice(0, 5)
               .map((item) => <MusicCardItem item={item} key={item.encodeId} large sortDescription />)}
       </div>
-      <div className='mb-5'>
-        <Title>{recentPlaylist.title}</Title>
-      </div>
+      {Boolean(playList?.item?.length > 5) && (
+        <div className='mb-5'>
+          <Title>{recentPlaylist.title}</Title>
+        </div>
+      )}
       <div className='grid grid-cols-2 gap-3 sm:grid-cols-3 lg:ml-[-14px] lg:mr-[-14px] lg:grid-cols-7 '>
         {loading
           ? [0, 1, 2, 3, 4, 5, 6].map((item) => <MusicCardItemSkeleton key={item} />)

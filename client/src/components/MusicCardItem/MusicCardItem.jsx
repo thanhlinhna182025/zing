@@ -13,7 +13,10 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
   const handleRedirect = useRedirect()
 
   return (
-    <div className='overflow-hidden rounded-md  shadow hover:shadow md:shadow-md' onClick={() => handleRedirect(item)}>
+    <div
+      className='overflow-hidden rounded-md hover:shadow hover:md:shadow-md hover:lg:shadow-lg'
+      onClick={() => handleRedirect(item)}
+    >
       <div className='group relative box-border overflow-hidden rounded-md' key={item.encodeId}>
         <img
           alt={item.title}
@@ -32,7 +35,7 @@ const MusicCardItem = ({ item, title, name, sortDescription, releaseDate, releas
           </div>
         </div>
       </div>
-      <div className={`${padding ? padding :'p-3'} flex flex-col px-2`}>
+      <div className={`${padding ? padding : 'p-3'} flex flex-col px-2`}>
         {title && (
           <h5
             className={`${ColorHoverText500} ${ColorHoverTextDark500} cursor-pointer truncate text-sm font-bold text-light-mode dark:text-dark-mode`}

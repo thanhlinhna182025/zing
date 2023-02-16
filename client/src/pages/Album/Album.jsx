@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import Loading from '~/components/Loading'
+import Load from '~/components/Load'
 import { getAlbumPlaylist, isPlayingToggle, setIsPlayAll, setIsShuffle } from '~/feature/app/appSlice'
 import { addAlbumId } from '../../feature/album/albumSlice'
 import { AlbumListSong, AlbumThumnail, Artists } from './components'
@@ -38,7 +38,7 @@ const Album = () => {
   return (
     <div>
       {loading ? (
-        <Loading fixed width='w-20' height='h-20' />
+        <Load />
       ) : (
         <div className='mb-player-height'>
           {albumResource && (

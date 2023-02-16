@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import banner100 from '~/assets/images/banner-100.png'
+import Load from '~/components/Load'
 import MusicCardItem from '~/components/MusicCardItem'
-import Loading from '~/components/Skeleton/Loading'
 import Title from '~/components/Title'
 import { getTop100 } from '~/feature/app/appSlice'
 import useColors from '~/hooks/useColors'
@@ -10,21 +10,23 @@ import useColors from '~/hooks/useColors'
 const Top100 = () => {
   const [top100Data, setTop100Data] = useState([])
   const dispatch = useDispatch()
-  const loading = useSelector((state) => state.app.loading)
   const { ColorFrom200, ColorFrom300 } = useColors()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     dispatch(getTop100())
       .unwrap()
       .then((res) => {
         setTop100Data(res)
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }, [])
   return (
     <div>
       {loading ? (
-        <Loading />
+        <Load />
       ) : (
         <div>
           <div className='relative -mt-[var(--header-height)] ml-[-8px] mr-[-8px] h-[280px] bg-transparent lg:mr-[-67px] lg:ml-[-67px]'>

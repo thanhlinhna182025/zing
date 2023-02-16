@@ -13,6 +13,7 @@ import WeekChart from '~/components/WeekChart'
 import Xone from '~/components/Xone'
 import { artistSpotlightData } from '~/Data'
 import { getHome } from '~/feature/app/appSlice'
+import Load from '../../components/Load/Load'
 
 const Home = () => {
   const dispatch = useDispatch()

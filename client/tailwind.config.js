@@ -137,6 +137,10 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',
+        'spin-5': 'spin 5s linear infinite reverse',
+        'spin-4': 'spin 4s infinite',
+        'spin-3': 'spin 3s linear infinite reverse',
+        'spin-2': 'spin 2s infinite',
         'slide-top': 'slide-top 1s linear 0s 1 normal forwards',
         'slide-bottom': 'slide-bottom 1s linear 0s 1 normal forwards',
         'slide-left': 'slide-left 1s ease 0s 1 normal forwards',

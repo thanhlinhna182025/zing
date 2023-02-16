@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import Load from '~/components/Load'
 import MusicCardHightlight from '~/components/MusicCardHightlight'
 import { getInfoSinger } from '~/feature/singer/singerSlice'
 import AboutSinger from './AboutSinger'
@@ -11,7 +12,6 @@ import MV from './MV/MV'
 import Poster from './Poster/Poster'
 import SingerListMusic from './SingerListMusic'
 import SingleSP from './SingleSP/SingleSP'
-import Loading from '~/components/Skeleton/Loading'
 
 const Singer = () => {
   const dispatch = useDispatch()
@@ -26,9 +26,10 @@ const Singer = () => {
   const [appear, setAppear] = useState({})
   const [mayBeYouLike, setMayBeYouLike] = useState({})
   const [aboutSinger, setAboutSinger] = useState({})
-  const loading = useSelector((state) => state.app.loading)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     dispatch(getInfoSinger(name))
       .unwrap()
       .then((result) => {
@@ -57,13 +58,14 @@ const Singer = () => {
         setAppear(result?.sections?.find((item) => item?.title === 'Xuất hiện trong'))
         setMayBeYouLike(result?.sections?.find((item) => item?.sectionId === 'aReArtist'))
         setAboutSinger({ biography: result?.biography, thumbnailM: result?.thumbnailM, follow: result?.follow })
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }, [name])
   return (
     <div>
       {loading ? (
-        <Loading />
+        <Load />
       ) : (
         <div className='mb-player-height w-full'>
           <Poster poster={poster} isPoster={isPoster} />

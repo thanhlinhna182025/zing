@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { useDispatch } from 'react-redux'
 import Button from '~/components/Button'
+import Load from '~/components/Load'
 import { getChartHome } from '~/feature/app/appSlice'
 import useColors from '~/hooks/useColors'
 import ZingMusicItem from './ZingMusicItem'
@@ -27,7 +28,9 @@ const ZingChart = () => {
   const [musicsData, setMusicsData] = useState([])
   const [totalScore, setTotalScore] = useState(0)
   const [numberSlice, setNumberSlice] = useState(10)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
+    setLoading(true)
     dispatch(getChartHome())
       .unwrap()
       .then((result) => {
@@ -38,6 +41,7 @@ const ZingChart = () => {
         )
         setTotalScore(result?.RTChart?.chart?.totalScore)
         setMusicsData(result?.RTChart?.items?.slice(0, numberSlice))
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }, [numberSlice])
@@ -247,27 +251,33 @@ const ZingChart = () => {
     }
   }
   return (
-    <div className='mb-[300px]'>
-      <div
-        className='mb-main-margin w-full p-8'
-        style={{
-          background:
-            'url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.26/static/media/bg-chart.fd766403.jpg) top/cover no-repeat'
-        }}
-      >
-        <Line id='myChart' options={options} data={data} />
-      </div>
-      {musicsData.map((item, index) => (
-        <ZingMusicItem number={index + 1} item={item} key={item.encodeId} />
-      ))}
-      <Button
-        type='primary'
-        rounded
-        className={`${ColorBorder500} ${ColorHoverBg200}  border-[1px] border-solid py-1 px-5`}
-        onClick={handleNumberSlice}
-      >
-        Xem top 100
-      </Button>
+    <div>
+      {loading ? (
+        <Load />
+      ) : (
+        <div className='mb-[300px]'>
+          <div
+            className='mb-main-margin w-full p-8'
+            style={{
+              background:
+                'url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.26/static/media/bg-chart.fd766403.jpg) top/cover no-repeat'
+            }}
+          >
+            <Line id='myChart' options={options} data={data} />
+          </div>
+          {musicsData.map((item, index) => (
+            <ZingMusicItem number={index + 1} item={item} key={item.encodeId} />
+          ))}
+          <Button
+            type='primary'
+            rounded
+            className={`${ColorBorder500} ${ColorHoverBg200}  border-[1px] border-solid py-1 px-5`}
+            onClick={handleNumberSlice}
+          >
+            Xem top 100
+          </Button>
+        </div>
+      )}
     </div>
   )
 }

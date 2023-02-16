@@ -11,8 +11,8 @@ import {
 } from 'chart.js'
 import { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
-import { useDispatch, useSelector } from 'react-redux'
-import Loading from '~/components/Skeleton/Loading'
+import { useDispatch } from 'react-redux'
+import Load from '~/components/Load'
 import { getChartHome } from '~/feature/app/appSlice'
 import ZingMusicItem from './ZingMusicItem'
 
@@ -25,9 +25,10 @@ const NewMusic = () => {
   const [labelNames, setLabelNames] = useState([])
   const [totalScore, setTotalScore] = useState(0)
   const [musicsData, setMusicsData] = useState([])
-  const loading = useSelector((state) => state.app.loading)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     dispatch(getChartHome())
       .unwrap()
       .then((result) => {
@@ -38,6 +39,7 @@ const NewMusic = () => {
         )
         setTotalScore(result?.RTChart?.chart?.totalScore)
         setMusicsData(result?.RTChart?.items)
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -246,7 +248,7 @@ const NewMusic = () => {
   return (
     <div>
       {loading ? (
-        <Loading />
+        <Load />
       ) : (
         <div>
           <div

@@ -8,7 +8,6 @@ import EventItem from './EventItem'
 const Event = ({ event }) => {
   const swiperRef = useRef()
   const { ColorBg100, ColorHoverBg200, ColorText500 } = useColors()
-  console.log(event)
 
   return (
     <div>

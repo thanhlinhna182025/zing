@@ -133,6 +133,33 @@ module.exports = {
             '-webkit-transform': 'rotate(360deg)',
             transform: 'rotate(360deg)'
           }
+        },
+        'puff-out-center': {
+          '0%': {
+            '-webkit-transform': 'scale(1)',
+            transform: 'scale(1)',
+            '-webkit-filter': 'blur(0px)',
+            filter: ' blur(0px)',
+            opacity: 1
+          },
+          '100%': {
+            '-webkit-transform': 'scale(2)',
+            transform: 'scale(2)',
+            '-webkit-filter': 'blur(4px)',
+            filter: 'blur(4px)',
+            opacity: 0
+          }
+        },
+        'ping-out': {
+          '0%': {
+            opacity: 0
+          },
+          '50%': {
+            opacity: 0.5
+          },
+          '100%': {
+            opacity: 0
+          }
         }
       },
       animation: {
@@ -146,7 +173,9 @@ module.exports = {
         'slide-left': 'slide-left 1s ease 0s 1 normal forwards',
         'slide-list-right': 'slide-list-right 1s ease 0s 1 normal forwards',
         'slide-list-left': 'slide-list-left 1s ease 0s 1 normal forwards',
-        'rotate-360': 'rotate-360 5s linear 0s 1 normal forwards'
+        'rotate-360': 'rotate-360 5s linear 0s 1 normal forwards',
+        'puff-out-center': 'puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both',
+        'ping-out': 'ping-out 1s linear forwards'
       },
       spacing: {
         'main-padding': 'var(--main-padding)',

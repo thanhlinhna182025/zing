@@ -84,7 +84,7 @@ export const ListBottom = [
   },
   {
     id: 9,
-    path: configs.routes.mv,
+    path: configs.routes.listmv,
     icon: MVIcon,
     title: 'MV',
     disabled: false

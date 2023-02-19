@@ -678,53 +678,35 @@ export const ShuffleIcon = ({ className, width = '20px', height = '20px' }) => {
 }
 export const VolumeIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
-    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
-      <path
-        d='M2 10V14C2 16 3 17 5 17H6.43C6.8 17 7.17 17.11 7.49 17.3L10.41 19.13C12.93 20.71 15 19.56 15 16.59V7.41003C15 4.43003 12.93 3.29003 10.41 4.87003L7.49 6.70003C7.17 6.89003 6.8 7.00003 6.43 7.00003H5C3 7.00003 2 8.00003 2 10Z'
-        stroke='currentColor'
-        strokeWidth='1.5'
-      />
-      <path
-        d='M18 8C19.78 10.37 19.78 13.63 18 16'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M19.83 5.5C22.72 9.35 22.72 14.65 19.83 18.5'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
+    <svg
+      fill='currentColor'
+      className={className}
+      width={width}
+      height={height}
+      viewBox='0 0 24 24'
+      strokeLinecap='round'
+      strokeLinejoin='miter'
+    >
+      <polygon points='2 8 2 16 6 16 13 21 13 3 6 8 2 8'></polygon>
+      <path d='M17.72,5.55a7,7,0,0,1,0,12.9'></path>
+      <path d='M17.12,9.88a3,3,0,0,1,0,4.24'></path>
     </svg>
   )
 }
 export const VolumeMutedIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
-    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 24 24'>
-      <path
-        d='M2 10.1595V14.1595C2 16.1595 3 17.1595 5 17.1595H6.43C6.8 17.1595 7.17 17.2695 7.49 17.4595L10.41 19.2895C12.93 20.8695 15 19.7195 15 16.7495V7.56946C15 4.58946 12.93 3.44946 10.41 5.02946L7.49 6.85946C7.17 7.04946 6.8 7.15946 6.43 7.15946H5C3 7.15946 2 8.15946 2 10.1595Z'
-        stroke='currentColor'
-        strokeWidth='1.5'
-      />
-      <path
-        d='M22 14.1194L18.04 10.1594'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        stroke-miterlimit='10'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M21.96 10.1995L18 14.1595'
-        stroke='currentColor'
-        strokeWidth='1.5'
-        stroke-miterlimit='10'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
+    <svg
+      fill='currentColor'
+      className={className}
+      width={width}
+      height={height}
+      viewBox='0 0 24 24'
+      strokeLinecap='round'
+      strokeLinejoin='miter'
+    >
+      <polygon points='2 8 2 16 6 16 13 21 13 3 6 8 2 8'></polygon>
+      <line x1='17' y1='9.5' x2='22' y2='14.5'></line>
+      <line x1='17' y1='14.5' x2='22' y2='9.5'></line>
     </svg>
   )
 }
@@ -753,10 +735,45 @@ export const PauseIcon = ({ className, width = '20px', height = '20px' }) => {
     </svg>
   )
 }
+export const PauseVieoIcon = ({ className, width = '20px', height = '20px' }) => {
+  return (
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 8 8'>
+      <path d='M0 0v6h2v-6h-2zm4 0v6h2v-6h-2z' transform='translate(1 1)' />
+    </svg>
+  )
+}
 export const PlayFillIcon = ({ className, width = '20px', height = '20px' }) => {
   return (
     <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 120 120'>
       <polygon points='17.5,120 17.5,0 107.5,60' />
+    </svg>
+  )
+}
+export const ExpandFullScreenIcon = ({ className, width = '20px', height = '20px' }) => {
+  return (
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 48 48'>
+      <title>expand-fullscreen-solid</title>
+      <g id='Layer_2' data-name='Layer 2'>
+        <g id='invisible_box' data-name='invisible box'>
+          <rect width='48' height='48' fill='none' />
+        </g>
+        <g id='icons_Q2' data-name='icons Q2'>
+          <g>
+            <path d='M18.6,26.6,8,37.2V30.1A2.1,2.1,0,0,0,6.3,28,2,2,0,0,0,4,30V42a2,2,0,0,0,2,2H17.9A2.1,2.1,0,0,0,20,42.3,2,2,0,0,0,18,40H10.8L21.3,29.5a2.1,2.1,0,0,0,.3-2.7A1.9,1.9,0,0,0,18.6,26.6Z' />
+            <path d='M30,4a2,2,0,0,0-2,2.3A2.1,2.1,0,0,0,30.1,8h7.1L26.7,18.5a2,2,0,0,0-.2,2.8A1.8,1.8,0,0,0,28,22a2,2,0,0,0,1.4-.6L40,10.8v7.1A2.1,2.1,0,0,0,41.7,20,2,2,0,0,0,44,18V6a2,2,0,0,0-2-2Z' />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
+export const ExitFullScreenIcon = ({ className, width = '20px', height = '20px' }) => {
+  return (
+    <svg fill='currentColor' className={className} width={width} height={height} viewBox='0 0 1920 1920'>
+      <path
+        d='M876.612 1043.388v710.171H761.27v-513.28L81.663 1920 0 1838.337l679.72-679.606H166.442v-115.343h710.171ZM1838.394 0l81.548 81.548-679.605 679.72h513.28v115.344h-710.172V166.441h115.344v513.164L1838.394 0Z'
+        fillRule='evenodd'
+      />
     </svg>
   )
 }

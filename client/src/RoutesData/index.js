@@ -4,8 +4,8 @@ import Album from '~/pages/Album'
 import Discovery from '~/pages/Discovery'
 import Follow from '~/pages/Follow'
 import Home from '~/pages/Home'
+import ListMV from '~/pages/ListMV'
 import Login from '~/pages/Login'
-import MV from '~/pages/MV'
 import NewMusic from '~/pages/NewMusic'
 import NewReleaseAlbum from '~/pages/NewReleaseAlbum'
 import NewReleaseSong from '~/pages/NewReleaseSong'
@@ -14,6 +14,7 @@ import Radio from '~/pages/Radio'
 import Singer from '~/pages/Singer'
 import Top100 from '~/pages/Top100'
 import TypeMusic from '~/pages/TypeMusic'
+import VideoClip from '~/pages/VideoClip'
 import ZingChart from '~/pages/ZingChart'
 
 const PublicRoutes = [
@@ -54,9 +55,14 @@ const PublicRoutes = [
     layout: MainLayout
   },
   {
-    path: configs.routes.mv,
-    element: MV,
+    path: configs.routes.listmv,
+    element: ListMV,
     layout: MainLayout
+  },
+  {
+    path: configs.routes.video,
+    element: VideoClip,
+    layout: null
   },
   {
     path: configs.routes.album,

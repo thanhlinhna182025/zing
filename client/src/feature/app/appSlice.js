@@ -19,7 +19,9 @@ const initialState = {
   loading: false,
   sidebarMode: false,
   displayMode: false,
-  dataSongs: []
+  dataSongs: [],
+  categoryId: 'IWZ9Z08I',
+  mvId: null
 }
 const context = 'app'
 
@@ -69,7 +71,6 @@ export const getSearch = createAsyncThunk(`${context}/getSearch`, async (keyword
     throw error
   }
 })
-
 export const getChartHome = createAsyncThunk(`${context}/getChartHome`, async (_, thunkApi) => {
   try {
     const response = await http.get('/charthome', {
@@ -88,6 +89,55 @@ export const getTop100 = createAsyncThunk(`${context}/getTop100`, async (_, thun
     const response = await http.get('/top100', {
       signal: thunkApi.signal
     })
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
+export const getListMV = createAsyncThunk(`${context}/getListMV`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/listmv', method: 'GET', params: { id: id, page: 1, count: 500 } },
+      {
+        signal: thunkApi.signal
+      }
+    )
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
+export const getCategoryMV = createAsyncThunk(`${context}/getCategoryMV`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/categorymv', method: 'GET', params: { id: id } },
+      {
+        signal: thunkApi.signal
+      }
+    )
+    console.log(response)
+    return response.data.data
+  } catch (error) {
+    if (error.name === 'AxiosError') {
+      return thunkApi.rejectWithValue(error.response.data)
+    }
+    throw error
+  }
+})
+export const getVideo = createAsyncThunk(`${context}/getVideo`, async (id, thunkApi) => {
+  try {
+    const response = await http(
+      { url: '/video', method: 'GET', params: { id: id } },
+      {
+        signal: thunkApi.signal
+      }
+    )
     return response.data.data
   } catch (error) {
     if (error.name === 'AxiosError') {
@@ -179,6 +229,12 @@ const appSlice = createSlice({
     },
     setDataSongs: (state, action) => {
       state.dataSongs = action.payload
+    },
+    setCategoryId: (state, action) => {
+      state.categoryId = action.payload
+    },
+    setMvId: (state, action) => {
+      state.mvId = action.payload
     }
   },
   extraReducers(builder) {
@@ -222,7 +278,9 @@ export const {
   setOmitPage,
   toggleSideBarMode,
   setDisplayMode,
-  setDataSongs
+  setDataSongs,
+  setCategoryId,
+  setMvId
 } = appSlice.actions
 const appReducer = appSlice.reducer
 

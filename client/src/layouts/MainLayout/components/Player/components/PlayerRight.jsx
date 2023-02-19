@@ -61,11 +61,11 @@ const PlayerRight = ({ handleVolume, handleMuteVolume, handleActiveVolume, volum
       <span className='ml-2 flex cursor-pointer items-center md:ml-3 lg:ml-5'>
         {volume === 0 ? (
           <span onClick={handleActiveVolume}>
-            <VolumeMutedIcon width='20px' height='20px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+            <VolumeMutedIcon width='24px' height='24px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
           </span>
         ) : (
           <span onClick={handleMuteVolume}>
-            <VolumeIcon width='20px' height='20px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
+            <VolumeIcon width='24px' height='24px' className=' mr-[1px] text-light-mode dark:text-dark-mode' />
           </span>
         )}
         <div className='relative flex items-center'>

@@ -125,9 +125,9 @@ const PlayerCenter = (
       <div className='mb-[6px] flex h-1 w-full items-center justify-center gap-x-2'>
         <div className='mr-3 flex w-6 items-center'>
           <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>
-            {minute < 10 ? '0' + minute : minute}
+            {minute < 10 ? '0' + minute : minute}:
           </span>
-          :
+
           <span className='text-xs font-bold text-light-mode dark:text-dark-mode'>
             {second < 10 ? '0' + second : second}
           </span>

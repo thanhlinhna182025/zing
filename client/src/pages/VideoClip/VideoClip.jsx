@@ -23,7 +23,6 @@ import { secondToMinuteAndSecond } from '~/utils/hepper'
 import VideoClipItem from './VideoClipItem'
 const VideoClip = () => {
   //Local State
-
   const [video, setVideo] = useState({})
   const [open, setOpen] = useState(true)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -86,10 +85,12 @@ const VideoClip = () => {
     let timerId
     if (isPlaying) {
       timerId = setInterval(() => {
-        setCurrentTime(Number(videoRef.current.currentTime.toFixed()))
+        if (videoRef.current) setCurrentTime(Number(videoRef.current.currentTime.toFixed()))
       }, 1000)
     }
-    return () => clearInterval(timerId)
+    return () => {
+      if (videoRef.current) clearInterval(timerId)
+    }
   }, [isPlaying])
   useEffect(() => {
     let seconds = Math.floor(currentTime % 60)

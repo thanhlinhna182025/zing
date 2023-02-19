@@ -1,5 +1,5 @@
 import useColors from '~/hooks/useColors'
-import { ImageSkeletonIcon } from '../../Icons/Icons'
+import { ImageSkeletonIcon } from '~/components/Icons'
 const MusicCardItemSkeleton = () => {
   const { ColorBg300, ColorBg100 } = useColors()
   return (

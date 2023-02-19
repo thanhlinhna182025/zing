@@ -120,7 +120,7 @@ const Header = ({ isTransparent }) => {
         >
           <form
             ref={formRef}
-            className={`flex shadow w-full max-w-[500px] items-center rounded-full md:ml-[22px] lg:w-search-input-width ${ColorBg100}`}
+            className={`flex w-full max-w-[500px] items-center rounded-full shadow md:ml-[22px] lg:w-search-input-width ${ColorBg100}`}
           >
             <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
               <SearchIcon

@@ -8,7 +8,7 @@ const Poster = ({ poster, isPoster }) => {
     <div>
       {isPoster ? (
         <div
-          className=' relative lg:ml-[-59px] mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:min-h-[410px]'
+          className=' relative mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:ml-[-59px] lg:min-h-[410px]'
           style={{
             backgroundImage: `url(${poster?.cover})`,
             backgroundRepeat: 'no-repeat',

@@ -1,3 +1,3 @@
-import VideoClip from "./VideoClip";
+import VideoClip from './VideoClip'
 
 export default VideoClip

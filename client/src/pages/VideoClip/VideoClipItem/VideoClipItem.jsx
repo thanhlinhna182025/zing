@@ -17,7 +17,7 @@ const VideoClipItem = ({ item }) => {
   return (
     <div className={`${ColorHoverBg100} flex items-center p-1`} onClick={() => handleLink(item)}>
       <div className='relative mr-3 w-[100px] cursor-pointer overflow-hidden rounded-md'>
-        <img src={item?.thumbnail} className='block w-full object-cover' />
+        <img alt='thumbnail' src={item?.thumbnail} className='block w-full object-cover' />
         <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
           <PlayFullFillIcon className='text-white' width='20px' height='20px' />
         </div>

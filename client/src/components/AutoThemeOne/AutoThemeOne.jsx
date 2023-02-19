@@ -16,7 +16,6 @@ const AutoThemeOne = ({ autoThemeOne }) => {
               ?.slice(0, 5)
               .map((item) => <MusicCardItem item={item} key={item.encodeId} sortDescription title large />)}
       </div>
-      
     </div>
   )
 }

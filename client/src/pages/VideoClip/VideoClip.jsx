@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   BackMusicIcon,
@@ -20,9 +20,9 @@ import { getVideo } from '~/feature/app/appSlice'
 import useColors from '~/hooks/useColors'
 import { secondToMinuteAndSecond } from '~/utils/hepper'
 import VideoClipItem from './VideoClipItem'
+
 const VideoClip = () => {
   const { ColorBg200, ColorBg400, ColorHoverBg300, ColorText500, ColorBg100 } = useColors()
-  const mvId = useSelector((state) => state.app.mvId)
   const { id } = useParams()
   const dispatch = useDispatch()
   const [video, setVideo] = useState({})
@@ -44,7 +44,6 @@ const VideoClip = () => {
     dispatch(getVideo(id))
       .unwrap()
       .then((result) => {
-        console.log('getVideo', result)
         setVideo(result)
         setIsPlaying(false)
         if (result?.streaming?.mp4['720p']) {
@@ -165,7 +164,7 @@ const VideoClip = () => {
       <div className='mb-8 flex justify-between'>
         <div className='flex items-center gap-3'>
           <div className='h-10 w-10 overflow-hidden rounded-full'>
-            <img src={video?.artist?.thumbnail} className='block w-full object-cover' />
+            <img alt='thumbnail' src={video?.artist?.thumbnail} className='block w-full object-cover' />
           </div>
           <div>
             <h5 className={`${ColorText500} text-[20px] font-bold`}>{video?.song?.title}</h5>

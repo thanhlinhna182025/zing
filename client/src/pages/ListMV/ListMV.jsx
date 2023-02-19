@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MVCardItem from '~/components/MVCardItem'
+import MusicCardItemSkeleton from '~/components/Skeleton/MusicCardItemSkeleton'
 import { getListMV, setCategoryId } from '~/feature/app/appSlice'
+
 const dataId = {
   vn: 'IWZ9Z08I',
   'US-UK': 'IWZ9Z08O',
@@ -10,15 +12,18 @@ const dataId = {
 }
 const ListMV = () => {
   const dispatch = useDispatch()
-  const categoryId = useSelector(state=>state.app.categoryId)
+  const categoryId = useSelector((state) => state.app.categoryId)
   const [videos, setVideos] = useState({})
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
+    setLoading(true)
     dispatch(getListMV(categoryId))
       .unwrap()
       .then((result) => {
         if (result) {
           setVideos(result)
         }
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }, [categoryId])
@@ -71,9 +76,10 @@ const ListMV = () => {
         </button>
       </div>
       <div className='grid grid-cols-2 gap-5 md:grid-cols-3'>
-        {videos?.items?.map((item) => (
-          <MVCardItem item={item} key={item.encodeId} />
-        ))}
+        {loading
+          ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <MusicCardItemSkeleton key={item} />)
+          : videos?.items?.map((item) => <MVCardItem item={item} key={item.encodeId} />)}
+        {}
       </div>
     </div>
   )

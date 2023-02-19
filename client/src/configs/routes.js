@@ -10,7 +10,7 @@ const routes = {
   typeMusic: '/the_loai',
   top100: '/top100',
   listmv: '/list_mv',
-  video:'/video-clip/:title/:id',
+  video: '/video-clip/:title/:id',
   album: '/album/:title/:id',
   playlist: '/playlist/:title/:id',
   singer: '/singer/:name',

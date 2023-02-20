@@ -16,14 +16,14 @@ const Event = ({ event }) => {
           <Swiper
             className='eventSwiper'
             modules={[Navigation, Autoplay, Pagination]}
-            slidesPerView={2}
+            slidesPerView={1}
             spaceBetween={28}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper
             }}
             breakpoints={{
               640: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 20
               },
               768: {

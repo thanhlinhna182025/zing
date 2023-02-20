@@ -14,9 +14,9 @@ import { Line } from 'react-chartjs-2'
 import { useDispatch } from 'react-redux'
 import Button from '~/components/Button'
 import Load from '~/components/Load'
+import ZingMusicItem from '~/components/ZingMusicItem'
 import { getChartHome } from '~/feature/app/appSlice'
 import useColors from '~/hooks/useColors'
-import ZingMusicItem from './ZingMusicItem'
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Colors, Title, Tooltip, Legend)
 
 const ZingChart = () => {

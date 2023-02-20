@@ -173,7 +173,9 @@ const VideoClip = () => {
 
   return (
     <div
-      className={`${ColorBg200} ${open ? 'animate-slide-top' : 'animate-slide-bottom'} flex min-h-[100vh] flex-col p-5`}
+      className={`${ColorBg200} ${
+        open ? 'animate-slide-top' : 'animate-slide-bottom'
+      } flex min-h-[100vh] flex-col p-1 md:p-2 lg:p-5`}
     >
       {loading ? (
         <Load />
@@ -297,17 +299,17 @@ const VideoClip = () => {
               </div>
             </div>
             <div
-              className={`${hasFullScreen ? 'hidden' : `${ColorBg400} flex w-full flex-col p-4 lg:ml-5 lg:w-[30%] `} `}
+              className={`${hasFullScreen ? 'hidden' : `${ColorBg400} flex w-full flex-col  lg:p-4 md:p-2 p-1 lg:ml-5 lg:w-[30%] `} `}
             >
               <div className='mb-5 flex justify-between'>
-                <p>DANH SÁCH PHÁT</p>
+                <p className='hidden md:inline-block'>DANH SÁCH PHÁT</p>
                 <label className='relative inline-flex cursor-pointer items-center'>
                   <input type='checkbox' defaultValue className='peer sr-only' defaultChecked />
                   <div className="bg-gray-200 dark:bg-gray-700 after:border-gray-300 dark:border-gray-600 peer h-6 w-11 rounded-full after:absolute after:top-0.5 after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800" />
                   <span className='text-gray-900 dark:text-gray-300 ml-3 text-sm font-medium'>Tự Động Phát</span>
                 </label>
               </div>
-              <div className={`grid max-h-[440px] grid-cols-1 gap-y-3 scrollbar md:grid-cols-2 lg:grid-cols-1`}>
+              <div className={`grid max-h-[440px] grid-cols-1 md:gap-y-2 gap-y-1 lg:gap-y-3 scrollbar md:grid-cols-2 lg:grid-cols-1`}>
                 {video?.recommends?.map((item) => (
                   <VideoClipItem item={item} key={item.encodeId} />
                 ))}

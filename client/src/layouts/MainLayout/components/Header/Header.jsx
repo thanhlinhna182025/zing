@@ -91,7 +91,7 @@ const Header = ({ isTransparent }) => {
     <header
       className={`fixed ${
         isTransparent ? 'bg-transparent' : `${ColorBg500} shadow md:shadow-md lg:shadow-lg`
-      } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[70px] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 md:justify-between md:px-0 lg:right-0 lg:ml-0 lg:w-[calc(100%-var(--sidebar-width))] lg:px-main-margin `}
+      } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[var(--header-height-sm)] lg:h-[var(--header-height)] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 md:justify-between md:px-0 lg:right-0 lg:ml-0 lg:w-[calc(100%-var(--sidebar-width))] lg:px-main-margin `}
     >
       <div className='flex w-full items-center justify-center md:justify-start'>
         <div className='hidden items-center lg:ml-[20px] lg:flex'>
@@ -134,7 +134,7 @@ const Header = ({ isTransparent }) => {
               onChange={handleChange}
               onClick={visibleSearch ? hideSearch : showSearch}
               placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
-              className='w-[calc(100%-50px)] rounded-full  border-none bg-transparent py-[8px] pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode'
+              className='w-[calc(100%-50px)] rounded-full  border-none bg-transparent py-1 lg:py-2 pl-[1px] pr-2 text-light-mode outline-none placeholder:font-[Inter] placeholder:text-[14px] placeholder:font-[600] dark:text-dark-mode'
             />
           </form>
         </TippyHeadless>

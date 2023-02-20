@@ -58,8 +58,8 @@ const SideBar = () => {
             })}
           </ul>
         </nav>
-        <nav className='relative w-full'>
-          <ul>
+        <nav className='relative flex h-[calc(100vh-var(--header-height)-var(--player-height))] w-full flex-col items-center scrollbar'>
+          <ul className='w-full mb-2'>
             {ListBottom.map((item, index) => {
               let Icon = item.icon
               let disabled = item.disabled === true ? true : false
@@ -75,23 +75,21 @@ const SideBar = () => {
               )
             })}
           </ul>
+          <div className='mb-3 flex flex-col md:hidden'>
+            <button
+              onClick={handleRightMode}
+              className={`${rightMode && ColorBg300} mb-5 rounded-[3px]  p-1 shadow hover:shadow-lg`}
+            >
+              <PlayListIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
+            </button>
+            <button
+              onClick={displayMode ? hideDisplay : showDisplay}
+              className={`rounded-[3px]  p-1 shadow hover:shadow-lg`}
+            >
+              <SettingIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
+            </button>
+          </div>
         </nav>
-        <div className='absolute bottom-5 right-1/2 flex translate-x-[50%] flex-col md:hidden'>
-          <button
-            onClick={handleRightMode}
-            className={`${
-              rightMode && ColorBg300
-            } mb-5 rounded-[3px] border-[2px] border-solid ${ColorBorder500} p-1 shadow hover:shadow-lg`}
-          >
-            <PlayListIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
-          </button>
-          <button
-            onClick={displayMode ? hideDisplay : showDisplay}
-            className={`rounded-[3px] border-[2px] border-solid ${ColorBorder500} p-1 shadow hover:shadow-lg`}
-          >
-            <SettingIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
-          </button>
-        </div>
       </div>
     </aside>
   )

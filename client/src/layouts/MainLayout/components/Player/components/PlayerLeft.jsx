@@ -6,7 +6,7 @@ const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo
   const musicLoading = useSelector((state) => state.music.musicLoading)
   return (
-    <div className=' w-[30%]'>
+    <div>
       {musicLoading ? (
         <Loading />
       ) : (

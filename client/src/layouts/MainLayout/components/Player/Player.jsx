@@ -266,7 +266,7 @@ const Player = () => {
 
   return (
     <div
-      className={`${ColorBg400} border-t-solid fixed bottom-0 right-[4px] left-0 z-30 flex h-player-height-sm w-full items-center justify-center border-t border-t-[#414141]  px-5 sm:justify-between md:h-player-height `}
+      className={`${ColorBg400} border-t-solid fixed bottom-0 right-[4px] left-0 z-30 flex h-player-height-sm w-full items-center justify-center border-t border-t-[#414141] px-1 md:px-2  lg:px-5  md:h-player-height `}
     >
       <audio src={url} ref={audioRef}></audio>
       <PlayerLeft musicInfo={musicInfo} />

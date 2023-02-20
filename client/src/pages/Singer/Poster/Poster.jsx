@@ -8,7 +8,7 @@ const Poster = ({ poster, isPoster }) => {
     <div className='mb-5'>
       {isPoster ? (
         <div
-          className=' relative mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:ml-[-59px] lg:min-h-[410px]'
+          className=' relative mt-[-70px] lg:mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:ml-[-59px] lg:min-h-[410px]'
           style={{
             backgroundImage: `url(${poster?.cover})`,
             backgroundRepeat: 'no-repeat',
@@ -46,7 +46,7 @@ const Poster = ({ poster, isPoster }) => {
         </div>
       ) : (
         <div
-          className={`${ColorFrom300} ${ColorTo400} xs:ml-[-59px] relative mt-[-70px] mr-[-59px] min-h-[299px] bg-gradient-to-r lg:px-2 lg:px-main-margin`}
+          className={`${ColorFrom300} ${ColorTo400} relative mt-[-70px] min-h-[299px] bg-gradient-to-r lg:mr-[-59px] lg:ml-[-59px] lg:px-2 lg:px-main-margin`}
         >
           <div className='absolute top-[80px] flex w-full flex-col items-center md:flex-row md:items-start lg:left-[59px] lg:bottom-6 '>
             <div className=' w-[140px] md:mr-4 lg:mr-8 '>

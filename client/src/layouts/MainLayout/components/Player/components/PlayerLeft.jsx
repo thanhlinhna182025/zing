@@ -6,7 +6,7 @@ const PlayerLeft = ({ musicInfo }) => {
   const { thumbnail, artistsNames, title } = musicInfo
   const musicLoading = useSelector((state) => state.music.musicLoading)
   return (
-    <div>
+    <div className='hidden lg:flex'>
       {musicLoading ? (
         <Loading />
       ) : (

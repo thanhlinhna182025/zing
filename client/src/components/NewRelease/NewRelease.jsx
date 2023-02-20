@@ -35,14 +35,14 @@ const NewRelease = ({ newRelease }) => {
         <Title>{newRelease.title}</Title>
       </div>
       <div className='mb-5 flex items-center justify-between'>
-        <div>
+        <div className='flex'>
           <Button
             type='primary'
             onClick={() => handleTypeData('all')}
             rounded
             className={`${
               typeData === 'all' ? ColorBg100 : ''
-            } ${ColorBorder500} mr-[14px] border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:shadow-md lg:shadow-lg`}
+            } ${ColorBorder500} mr-2  border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-[14px] md:shadow-md lg:shadow-lg`}
           >
             TẤT CẢ
           </Button>
@@ -50,9 +50,9 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('vPop')}
             rounded
-            className={`mr-[14px] ${
+            className={`${
               typeData === 'vPop' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow  sm:px-6 md:shadow-md lg:shadow-lg`}
+            } ${ColorBorder500} mr-2 border-[1px]  border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6  md:mr-[14px] md:shadow-md lg:shadow-lg`}
           >
             VIỆT NAM
           </Button>

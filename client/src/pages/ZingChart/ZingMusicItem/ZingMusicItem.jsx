@@ -15,7 +15,7 @@ const ZingMusicItem = ({ item, number }) => {
   }, [])
   const handleRedirect = useRedirect()
   return (
-    <div className={`${ColorHoverBg200} group flex items-center justify-between rounded-md py-3 `}>
+    <div className={`${ColorHoverBg200} group flex items-center justify-between rounded-md p-1 md:p-2 lg:p-3 `}>
       <span
         style={{
           paintOrder: 'stroke fill',
@@ -24,16 +24,16 @@ const ZingMusicItem = ({ item, number }) => {
             number === 1 ? '#498BD9' : number === 2 ? '#4BD2B9' : number === 3 ? '#CB5056' : '#000000'
           }`
         }}
-        className='mr-2 inline-block min-w-[50px] text-center text-[36px] font-extrabold lg:mr-3 lg:w-[60px]'
+        className='mr-2 inline-block min-w-[50px] text-center text-[30px] font-extrabold md:text-[36px] lg:mr-3 lg:w-[60px]'
       >
         {number}
       </span>
       <div className='flex flex-grow'>
         <div
-          className='relative mr-5 h-[60px]   w-[60px] cursor-pointer overflow-hidden rounded-md'
+          className='relative mr-5 h-[60px] w-[60px] shrink-0 cursor-pointer overflow-hidden rounded-md'
           onClick={() => handleRedirect(item)}
         >
-          <img src={item?.thumbnail} alt={item.title} />
+          <img src={item?.thumbnail} alt={item.title} className='block w-full object-cover' />
           <PlayFillIcon
             className={`${ColorHoverText500} absolute top-1/2 left-1/2 hidden translate-x-[-50%] translate-y-[-50%] group-hover:inline-block`}
             width='16px'
@@ -51,7 +51,7 @@ const ZingMusicItem = ({ item, number }) => {
       >
         {item?.album?.title}
       </Link>
-      <span className='ml-1 inline-block min-w-[50px] text-xs font-semibold text-light-mode dark:text-dark-mode lg:ml-5'>
+      <span className='ml-1 hidden min-w-[50px] text-xs font-semibold text-light-mode dark:text-dark-mode md:inline-block lg:ml-5'>
         {secondToMinuteAndSecond(item?.duration)}
       </span>
     </div>

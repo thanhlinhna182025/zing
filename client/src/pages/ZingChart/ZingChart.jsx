@@ -255,7 +255,7 @@ const ZingChart = () => {
       {loading ? (
         <Load />
       ) : (
-        <div className='mb-[300px]'>
+        <div>
           <div
             className='mb-main-margin w-full p-8'
             style={{

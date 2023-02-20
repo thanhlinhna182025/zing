@@ -8,7 +8,7 @@ const SeeAllButton = ({ to }) => {
     <Button
       to={to}
       type='text'
-      className={`${ColorHoverText500} ${ColorHoverTextDark500} flex items-center py-1 px-1 text-xs font-bold text-light-mode dark:text-dark-mode sm:mr-[14px] sm:py-[3px] sm:px-6`}
+      className={`${ColorHoverText500} ${ColorHoverTextDark500} flex items-center text-xs font-bold text-light-mode dark:text-dark-mode sm:mr-[14px] sm:py-[3px] sm:px-6`}
     >
       TẤT CẢ
       <RightArrowIcon className={`${ColorText500} ml-1 `} width='14px' height='14px' />

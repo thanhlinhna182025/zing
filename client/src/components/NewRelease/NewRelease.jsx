@@ -34,15 +34,15 @@ const NewRelease = ({ newRelease }) => {
       <div className='mb-5'>
         <Title>{newRelease.title}</Title>
       </div>
-      <div className='mb-5 flex items-center justify-between'>
-        <div className='flex'>
+      <div className='mb-5 flex w-full items-center justify-between'>
+        <div className='flex justify-between md:justify-start'>
           <Button
             type='primary'
             onClick={() => handleTypeData('all')}
             rounded
             className={`${
               typeData === 'all' ? ColorBg100 : ''
-            } ${ColorBorder500} mr-2  border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-[14px] md:shadow-md lg:shadow-lg`}
+            } ${ColorBorder500} border-[1px]  border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow md:mr-2 md:mr-[14px] md:px-2 md:shadow-md lg:px-3 lg:shadow-lg`}
           >
             TẤT CẢ
           </Button>
@@ -52,7 +52,7 @@ const NewRelease = ({ newRelease }) => {
             rounded
             className={`${
               typeData === 'vPop' && ColorBg100
-            } ${ColorBorder500} mr-2 border-[1px]  border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6  md:mr-[14px] md:shadow-md lg:shadow-lg`}
+            } ${ColorBorder500} border-[1px] border-solid  py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-2 md:mr-[14px] md:px-2  md:shadow-md lg:px-3 lg:shadow-lg`}
           >
             VIỆT NAM
           </Button>
@@ -60,14 +60,14 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('others')}
             rounded
-            className={`mr-[14px] ${
+            className={` ${
               typeData === 'others' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:shadow-md lg:shadow-lg`}
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-2 md:px-2 md:shadow-md lg:mr-[14px] lg:px-3 lg:shadow-lg`}
           >
             QUÔC TẾ
           </Button>
         </div>
-        <div>
+        <div className='hidden md:block'>
           <SeeAllButton to={configs.routes.newreleaseSong} />
         </div>
       </div>
@@ -75,6 +75,9 @@ const NewRelease = ({ newRelease }) => {
         {loading
           ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item) => <SongCartItemSkeleton key={item} />)
           : data?.map((item) => <SongCardItem key={item.encodeId} item={item} />)}
+      </div>
+      <div className='md:hidden mt-4'>
+        <SeeAllButton to={configs.routes.newreleaseSong} />
       </div>
     </div>
   )

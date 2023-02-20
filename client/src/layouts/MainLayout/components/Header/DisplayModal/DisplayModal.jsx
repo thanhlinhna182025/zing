@@ -46,17 +46,17 @@ const DisplayModal = () => {
   return (
     <div className={`${Color50Bg500} fixed top-0 left-0 right-0 bottom-0 z-[999] flex  items-center justify-center `}>
       <div
-        className={`${ColorBg300} relative max-h-[50vh] min-h-[400px] min-w-[300px] rounded-lg p-[30px]  lg:min-h-[500px]`}
+        className={`${ColorBg300} relative max-h-[50vh] min-h-[400px] min-w-[300px] rounded-lg p-2 md:p-5 lg:min-h-[500px] lg:p-[30px]`}
       >
         <Button type='text' className='absolute top-3 right-3 cursor-pointer' onClick={hideDisplay}>
           <CloseCirleIcon className={`${ColorText500}`} width='30px' height='30px' />
         </Button>
         <h5 className={`${ColorText500} mb-4 text-xl font-bold`}>GIAO DIỆN</h5>
-        <div className='mb-10'>
+        <div className='mb-3 md:mb-5 lg:mb-8'>
           <h5 className='mb-2 text-base font-semibold text-light-mode dark:text-dark-mode'>Dynamic</h5>
-          <div className='flex items-center justify-between'>
+          <div className='grid grid-cols-2 md:grid-cols-4'>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -65,8 +65,8 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='flex'>
-                  <div className={`h-[50px] w-8 bg-A-100 lg:w-12`}></div>
-                  <div className={`h-[50px] w-8 bg-A-500 lg:w-12`}></div>
+                  <div className={`h-5 w-5 bg-A-100 md:h-[50px] md:w-8 lg:w-12`}></div>
+                  <div className={`h-5 w-5 bg-A-500 md:h-[50px] md:w-8 lg:w-12`}></div>
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -74,7 +74,7 @@ const DisplayModal = () => {
               </label>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -83,8 +83,8 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='flex'>
-                  <div className={`h-[50px] w-8 bg-B-100 lg:w-12 `}></div>
-                  <div className={`h-[50px] w-8 bg-B-500 lg:w-12`}></div>
+                  <div className={`h-5 w-5 bg-B-100 md:h-[50px] md:w-8 lg:w-12 `}></div>
+                  <div className={`h-5 w-5 bg-B-500 md:h-[50px] md:w-8 lg:w-12`}></div>
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -92,7 +92,7 @@ const DisplayModal = () => {
               </label>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -101,8 +101,8 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='flex'>
-                  <div className={`h-[50px] w-8 bg-C-100 lg:w-12`}></div>
-                  <div className={`h-[50px] w-8 bg-C-500 lg:w-12`}></div>
+                  <div className={`h-5 w-5 bg-C-100 md:h-[50px] md:w-8 lg:w-12 `}></div>
+                  <div className={`h-5 w-5 bg-C-500 md:h-[50px] md:w-8 lg:w-12 `}></div>
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -110,7 +110,7 @@ const DisplayModal = () => {
               </label>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -119,8 +119,8 @@ const DisplayModal = () => {
                   className='mr-3'
                 />
                 <div className='flex'>
-                  <div className={`h-[50px] w-8 bg-D-100 lg:w-12`}></div>
-                  <div className={`h-[50px] w-8 bg-D-500 lg:w-12`}></div>
+                  <div className={`h-5 w-5 bg-D-100 md:h-[50px] md:w-8 lg:w-12 `}></div>
+                  <div className={`h-5 w-5 bg-D-500 md:h-[50px] md:w-8 lg:w-12 `}></div>
                 </div>
               </div>
               <label className='mt-2 text-center text-sm font-semibold text-light-mode dark:text-dark-mode lg:mt-4'>
@@ -131,9 +131,9 @@ const DisplayModal = () => {
         </div>
         <div>
           <h5 className='mb-2 text-base font-semibold text-light-mode dark:text-dark-mode'>Chủ đề</h5>
-          <div className='flex items-center justify-between'>
+          <div className='grid grid-cols-2 md:grid-cols-4'>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -147,7 +147,7 @@ const DisplayModal = () => {
               </div>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -161,7 +161,7 @@ const DisplayModal = () => {
               </div>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}
@@ -175,7 +175,7 @@ const DisplayModal = () => {
               </div>
             </div>
             <div className='flex flex-col items-center'>
-              <div className='flex items-center p-2'>
+              <div className='flex items-center p-1 md:p-2'>
                 <input
                   type='radio'
                   onChange={handleBackgroundValue}

@@ -23,11 +23,11 @@ const SearchModal = ({ relatedKeywords, handleClearKeyword, handleSuggestKeyword
   return (
     <div
       style={{ width: `${formWidth}px` }}
-      className={`${ColorBg100} relative z-20 w-full rounded-md px-2 py-4 shadow md:shadow-md`}
+      className={`${ColorBg100} relative z-20 w-full rounded-md px-1 py-2 shadow md:px-2 md:py-4 md:shadow-md`}
     >
       <p className='text-sm font-bold text-light-mode dark:text-dark-mode'>Đề xuất cho bạn</p>
       <div className='max-h-[calc(100vh-var(--header-height)-var(--player-height)-70px)] scrollbar'>
-        <ul className='mt-3 border-b-[1px] border-solid border-white py-1'>
+        <ul className='mt-1 border-b-[1px] border-solid border-white py-1 md:mt-2 lg:mt-3'>
           {suggests.map((item) => (
             <SuggestItem item={item} key={item.id} handleSuggestKeyword={handleSuggestKeyword} />
           ))}

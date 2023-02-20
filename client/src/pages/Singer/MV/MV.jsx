@@ -1,9 +1,9 @@
+import MVCardItem from '~/components/MVCardItem'
 import SeeAllButton from '~/components/SeeAllButton'
 import Title from '~/components/Title'
-import MVCardItem from '~/components/MVCardItem'
 const MV = ({ mv }) => {
   return (
-    <div className='flex flex-col'>
+    <div className='mb-main-margin flex flex-col'>
       <div className='mb-5 flex items-center justify-between'>
         <Title>{mv?.title}</Title>
         <SeeAllButton />

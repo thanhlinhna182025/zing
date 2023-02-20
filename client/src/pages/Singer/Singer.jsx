@@ -76,7 +76,7 @@ const Singer = () => {
           <SingleSP singleSP={singleSP} />
           <MV mv={mv} />
           <Collection collection={collection} />
-          <Appear appear={appear} />
+          {appear && <Appear appear={appear} />}
           <MayBeYouLike mayBeYouLike={mayBeYouLike} />
           <AboutSinger aboutSinger={aboutSinger} />
         </div>

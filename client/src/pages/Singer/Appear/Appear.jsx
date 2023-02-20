@@ -3,7 +3,7 @@ import Title from '~/components/Title'
 
 const Appear = ({ appear }) => {
   return (
-    <div className='my-main-margin '>
+    <div className='mb-main-margin '>
       <div className='mb-5'>
         <Title>{appear?.title}</Title>
       </div>

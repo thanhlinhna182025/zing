@@ -1,6 +1,6 @@
 const Load = () => {
   return (
-    <div className='fixed top-[50%] left-[50%] translate-x-[50%] translate-y-[-50%]'>
+    <div className='fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
       <div className='relative flex h-[74px] w-[74px] animate-spin-5 items-center justify-center rounded-full border-[4px] border-dashed border-[#00ffe7]'>
         <div className='aminate-spin absolute z-[3] flex h-[68px] w-[68px] animate-spin-4 items-center justify-center rounded-[50%] before:absolute before:z-[3] before:h-[96%] before:w-[96%] before:rounded-[50%] before:border-[4px] before:border-dashed before:border-[#00ffe7] before:content-[""]'>
           <div className='absolute z-[4] h-[115%] w-[115%] rounded-[50%] bg-[#00ffe7] opacity-[0.5] blur-[30px]'></div>

@@ -5,7 +5,7 @@ import { numberWithCommas } from '~/utils/hepper'
 const Poster = ({ poster, isPoster }) => {
   const { ColorFrom300, ColorTo400, ColorText500, ColorBorder500 } = useColors()
   return (
-    <div>
+    <div className='mb-5'>
       {isPoster ? (
         <div
           className=' relative mt-[-70px] mr-[-59px] mb-[30px] h-[200px] px-main-margin lg:ml-[-59px] lg:min-h-[410px]'
@@ -19,7 +19,7 @@ const Poster = ({ poster, isPoster }) => {
           <div className='absolute left-[59px] bottom-6 flex flex-col '>
             <div className='mb-[8px] flex items-center'>
               <h3
-                className={`${ColorText500} mr-5 text-[30px] font-bold text-shadow-md lg:text-[60px] lg:text-shadow-lg xl:text-shadow-lg`}
+                className={`${ColorText500} mr-5 font-bold text-shadow-md lg:text-[60px] lg:text-shadow-lg xl:text-shadow-lg`}
               >
                 {poster?.name}
               </h3>
@@ -46,10 +46,10 @@ const Poster = ({ poster, isPoster }) => {
         </div>
       ) : (
         <div
-          className={`${ColorFrom300} ${ColorTo400} xs:ml-[-59px] relative mt-[-70px] mr-[-59px] min-h-[299px] bg-gradient-to-r px-2 lg:px-main-margin`}
+          className={`${ColorFrom300} ${ColorTo400} xs:ml-[-59px] relative mt-[-70px] mr-[-59px] min-h-[299px] bg-gradient-to-r lg:px-2 lg:px-main-margin`}
         >
-          <div className='flex-start absolute top-[80px] flex lg:left-[59px] lg:bottom-6 '>
-            <div className='mr-2 w-[140px] lg:mr-8 '>
+          <div className='absolute top-[80px] flex w-full flex-col items-center md:flex-row md:items-start lg:left-[59px] lg:bottom-6 '>
+            <div className=' w-[140px] md:mr-4 lg:mr-8 '>
               <img
                 alt='thumbnail'
                 src={poster?.thumbnail}
@@ -57,7 +57,7 @@ const Poster = ({ poster, isPoster }) => {
               />
             </div>
             <div className='flex flex-col'>
-              <div className='mb-[14px] flex items-center'>
+              <div className='flex items-center lg:mb-[14px]'>
                 <h3
                   className={`${ColorText500} mr-5 text-[30px] font-bold text-shadow-md lg:text-[60px] lg:text-shadow-lg xl:text-shadow-lg`}
                 >

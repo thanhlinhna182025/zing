@@ -1,5 +1,5 @@
+import AlbumListSong from './AlbumListSong'
+import AlbumThumnail from './AlbumThumnail'
 import Artists from './Artists'
-import PlayListSong from './PlayListSong'
-import PlayListThumnail from './PlayListThumnail'
 
-export { PlayListThumnail, PlayListSong, Artists }
+export { AlbumThumnail, AlbumListSong, Artists }

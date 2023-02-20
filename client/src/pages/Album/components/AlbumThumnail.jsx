@@ -19,7 +19,7 @@ const AlbumThumnail = ({
 }) => {
   const { ColorBg100, ColorText500 } = useColors()
   return (
-    <div className='mb-2'>
+    <div className='mb-2 flex flex-col items-center'>
       {isPlaying ? (
         <div
           className='relative mb-3 flex w-full cursor-pointer items-center justify-center overflow-hidden lg:h-[300px] lg:w-[300px] '

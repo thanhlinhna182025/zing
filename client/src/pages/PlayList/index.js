@@ -1,3 +1,3 @@
-import PlayList from '../PlayList/PlayList'
+import PlayList from './PlayList'
 
 export default PlayList

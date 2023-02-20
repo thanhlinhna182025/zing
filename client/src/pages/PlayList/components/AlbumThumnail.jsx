@@ -5,8 +5,7 @@ import { PlayVideoIcon, ShuffleIcon } from '~/components/Icons/Icons'
 import NameArtist from '~/components/NameArtist'
 import useColors from '~/hooks/useColors'
 import { numberWithCommas } from '~/utils/hepper'
-
-const PlayListThumnail = ({
+const AlbumThumnail = ({
   thumbnailM,
   artists,
   releaseDate,
@@ -20,7 +19,7 @@ const PlayListThumnail = ({
 }) => {
   const { ColorBg100, ColorText500 } = useColors()
   return (
-    <div>
+    <div className='mb-2 flex flex-col items-center'>
       {isPlaying ? (
         <div
           className='relative mb-3 flex w-full cursor-pointer items-center justify-center overflow-hidden lg:h-[300px] lg:w-[300px] '
@@ -30,7 +29,7 @@ const PlayListThumnail = ({
             <img alt='musicbar' className='h-10 w-10 text-light-mode dark:text-dark-mode' src={MusicBar} />
           </div>
           <img
-            alt='thumbnailM'
+            alt='thumbnail'
             src={thumbnailM}
             className='h-[200px] w-[200px] animate-spin-slow rounded-full object-cover lg:h-[300px] lg:w-[300px] '
           />
@@ -77,7 +76,7 @@ const PlayListThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md ${ColorBg100}`}
             onClick={handleShuffle}
           >
             <ShuffleIcon className={`${ColorText500} mr-[5px]`} width='20px' height='20px' />
@@ -87,7 +86,7 @@ const PlayListThumnail = ({
           <Button
             rounded
             type='secondary'
-            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
+            className={`mb-4 mr-[10px] flex items-center py-2 px-[25px] shadow md:shadow-md ${ColorBg100}`}
             onClick={handlePlayAll}
           >
             <PlayFillIcon className={`${ColorText500} mr-[5px]`} width='16px' height='16px' />
@@ -98,14 +97,14 @@ const PlayListThumnail = ({
           <Button
             type='text'
             rounded
-            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
+            className={`mr-5 flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md ${ColorBg100}`}
           >
             <HeartIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
           <Button
             type='text'
             rounded
-            className={`flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md lg:shadow-lg ${ColorBg100}`}
+            className={`flex h-[35px] w-[35px] items-center justify-center shadow md:shadow-md ${ColorBg100}`}
           >
             <MoreIcon className={`${ColorText500}`} width='16px' height='16px' />
           </Button>
@@ -114,4 +113,4 @@ const PlayListThumnail = ({
     </div>
   )
 }
-export default PlayListThumnail
+export default AlbumThumnail

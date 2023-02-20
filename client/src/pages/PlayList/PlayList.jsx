@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Load from '~/components/Load'
 import { getAlbumPlaylist, isPlayingToggle, setIsPlayAll, setIsShuffle } from '~/feature/app/appSlice'
-import { addPlaylistId } from '../../feature/playlist/playlistSlice'
-import { Artists, PlayListSong, PlayListThumnail } from './components'
-const Album = () => {
+import { addAlbumId } from '../../feature/album/albumSlice'
+import { AlbumListSong, AlbumThumnail, Artists } from './components'
+const PlayList = () => {
   const [albumResource, setAlbumResource] = useState(null)
-
   const isPlaying = useSelector((state) => state.app.isPlaying)
   const isPlayAll = useSelector((state) => state.app.isPlayAll)
   const isShuffle = useSelector((state) => state.app.isShuffle)
@@ -32,7 +31,7 @@ const Album = () => {
       .then((result) => {
         setAlbumResource(result)
         setLoading(false)
-        dispatch(addPlaylistId(id))
+        dispatch(addAlbumId(id))
       })
       .catch((err) => console.log(err))
   }, [id])
@@ -43,9 +42,9 @@ const Album = () => {
       ) : (
         <div className='mb-player-height'>
           {albumResource && (
-            <div className='flex flex-col pt-10'>
-              <div className='flex flex-col gap-x-[30px] lg:flex-row'>
-                <PlayListThumnail
+            <div className='flex pt-10 flex-col'>
+              <div className='flex gap-x-[30px] flex-col xl:flex-row'>
+                <AlbumThumnail
                   artists={albumResource?.artists}
                   thumbnailM={albumResource?.thumbnailM}
                   releaseDate={albumResource?.releaseDate}
@@ -58,7 +57,7 @@ const Album = () => {
                   isPlayAll={isPlayAll}
                   isShuffle={isShuffle}
                 />
-                <PlayListSong song={albumResource?.song} description={albumResource?.description} />
+                <AlbumListSong song={albumResource?.song} description={albumResource?.description} />
               </div>
               <Artists artists={albumResource?.artists} />
             </div>
@@ -68,4 +67,4 @@ const Album = () => {
     </div>
   )
 }
-export default Album
+export default PlayList

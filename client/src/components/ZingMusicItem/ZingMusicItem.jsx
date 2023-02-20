@@ -24,13 +24,13 @@ const ZingMusicItem = ({ item, number }) => {
             number === 1 ? '#498BD9' : number === 2 ? '#4BD2B9' : number === 3 ? '#CB5056' : '#000000'
           }`
         }}
-        className='mr-2 inline-block min-w-[50px] text-center text-[30px] font-extrabold md:text-[36px] lg:mr-3 lg:w-[60px]'
+        className='mr-2 inline-block min-w-[30px] text-center text-[24px] font-extrabold font-extrabold md:min-w-[40px] md:text-[30px] lg:mr-3 lg:w-[60px] lg:min-w-[50px] lg:text-[40px]'
       >
         {number}
       </span>
       <div className='flex flex-grow'>
         <div
-          className='relative mr-5 h-[60px] w-[60px] shrink-0 cursor-pointer overflow-hidden rounded-md'
+          className='relative mr-5 h-10 w-10 shrink-0 cursor-pointer overflow-hidden rounded-md md:h-[50px] md:w-[50px] lg:h-[60px] lg:w-[60px]'
           onClick={() => handleRedirect(item)}
         >
           <img src={item?.thumbnail} alt={item.title} className='block w-full object-cover' />

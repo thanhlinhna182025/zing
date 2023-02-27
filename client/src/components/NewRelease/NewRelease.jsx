@@ -41,8 +41,10 @@ const NewRelease = ({ newRelease }) => {
             onClick={() => handleTypeData('all')}
             rounded
             className={`${
-              typeData === 'all' ? ColorBg100 : ''
-            } ${ColorBorder500} border-[1px]  border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow md:mr-2 md:mr-[14px] md:px-2 md:shadow-md lg:px-3 lg:shadow-lg`}
+              typeData === 'all'
+                ? `${ColorBg100} shadow-[1px_1px_3px_rgba(0,0,0,0.5),-1px_-1px_3px_rgba(255,255,255,0.5)] `
+                : 'shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)]'
+            } ${ColorBorder500} mr-2 border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] md:mr-3 md:px-2 lg:px-3`}
           >
             TẤT CẢ
           </Button>
@@ -51,8 +53,10 @@ const NewRelease = ({ newRelease }) => {
             onClick={() => handleTypeData('vPop')}
             rounded
             className={`${
-              typeData === 'vPop' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid  py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-2 md:mr-[14px] md:px-2  md:shadow-md lg:px-3 lg:shadow-lg`}
+              typeData === 'vPop'
+                ? `${ColorBg100} shadow-[1px_1px_3px_rgba(0,0,0,0.5),-1px_-1px_3px_rgba(255,255,255,0.5)] `
+                : 'shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)]'
+            } ${ColorBorder500} mr-2 border-[1px]  border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6 md:mr-3 md:px-2`}
           >
             VIỆT NAM
           </Button>
@@ -60,9 +64,11 @@ const NewRelease = ({ newRelease }) => {
             type='primary'
             onClick={() => handleTypeData('others')}
             rounded
-            className={` ${
-              typeData === 'others' && ColorBg100
-            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] shadow sm:px-6 md:mr-2 md:px-2 md:shadow-md lg:mr-[14px] lg:px-3 lg:shadow-lg`}
+            className={`${
+              typeData === 'others'
+                ? `${ColorBg100} shadow-[1px_1px_3px_rgba(0,0,0,0.5),-1px_-1px_3px_rgba(255,255,255,0.5)] `
+                : 'shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)]'
+            } ${ColorBorder500} border-[1px] border-solid py-1 px-3 text-xs font-semibold leading-[1.42] sm:px-6 md:px-2 lg:px-3`}
           >
             QUÔC TẾ
           </Button>

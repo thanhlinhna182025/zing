@@ -271,7 +271,7 @@ const ZingChart = () => {
           <Button
             type='primary'
             rounded
-            className={`${ColorBorder500} ${ColorHoverBg200} mt-5 border-[1px] border-solid py-1 px-5 md:mt-8`}
+            className={`${ColorBorder500} ${ColorHoverBg200} font-bold hover:text-cyan-400 mt-5 border-[1px] border-solid py-1 px-5 shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] md:mt-8`}
             onClick={handleNumberSlice}
           >
             Xem top 100

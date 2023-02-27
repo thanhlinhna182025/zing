@@ -31,7 +31,7 @@ const SideBar = () => {
     <aside
       className={`${Color70Bg200} ${sidebarMode ? 'w-sidebar-width' : 'w-sidebar-width-sm'} ${
         musicId ? 'h-[calc(100vh-var(--player-height-sm))] lg:h-[calc(100vh-var(--player-height))]' : 'h-[100vh]'
-      } fixed top-0 left-0 z-[20] flex-shrink-0 shadow transition-all duration-1000 ease-linear md:shadow-lg lg:w-sidebar-width `}
+      } fixed top-0 left-0 z-[20] flex-shrink-0 transition-all duration-1000 ease-linear md:shadow-lg lg:w-sidebar-width `}
     >
       <div className='relative flex h-full w-full flex-col items-center'>
         <div className='flex h-[70px] w-[70px] items-center justify-center '>

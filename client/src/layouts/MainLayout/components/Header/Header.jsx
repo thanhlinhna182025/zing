@@ -90,7 +90,9 @@ const Header = ({ isTransparent }) => {
   return (
     <header
       className={`fixed ${
-        isTransparent ? 'bg-transparent' : `${ColorBg500} shadow md:shadow-md lg:shadow-lg`
+        isTransparent
+          ? 'bg-transparent'
+          : `${ColorBg500} lg:shadow-lg`
       } top-0 z-10 ml-[calc(var(--sidebar-width-sm)-8px)] flex h-[var(--header-height-sm)] w-[calc(100%-var(--sidebar-width-sm))] flex-1 items-center justify-center px-5 md:justify-between md:px-0 lg:right-0 lg:ml-0 lg:h-[var(--header-height)] lg:w-[calc(100%-var(--sidebar-width))] lg:px-main-margin `}
     >
       <div className='flex w-full items-center justify-center md:justify-start'>
@@ -120,11 +122,11 @@ const Header = ({ isTransparent }) => {
         >
           <form
             ref={formRef}
-            className={`flex w-full max-w-[500px] items-center rounded-full shadow md:ml-[22px] lg:w-search-input-width ${ColorBg100}`}
+            className={`flex w-full max-w-[500px] items-center rounded-full shadow-[2px_2px_4px_rgba(0,0,0,0.5)_inset] md:ml-[22px] lg:w-search-input-width ${ColorBg100}`}
           >
-            <Button type='text' rounded className=' flex h-[38px] w-[38px] items-center justify-center '>
+            <Button type='text' rounded className='group/icon flex h-[38px] w-[38px] items-center justify-center '>
               <SearchIcon
-                className='translate-y-[1px] translate-x-[1px] text-light-mode dark:text-dark-mode'
+                className={`translate-y-[1px] translate-x-[1px] text-light-mode dark:text-dark-mode group-hover/icon:text-cyan-400`}
                 width='20px'
                 height='20px'
               />
@@ -142,17 +144,17 @@ const Header = ({ isTransparent }) => {
       <div className='hidden items-center px-[10px] md:flex'>
         <span
           onClick={displayMode ? hideDisplay : showDisplay}
-          className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow md:shadow-md '
+          className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] '
         >
           <ClotheIcon width='20px' height='20px' />
         </span>
         <TippyString content='Nâng cấp VIP'>
-          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow md:shadow-md '>
+          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] '>
             <VipIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
           </span>
         </TippyString>
         <TippyString content='Upload'>
-          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow md:shadow-md '>
+          <span className='mr-3 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] '>
             <UpLoadIcon className='text-light-mode dark:text-dark-mode' width='18px' height='18px' />
           </span>
         </TippyString>
@@ -165,7 +167,7 @@ const Header = ({ isTransparent }) => {
         >
           <span
             onClick={visibleSetting ? hideSetting : showSetting}
-            className='mr-3 flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow md:shadow-md '
+            className='mr-3 flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[hsla(0,0%,100%,0.2)] shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] '
           >
             <SettingIcon className='text-light-mode dark:text-dark-mode' width='16px' height='16px' />
           </span>
@@ -175,7 +177,7 @@ const Header = ({ isTransparent }) => {
           type='text'
           to='#'
           rounded
-          className='flex h-[40px] w-[40px] items-center justify-center shadow md:shadow-md '
+          className='flex h-[40px] w-[40px] items-center justify-center shadow-[3px_3px_6px_rgba(0,0,0,0.5),-3px_-3px_6px_rgba(255,255,255,0.5)] '
         >
           <UserIcon className='text-light-mode dark:text-dark-mode' width='40px' height='40px' />
         </Button>

@@ -299,7 +299,9 @@ const VideoClip = () => {
               </div>
             </div>
             <div
-              className={`${hasFullScreen ? 'hidden' : `${ColorBg400} flex w-full flex-col  lg:p-4 md:p-2 p-1 lg:ml-5 lg:w-[30%] `} `}
+              className={`${
+                hasFullScreen ? 'hidden' : `${ColorBg400} flex w-full flex-col  p-1 md:p-2 lg:ml-5 lg:w-[30%] lg:p-4 `
+              } `}
             >
               <div className='mb-5 flex justify-between'>
                 <p className='hidden md:inline-block'>DANH SÁCH PHÁT</p>
@@ -309,7 +311,9 @@ const VideoClip = () => {
                   <span className='text-gray-900 dark:text-gray-300 ml-3 text-sm font-medium'>Tự Động Phát</span>
                 </label>
               </div>
-              <div className={`grid max-h-[440px] grid-cols-1 md:gap-y-2 gap-y-1 lg:gap-y-3 scrollbar md:grid-cols-2 lg:grid-cols-1`}>
+              <div
+                className={`grid max-h-[440px] grid-cols-1 gap-y-1 scrollbar md:grid-cols-2 md:gap-y-2 lg:grid-cols-1 lg:gap-y-3`}
+              >
                 {video?.recommends?.map((item) => (
                   <VideoClipItem item={item} key={item.encodeId} />
                 ))}

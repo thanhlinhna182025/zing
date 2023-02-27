@@ -57,7 +57,7 @@ const NewMusic = () => {
             <div className={`absolute top-0 left-0 right-0 bottom-0 z-[1] bg-gradient-to-t `}></div>
             <div></div>
           </div>
-          
+
           {musicsData.map((item, index) => (
             <ZingMusicItem number={index + 1} item={item} key={item.encodeId} />
           ))}

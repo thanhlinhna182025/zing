@@ -257,7 +257,7 @@ const ZingChart = () => {
       ) : (
         <div>
           <div
-            className='lg:mb-main-margin md:mb-[24px] mb-3 w-full p-8'
+            className='mb-3 w-full p-8 md:mb-[24px] lg:mb-main-margin'
             style={{
               background:
                 'url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.8.26/static/media/bg-chart.fd766403.jpg) top/cover no-repeat'
@@ -271,7 +271,7 @@ const ZingChart = () => {
           <Button
             type='primary'
             rounded
-            className={`${ColorBorder500} ${ColorHoverBg200} mt-5 md:mt-8  border-[1px] border-solid py-1 px-5`}
+            className={`${ColorBorder500} ${ColorHoverBg200} mt-5 border-[1px] border-solid py-1 px-5 md:mt-8`}
             onClick={handleNumberSlice}
           >
             Xem top 100

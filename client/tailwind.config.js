@@ -62,7 +62,7 @@ const colorPalete = {
   }
 }
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
+  content: ['./src/**/*.{html,js,jsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -191,11 +191,7 @@ module.exports = {
         'sidebar-width': 'var(--sidebar-width)'
       },
       boxShadow: {
-        right: {
-          'box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)',
-          '-webkit-box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)',
-          '-moz-box-shadow': '11px 8px 8px -8px rgba(0,0,0,0.6)'
-        }
+        card: '5px 5px -7px rgb(0,0,0), -5px -5px 7px rgb(255,255,255)'
       }
     }
   },

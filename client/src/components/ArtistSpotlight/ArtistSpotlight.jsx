@@ -51,16 +51,16 @@ const ArtistSpotlight = ({ artists }) => {
         ))}
       </Swiper>
       <button
-        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 left-0 z-[1] flex h-[40px] w-[40px] translate-y-[-50%] items-center  justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:h-[45px] md:w-[45px] lg:translate-x-[-50%] lg:h-[50px] lg:w-[50px] `}
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 left-0 z-[1] flex h-[40px] w-[40px] translate-y-[-50%] items-center  justify-center rounded-full drop-shadow-md hover:drop-shadow-xl md:h-[45px] md:w-[45px] lg:h-[50px] lg:w-[50px] lg:translate-x-[-50%] `}
         onClick={() => swiperRef.current?.slidePrev()}
       >
-        <LeftArrowIcon className={`${ColorText500} h-[20px] w-[20px] lg:h-[24px] lg:h-[24px]`} />
+        <LeftArrowIcon className={`${ColorText500} h-[20px] w-[20px] lg:h-[24px]`} />
       </button>
       <button
-        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 right-0 z-[1] flex h-[40px] w-[40px] translate-y-[-50%] items-center justify-center rounded-full  drop-shadow-md hover:drop-shadow-xl md:h-[45px] md:h-[45px] lg:translate-x-[50%] lg:h-[50px] lg:w-[50px] `}
+        className={`${ColorBg100} ${ColorHoverBg200} absolute top-1/2 right-0 z-[1] flex h-[40px] w-[40px] translate-y-[-50%] items-center justify-center rounded-full  drop-shadow-md hover:drop-shadow-xl md:h-[45px] lg:h-[50px] lg:w-[50px] lg:translate-x-[50%]`}
         onClick={() => swiperRef.current?.slideNext()}
       >
-        <RightArrowIcon className={`${ColorText500} h-[20px] w-[20px] lg:h-[24px] lg:h-[24px]`} />
+        <RightArrowIcon className={`${ColorText500} h-[20px] w-[20px] lg:h-[24px]`} />
       </button>
     </div>
   )

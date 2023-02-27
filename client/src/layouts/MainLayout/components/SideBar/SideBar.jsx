@@ -59,7 +59,7 @@ const SideBar = () => {
           </ul>
         </nav>
         <nav className='relative flex h-[calc(100vh-var(--header-height)-var(--player-height))] w-full flex-col items-center scrollbar'>
-          <ul className='w-full mb-2'>
+          <ul className='mb-2 w-full'>
             {ListBottom.map((item, index) => {
               let Icon = item.icon
               let disabled = item.disabled === true ? true : false

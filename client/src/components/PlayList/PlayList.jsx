@@ -6,6 +6,7 @@ import Title from '~/components/Title'
 const PlayList = ({ playList, recentPlaylist }) => {
   const loading = useSelector((state) => state.app.loading)
   return (
+    playList &&
     <div className='my-margin-main-sm lg:my-main-margin '>
       <div className='mb-5'>
         <Title>{playList.title}</Title>

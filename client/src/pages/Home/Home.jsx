@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { artistSpotlightData } from '~/Data'
 import ArtistSpotlight from '~/components/ArtistSpotlight'
 import AutoThemeOne from '~/components/AutoThemeOne'
-import AutoThemeTwo from '~/components/AutoThemeTwo/AutoThemeTwo'
+import AutoThemeTwo from '~/components/AutoThemeTwo'
 import Banner from '~/components/Banner'
 import Chart from '~/components/Chart'
 import Event from '~/components/Event/Event'
@@ -11,7 +12,6 @@ import PlayList from '~/components/PlayList'
 import Top100 from '~/components/Top100'
 import WeekChart from '~/components/WeekChart'
 import Xone from '~/components/Xone'
-import { artistSpotlightData } from '~/Data'
 import { getHome } from '~/feature/app/appSlice'
 
 const Home = () => {
@@ -39,12 +39,13 @@ const Home = () => {
           result.items.find((item) => item.sectionType === 'recentPlaylist' && item.sectionId === 'hRecent')
         )
         setNewRelease(result.items.find((item) => item.sectionType === 'new-release'))
+
         setAutoThemeOne(
-          result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hAutoTheme1')
+          result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hEditorTheme')
         )
         setLiveStream(result.items.find((item) => item.sectionType === 'livestream' && item.sectionId === 'hLiveRadio'))
         setAutoThemeTwo(
-          result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hAutoTheme2')
+          result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hEditorTheme2')
         )
         setTop100(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'h100'))
         setXone(result.items.find((item) => item.sectionType === 'playlist' && item.sectionId === 'hXone'))

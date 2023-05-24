@@ -10,6 +10,7 @@ const ArtistSpotlight = ({ artists }) => {
 
   const swiperRef = useRef()
   return (
+    artists &&
     <div className='relative w-full '>
       <Swiper
         className='artistSwiper'

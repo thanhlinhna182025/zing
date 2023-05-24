@@ -3,6 +3,7 @@ import SeeAllButton from '~/components/SeeAllButton'
 import Title from '~/components/Title'
 const Top100 = ({ top100 }) => {
   return (
+    top100 &&
     <div className='my-margin-main-sm lg:my-main-margin'>
       <div className='mb-5 flex items-center justify-between'>
         <Title>{top100.title}</Title>

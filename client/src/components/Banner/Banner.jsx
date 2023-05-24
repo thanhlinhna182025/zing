@@ -12,6 +12,7 @@ const Banner = ({ banner }) => {
   const loading = useSelector((state) => state.app.loading)
 
   return (
+    banner &&
     <div className='relative'>
       <Swiper
         className='bannerSwiper'

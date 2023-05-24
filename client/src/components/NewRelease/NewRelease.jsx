@@ -30,6 +30,7 @@ const NewRelease = ({ newRelease }) => {
   }
 
   return (
+    newRelease &&
     <div className='my-margin-main-sm lg:my-main-margin'>
       <div className='mb-5'>
         <Title>{newRelease.title}</Title>

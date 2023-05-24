@@ -201,24 +201,20 @@ const Chart = () => {
       },
       scales: {
         y: {
-          // not 'yAxes: [{' anymore (not an array anymore)
           ticks: {
-            color: '#ffffff', // not 'fontColor:' anymore
-            // fontSize: 18,
+            color: '#ffffff',
             font: {
-              size: 30 // 'size' now within object 'font {}'
+              size: 30
             },
             stepSize: 1,
             beginAtZero: true
           }
         },
         x: {
-          // not 'xAxes: [{' anymore (not an array anymore)
           ticks: {
-            color: '#ffffff', // not 'fontColor:' anymore
-            //fontSize: 14,
+            color: '#ffffff',
             font: {
-              size: 30 // 'size' now within object 'font {}'
+              size: 30
             },
             stepSize: 1,
             beginAtZero: true
